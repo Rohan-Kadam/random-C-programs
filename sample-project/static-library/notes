@@ -1,0 +1,25 @@
+/*	
+	*
+	* Creating and testing static library creation process	
+	* 
+	* @Author Rohan-Kadam
+	* @Date 7th March 2019
+	*
+*/
+	
+Followed geeks4geeks tutorial. Downloaded the html page of the same.
+
+Used archivers to create .a file
+
+Tested: gcc direct. since src had #include "lib_mylib.h" and header file is in same directory
+Result: FAIL
+		/tmp/ccAlOJMO.o: In function `main':
+		driver.c:(.text+0x5): undefined reference to `fun'
+		collect2: error: ld returned 1 exit status
+
+		Since header didn't had defination of function called in src.
+
+Tested: Changed lib function
+Result: Change reflected only after compiling(gcc -c. Creates .o file, no executable) lib_mylib.c, re-creating its .a file and complete compiling (gcc. Creates executable directly) src with -L
+
+

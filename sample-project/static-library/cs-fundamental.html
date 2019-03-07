@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Create Static and Dynamic Library in C using gcc on Linux</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<link rel="stylesheet" href="/assets/css/csfundamentals-v9.css" type="text/css">
+<link rel="icon shortcut" type="image/png/vnd.microsoft.icon/x-icon/ico" href="http://cs-fundamentals.com/assets/images/favicon.ico" />
+
+<meta name="googlebot" content="noodp"/>
+<meta name="slurp" content="noydr"/>
+<meta name="msnbot" content="noodp"/>
+<meta name="bingbot" content="noodp"/>
+<meta name="robots" content="NOODP,NOYDIR" />
+<meta name="robots" content="index,follow" />
+<meta name="Distribution" content="Global" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Author" content="Krishan Kumar" />
+
+
+		<meta name="description" content="This tutorial explains: steps to create/build static and dynamic (shared) libraries using gcc in C program on Linux platform. Static linking is performed at compile time while the dynamic linking is performed at run time by the operating system. Static and dynamic linking of libraries are two processes of collecting and combining multiple object files in order to create a single executable."/>
+		<meta name="keywords" content="static linking, dynamic linking, linker, loader, symbol resolution, relocation, shared library, static library, linking in C, C programming and linking"/>
+		<link rel="canonical" href="http://cs-fundamentals.com/c-programming/static-and-dynamic-linking-in-c.php"/>
+
+		<!-- twitter meta tag-->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@csfundamentals">
+		<meta name="twitter:title" content="Create Static and Dynamic Library in C using gcc on Linux">
+		<meta name="twitter:description" content="This tutorial explains: steps to create/build static and dynamic (shared) libraries using gcc in C program on Linux platform. Static linking is performed at compile time while the dynamic linking is performed at run time by the operating system. Static and dynamic linking of libraries are two processes of collecting and combining multiple object files in order to create a single executable.">
+		<meta name="twitter:creator" content="@amikrishan">
+		<meta name="twitter:image" content="http://cs-fundamentals.com/assets/images/cs-fundamentals-logo.png">
+		<meta name="twitter:domain" content="cs-fundamentals.com">
+		<meta name="twitter:url" content="http://cs-fundamentals.com/c-programming/static-and-dynamic-linking-in-c.php">
+
+
+		<!-- fb meta tags -->
+		<meta property="og:title" content="Create Static and Dynamic Library in C using gcc on Linux" />
+		<meta property="og:type" content="article" />
+		<meta property="og:url" content="http://cs-fundamentals.com/c-programming/static-and-dynamic-linking-in-c.php" />
+		<meta property="og:image" content="http://cs-fundamentals.com/assets/images/cs-fundamentals-logo.jpg"/>
+		<meta property="og:description" content="This tutorial explains: steps to create/build static and dynamic (shared) libraries using gcc in C program on Linux platform. Static linking is performed at compile time while the dynamic linking is performed at run time by the operating system. Static and dynamic linking of libraries are two processes of collecting and combining multiple object files in order to create a single executable." />
+		<meta property="og:site_name" content="cs-fundamentals.com" />
+		<meta property="article:tag" content="static linking, dynamic linking, linker, loader, symbol resolution, relocation, shared library, static library, linking in C, C programming and linking" />
+		<meta property="fb:admins" content="100002008933625"/>
+
+		<!-- Google Authorship and Publisher Markup -->
+		<link rel="author" href="https://plus.google.com/+KrishanKumarEr/posts"/>
+		<link rel="publisher" href="https://plus.google.com/+Csfundamentals-google-plus/posts"/>
+
+		<!-- Schema.org markup for Google+ -->
+		<meta itemprop="name" content="Create Static and Dynamic Library in C using gcc on Linux">
+		<meta itemprop="description" content="This tutorial explains: steps to create/build static and dynamic (shared) libraries using gcc in C program on Linux platform. Static linking is performed at compile time while the dynamic linking is performed at run time by the operating system. Static and dynamic linking of libraries are two processes of collecting and combining multiple object files in order to create a single executable.">
+		<meta itemprop="image" content="http://cs-fundamentals.com/assets/images/cs-fundamentals-logo.jpg">
+
+		<!-- Dublin Core Meta Tags-->
+		<meta name="DC.title" lang="en" content="Create Static and Dynamic Library in C using gcc on Linux"/>
+		<meta name="DC.creator" content="Krishan Kumar"/>
+		<meta name="DC.subject" lang="en" content="C Programming Tutorials"/>
+		<meta name="DC.description" lang="en" content="This tutorial explains: steps to create/build static and dynamic (shared) libraries using gcc in C program on Linux platform. Static linking is performed at compile time while the dynamic linking is performed at run time by the operating system. Static and dynamic linking of libraries are two processes of collecting and combining multiple object files in order to create a single executable."/>
+		<meta name="DC.publisher" content="cs-fundamentals.com"/>
+		<meta name="DC.identifier" content="http://cs-fundamentals.com/c-programming/static-and-dynamic-linking-in-c.php"/>
+	</head>
+	
+	<body>
+		<div id="page-wrapper">
+			<div id="fb-root"></div>
+<div id="header-wrapper" class="border-box blue white-text">
+	<div id="header" class="container padding-lr">
+		<div id="logo-and-tagline-wrap">
+			<div id="logo"><a href="http://cs-fundamentals.com">cs-Fundamentals.com</a></div>
+			<div id="tagline"> Programming Tutorials and Interview Questions </div>	
+		</div>
+		<div id="google-search-box">
+			<gcse:searchbox-only></gcse:searchbox-only>
+		</div>					
+	</div>
+	<div id="toggle-nav-btn"></div>
+</div>
+
+<div id="nav-panel-wrapper" >
+	<div id="nav-panel" class="container">
+		<div id="menu-items" >
+			<ul>
+				<li id="home"><a href="http://cs-fundamentals.com" >Home</a></li>
+				<li id="c-programming"><a href="http://cs-fundamentals.com/c-programming/c-programming-tutorials.php">C Programming</a></li>
+				<li id="java-programming"><a  href="http://cs-fundamentals.com/java-programming/java-programming-tutorials.php">Java Programming</a></li>
+				<li id="data-structures"><a href="http://cs-fundamentals.com/data-structures/data-structures-tutorials.php">Data Structures</a></li>
+				<li id="web-development"><a href="http://cs-fundamentals.com/web-development/web-development-tutorials.php">Web Development</a></li>
+				<li id="tech-interview"><a href="http://cs-fundamentals.com/tech-interview/tech-interview-questions.php">Tech Interview</a></li>
+			</ul>
+		</div>	
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<div id="body-content-wrapper">
+				<div id="body-content" class="body-content container padding-10px">
+					<div id="left-col" class="left-col-below-650">
+						<div class="section-heading"><h1><b>Create Static and Dynamic Link Libraries in C on Linux</b></h1></div>
+						<div class="left-col-floating-ad">
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ad_resp_text_disp -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3909319156194832"
+     data-ad-slot="4736407675"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>						</div>
+						<ul class="outline">
+							<li><a href="#static-and-dynamic-linking">Static and Dynamic Linking of Libraries</a>
+							<li><a href="#what-is-linker">What is Linker?</a></li>
+							<li><a href="#static-linking">What is Static Linking?</a></li>
+							<li><a href="#static-libraries">How to Create Static Libraries?</a></li>
+							<li><a href="#what-is-dynamic-linking">What is Dynamic Linking?</a></li>
+							<li><a href="#create-and use-shared-libraries">How to Create and Use Shared Libraries?</a></li>
+							<li><a href="#references">References</a></li>
+						</ul>
+						<a name="static-and-dynamic-linking"></a>
+						<h2><b>Static and Dynamic Linking of Libraries</b></h2>
+						<p>
+						Static and dynamic linking are two processes of collecting and combining multiple object files in order to create a single executable. Linking can be performed at both compile time, when the source code is translated into machine code and load time, when the program is loaded into memory and executed by the loader, and even at run time, by application programs. And, it is performed by programs called <i>linkers</i>. Linkers are also called link editors. Linking is performed as the last step in compiling a program. In this tutorial static and dynamic linking with C modules will be discussed.
+						</p>	
+						<a name="what-is-linker"></a>
+						<h2><b>What is Linker?</b></h2>
+						<p>
+						Linker is system software which plays crucial role in software development because it enables separate compilation. Instead of organizing a large application as one monolithic source file, you can decompose it into smaller, more manageable chunks that can be modified and compiled separately. When you change one of the modules, you simply recompile it and re-link the application, without recompiling the other source files.			
+						</p>
+						<p>
+						During static linking the linker copies all library routines used in the program into the executable image. This of course takes more space on the disk and in memory than dynamic linking. But static linking is faster and more portable because it does not require the presence of the library on the system where it runs.
+						</p>
+						<p>
+						At the other hand, in dynamic linking shareable library name is placed in the executable image, while actual linking takes place at run time when both the executable and the library are placed in memory. Dynamic linking serves the advantage of sharing a single shareable library among multiple programs.
+						</p>
+
+						
+						<p>
+						Linker as a system program takes relocatable object files and command line arguments in order to generate an executable object file. To produce an executable file the Linker has to perform the symbol resolution, and Relocation.
+						</p>
+						<p style="color: grey;">
+						Note: Object files come in three flavors viz <i>Relocatable</i>, <i>Executable</i>, and <i>Shared</i>. <b>Relocatable object files</b> contain code and data in a form which can be combined with other object files of its kind at compile time to create an executable object file. They consist of various code and data sections. Instructions are in one section, initialized global variables in another section, and uninitialized variables are yet in another section. <b>Executable object files</b> contain binary code and data in a form which can directly be copied into memory and executed. <b>Shared object files</b> are files those can be loaded into memory and linked dynamically, at either load or run time by a linker.
+						</p>
+						<div class="ad-link-unit">
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- link_unit_200x90 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:200px;height:90px"
+     data-ad-client="ca-pub-3909319156194832"
+     data-ad-slot="2497824475"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>						</div>						
+						<p>
+						Through this article, <i>static</i> and <i>dynamic</i> linking will be explained. While linking, the linker complains about missing function definitions, if there is any. During compilation, if compiler does not find a function definition for a particular module, it just assumes that the function is defined in another file, and treats it as an external reference. The compiler does not look at more than one file at a time. Whereas, linker may look at multiple files and seeks references for the modules that were not mentioned. The separate compilation and linking processes reduce the complexity of program and gives the ease to break code into smaller pieces which are better manageable.
+						</p>
+
+						<a name="static-linking"></a>
+						<h2><b>What is Static Linking?</b></h2>
+						<p>
+						Static linking is the process of copying all library modules used in the program into the final executable image. This is performed by the linker and it is done as the last step of the compilation process. The linker combines library routines with the program code in order to resolve external references, and to generate an executable image suitable for loading into memory.
+						</p>
+
+						<p>
+						Let's see static linking by example. Here, we will take a very simple example of adding two integer quantities to demonstrate the static linking process. We will develop an <code>add</code> module and place in a separate <code>add.c</code> file. Prototype of <code>add</code> module will be placed in a separate file called <code>add.h</code>. Code file <code>addDemo.c</code> will be created to demonstrate the linking process.
+						</p>
+						
+						<p>
+						To begin with, create a header file <code>add.h</code> and insert the add function signature into that as follows:
+						</p>
+<div class="code-div">
+<pre class="c geshi-border" style="font-family:monospace;"><span style="color: #993333;">int</span> add<span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span><span style="color: #339933;">,</span> <span style="color: #993333;">int</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span></pre></div>			
+			
+						<p>
+						Now, create another source code file viz <code>addDemo.c</code>, and insert the following code into that.
+						</p>
+
+				
+<div class="code-div">
+<pre class="c geshi-border" style="font-family:monospace;"><span style="color: #339933;">#include &lt;add.h&gt;</span>
+<span style="color: #339933;">#include &lt;stdio.h&gt;</span>
+&nbsp;
+<span style="color: #993333;">int</span> main<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
+<span style="color: #009900;">&#123;</span>
+  <span style="color: #993333;">int</span> x<span style="color: #339933;">=</span> <span style="color: #0000dd;">10</span><span style="color: #339933;">,</span> y <span style="color: #339933;">=</span> <span style="color: #0000dd;">20</span><span style="color: #339933;">;</span>
+  <a href="http://www.opengroup.org/onlinepubs/009695399/functions/printf.html"><span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>%d + %d = %d&quot;</span><span style="color: #339933;">,</span> x<span style="color: #339933;">,</span> y<span style="color: #339933;">,</span> add<span style="color: #009900;">&#40;</span>x<span style="color: #339933;">,</span> y<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+  <span style="color: #b1b100;">return</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span></pre></div>				
+						<p>
+						Create one more file named <code>add.c</code> that contains the code of <code>add</code> module. Insert the following code into <code>add.c</code>
+						</p>
+<div class="code-div">
+<pre class="c geshi-border" style="font-family:monospace;"><span style="color: #993333;">int</span> add<span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span> quant1<span style="color: #339933;">,</span> <span style="color: #993333;">int</span> quant2<span style="color: #009900;">&#41;</span>
+<span style="color: #009900;">&#123;</span>
+  <span style="color: #b1b100;">return</span><span style="color: #009900;">&#40;</span>quant1 <span style="color: #339933;">+</span> quant2<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span></pre></div>
+						<p>
+						After having created above files, you can start building the executable as follows: <br/><br/>
+						<code>[root@host ~]# gcc -I . -c addDemo.c</code>
+						</p>
+						<p>
+						The <code>-I</code> option tells GCC to search for header files in the directory which is specified after it. Here, GCC is asked to look for header files in the current directory along with the include directory. (in Unix like systems, dot(.) is interpreted as current directory).
+						</p>
+						<p>
+						Note: Some applications use header files installed in /usr/local/include and while compiling them, they usually tell GCC to look for these header files there.
+						</p>
+						<p>
+						The <code>-c</code> option tells GCC to compile to an object file. The object file will have name as *.o. Where * is the name of file without extension. It will stop after that and won't perform the linking to create the executable.
+						</p>
+						<p>
+						As similar to the above command, compile add.c to create the object file. It is done by following command.<br/><br/>
+						<code>[root@host ~]# gcc -c add.c</code>
+						</p>
+						<p>
+						This time the <code>-I</code> option has been omitted because <code>add.c</code> requires no header files to include. The above command will produce a new file viz <code>add.o</code>. Now the final step is to generate the executable by linking <code>add.o</code>, and <code>addDemo.o</code> together. Execute the following command to generate executable object file.<br/><br/>
+						<code>[root@host ~]# gcc -o addDemo add.o addDemo.o</code>
+						</p>
+						<p>
+						Although, the linker could directly be invoked for this purpose by using <code>ld</code> command, but we preferred to do it through the compiler because there are other object files or paths or options, which must be linked in order to get the final executable. And so, <code>ld</code> command has been explained in detail in <a style="text-decoration: underline;" href="http://cs-fundamentals.com/c-programming/how-to-compile-c-program-using-gcc.php#Linking">How to Compile a C Program</a> section.
+						</p>
+						<div class="ad-link-unit">
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- link_unit_200x90 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:200px;height:90px"
+     data-ad-client="ca-pub-3909319156194832"
+     data-ad-slot="2497824475"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>						</div>						
+						<p>
+						Now that we know how to create an executable object file from more than one binary object files. It's time to know about libraries. In the following section we will see what libraries are in software development process? How are they created? What is their significance in software development? How are they used, and many things which have made the use of libraries far obvious in software development?
+						</p>
+
+		
+						<a name="static-libraries"></a>
+						<h2><b>How to Create Static Libraries?</b></h2>
+						<p>
+						Static and shared libraries are simply collections of binary object files they help during linking. A library contains hundreds or thousands of object files. During the demonstration of <code>addDemo</code> we had two object files viz <code>add.o</code>, and <code>addDemo.o</code>. There might be chances that you would have ten or more object files which have to be linked together in order to get the final executable object file. In those situations you will find yourself enervate, and every time you will have to specify a lengthy list of object files in order to get the final executable object file. Moreover, fenceless object files will be difficult to manage. Libraries solve all these difficulties, and help you to keep the organization of object files simple and maintainable.
+						</p>
+						<p>
+						Static libraries are explained here, dynamic libraries will be explained along with dynamic linking. Static libraries are bundle of relocatable object files. Usually they have <code>.a</code> extension. To demonstrate the use of static libraries we will extend the <code>addDemo</code> example further. So far we have <code>add.o</code> which contains the binary object code of <code>add</code> function which we used in <code>addDemo</code>. For more explanatory demonstration of use of libraries we would create a new header file <code>heymath.h</code> and will add signatures of two functions <code>add</code>, <code>sub</code> to that.
+						</p>
+<div class="code-div">
+<pre class="c geshi-border" style="font-family:monospace;"><span style="color: #993333;">int</span> add<span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span><span style="color: #339933;">,</span> <span style="color: #993333;">int</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//adds two integers</span>
+<span style="color: #993333;">int</span> sub<span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span><span style="color: #339933;">,</span> <span style="color: #993333;">int</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//subtracts second integer from first</span></pre></div>	
+						<p>
+						Next, create a file <code>sub.c</code>, and add the following code to it. We have <code>add.c</code> already created.
+						</p>
+			
+<div class="code-div">
+<pre class="c geshi-border" style="font-family:monospace;"><span style="color: #993333;">int</span> sub<span style="color: #009900;">&#40;</span><span style="color: #993333;">int</span> quant1<span style="color: #339933;">,</span> <span style="color: #993333;">int</span> quant2<span style="color: #009900;">&#41;</span>
+<span style="color: #009900;">&#123;</span>
+  <span style="color: #b1b100;">return</span> <span style="color: #009900;">&#40;</span>quant1 <span style="color: #339933;">-</span> quant2<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span></pre></div>
+						<p>
+						Now compile <code>sub.c</code> as follows in order to get the binary object file. <br/>
+						<code>[root@host ~]# gcc -c sub.c</code><br/>
+						Above command will produce binary object file <code>sub.o</code>.
+						</p>
+						<p>
+						Now, we have two binary object files viz <code>add.o</code>, and <code>sub.o</code>. We have <code>add.o</code> file in working directory as we have created it for previous example. If you have not done this so far then create the <code>add.o</code> from <code>add.c</code> in similar fashion as <code>sub.o</code> has been created. We will now create a static library by collecting both files together. It will make our final executable object file creation job easier and next time we will have not to specify two object files along with <code>addDemo</code> in order to generate the final executable object file. Create the static library <code>libheymath</code> by executing the following command: <br/>
+						<code>[root@host ~]# ar rs libheymath.a add.o sub.o</code>
+						</p>
+						<p>
+						The above command produces a new file <code>libheymath.a</code>, which is a static library containing two object files and can be used further as and when we wish to use <code>add</code>, or <code>sub</code> functions or both in our programs.
+						</p>
+						<p>
+						To use the <code>sub</code> function in <code>addDemo</code> we need to make a few changes in <code>addDemo.c</code> and will recompile it. Make the following changes in <code>addDemo.c</code>.
+						</p>			
+<div class="code-div">
+<pre class="c geshi-border" style="font-family:monospace;"><span style="color: #339933;">#include &lt;heymath.h&gt;</span>
+<span style="color: #339933;">#include &lt;stdio.h&gt;</span>
+&nbsp;
+<span style="color: #993333;">int</span> main<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
+<span style="color: #009900;">&#123;</span>
+  <span style="color: #993333;">int</span> x <span style="color: #339933;">=</span> <span style="color: #0000dd;">10</span><span style="color: #339933;">,</span> y <span style="color: #339933;">=</span> <span style="color: #0000dd;">20</span><span style="color: #339933;">;</span>
+  <a href="http://www.opengroup.org/onlinepubs/009695399/functions/printf.html"><span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>%d + %d = %d&quot;</span><span style="color: #339933;">,</span> x<span style="color: #339933;">,</span> y<span style="color: #339933;">,</span> add<span style="color: #009900;">&#40;</span>x<span style="color: #339933;">,</span> y<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+  <a href="http://www.opengroup.org/onlinepubs/009695399/functions/printf.html"><span style="color: #000066;">printf</span></a><span style="color: #009900;">&#40;</span><span style="color: #ff0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>%d + %d = %d&quot;</span><span style="color: #339933;">,</span> x<span style="color: #339933;">,</span> y<span style="color: #339933;">,</span> sub<span style="color: #009900;">&#40;</span>x<span style="color: #339933;">,</span> y<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+  <span style="color: #b1b100;">return</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span></pre></div>
+						<p>
+						If you see, we have replaced the first statement <code>#include &lt;add.h&gt;</code> by <code>#include &lt;heymath.h&gt;</code>. Because <code>heymath.h</code> now contains the signatures of both <code>add</code> and <code>sub</code> functions and added one more <code>printf</code> statement which is calling the <code>sub</code> function to print the difference of variable <code>x</code>, and <code>y</code>.
+						</p>
+						<p>
+						Now remove all <code>.o</code> files from working directory (rm will help you to do that). Create <code>addDemo.o</code> as follows:<br/>
+						<code>[root@host ~]# gcc -I . -c addDemo.c</code>
+						</p>
+						<p>
+						And link it with heymath.a to generate final executable object file.<br/>
+						<code>[root@host ~]# gcc -o addDemo addDemo.o libheymath.a</code>
+						</p>
+						<p>
+						You can also use the following command as an alternate to link the <code>libheymath.a</code> with <code>addDemo.o</code> in order to generate the final executable file. <br/>
+						<code>[root@host ~]# gcc -o addDemo -L . addDemo.o -lheymath</code>
+						</p>
+						<p>
+						In above command <code>-lheymath</code> should be read as <code>-l heymath</code> which tells the linker to link the object files contained in lib&lt;library&gt;.a with <code>addDemo</code> to generate the executable object file. In our example this is <code>libheymath.a</code>.
+						</p>
+						<p>
+						The -L option tells the linker to search for libraries in the following argument (similar to how we did for <code>-I</code>). So, what we created as of now is a static library. But this is not the end; systems use a lot of dynamic libraries as well. It is the right time to discuss them.
+						</p>
+
+						<a name="what-is-dynamic-linking"></a>
+						<h2><b>What is Dynamic Linking?</b></h2>
+						<p>
+						Dynamic linking defers much of the linking process until a program starts running. It performs the linking process "on the fly" as programs are executed in the system. During dynamic linking the name of the shared library is placed in the final executable file while the actual linking takes place at run time when both executable file and library are placed in the memory. The main advantage to using dynamically linked libraries is that the size of executable programs is dramatically reduced because each program does not have to store redundant copies of the library functions that it uses. Also, when DLL functions are updated, programs that use them will automatically obtain their benefits.
+						</p>
+
+						
+						<a name="create-and use-shared-libraries"></a>
+						<h2><b>How to Create and Use Shared Libraries?</b></h2>			
+						<p>
+						A shared library (on Linux) or a dynamic link library (dll on Windows) is a collection of object files.  In dynamic linking, object files are not combined with programs at compile time, also, they are not copied permanently into the final executable file; therefore, a shared library reduces the size of final executable. 
+						</p>
+						<p>
+						Shared libraries or dynamic link libraries (dlls) serve a great advantage of sharing a single copy of library among multiple programs, hence they are called shared libraries, and the process of linking them with multiple programs is called dynamic linking. 
+						</p>
+						<p>
+						Shared libraries are loaded into memory by programs when they start. When a shared library is loaded properly, all programs that start later automatically use the already loaded shared library. Following text will demonstrate how to create and use shared library on Linux.
+						</p>
+						<div class="ad-link-unit">
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- link_unit_200x90 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:200px;height:90px"
+     data-ad-client="ca-pub-3909319156194832"
+     data-ad-slot="2497824475"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>						</div>			
+						<p>
+						Let's continue with the previous example of <code>add</code>, and <code>sub</code> modules. As you remember we had two object files <code>add.o</code>, and <code>sub.o</code> (compiled from <code>add.c</code> and <code>sub.c</code>) that contain code of <code>add</code> and <code>sub</code> methods respectively. But we will have to recompile both <code>add.c</code> and <code>sub.c</code> again with <code>-fpic</code> or <code>-fPIC</code> option. The <code>-fPIC</code> or <code>-fpic</code> option enable <i>"position independent code"</i> generation, a requirement for shared libraries. Use <code>-fPIC</code> or <code>-fpic</code> to generate code. Which option should be used, <code>-fPIC</code> or <code>-fpic</code> to generate code that is target-dependent. The <code>-fPIC</code> choice always works, but may produce larger code than <code>-fpic</code>. Using <code>-fpic</code> option usually generates smaller and faster code, but will have platform-dependent limitations, such as the number of globally visible symbols or the size of the code. The linker will tell you whether it fits when you create the shared library. When in doubt, I choose <code>-fPIC</code>, because it always works. So, while creating shared library you have to recompile both <code>add.c</code>, and <code>sub.c</code> with following options:<br/>
+						<code>[root@host ~]# gcc -Wall -fPIC -c add.c </code><br/>
+						<code>[root@host ~]# gcc -Wall -fPIC -c sub.c</code>
+						</p>
+						
+						<p>
+						Above commands will produce two fresh object files in current directory <code>add.o</code>, and <code>sub.o</code>. The warning option <code>-Wall</code> enables warnings for many common errors, and should always be used. It combines a large number of other, more specific, warning options which can also be selected individually. For details you can see man page for warnings specified.
+						</p>
+						<p>
+						Now build the library <code>libheymath.so</code> using the following command.<br/>
+						<code>[root@host ~]# gcc -shared -o libheymath.so add.o sub.o</code>
+						</p>
+						
+						<p>
+						This newly created shared library <code>libheymath.so</code> can be used as a substitute of <code>libheymath.a</code>. But to use a shared library is not as straightforward as static library was. Once you create a shared library you will have to install it. And, the simplest approach of installation is to copy the library into one of the standard directories (e.g., /usr/lib) and run <code>ldconfig</code> command.
+						</p>
+						<p>
+						Thereafter executing <code>ldconfig</code> command, the <code>addDemo</code> executable can be built as follows. I recompile <code>addDemo.c</code> also. You can omit it if <code>addDemo.o</code> is already there in your working directory.
+						</p>
+						<p>
+						<code>[root@host ~]# gcc -c addDemo.c </code><br/>
+						<code>[root@host ~]# gcc -o addDemo addDemo.o libheymath.so </code><br/>
+						or <br/>
+						<code>[root@host ~]# gcc -o addDemo addDemo.o -lheymath</code>
+						</p>
+
+						<p>
+						You can list the shared library dependencies which your executable is dependent upon. The <code>ldd &lt;name-of-executable&gt;</code> command does that for you.<br/>
+						<code>[root@host ~]# ldd addition </code><br/>
+						<code>libheymath.so => /usr/lib/libheymath.so (0x00002b19378fa000) </code><br/>
+						<code>libc.so.6 => /lib64/libc.so.6 (0x00002b1937afb000) </code><br/>
+						<code>/lib64/ld-linux-x86-64.so.2 (0x00002b19376dd000)</code>
+						</p>
+
+						<h2>Last Word</h2>
+						<p>
+						In this tutorial we discussed how static and dynamic linking in C is performed for static and shared libraries (Dynamic Link Libraries - DLLs). Hope you have enjoyed reading this tutorial. Please do <a class="body-link" href="http://cs-fundamentals.com/contact-us.php" target="_blank">write us</a> if you have any suggestion/comment or come across any error on this page. Thanks for reading! 
+						</p>
+			
+						<a name="references"></a>
+						<h2>References</h2>
+						<div id="reference-text">
+						<ol>
+							<li>Randal E. Bryant, David R. O'Hallaron, Computer Systems: A Programmer's Perspective.</li>
+							<li><a rel="nofollow" href="http://www.network-theory.co.uk/docs/gccintro/index.html" target="_blank">Brian J. Gough, An Introduction to GCC</a></li>
+							<li><a rel="nofollow" href="http://www.yolinux.com/TUTORIALS/LibraryArchives-StaticAndDynamic.html"  target="_blank">Static, Shared Dynamic and Loadable Linux Libraries</a></li>
+							<li><a rel="nofollow" href="http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html"  target="_blank">Shared Libraries</a></li>
+						</ol>
+						</div>
+
+						<br>
+						<div class="left-col-block-ad">
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3909319156194832"
+     data-ad-slot="4736407675"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+						</div>
+						<br>
+						<!-- comments -->
+						<div id="comments">	
+								<!-- facebook comments won't be shown on mobile -->
+<div id="comments-and-sharing-toolbox">
+	<!-- Facebook comment box -->
+	<div class="fb-comments comment-box" notify="true" data-notify="true" data-href="http://cs-fundamentals.com/c-programming/static-and-dynamic-linking-in-c.php" data-width="100%"></div>
+
+	<!-- Discuss comment box 
+	<div id="disqus_thread"></div>
+	<br>
+	-->
+
+	<!--
+	<div id="google-comments"></div>
+        -->
+	
+
+</div>
+
+
+						</div>
+					</div>
+					<div id="right-col" class="right-col-over-650">
+						<div id="subscription-form" class="right-col-divs">
+	<div style="border:1px solid #DAE9F5; background-color: #FCFEFE; padding-top: 10px;" id="subscription-form-div">
+<form id="subscription-form"
+action="http://feedburner.google.com/fb/a/mailverify" 
+method="post" target="popupwindow" 
+onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=http/cs-fundamentalscom/cs-fundamentals-feedxml', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+	<p style="font-weight: bold; text-align: center;">Get Free Tutorials by Email</p>
+	<p style="text-align: center;">
+		<label style="color: #155c92;">Email: </label>
+		<input style="width:170px;" type="text" name="email"/>
+	</p>
+	
+	<p style="text-align: center;">
+	<input type="hidden" value="http/cs-fundamentalscom/cs-fundamentals-feedxml" name="uri"/>
+	<input type="hidden" name="loc" value="en_US"/>
+	<input class="button" type="submit" value="Subscribe" />
+	</p>
+</form>
+</div> 
+</div>
+
+<div id="add-this-btns" style="border:1px solid #DAE9F5; background-color: #FCFEFE; padding: 7px 5px 1px 5px; text-align: center;" class="right-col-divs">
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5079795154047342" async="async"></script>
+
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<div class="addthis_sharing_toolbox"></div>
+</div>
+
+
+<!--
+<p/>
+<script src="https://www.gstatic.com/xads/publisher_badge/contributor_badge.js" data-width="300" data-height="100" data-theme="dark" data-pub-name="cs-Fundamentals" data-pub-id="ca-pub-3909319156194832"></script>
+
+-->
+<div id="social-badges" class="right-col-divs">
+	<!-- fb follow-us faces box -->
+<div class="right-col-divs">
+	<div class="fb-fan-box">
+		<div class="fb-page" data-href="https://www.facebook.com/csFundamentals" data-width="300" data-height="300" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true">
+
+		</div>
+	</div>
+</div>
+
+
+<!-- google plus badge -->
+<div class="fb-fan-box right-col-divs">
+	<div class="g-page" data-href="//plus.google.com/u/0/113816903030219515535" data-layout="landscape" data-rel="publisher"></div>
+</div>
+
+</div>
+
+<div id="right-col-block-ad" class="right-col-block-ad" style="margin-bottom: 20px;">
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ad_resp_text_disp -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3909319156194832"
+     data-ad-slot="4736407675"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+
+<h2 class="section-heading" style="border: 1px solid #DAE9F5; border-bottom: none;">About the Author</h2>
+<div style="padding: 5px; border: 1px solid #DAE9F5; overflow: hidden; background-color: #FCFEFE;" class="right-col-divs">
+
+	<a href="//plus.google.com/u/0/116692599875032003849?prsrc=3" rel="author" target="_blank"><img alt="Author Photo" class="profile-img" src="/assets/images/krishan-profile-img.png" height="80" width="80"></a>
+	
+	
+	<p style="margin: 0px; padding: 0px;">
+	<a href="https://www.facebook.com/whoiskk" rel="author" target="_blank" style="color: #155c92;"><b>Krishan Kumar</b></a>
+	is the main author for cs-fundamentals.com. He is a software professional (post graduated from BITS-Pilani) and loves writing technical articles on programming and data structures.
+	</p>
+</div>
+
+<div id="tech-news-div" class="right-col-divs">
+	<h2 class="section-heading" style="border: 1px solid #DAE9F5; border-bottom: none;">Today's Tech News</h2>
+	<div id="tech-news">
+<strong><a href="https://www.bbc.co.uk/news/world-us-canada-47477677" rel="nofollow" title="Zuckerberg outlines plan for 'privacy-focused' Facebook" target="_blank">Zuckerberg outlines plan for 'privacy-focused' Facebook</a></strong><em>Posted on Thursday March 07, 2019</em><br/><p>He also said Facebook would not store sensitive data in countries with weak records on human rights.</p><strong><a href="https://www.bbc.co.uk/news/technology-47468391" rel="nofollow" title="Uber 'not liable' for self-driving death" target="_blank">Uber 'not liable' for self-driving death</a></strong><em>Posted on Wednesday March 06, 2019</em><br/><p>Prosecutors say Uber is not criminally liable for a crash involving one of its self-driving cars.</p><strong><a href="https://www.bbc.co.uk/news/technology-47372217" rel="nofollow" title="Post-apocalyptic video game Days Gone Days previewed" target="_blank">Post-apocalyptic video game Days Gone Days previewed</a></strong><em>Posted on Wednesday March 06, 2019</em><br/><p>Marc Cieslak looks at the new survival video game Days Gone which is released on 26 April 2019.</p><ins class="horizontal-line"></ins><em style="color: grey;">Courtesy BBC News</em></div>
+</div>					</div>
+				</div>
+			</div>
+			
+			<div id="footer-wrapper">
+	<div id="footer" class="footer container">
+		<div id="social-buttons" class="social-buttons">
+			<ul class="icons">
+				<li><a style="background-color: #305891;" href="https://www.facebook.com/csFundamentals" target="_blank" class="icon fa-facebook"></a></li>
+				<li><a style="background-color: #CE4D39;" href="https://plus.google.com/+Csfundamentals-google-plus" target="_blank" class="icon fa-google"></a></li>
+				<li><a style="background-color: #2CA8D2;" href="https://twitter.com/csfundamentals" target="_blank" class="icon fa-twitter"></a></li>
+				<li><a style="background-color: #0077B5;" href="https://www.linkedin.com/company/cs-fundamentals-com" target="_blank" class="icon fa-linkedin"></a></li>
+				<li><a style="background-color: #E65229;" href="http://www.stumbleupon.com/stumbler/csfundamental" target="_blank" class="icon fa-stumbleupon"></a></li>
+			</ul>
+		</div>
+		
+		<div id="internal-links" class="internal-links">
+			<ul>
+				<li id="home"><a href="http://cs-fundamentals.com" >Home</a></li>
+				<li id="contact-us"><a href="http://cs-fundamentals.com/contact-us.php">Contact Us</a></li>
+				<li id="about-us"><a  href="http://cs-fundamentals.com/about.php">About Us</a></li>
+				<li id="write-for-us"><a href="http://cs-fundamentals.com/write-for-us.php">Write For Us</a></li>
+				<li id="rss-feed"><a href="http://cs-fundamentals.com/cs-fundamentals-feed.xml">RSS Feed</a></li>
+			</ul>
+		</div>
+		<div id="footer-copyright" class="footer-copyright">
+				&copy; copyright 2016 <strong><a href="http://cs-fundamentals.com">cs-Fundamentals.com</a></strong>
+		</div>
+	</div>
+	
+</div>
+
+<!-- Back To Top Button -->
+<div id="go-top">
+<ins title="Back to Top"></ins>
+</div>
+
+<!-- include javascript files in the footer so that main content gets load faster-->
+<script type="text/javascript" src="/assets/js/jquery-182-min.js"></script>
+<script type="text/javascript" src="/assets/js/csfundamentals-v9-min.js"></script>
+
+<!-- Enable page level adds in mobile devices 
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3909319156194832",
+    enable_page_level_ads: true
+  });
+</script>
+
+-->
+
+
+
+<style>
+/* The Modal (background) */
+.adb-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+	font-family: Arial, Sans-Serif;
+}
+
+/* Modal Content */
+.adb-modal-content {
+    position: relative;
+    background-color: #001c42;
+    margin: auto;
+    padding: 0;
+    
+    width: 600px;
+	height: auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.8s;
+    animation-name: animatetop;
+    animation-duration: 0.8s;
+	color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+.adb-modal-header {
+	padding: 10px;
+    background-color: #0a3352;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.adb-modal-body {
+	padding: 10px;
+	font-size: 30px;
+	color: #F6F6F6;
+}
+
+.adb-modal-footer {
+	padding: 10px;
+	background-color: #0a3352;
+	font-size: 20px;
+}
+
+/*====================================================*/
+
+
+/* The Modal (background) */
+.adv-container {
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding: 0px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.adv-container-content {
+    margin: auto;
+    width: 300px;
+	height: 250px;
+	padding: 2px;
+/*	border: 1px solid #E5E5E5;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19); */
+}
+
+/* The Close Button */
+.adv-close {
+    color: #555656;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: -30px;
+	margin-right: -2px;
+    
+}
+
+.adv-close:hover,
+.adv-close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.responsive {
+	width: 300px;
+	height: 250px;
+}
+
+@media screen and (min-width: 360px) {
+
+}
+
+</style>
+
+
+<!-- AdBlocker Modal -->
+<div id="adBlockerAlert" class="adb-modal">
+
+  <!-- Modal content -->
+  <div class="adb-modal-content" style="text-align: center;">
+    <div class="adb-modal-header">
+         <p>AD BLOCKER DETECTED!</p>
+    </div>
+    <div class="adb-modal-body">
+		<p >Advertisements help running this site for free.</p>
+		<p><br></p>
+		<p>To view the content please disable AdBlocker and refresh the page. </p>
+
+    </div>
+    <div class="adb-modal-footer">
+      <p style="text-align: center;">Thank You!</p>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- The Modal -->
+<div id="adv-container" class="adv-container">
+  <!-- Modal content -->
+  <div id="adv-content" class="adv-container-content">
+	<span id="close-btn" class="adv-close">&times;</span> 
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- ad_resp_text_disp -->
+	<ins class="adsbygoogle"
+		 style="display:block"
+		 data-ad-client="ca-pub-3909319156194832"
+		 data-ad-slot="4736407675"
+		 data-ad-format="auto"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+  </div>
+</div>
+
+<script>
+	var modal1 = document.getElementById('adv-container');  
+	modal1.style.width = "1px";
+	modal1.style.height = "1px";
+	//modal1.style.display = "none";
+	window.onload = function() {
+		
+		    setTimeout(function() {
+			  if ( typeof(window.google_jobrunner) === "undefined" ) {
+				var modal = document.getElementById('adBlockerAlert');
+				modal.style.display = "block";
+			  }
+			}, 7000); 
+			
+	                //setTimeout(function() {showme();}, 30000);
+			setTimeout(function() {showme();}, 95000);
+			//setTimeout(function() {showme();}, 180000);
+			//setTimeout(function() {showme();}, Math.floor(Math.random() * (150000 - 60000 + 1)) + 60000);
+			//setTimeout(function() {showme();}, Math.floor(Math.random() * (300000 - 180000 + 1)) + 180000);
+			//setTimeout(function() {showme();}, 240000);
+	};
+	
+	function showme() {
+			if ( typeof(window.google_jobrunner) !== "undefined" ) {
+				// Get the modal
+				var modal = document.getElementById('adv-container');
+
+				// Get the <span> element that closes the modal
+				var closeBtn = document.getElementById('close-btn');;
+
+				// When the user clicks the button, open the modal 
+				var modalContent = document.getElementById('adv-content');
+				modal.style.width = "100%";
+				modal.style.height = "100%";
+				modal.style.padding = "150px 0px 0px 0px";
+				
+				
+				modal.style.display = "block";
+
+				// When the user clicks on <span> (x), close the modal
+				closeBtn.onclick = function() {
+					modal.style.display = "none";
+				}
+				
+				// When the user clicks anywhere outside of the modal, close it
+				//window.onclick = function(event) {
+				//	if (event.target == modal) {
+				//		modal.style.display = "none";
+				//	}
+				//}
+			}
+	}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<script src="https://apis.google.com/js/plusone.js"></script>
+<script>
+gapi.comments.render('google-comments', {
+href: window.location,
+width: '599',
+first_party_property: 'BLOGGER',
+view_type: 'FILTERED_POSTMOD'
+});
+</script>
+-->		</div>
+	</body>
+</html>
