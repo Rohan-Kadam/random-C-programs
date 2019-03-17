@@ -1,0 +1,55 @@
+=======================================================================================================
+MISC
+This directory consist of 17 testing code
+=======================================================================================================
+
+buffer.txt: 
+Used by inotify and inotify_udp code to buffer mac addresses				 
+
+casino.cpp: 
+Head first C example
+
+dnotify.c: 
+generates notification signal if changes done in directory which was under observation
+
+inotify.c: 
+generates notification signal if changes done in file which was under observation
+
+inotify_udp.c: 
+same as above code, but added udp socket to it.
+
+linkedlist.c: 
+simple linkedlist data structure implementation
+
+malloc.c: 
+testing malloc function
+
+namedpipe-to-file.c: 
+capture stdout to pipe and store it in file [INCOMPLETE]
+
+pthread_signal.c: 
+added custom terminating signal for thread
+
+ptrmem_arrmem_compare.c:
+printing memory address of array and pointer
+
+rodata_memcheck.cpp:
+trying to modify rodata, directly and by using pointer
+
+stack.c:
+simple stack implementation
+
+stdout-to-pipe.c:
+capture stdout to pipe
+
+stdout-to-pipe-to-string.c:
+capture stdout to pipe and convert to string
+
+strtok.c:
+testing strtok function
+
+struct_functioncall.cpp:
+testing simple C structure 
+
+struct_simple.cpp:
+testing simple C structure
