@@ -14,16 +14,22 @@ void sig_func(int sig)
 {
  //printf("caught signal %d\n",sig);
  write(1, "Caught signal 11\n", 17);
- signal(SIGSEGV,sig_func);
+ //signal(SIGALRM,sig_func);
+ //alarm(5);
 }
 
 void func(data *p)
+{
+
+while(1)
 {
  fprintf(stderr, "This is from thread function\n");
  strcpy(p->name,"Rohan");
  p->age=21;
  //while(1);
- sleep(10); // Sleep to catch the signal
+ signal(SIGALRM,sig_func);
+ sleep(20); // Sleep to catch the signal
+}
 }
 
 int main()
@@ -33,11 +39,12 @@ int main()
  data d;
  data *ptr = &d;
 
- signal(SIGSEGV,sig_func); // Register signal handler before going multithread
+ signal(SIGALRM,sig_func); // Register signal handler before going multithread
+ alarm(5);
  pthread_attr_init(&attr);
  pthread_create(&tid,&attr,(void*)func,ptr);
  sleep(2); // Leave time for initialisation
- pthread_kill(tid,SIGSEGV);
+ pthread_kill(tid,SIGALRM);
 
  pthread_join(tid,NULL);
  fprintf(stderr, "Name:%s\n",ptr->name);
