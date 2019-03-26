@@ -22,4 +22,17 @@ Result: FAIL
 Tested: Changed lib function
 Result: Change reflected only after compiling(gcc -c. Creates .o file, no executable) lib_mylib.c, re-creating its .a file and complete compiling (gcc. Creates executable directly) src with -L
 
-
+Steps and Commands:
+1. Create Library C file
+2. Create Library header file
+3. Compile Library C file
+	gcc -c lib_mylib.c -o lib_mylib.o 
+4. Create static library from object file generated in above step
+	ar rcs lib_mylib.a lib_mylib.o 
+5. Create Driver C file
+6. Compile Driver C file
+	gcc -c driver.c -o driver.o
+7. Link object file with static library, -L provides path to the static library
+	gcc -o driver driver.o -L. -l_mylib
+8. Run driver code
+	./driver 
