@@ -1,0 +1,28 @@
+/*	
+	*
+	* Creating and testing shared library creation process	
+	* 
+	* @Author Rohan-Kadam
+	* @Date 7th March 2019
+	*
+*/
+	
+Followed geeks4geeks tutorial. Downloaded the html page of the same.
+
+Use ldd ./sample and nm ./sample to view dynamic dependencies and view memory respectively.
+Get details about -fPIC, -I, -L, -Wall from cs-fundamental link.
+
+Also added code to accept run-time input arguments. Fails on giving -1, since atoi doesn't converts negative string to negative integer.
+
+Steps and Commands:
+1. Create Library C file
+2. Compile Library C file with -shared flag indicate shared lib generation and -o indicating the name
+	gcc -shared -fPIC -o liblibrary.so library.c
+3. Create a Application C file
+4. Compile the Application C file mentioning library file, -L mentioning library's path
+	gcc application.c -L . -llibrary -o sample  
+5. Now on executing ./sample. It shall generate error: library function not found, since by default dynamic linker searches at default LD_LIBRARY_PATH for function defination of library function. Therefore we need to add path to our new dynamic library.
+(Note: Incase of static linking function defination becomes part of executable and no run-time linking takes place thus making it faster but also increasing the size of executable)
+	export LD_LIBRARY_PATH=<path>:$LD_LIBRARY_PATH
+6.Run Application code
+	./sample 
