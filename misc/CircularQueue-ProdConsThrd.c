@@ -1,3 +1,8 @@
+//
+// Compile using 
+// gcc CircularQueue-ProdConsThrd.c -lpthread -lm
+//
+
 #include <stdio.h>
 #include <pthread.h>
 #include <unistd.h>
