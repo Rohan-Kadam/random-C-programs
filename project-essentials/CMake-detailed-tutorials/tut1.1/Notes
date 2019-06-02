@@ -1,0 +1,7 @@
+Create a CMakeLists.txt. Added version check, enable testing and name test and specify the executable to run
+Create .cc and .h files. Added vector add, get and size. Test basically checks the equality of both variables passed to MACRO Function
+mkdir build
+cd build
+cmake ..
+make VERBOSE=1
+make test, runs specified executable and stores test results in build/Testing/Temporary/
