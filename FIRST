@@ -1,0 +1,46 @@
+>> Partition (/home 90%, / 100GB min, swap area 700MB )
+>> Install OS
+>> Firefox sync gmail account
+>> Commands
+sudo apt-get update
+sudo apt-get install vim
+lspci -nn -d 14e4:
+sudo apt install firmware-b43-installer
+sudo reboot
+sudo apt install bcmwl-kernel-source
+
+
+sudo apt install gnome-tweaks
+sudo apt install gnome-shell-extension-system-monitor
+28  indicator-multiload 
+sudo apt-get install gir1.2-gtop-2.0 gir1.2-networkmanager-1.0  gir1.2-clutter-1.0
+>> system monitor extension in Ubuntu Software
+sudo apt-get install tmux
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+sudo apt update
+sudo apt install sublime-text
+sudo apt-get install repo
+sudo apt-get install virtualbox
+sudo apt-get install wireshark
+sudo apt-get install minicom
+sudo apt-get install dnsmasq
+sudo apt-get install openssh-server 
+mkdir repo_iitb_non3gpp
+cd repo_iitb_non3gpp/
+git config --global user.email "rkadam202@gmail.com"
+git config --global user.name "Rohan-Kadam"
+rm -rf .repo/
+repo init -u https://github.com/Rohan-Kadam/manifest
+repo sync
+sudo apt-get install calculator
+cd /home/rohan/Downloads/
+sudo add-apt-repository ppa:libreoffice/ppa
+sudo apt-get update
+sudo apt-get install libreoffice
+sudo apt --fix-broken install
+sudo apt-get install libreoffice
+chmod +x qt-unified-linux-x64-3.1.1-online.run 
+sudo apt-get install kazam 
+./qt-unified-linux-x64-3.1.1-online.run 
+
