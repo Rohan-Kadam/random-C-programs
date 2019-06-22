@@ -53,3 +53,12 @@ testing simple C structure
 
 struct_simple.cpp:
 testing simple C structure
+
+mem-util.c
+malloc + memset, increases memory utilization
+
+cpu-util.c
+Cal prime number, increases cpu utilization
+
+CircularQueue-ProdConsThrd.c
+exchange data between producer and consumer over circular buffer. Producer generate data as per Poisson Distribution delay

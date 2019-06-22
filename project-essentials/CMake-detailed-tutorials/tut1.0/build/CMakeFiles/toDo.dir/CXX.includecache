@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1/ToDo.cc
+ToDo.h
+/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1/ToDo.h
+
+/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1/ToDo.h
+
+/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1/main.cc
+ToDo.h
+/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1/ToDo.h
+

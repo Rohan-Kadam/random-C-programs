@@ -1,0 +1,6 @@
+Create a CMakeLists.txt. A simple one with project name, src's and executable's name
+Create .cc and .h files
+mkdir build
+cd build
+cmake ..
+make VERBOSE=1
