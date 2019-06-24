@@ -4,6 +4,7 @@
 >> Commands
 sudo apt-get update
 sudo apt-get install vim
+sudo apt-get install ifconfig
 lspci -nn -d 14e4:
 sudo apt install firmware-b43-installer
 sudo reboot
