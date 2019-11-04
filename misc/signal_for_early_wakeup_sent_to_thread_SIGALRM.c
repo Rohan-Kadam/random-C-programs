@@ -3,6 +3,7 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <signal.h>
+#include <string.h>
 
 typedef struct data
 {
@@ -14,8 +15,8 @@ void sig_func(int sig)
 {
  //printf("caught signal %d\n",sig);
  write(1, "Caught signal 11\n", 17);
- //signal(SIGALRM,sig_func);
- //alarm(5);
+ //Setting alarm for 5 seconds, won't wake up the thread.
+ alarm(5);
 }
 
 void func(data *p)
@@ -26,9 +27,9 @@ while(1)
  fprintf(stderr, "This is from thread function\n");
  strcpy(p->name,"Rohan");
  p->age=21;
- //while(1);
- signal(SIGALRM,sig_func);
- sleep(20); // Sleep to catch the signal
+ sleep(60); // Sleep to catch the signal
+ //The thread shall wake-up on getting SIGALRM from main thread using pthread_kill.
+ //But setting alarm to 5 seconds, just executes the signal handler and DOES NOT wake up the thread.
 }
 }
 
@@ -40,10 +41,13 @@ int main()
  data *ptr = &d;
 
  signal(SIGALRM,sig_func); // Register signal handler before going multithread
- alarm(5);
+ //Setting alarm for 5 seconds, won't wake up the thread.
+ //alarm(5);
  pthread_attr_init(&attr);
  pthread_create(&tid,&attr,(void*)func,ptr);
- sleep(2); // Leave time for initialisation
+ sleep(1); // Leave time for initialisation of struct data
+ 
+ //Send signal to thread safely.
  pthread_kill(tid,SIGALRM);
 
  pthread_join(tid,NULL);

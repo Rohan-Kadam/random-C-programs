@@ -3,6 +3,7 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <signal.h>
+#include <string.h>
 
 typedef struct data
 {
@@ -14,7 +15,7 @@ void sig_func(int sig)
 {
  //printf("caught signal %d\n",sig);
  write(1, "Caught signal 11\n", 17);
- signal(SIGSEGV,sig_func);
+ //signal(SIGSEGV,sig_func);
 }
 
 void func(data *p)

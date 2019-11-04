@@ -1,6 +1,7 @@
 =======================================================================================================
 MISC
-This directory consist of 17 testing code
+This directory consist of 24 testing code
+(Use "ls . | wc -l" to check number of files in current directory)
 =======================================================================================================
 
 buffer.txt: 
@@ -21,28 +22,37 @@ same as above code, but added udp socket to it.
 linkedlist.c: 
 simple linkedlist data structure implementation
 
-malloc.c: 
-testing malloc function
+modify_string_literals_using_malloc.c: 
+char* modification using malloc.
 
-namedpipe-to-file.c: 
+FIFO-namedpipe-to-file.c: 
 capture stdout to pipe and store it in file [INCOMPLETE]
 
-pthread_signal.c: 
-added custom terminating signal for thread
+signal_for_early_wakeup_sent_to_thread_SIGALRM.c
+Wakeups the sleeping thread by firing SIGALRM using pthread_kill.
+Custom signal handler registered.
+
+signal_for_terminating_thread_SIGSEGV.c
+Terminates thread form main thread using SIGSEGV signal.
+Custom signal handler registered.
 
 ptrmem_arrmem_compare.c:
-printing memory address of array and pointer
+printing memory address of array[STACK] and pointer[RO-DATA]
 
-rodata_memcheck.cpp:
+modify_rodata_NOT_POSSIBLE.cpp
 trying to modify rodata, directly and by using pointer
+Conclusion: Cannot modify ro-data
 
-stack.c:
+DS_stack.c:
 simple stack implementation
 
-stdout-to-pipe.c:
+DS_linkedlist.c:
+simple link list implementation
+
+FIFO-stdout-to-pipe.c:
 capture stdout to pipe
 
-stdout-to-pipe-to-string.c:
+FIFO-stdout-to-pipe-to-string.c:
 capture stdout to pipe and convert to string
 
 strtok.c:
@@ -54,11 +64,17 @@ testing simple C structure
 struct_simple.cpp:
 testing simple C structure
 
-mem-util.c
+increase_mem_util.c
 malloc + memset, increases memory utilization
 
-cpu-util.c
+increase_cpu_util.c
 Cal prime number, increases cpu utilization
 
-CircularQueue-ProdConsThrd.c
+CircularQueue_ProdConsThrd_PoissonDistributionInput.c
 exchange data between producer and consumer over circular buffer. Producer generate data as per Poisson Distribution delay
+
+casino_switch_case.cpp
+Simple switch case implementation
+
+DS_vector.cpp
+Using C++ STL vector data structure
