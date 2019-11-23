@@ -45,3 +45,40 @@ chmod +x qt-unified-linux-x64-3.1.1-online.run
 sudo apt-get install kazam 
 ./qt-unified-linux-x64-3.1.1-online.run 
 
+#Install vnc4server package
+sudo apt-get install vnc4server
+
+#Make configuration changes in vncserver
+sudo cp /usr/bin/vncserver /usr/bin/vncserver.bkp
+
+echo "Find this line exec /etc/X11/xinit/xinitrcnn"
+echo "and add these lines like below "exec /etc/X11/xinit/xinitrcnn"
+echo "\"gnome-panel &n\"."
+echo "\"gnome-settings-daemon &n\"."
+echo "\"metacity &n\"."
+echo "\"nautilus &n\"."
+echo "\"gnome-terminal &n\"."
+sleep 2
+sudo vim /usr/bin/vncserver
+
+vncserver
+echo "Check port status, should see below two lines"
+echo "tcp        0      0 0.0.0.0:6001            0.0.0.0:*               LISTEN      28372/Xvnc4"
+echo "tcp6       0      0 :::5901                 :::*                    LISTEN      28372/Xvnc4"
+netstat -tulpn
+
+#Enable these line to configure firewall, ignore if firewall is inactive
+#allow SSH
+#sudo ufw allow OpenSSH
+#allowing single port 5901 port
+#sudo ufw allow 5901/tcp
+#To allow series of port 5901 - 5910, follow
+#sudo ufw allow 5901:5910/tcp
+#To check firewall rules
+#sudo  ufw status verbose
+
+echo "Download vncviewer deb file from https://www.realvnc.com/en/connect/download/viewer/linux/ and dpkg -i xyz.deb to install it"
+
+  
+  
+  
