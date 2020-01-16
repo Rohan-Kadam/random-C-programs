@@ -78,3 +78,8 @@ Simple switch case implementation
 
 DS_vector.cpp
 Using C++ STL vector data structure
+
+4bit_bitmask.c
+Update bit value of only certain bits, retaining old bit values in remaining bits.
+eg: char abc = xxxx xyyy
+To update only yyy bits, use 0x07 Mask and to retain old value in xxx bits use complementary mask
