@@ -1,0 +1,25 @@
+=======================================================================================================
+MISC/Python
+This directory consist of 6 testing code
+(Use "ls . | wc -l" to check number of files in current directory)
+=======================================================================================================
+client.py:
+TCP socket 
+connect-recv-print
+
+server.py:
+TCP socket
+listen-accept-send
+
+echo-server.py:
+TCP socket
+listen-accept-recv-send
+
+helloworld.py:
+Print Hello World
+
+monitoring-loadgenerator-multirat.py
+Generate random number, round it off and fill it in JSON format
+
+sniffer.py
+RAW socket to sniff IP Packets

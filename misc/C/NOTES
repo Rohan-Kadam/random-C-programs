@@ -83,3 +83,6 @@ Using C++ STL vector data structure
 Update bit value of only certain bits, retaining old bit values in remaining bits.
 eg: char abc = xxxx xyyy
 To update only yyy bits, use 0x07 Mask and to retain old value in xxx bits use complementary mask
+
+monitor_NIC.c
+Netlink socket to monitor the status of the NIC (up or down) in the real time.
