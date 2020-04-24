@@ -1,6 +1,6 @@
 =======================================================================================================
 MISC
-This directory consist of 24 testing code
+This directory consist of 25 testing code
 (Use "ls . | wc -l" to check number of files in current directory)
 =======================================================================================================
 
@@ -86,3 +86,6 @@ To update only yyy bits, use 0x07 Mask and to retain old value in xxx bits use c
 
 monitor_NIC.c
 Netlink socket to monitor the status of the NIC (up or down) in the real time.
+
+timer.cpp, timer.h, chrono-timer.cpp
+Timer implementation from CSE utils, uses boost chrono
