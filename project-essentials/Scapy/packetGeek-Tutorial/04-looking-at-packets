@@ -1,0 +1,23 @@
+>> Previously we saw following ways to display packet content
+pkt
+>> This will display count of packets belonging to various protocols that are sniffed into pkt variable.
+pkt[0].summary() 
+>> This will display detailed info, without [0] this command displays info of all sniffed packetes
+
+>> Lets list all display commands and filters
+pkt :- Number of packets from different protocols
+pkt.summary() :- Details of all captured packets in short
+pkt[0].summary() :- Detail of selected index packet in short
+pkt.show() :- Details of all captured packets in short with index numbers
+pkt[0].show() :- Detail of selected index packet in detail (pretty format)
+pkt[0] :- Detail of selected index packet in detail (raw format)
+pkt[0].command() :- Detail of selected index packet in detail (editable raw format, useful to recreate captured packets!!!)
+pkt[0][ICMP/Ether/IP/...].xyz OR pkt[0][0/1/2/...].xyz :- Layer Filter 
+pkts[3][Ether].src/pkts[3][IP].ttl/pkts[3][IP].proto :- Field Filter
+
+>> In-code display with iterations, using haslayer() and getlayer() methods
+>>> for packet in pkts:
+...     if (packet.haslayer(ICMP)):
+...         print("ICMP code: {packet.getlayer(ICMP).code}")
+
+P.s. Use 4 space for tab

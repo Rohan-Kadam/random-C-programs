@@ -1,0 +1,27 @@
+>> List all commands
+lsc()
+
+>> Test code
+>>> pkt = sniff(count=1)
+>>> type(pkt)
+scapy.plist.PacketList
+>>> pkt
+
+>>> pkt[0].summary()
+'Ether / IP / ICMP 172.16.20.10 >>> 4.2.2.1 echo-request 0 / Raw'
+>>>
+>> Here, pkt is variable and sniff func sniff's packet stores value in pkt. Count specifies number of packets to sniff.
+>> type func tells us the type of variable
+>> pkt will display count of packets belonging to various protocols that are sniffed into pkt variable.
+>> pkt[0].summary() displays detailed info, without [0] this command displays info of all sniffed packetes
+
+>> Layers and protocols supported list [NOT WORKING]
+explore()
+OR
+explore(scapy.layers.dhcp)
+
+>> Check available protocols
+ls()
+
+>> Check available fields in available protocols
+ls(Ether),ls(IP),ls(UDP),..

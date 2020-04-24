@@ -1,0 +1,6 @@
+Script 1 > Generate ICMP
+
+Script 2 > Monitor ARP
+
+Script 3 > Monitor ARP + Using PRN
+What the prn argument lets us do is replace the default Scapy printout of the packet summary and run our own function to determine how Scapy prints out. That’s really cool! It works by passing the packet object to the defined function, in this case arp_display(), each time a packet is sniffed that matches the specified filter.

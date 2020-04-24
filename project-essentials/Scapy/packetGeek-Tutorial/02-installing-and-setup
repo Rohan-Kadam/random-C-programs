@@ -1,0 +1,21 @@
+>> Base installation
+install python3
+git clone <scapy-github-link>
+
+>> Ipython is recommended for better experience
+pip3 install ipython
+
+>> Check default interface
+localhost:~ packetgeek$ scapy
+Welcome to Scapy (2.2.0)
+>>> conf.iface
+'en0'
+
+>> Set default interface or mention it in each instruction using iface="<interface-name>"
+>>> conf.iface="en3"
+OR
+>>> sniff(count=10, iface="en3")
+>>> send(pkt, iface="en3")
+
+>> Some Scapy actions might need Root permissions
+Use sudo 
