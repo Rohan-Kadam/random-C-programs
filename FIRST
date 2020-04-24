@@ -80,6 +80,21 @@ netstat -tulpn
 
 echo "Download vncviewer deb file from https://www.realvnc.com/en/connect/download/viewer/linux/ and dpkg -i xyz.deb to install it"
 
-  
-  
+#For gitlab
+sudo apt install libcurl4-gnutls-dev
+#Change hostname
+hostname=rohan@192.168.1.133  
+port=443
+trust_cert_file_location=`curl-config --ca`
+sudo bash -c "echo -n | openssl s_client -showcerts -connect $hostname:$port \
+    2>/dev/null  | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'  \
+    >> $trust_cert_file_location"
+sudo apt-get install --reinstall ca-certificates
+sudo mkdir /usr/local/share/ca-certificates/cacert.org
+sudo wget -P /usr/local/share/ca-certificates/cacert.org http://www.cacert.org/certs/root.crt http://www.cacert.org/certs/class3.crt
+sudo update-ca-certificates
+git config --global http.sslCAinfo /etc/ssl/certs/ca-certificates.crt
+#Maybe just making it false should also make git clone work (TRY THIS FIRST)
+git config --global http.sslverify false
+#Now you can git clone from gitlab (a ssh-key was also added, not sure if its required or not)
   
