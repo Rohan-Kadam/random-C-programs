@@ -1,0 +1,1217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr"
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:fb="http://www.facebook.com/2008/fbml"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortlink" href="https://www.slashroot.in/iperf-how-test-network-speedperformancebandwidth" />
+<link rel="canonical" href="https://www.slashroot.in/iperf-how-test-network-speedperformancebandwidth" />
+<link rel="shortcut icon" href="https://www.slashroot.in/sites/default/files/slashroot%20favicon.png" type="image/png" />
+<meta name="description" content="How to do network speed test with iperf, Determine network bandwidth,throughput,jitter,and data gram loss with iperf,iperf in windows and linux usage and examples." />
+<meta property="fb:app_id" content="" />
+<script src="https://www.google.com/recaptcha/api.js?hl=en" async="async" defer="defer"></script>
+<meta property="og:title" content="IPERF: How to test network Speed,Performance,Bandwidth" />
+<meta property="og:site_name" content="slashroot.in" />
+  <title>IPERF: How to test network Speed,Performance,Bandwidth</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1, user-scalable=no" />
+    
+  <link type="text/css" rel="stylesheet" href="https://www.slashroot.in/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.slashroot.in/sites/default/files/css/css_GqCqCmGspWzZsDVTgkFoFb2eEt4xaByq4GFNcVi8QG4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.slashroot.in/sites/default/files/css/css_8zZXdeNdblcRF_IDwJMt9ffHBgBJMpJQxCKB-cladpM.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.slashroot.in/sites/default/files/css/css_NtOTtvlH6zw9Yg-M_J5fFIAf9T4r8pDC3_cCtJ6b-lU.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.slashroot.in/sites/default/files/css/css_D4_dhkptfvS2XFXMJfn9kSEuor4G48I4Pk0asSFumIE.css" media="screen,projection" />
+<link type="text/css" rel="stylesheet" href="https://www.slashroot.in/sites/default/files/css/css_4xPHSxvWnvZQhS4mEWNK1GC06U9SZeIPVejrE3w03fU.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.slashroot.in/sites/default/files/css/css_Kxvv5Q7rNS4nxRPMdYDXB0mH_sLr9g5ZycKCQcfx6FE.css" media="print" />
+<link type="text/css" rel="stylesheet" href="https://www.slashroot.in/sites/default/files/css/css_20s53WOBYii2UTLLOUMTP9PoVd-DY0uBcZpL5DQYbew.css" media="(min-width: 479px)" />
+<link type="text/css" rel="stylesheet" href="https://www.slashroot.in/sites/default/files/css/css_BvmFv7gSj-xAh36hR8wdAQFoTAgNs71JXhfMvI77-BA.css" media="(min-width: 767px)" />
+<link type="text/css" rel="stylesheet" href="https://www.slashroot.in/sites/default/files/css/css_YqEuZ-snY_FFwfRqXAPPfCv3CwxMjooCEJ-O5sQ0bDw.css" media="all and (min-width: 980px) and (min-device-width: 980px), all and (max-device-width: 1024px) and (min-width: 1024px) and (orientation:landscape)" />
+
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="https://www.slashroot.in/sites/default/files/css/css_P6BG7Svq1lae_rnilrSh69hXLIm18N_8e-jeOYpGlzo.css" media="all" />
+<![endif]-->
+  <script type="text/javascript" src="https://www.slashroot.in/sites/default/files/js/js_UWQINlriydSoeSiGQxToOUdv493zEa7dpsXC1OtYlZU.js"></script>
+<script type="text/javascript" src="https://www.slashroot.in/sites/default/files/js/js_Bt48dCbG2qxHdrcn99bLRnxO8fSsUdDZRHLTIphG4SU.js"></script>
+<script type="text/javascript" src="https://www.slashroot.in/sites/default/files/js/js_E0m0AhQda-Y7Pno3axfFASCjCk1sBU0NKh9doX_gG7w.js"></script>
+<script type="text/javascript" src="https://www.slashroot.in/sites/default/files/js/js_smUXg3gRMh4rJEAHjUOSQEPWrpbAZpSZ3_uTz2LX_dM.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-35287141-1", {"cookieDomain":"auto"});ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.slashroot.in/sites/default/files/js/js_eGW-NwsO0Ku5W0LKJ17n5uWYW2_1DXL5vfko9Xj66vc.js"></script>
+<script type="text/javascript" src="https://www.slashroot.in/sites/default/files/js/js_ZvRUJXMTQ0AK-_cMufEUZsAL6kRQwjunywFDe6SEIAk.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"news_center","theme_token":"ghxTi8DpahK5V4Cvx1vSAb24k7X7mlOf3KlBMaHbepk","js":{"sites\/all\/modules\/syntaxhighlighter\/syntaxhighlighter.min.js":1,"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"misc\/ui\/jquery.ui.core.min.js":1,"misc\/ui\/jquery.ui.widget.min.js":1,"modules\/syntaxhighlighter_insert\/syntaxhighlighter_insert.utils.js":1,"modules\/syntaxhighlighter_insert\/syntaxhighlighter_insert.js":1,"misc\/ui\/jquery.ui.button.min.js":1,"misc\/ui\/jquery.ui.mouse.min.js":1,"misc\/ui\/jquery.ui.draggable.min.js":1,"misc\/ui\/jquery.ui.position.min.js":1,"misc\/ui\/jquery.ui.resizable.min.js":1,"misc\/ui\/jquery.ui.dialog.min.js":1,"sites\/all\/modules\/views\/js\/jquery.ui.dialog.patch.js":1,"misc\/jquery.cookie.js":1,"misc\/jquery.form.js":1,"misc\/form.js":1,"misc\/ajax.js":1,"sites\/all\/libraries\/syntaxhighlighter_3.0.83\/scripts\/shCore.js":1,"sites\/all\/libraries\/syntaxhighlighter_3.0.83\/scripts\/shAutoloader.js":1,"sites\/default\/files\/syntaxhighlighter.autoloader.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/colorbox\/styles\/stockholmsyndrome\/colorbox_style.js":1,"modules\/jquerymenu\/jquerymenu.js":1,"sites\/all\/modules\/captcha\/captcha.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1,"misc\/progress.js":1,"sites\/all\/modules\/fivestar\/js\/fivestar.ajax.js":1,"sites\/all\/modules\/fivestar\/js\/fivestar.js":1,"misc\/textarea.js":1,"modules\/filter\/filter.js":1,"sites\/all\/themes\/news_center\/js\/news_center.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.button.css":1,"misc\/ui\/jquery.ui.resizable.css":1,"misc\/ui\/jquery.ui.dialog.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/youtube\/css\/youtube.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"modules\/codefilter\/codefilter.css":1,"sites\/all\/modules\/colorbox\/styles\/stockholmsyndrome\/colorbox_style.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"modules\/geshifilter\/geshifilter.css":1,"modules\/jquerymenu\/jquerymenu.css":1,"sites\/all\/libraries\/syntaxhighlighter_3.0.83\/styles\/shCore.css":1,"sites\/all\/libraries\/syntaxhighlighter_3.0.83\/styles\/shThemeMDUltra.css":1,"modules\/syntaxhighlighter_insert\/syntaxhighlighter_insert_wysiwyg\/syntaxhighlighter_insert_wysiwyg.css":1,"sites\/all\/modules\/fivestar\/widgets\/outline\/outline.css":1,"sites\/all\/modules\/widgets\/widgets.css":1,"sites\/all\/modules\/fivestar\/css\/fivestar.css":1,"modules\/filter\/filter.css":1,"sites\/all\/themes\/news_center\/css\/blueprint\/screen.css":1,"sites\/all\/themes\/news_center\/css\/wireframes.css":1,"sites\/all\/themes\/news_center\/css\/layout-fixed.css":1,"sites\/all\/themes\/news_center\/css\/page-backgrounds.css":1,"sites\/all\/themes\/news_center\/css\/tabs.css":1,"sites\/all\/themes\/news_center\/css\/pages.css":1,"sites\/all\/themes\/news_center\/css\/blocks.css":1,"sites\/all\/themes\/news_center\/css\/navigation.css":1,"sites\/all\/themes\/news_center\/css\/views-styles.css":1,"sites\/all\/themes\/news_center\/css\/nodes.css":1,"sites\/all\/themes\/news_center\/css\/comments.css":1,"sites\/all\/themes\/news_center\/css\/forms.css":1,"sites\/all\/themes\/news_center\/css\/fields.css":1,"sites\/all\/themes\/news_center\/css\/mobile-portrait-layout.css":1,"sites\/all\/themes\/news_center\/css\/news_center.css":1,"sites\/all\/themes\/news_center\/css\/blueprint\/print.css":1,"sites\/all\/themes\/news_center\/css\/mobile-landscape-layout.css":1,"sites\/all\/themes\/news_center\/css\/tablet-layout.css":1,"sites\/all\/themes\/news_center\/css\/screen-layout.css":1,"sites\/all\/themes\/news_center\/css\/blueprint\/ie.css":1,"sites\/all\/themes\/news_center\/css\/ie-mobile-landscape-layout.css":1,"sites\/all\/themes\/news_center\/css\/ie-tablet-layout.css":1,"sites\/all\/themes\/news_center\/css\/ie-screen-layout.css":1}},"colorbox":{"opacity":"0.85","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"jquerymenu":{"hover":0,"animate":0,"edit_link":0,"click_to_expand":0},"syntaxhighlighter":{"useAutoloader":true},"syntaxhighlighter_insert_wysiwyg":{"current_form":"form-YYR2tt_gK6MGVKRxkRLbCYBzYRr6rUrOf4ibLzcLleY"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"urlIsAjaxTrusted":{"\/how-redirect-non-www-www-https-using-nginx":true,"\/system\/ajax":true,"\/iperf-how-test-network-speedperformancebandwidth":true,"\/comment\/reply\/41":true},"ajax":{"edit-vote--2":{"callback":"fivestar_ajax_submit","event":"change","url":"\/system\/ajax","submit":{"_triggering_element_name":"vote"}}},"wysiwyg":{"triggers":{"edit-comment-body-und-0-format--2":{"field":"edit-comment-body-und-0-value","formatplain_text":{"editor":"none","status":1,"toggle":1,"resizable":1}}}}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-41 node-type-article section-iperf-how-test-network-speedperformancebandwidth with-wireframes" >
+  <div id="skip-link">
+    <a href="#main-menu" class="element-invisible element-focusable">Jump to Navigation</a>
+  </div>
+    
+<div id="page-wrapper" class="container" ><div id="page">
+		
+		  
+	
+  <div id="header"><div class="section clearfix">
+
+          <a href="/" title="Home" rel="home" id="logo"><img src="https://www.slashroot.in/sites/all/themes/news_center/logo.png" alt="Home" /></a>
+	  <a href="/" title="Home" rel="home" id="mobile-logo"><img src="/sites/all/themes/news_center/logo_mobile.png" alt="Home" /></a>
+    
+    	
+	  <div class="region region-top-area">
+    <div id="block-multiblock-1" class="block block-multiblock first last odd">
+
+      
+  <div class="content">
+    <form action="/how-redirect-non-www-www-https-using-nginx" method="post" id="search-block-form--2" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--4">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--4" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--3"><input type="submit" id="edit-submit--3" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-LDsHJ2cFzBgfLM8TD_n3EceEf-FJgl17awNlI1UgZCM" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>  </div>
+
+</div><!-- /.block -->
+  </div><!-- /.region -->
+    
+
+      <div class="region region-header">
+    <div id="block-menu-menu-news-categories" class="block block-menu first last odd">
+
+      
+  <div class="content">
+    <ul class="menu"><li class="first leaf"><a href="/" title="">Home Page</a></li>
+<li class="leaf"><a href="http://slashroot.in/about-us" title="About Us">About Us</a></li>
+<li class="leaf"><a href="/contact" title="Leave a message for us">Contact Us</a></li>
+<li class="leaf"><a href="http://slashroot.in/archive" title="A Place to Find all our blog posts">Archive</a></li>
+<li class="leaf active-trail"><a href="/taxonomy/term/2" title="Archives" class="active-trail">Archives</a></li>
+<li class="leaf"><a href="/security-notes" title="Security Notes">Security Notes</a></li>
+<li class="leaf"><a href="/technical-news" title="Technical News">Technical News</a></li>
+<li class="last leaf"><a href="/networking" title="Networking">Networking</a></li>
+</ul>  </div>
+
+</div><!-- /.block -->
+  </div><!-- /.region -->
+
+  </div></div><!-- /.section, /#header -->
+
+  <div id="main-wrapper"><div id="main" class="clearfix">
+
+    <div id="content" class="column"><div class="section">
+            <div class="breadcrumb"><h2 class="element-invisible">You are here</h2><a href="/">Home</a> › <a href="/taxonomy/term/2">Archives</a> › IPERF: How to test network Speed,Performance,Bandwidth › IPERF: How to test network Speed,Performance,Bandwidth</div>	  
+	  	  
+      <a id="main-content"></a>
+                    <h1 class="title" id="page-title">IPERF: How to test network Speed,Performance,Bandwidth</h1>
+                                    	  	  	          <div class="region region-content">
+    <div id="block-block-23" class="block block-block first odd">
+
+      
+  <div class="content">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Top Leader Board -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-9991091909130716"
+     data-ad-slot="6332646983"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>  </div>
+
+</div><!-- /.block -->
+<div id="block-widgets-s-addthis-share" class="block block-widgets even">
+
+      
+  <div class="content">
+    <div id="widgets-element-addthis-share" class="widgets widgets-set widgets-set-horizontal widgets-style-horizontal"><div id="widgets-element-socialmedia_addthis-tweet" class="widgets widgets-element widgets-element-horizontal widgets-style-horizontal"><a class="addthis_button_tweet" tw:count="vertical" tw:via="MMThemes.com"></a></div><div id="widgets-element-socialmedia_addthis-facebook-like" class="widgets widgets-element widgets-element-horizontal widgets-style-horizontal"><a class="addthis_button_facebook_like" fb:like:layout="box_count" ></a></div><div id="widgets-element-socialmedia_addthis-google-plusone" class="widgets widgets-element widgets-element-horizontal widgets-style-horizontal"><a class="addthis_button_google_plusone" g:plusone:size="tall"></a></div><div id="widgets-element-socialmedia_addthis-addthis-counter" class="widgets widgets-element widgets-element-horizontal widgets-style-horizontal"><a class="addthis_counter"></a></div><div class="widgets-clear"></div></div><script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username="></script>  </div>
+
+</div><!-- /.block -->
+<div id="block-system-main" class="block block-system last odd">
+
+      
+  <div class="content">
+    <div id="node-41" class="node node-article node-promoted view-mode-full clearfix" about="/iperf-how-test-network-speedperformancebandwidth" typeof="sioc:Item foaf:Document">
+
+   
+    <div class="user-picture">
+    <img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/thumbnail/public/pictures/picture-181-1382180258.png?itok=jqwX8EBB" alt="Sarath Pillai&#039;s picture" title="Sarath Pillai&#039;s picture" />  </div>
+  
+      <span property="dc:title" content="IPERF: How to test network Speed,Performance,Bandwidth" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="21" datatype="xsd:integer" class="rdf-meta element-hidden"></span>
+  
+      <div class="submitted">
+      <span property="dc:date dc:created" content="2013-02-04T19:59:20+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" about="/users/sarath-pillai" typeof="sioc:UserAccount" property="foaf:name" datatype="">Sarath Pillai</span> on Mon, 02/04/2013 - 19:59</span>    </div>
+  
+  <div class="content">
+    <div class="field field-name-field-image field-type-image field-label-hidden"><div class="field-items"><div class="field-item even" rel="og:image rdfs:seeAlso" resource="https://www.slashroot.in/sites/default/files/styles/article_image_full_node/public/field/image/speed%20test.jpg?itok=UmCUGZLG"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/article_image_full_node/public/field/image/speed%20test.jpg?itok=UmCUGZLG" width="170" height="153" alt="Internet Speed Test in Linux" /></div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p><span style="font-size:16px;">Testing network performance in terms of speed and bandwidth is a norm in both production and non-production environment.</span></p><p><span style="font-size:16px;">A detailed report of speed and bandwidth analysis is very much necessary for the deployment of network dependent application servers. Also sometimes you need to double check the speed of your network throughput while troubleshooting. All these requires a reliable network performance testing tool. This post will be concentrating on one such tool called as <strong>"iperf"</strong></span>.</p><p><span style="font-size:16px;"><strong>IPERF </strong>is an open source tool that can be used to test network performance. Iperf is much more reliable in its test results compared to many other online network speed test providers.</span></p><p><span style="font-size:16px;">An added advantage of using IPERF for testing network performance is the fact that, it is very reliable if you have two servers, both in geographically different locations, and you want to measure network performance between them.</span></p><p>&nbsp;</p><h2><span style="color:#800080;">How to install iperf?</span></h2><p><span style="font-size:16px;">Installing iperf is very much easy, if you have epel yum repository enabled(in redhat system's).</span></p>
+<pre class="brush: bash; auto-links: true; collapse: false; first-line: 1; html-script: false; smart-tabs: true; tab-size: 4; toolbar: true; codetag">[root@slashroot1 ~]# yum install iperf
+
+================================================================================
+&nbsp;Package&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Arch&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Version&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Repository&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Size
+================================================================================
+Installing:
+&nbsp;iperf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i386&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.0.5-1.el5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; epel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 52 k</pre>
+<p><span style="font-size:16px;">Installing iperf from source is also very much easy. Just download the iperf source package from <a href="http://sourceforge.net/projects/iperf/">Iperf Source Package</a> </span></p><p><span style="font-size:16px;">And do a normal source installation steps as follows.</span></p>
+<pre class="brush: bash; auto-links: true; collapse: false; first-line: 1; html-script: false; smart-tabs: true; tab-size: 4; toolbar: true; codetag">#tar -xvf iperf-2.0.5.tar.gz</pre>
+<p><span style="font-size:16px;">The above command will extract the tar package You downloaded from the above link.</span></p><p><span style="font-size:16px;">Now get inside the extracted directory and run the below command to configure, with the default options.</span></p>
+<pre class="brush: bash; auto-links: true; collapse: false; first-line: 1; html-script: false; smart-tabs: true; tab-size: 4; toolbar: true; codetag">[root@slashroot2 ~]# cd iperf-2.0.5
+[root@slashroot2 iperf-2.0.5]# ./configure</pre>
+<p>&nbsp;</p><p><span style="font-size:16px;">Now lets compile it with "make" command, and then install it using "make install" command.</span></p>
+<pre class="brush: bash; auto-links: true; collapse: false; first-line: 1; html-script: false; smart-tabs: true; tab-size: 4; toolbar: true; codetag">[root@slashroot2 iperf-2.0.5]# make
+[root@slashroot2 iperf-2.0.5]# make install</pre>
+<h2><span style="color:#800080;">How to install iperf in windows machine?</span></h2><p><span style="font-size:16px;">Installing iperf in windows is also quite easy. Lets see how.</span></p><p><span style="font-size:16px;">You can download iperf for windows from<a href="http://iperf.fr/download/iperf_2.0.5/iperf-2.0.5-2-win32.zip"> Iperf For windows</a></span>. <span style="font-size:16px;">Now unzip this zip file to a folder named "iperf" and run the iperf.exe inside that directory. </span></p><p><span style="font-size:16px;">For example i have extracted, the iperf zip in <strong>C:\iperf</strong> directory, so will open the Windows CMD, and navigate to that directory, to run the iperf.exe command.</span></p>
+<pre class="brush: bash; auto-links: true; collapse: false; first-line: 1; html-script: false; smart-tabs: true; tab-size: 4; toolbar: true; codetag">C:\&gt;cd C:\iperf
+C:\iperf&gt;iperf.exe</pre>
+<h2>&nbsp;</h2><h2><span style="color:#800080;">How to test the network speed between one windows machine and a linux machine?</span></h2><p><span style="font-size:16px;">As i told before, iperf can be used to perform speed test between remote machine's. It works in a client server model.</span></p><p><span style="font-size:16px;"><img alt="note" src="http://www.slashroot.in/images/important%20note.gif" style="width: 70px; height: 70px; float: left;"></span><span style="font-size:16px;">The operating system does not matter, while you are using iperf. The commands for using iperf on windows is exactly the same as in linux. And also other operating system. Normally in the test environment, iperf client sends data to the server for the test.</span></p><p><span style="font-size:16px;">Before going ahead with the test, lets understand some networking concepts related to speed test.</span></p><p><u><strong><span style="font-size:16px;">Network Throughput</span></strong></u></p><p><span style="font-size:16px;">Transfer rate of data from one place to another with respect to time is called as throughput. Throughput is considered a quality measuring metric for hard disks,network etc. Its measured in Kbps(Kilo bits per second),Mbps(Mega bits per second),Gbps(Giga bits per second.)</span></p><p><u><strong><span style="font-size:16px;">TCP Window</span></strong></u></p><p><span style="font-size:16px;">TCP (Transmission Control Protocol), is a reliable transport layer protocol used for network communications. How TCP works, is beyond the scope of this article. TCP works on a reliable manner, by sending messages and waiting for acknowledgement from the receiver.</span></p><p><span style="font-size:16px;">Whenever two machine's are communicating with each other, then each of them will inform the other, about the amount of bytes it is ready to receive at one time</span>.</p><p><span style="font-size:16px;">In other words, the maximum amount of data that a sender can send the other end, without an acknowledgement is called as Window Size.</span> <span style="font-size:16px;">This TCP window size affects network throughput very badly sometimes. Lets take an example.</span></p><p><span style="font-size:16px;">Suppose you want to send a 500MB of data from one machine to the other, with the tcp window size of 64KB.</span></p><p><span style="font-size:16px;">Which means for sending the whole 500MB data, the sending machine has to wait 800 times for an acknowledgement from the receiver.</span></p><p><span style="font-size:16px;">500MB / 64KB = 800</span></p><p><span style="font-size:16px;">So you can clearly see that, if you increase the Window size a little bit to tune TCP, it can bring significant difference to the throughput achieved.</span></p><p><span style="font-size:16px;">Suppose you have a windows machine and want to measure the speed between it and another Linux machine, then you need to make one as client, and another as the server. Lets see how.</span></p><p><span style="font-size:16px;">We will make our windows machine the server and the Linux machine as the client.</span></p>
+<pre class="brush: bash; auto-links: true; collapse: false; first-line: 1; html-script: false; smart-tabs: true; tab-size: 4; toolbar: true; codetag">C:\iperf&gt;iperf.exe -s
+------------------------------------------------------------
+Server listening on TCP port 5001
+TCP window size: 64.0 KByte (default)
+------------------------------------------------------------</pre>
+<p><span style="font-size:16px;"><strong>-S</strong> argument is used for specifying server</span></p><p><span style="font-size:16px;">The above command, starts iperf server on the windows machine, and it bydefault runs on the port 5001 by default.(It also reports that the default TCP window size is 64.0KB).</span></p><p><span style="font-size:16px;">Lets test the throughput from the Linux client machine, as shown below.</span></p>
+<pre class="brush: bash; auto-links: true; collapse: false; first-line: 1; html-script: false; smart-tabs: true; tab-size: 4; toolbar: true; codetag">[root@slashroot2 ~]# iperf -c 192.168.0.101
+------------------------------------------------------------
+Client connecting to 192.168.0.101, TCP port 5001
+TCP window size: 16.0 KByte (default)
+------------------------------------------------------------
+[&nbsp; 3] local 192.168.0.102 port 47326 connected with 192.168.0.101 port 5001
+[ ID] Interval&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Transfer&nbsp;&nbsp;&nbsp;&nbsp; Bandwidth
+[&nbsp; 3]&nbsp; 0.0-10.0 sec&nbsp;&nbsp; 308 MBytes&nbsp;&nbsp; 258 Mbits/sec</pre>
+<p><span style="font-size:16px;">From the above output, you can see that i got a speed of 258Mbits/sec. The ouput shows something more.</span></p><p><div id="block-block-24--2" class="block block-block even">
+
+      
+  <div class="content">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Large Rectangle Inline -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-9991091909130716"
+     data-ad-slot="6059250985"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>  </div>
+
+</div><!-- /.block -->
+<p><strong><span style="font-size:16px;">Interval:&nbsp; </span></strong><span style="font-size:16px;">Interval specifies the time duration for which the data is transferred.</span></p><p><strong><span style="font-size:16px;">Transfer: </span></strong><span style="font-size:16px;">All data transferred using iperf is through memory, and is flushed out after completing the test. So there is no need to clear the transferred file after the test. This column shows the transferred data size.</span></p><p><strong><span style="font-size:16px;">Bandwidth: </span></strong><span style="font-size:16px;">This shows the rate of speed with which the data is transferred.</span></p><p>&nbsp;</p><p><span style="font-size:16px;">You can start your iperf server on your desired port with the following method.</span></p>
+<pre class="brush: bash; auto-links: true; collapse: false; first-line: 1; html-script: false; smart-tabs: true; tab-size: 4; toolbar: true; codetag">C:\iperf&gt;iperf.exe -s -p 2000
+------------------------------------------------------------
+Server listening on TCP port 2000
+TCP window size: 64.0 KByte (default)
+------------------------------------------------------------</pre>
+<p><span style="font-size:16px;">Also you can tell the client to connect to your desired server port and also tweak some more connection and reporting parameter's as shown below.</span></p>
+<pre class="brush: bash; auto-links: true; collapse: false; first-line: 1; html-script: false; smart-tabs: true; tab-size: 4; toolbar: true; codetag">root@slashroot2 ~]# iperf -c 192.168.0.101 -t 20 -p 2000 -w 40k
+
+------------------------------------------------------------
+Client connecting to 192.168.0.101, TCP port 2000
+TCP window size: 80.0 KByte (WARNING: requested 40.0 KByte)
+------------------------------------------------------------
+[&nbsp; 3] local 192.168.0.1[02 port 60961 connected with 192.168.0.101 port 2000
+[ ID] Interval&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Transfer&nbsp;&nbsp;&nbsp;&nbsp; Bandwidth
+[&nbsp; 3]&nbsp; 0.0-20.0 sec&nbsp; 1.74 GBytes&nbsp;&nbsp; 747 Mbits/sec</pre>
+<p><strong><span style="font-size:16px;">-t</span></strong>&nbsp; <span style="font-size:16px;">option used in the above command tells to transfer data for 20 seconds.</span></p><p><strong><span style="font-size:16px;">-p&nbsp; </span></strong><span style="font-size:16px;">will tell the client to connect the port 2000 on the server</span></p><p><strong><span style="font-size:16px;">-w</span></strong> <span style="font-size:16px;">will specify your desired window size value. As i told before, window size tuning will improve TCP transfer rate to a certain extent.</span></p><p><span style="font-size:16px;">And you can clearly see from the above output that the bandwidth for the whole transfer has increased, as we have increased the window size(I am using two virtual machine's in one physical box for this iperf demonstration, which is the reason am getting exceptional transfer rate's).</span></p><p><span style="font-size:16px;">You can also tell the iperf client to show the transfer rate at an interval of 1 second, for the whole 10 second transfer, as shown below with <strong>-i</strong></span> <span style="font-size:16px;">option.</span></p>
+<pre class="brush: bash; auto-links: true; collapse: false; first-line: 1; html-script: false; smart-tabs: true; tab-size: 4; toolbar: true; codetag">[root@slashroot2 ~]# iperf -c 192.168.0.100 -P 1 -i 1
+------------------------------------------------------------
+Client connecting to 192.168.0.100, TCP port 5001
+TCP window size: 16.0 KByte (default)
+------------------------------------------------------------
+[&nbsp; 3] local 192.168.0.102 port 49597 connected with 192.168.0.100 port 5001
+[ ID] Interval&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Transfer&nbsp;&nbsp;&nbsp;&nbsp; Bandwidth
+[&nbsp; 3]&nbsp; 0.0- 1.0 sec&nbsp; 28.6 MBytes&nbsp;&nbsp; 240 Mbits/sec
+[&nbsp; 3]&nbsp; 1.0- 2.0 sec&nbsp; 25.9 MBytes&nbsp;&nbsp; 217 Mbits/sec
+[&nbsp; 3]&nbsp; 2.0- 3.0 sec&nbsp; 26.5 MBytes&nbsp;&nbsp; 222 Mbits/sec
+[&nbsp; 3]&nbsp; 3.0- 4.0 sec&nbsp; 26.6 MBytes&nbsp;&nbsp; 223 Mbits/sec
+[&nbsp; 3]&nbsp; 4.0- 5.0 sec&nbsp; 26.0 MBytes&nbsp;&nbsp; 218 Mbits/sec
+[&nbsp; 3]&nbsp; 5.0- 6.0 sec&nbsp; 26.2 MBytes&nbsp;&nbsp; 220 Mbits/sec
+[&nbsp; 3]&nbsp; 6.0- 7.0 sec&nbsp; 26.8 MBytes&nbsp;&nbsp; 224 Mbits/sec
+[&nbsp; 3]&nbsp; 7.0- 8.0 sec&nbsp; 26.0 MBytes&nbsp;&nbsp; 218 Mbits/sec
+[&nbsp; 3]&nbsp; 8.0- 9.0 sec&nbsp; 25.8 MBytes&nbsp;&nbsp; 216 Mbits/sec
+[&nbsp; 3]&nbsp; 9.0-10.0 sec&nbsp; 26.4 MBytes&nbsp;&nbsp; 221 Mbits/sec
+[&nbsp; 3]&nbsp; 0.0-10.0 sec&nbsp;&nbsp; 265 MBytes&nbsp;&nbsp; 222 Mbits/sec</pre>
+<p><span style="font-size:16px;">Until now we have only seen the throughput of one TCP connection. Because when you run iperf, by default if only creates one TCP connection with the remote server. </span></p><p>&nbsp;</p><p><span style="font-size:16px;"><img alt="note" src="http://www.slashroot.in/images/important%20note.gif" style="width: 70px; height: 70px; float: left;">You Might have noticed that some internet Download manager's are so fast while they download any content from the internet, compared to the normal operating system downloader. The main reason behind it is the fact that they work on "Parallel TCP connections." One such download manager, that i remember is <a href="http://www.internetdownloadmanager.com">"Internet Download Manager"</a></span>.</p><p><span style="font-size:16px;">Let's check the throughput report by increasing the number of parallel connections using "iperf"</span>.</p>
+<pre class="brush: bash; auto-links: true; collapse: false; first-line: 1; html-script: false; smart-tabs: true; tab-size: 4; toolbar: true; codetag">[root@slashroot2 ~]# iperf -c 192.168.0.100 -P 20
+------------------------------------------------------------
+Client connecting to 192.168.0.100, TCP port 5001
+TCP window size: 16.0 KByte (default)
+------------------------------------------------------------
+[ 15] local 192.168.0.102 port 57258 connected with 192.168.0.100 port 5001
+[&nbsp; 3] local 192.168.0.102 port 57246 connected with 192.168.0.100 port 5001
+[&nbsp; 4] local 192.168.0.102 port 57247 connected with 192.168.0.100 port 5001
+[&nbsp; 5] local 192.168.0.102 port 57248 connected with 192.168.0.100 port 5001
+[&nbsp; 7] local 192.168.0.102 port 57250 connected with 192.168.0.100 port 5001
+[&nbsp; 6] local 192.168.0.102 port 57249 connected with 192.168.0.100 port 5001
+[ 10] local 192.168.0.102 port 57253 connected with 192.168.0.100 port 5001
+[&nbsp; 8] local 192.168.0.102 port 57251 connected with 192.168.0.100 port 5001
+[&nbsp; 9] local 192.168.0.102 port 57252 connected with 192.168.0.100 port 5001
+[ 16] local 192.168.0.102 port 57259 connected with 192.168.0.100 port 5001
+[ 19] local 192.168.0.102 port 57261 connected with 192.168.0.100 port 5001
+[ 18] local 192.168.0.102 port 57260 connected with 192.168.0.100 port 5001
+[ 20] local 192.168.0.102 port 57262 connected with 192.168.0.100 port 5001
+[ 17] local 192.168.0.102 port 57263 connected with 192.168.0.100 port 5001
+[ 21] local 192.168.0.102 port 57264 connected with 192.168.0.100 port 5001
+[ 11] local 192.168.0.102 port 57254 connected with 192.168.0.100 port 5001
+[ 12] local 192.168.0.102 port 57255 connected with 192.168.0.100 port 5001
+[ 13] local 192.168.0.102 port 57256 connected with 192.168.0.100 port 5001
+[ 14] local 192.168.0.102 port 57257 connected with 192.168.0.100 port 5001
+[ 22] local 192.168.0.102 port 57265 connected with 192.168.0.100 port 5001
+[ ID] Interval&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Transfer&nbsp;&nbsp;&nbsp;&nbsp; Bandwidth
+[&nbsp; 8]&nbsp; 0.0-10.6 sec&nbsp; 16.6 MBytes&nbsp; 13.1 Mbits/sec
+[ 16]&nbsp; 0.0-10.6 sec&nbsp; 16.6 MBytes&nbsp; 13.1 Mbits/sec
+[ 18]&nbsp; 0.0-10.6 sec&nbsp; 16.5 MBytes&nbsp; 13.1 Mbits/sec
+[ 17]&nbsp; 0.0-10.7 sec&nbsp; 16.6 MBytes&nbsp; 13.0 Mbits/sec
+[ 21]&nbsp; 0.0-10.7 sec&nbsp; 15.6 MBytes&nbsp; 12.3 Mbits/sec
+[ 12]&nbsp; 0.0-10.7 sec&nbsp; 17.5 MBytes&nbsp; 13.7 Mbits/sec
+[ 22]&nbsp; 0.0-10.7 sec&nbsp; 16.6 MBytes&nbsp; 13.0 Mbits/sec
+[ 15]&nbsp; 0.0-10.8 sec&nbsp; 17.8 MBytes&nbsp; 13.8 Mbits/sec
+[&nbsp; 3]&nbsp; 0.0-10.7 sec&nbsp; 18.5 MBytes&nbsp; 14.5 Mbits/sec
+[&nbsp; 4]&nbsp; 0.0-10.8 sec&nbsp; 18.1 MBytes&nbsp; 14.1 Mbits/sec
+[&nbsp; 5]&nbsp; 0.0-10.7 sec&nbsp; 17.6 MBytes&nbsp; 13.9 Mbits/sec
+[&nbsp; 7]&nbsp; 0.0-10.8 sec&nbsp; 18.4 MBytes&nbsp; 14.3 Mbits/sec
+[&nbsp; 6]&nbsp; 0.0-10.8 sec&nbsp; 17.0 MBytes&nbsp; 13.2 Mbits/sec
+[ 10]&nbsp; 0.0-10.8 sec&nbsp; 16.8 MBytes&nbsp; 13.1 Mbits/sec
+[&nbsp; 9]&nbsp; 0.0-10.8 sec&nbsp; 16.8 MBytes&nbsp; 13.0 Mbits/sec
+[ 19]&nbsp; 0.0-10.6 sec&nbsp; 16.5 MBytes&nbsp; 13.0 Mbits/sec
+[ 20]&nbsp; 0.0-10.7 sec&nbsp; 16.5 MBytes&nbsp; 12.9 Mbits/sec
+[ 11]&nbsp; 0.0-10.7 sec&nbsp; 18.0 MBytes&nbsp; 14.0 Mbits/sec
+[ 13]&nbsp; 0.0-10.7 sec&nbsp; 17.8 MBytes&nbsp; 13.9 Mbits/sec
+[ 14]&nbsp; 0.0-10.8 sec&nbsp; 18.2 MBytes&nbsp; 14.1 Mbits/sec
+[SUM]&nbsp; 0.0-10.8 sec&nbsp;&nbsp; 344 MBytes&nbsp;&nbsp; 266 Mbits/sec</pre>
+<p><span style="font-size:16px;">In the above shown example i have told iperf client to create 20 parallel TCP connections to the remote host while the data transfer. And if observe the output, you can see clearly that 20 different ports on the client is connected to the default 5001 port on the server.</span></p><p><span style="font-size:16px;">And all of the connections had different transfer rate, and at the end we got a combined throughput of 266Mbits/s.(Which is much better that a single TCP connection.)</span></p><p>&nbsp;</p><h2><span style="color:#800080;">Conducting a UDP speed test in iperf</span></h2><p><span style="font-size:16px;">Conducting a UDP speed test using iperf will provide you with a couple of more information about your network which will be very much useful in finding network bottlenecks.</span></p><p><span style="font-size:16px;">As we discussed before, not only TCP window size but network parameter's like the following also affects the throughput achieved during a connectionn.</span></p><ul><li><span style="font-size:16px;">Out of order delivery</span></li><li><span style="font-size:16px;">Network Jitter</span></li><li><span style="font-size:16px;">Packet loss out of total number of packets</span></li></ul><p><span style="font-size:16px;">For conduction an iperf udp test, you need to start the server with the <strong>-u</strong> option so that the UDP port 5001 is opened on the server side. </span></p>
+<pre class="brush: bash; auto-links: true; collapse: false; first-line: 1; html-script: false; smart-tabs: true; tab-size: 4; toolbar: true; codetag">C:\iperf&gt;iperf.exe -s -u
+------------------------------------------------------------
+Server listening on UDP port 5001
+Receiving 1470 byte datagrams
+UDP buffer size: 64.0 KByte (default)
+------------------------------------------------------------</pre>
+<p><span style="font-size:16px;">Now lets start the data transfer from the client side by sending UDP traffic.</span></p>
+<pre class="brush: bash; auto-links: true; collapse: false; first-line: 1; html-script: false; smart-tabs: true; tab-size: 4; toolbar: true; codetag">[root@slashroot2 ~]# iperf -c 192.168.0.100 -u -b 100m
+------------------------------------------------------------
+Client connecting to 192.168.0.100, UDP port 5001
+Sending 1470 byte datagrams
+UDP buffer size:&nbsp; 107 KByte (default)
+------------------------------------------------------------
+[&nbsp; 3] local 192.168.0.102 port 50836 connected with 192.168.0.100 port 5001
+[ ID] Interval&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Transfer&nbsp;&nbsp;&nbsp;&nbsp; Bandwidth
+[&nbsp; 3]&nbsp; 0.0-10.0 sec&nbsp; 97.4 MBytes&nbsp; 81.7 Mbits/sec
+[&nbsp; 3] Sent 69508 datagrams
+[&nbsp; 3] Server Report:
+[&nbsp; 3]&nbsp; 0.0-10.0 sec&nbsp; 97.4 MBytes&nbsp; 81.8 Mbits/sec&nbsp;&nbsp; 0.167 ms&nbsp;&nbsp; 49/69507 (0.07%)
+[&nbsp; 3]&nbsp; 0.0-10.0 sec&nbsp; 1 datagrams received out-of-order
+[root@slashroot2 ~]#</pre>
+<p>&nbsp;</p><p><span style="font-size:16px;">In the above example, i have used <strong>-b</strong> option to specify the bandwidth to use(because by default iperf UDP only used 1Mbps, i will recommend using your full available bandwidth to get an idea)</span></p><p><span style="font-size:16px;"><strong>-u</strong> options needs to be also used on the client side for specifying UDP traffic.</span></p><p><span style="font-size:16px;">The ouput tells us the following information.</span></p><p><span style="font-size:16px;"><strong>Bandwidth</strong> = 81.7Mbits/sec</span></p><p><span style="font-size:16px;"><strong>Network jitter</strong> = 0.167 ms (network jitter is the deviation in time for periodic arrival of data gram's. If you are doing the test with server's on the other side of the globe, then you might see higher jitter values in iperf output.)</span></p><p><strong><span style="font-size:16px;">Out of Order </span></strong>= <span style="font-size:16px;">1 datagram</span></p><p><strong><span style="font-size:16px;">Lost/Total</span></strong> =&nbsp; <span style="font-size:16px;">49/69508</span></p><p><span style="font-size:16px;">0.07 percent datagram loss is not at all significant, infact you can say that you got a nice network packet loss ratio.</span></p><p><span style="font-size:16px;">VOIP require's a very less datagram loss because its voice communication.&nbsp; A high data gram loss can drop the call altogether. So UDP testing with iperf will be very much helpful if you have VOIP or other such critical applications on your infrastructure.</span></p><p><span style="font-size:16px;">You can get all the option's related to iperf with the following command.</span></p>
+<pre><span style="font-size:16px;"><span class="geshifilter"><code class="text geshifilter-text">[root@slashroot2 ~]# iperf --help</code></span></span></pre>
+</div></div></div><div class="field field-name-field-rate field-type-fivestar field-label-inline clearfix"><div class="field-label">Rate this article:&nbsp;</div><div class="field-items"><div class="field-item even"><form class="fivestar-widget" action="/iperf-how-test-network-speedperformancebandwidth" method="post" id="fivestar-custom-widget" accept-charset="UTF-8"><div><div  class="clearfix fivestar-average-text fivestar-average-stars fivestar-form-item fivestar-default"><div class="form-item form-type-fivestar form-item-vote">
+ <div class="form-item form-type-select form-item-vote">
+ <select id="edit-vote--2" name="vote" class="form-select"><option value="-">Select rating</option><option value="20">Give it 1/5</option><option value="40">Give it 2/5</option><option value="60">Give it 3/5</option><option value="80">Give it 4/5</option><option value="100">Give it 5/5</option></select>
+<div class="description"><div class="fivestar-summary fivestar-summary-average-count"><span class="average-rating">Average: <span>3.5</span></span> <span class="total-votes">(<span>2733</span> votes)</span></div></div>
+</div>
+
+</div>
+</div><input class="fivestar-submit form-submit" type="submit" id="edit-fivestar-submit" name="op" value="Rate" /><input type="hidden" name="form_build_id" value="form-jOb4PzyCAIsIddNLHv5WncB_otlZefZIPGb0drufOC4" />
+<input type="hidden" name="form_id" value="fivestar_custom_widget" />
+</div></form></div></div></div><div class="fb-social-comments-plugin">
+  <fb:comments  numposts="10" width="550" colorscheme="light" migrated="0" href="https://www.slashroot.in/iperf-how-test-network-speedperformancebandwidth"></fb:comments>
+</div>
+
+  </div>
+
+   
+  
+    <ul class="links inline"><li class="comment-add first last active"><a href="/iperf-how-test-network-speedperformancebandwidth#comment-form" title="Share your thoughts and opinions related to this posting." class="active">Add new comment</a></li>
+</ul>
+	<div id="comments" class="comment-wrapper">
+          <h2 class="title">Comments</h2>
+      
+  <a id="comment-483"></a>
+<div class="comment comment-by-anonymous first odd clearfix" about="/comment/483#comment-483" typeof="sioc:Post sioct:Comment">
+  
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/483#comment-483" class="permalink" rel="bookmark">Thanks</a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/483#comment-483" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2013-11-20T08:23:12+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" typeof="sioc:UserAccount" property="foaf:name" datatype="">Jeff Sweet</span> on Wed, 11/20/2013 - 08:23</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>I appreciate the walk through. Gave me some good tests to see if our 1Gbps link is performing as expected.</p>
+<p>[  3] local 10.139.29.10 port 33796 connected with 10.98.242.185 port 5001<br />
+[ ID] Interval       Transfer     Bandwidth<br />
+[  3]  0.0-10.0 sec  1.11 GBytes    957 Mbits/sec<br />
+[  3] Sent 813920 datagrams<br />
+[  3] Server Report:<br />
+[ ID] Interval       Transfer     Bandwidth       Jitter   Lost/Total Datagrams<br />
+[  3]  0.0-10.0 sec  1.11 GBytes    957 Mbits/sec  0.016 ms    0/813920 (0%)</p>
+<p>This was my results. Pretty happy with that.</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/483">reply</a></li>
+</ul></div><!-- /.comment -->
+
+<div class="indented"><a id="comment-484"></a>
+<div class="comment comment-by-node-author even clearfix" about="/comment/484#comment-484" typeof="sioc:Post sioct:Comment">
+    <div class="user-picture">
+    <img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/thumbnail/public/pictures/picture-181-1382180258.png?itok=jqwX8EBB" alt="Sarath Pillai&#039;s picture" title="Sarath Pillai&#039;s picture" />  </div>
+
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/484#comment-484" class="permalink" rel="bookmark">Hi Jeff,</a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/484#comment-484" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2013-11-20T10:36:00+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" about="/users/sarath-pillai" typeof="sioc:UserAccount" property="foaf:name" datatype="">Sarath Pillai</span> on Wed, 11/20/2013 - 10:36</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><span rel="sioc:reply_of" resource="/comment/483#comment-483" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Hi Jeff,</p>
+<p>Nice to know that the tutorial was helpful in putting your link to test..</p>
+<p>And yeah.. Welcome to slashroot..</p>
+<p>Regards</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/484">reply</a></li>
+</ul></div><!-- /.comment -->
+</div><a id="comment-498"></a>
+<div class="comment comment-by-anonymous odd clearfix" about="/comment/498#comment-498" typeof="sioc:Post sioct:Comment">
+  
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/498#comment-498" class="permalink" rel="bookmark">Good One</a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/498#comment-498" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2013-12-10T15:41:58+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" typeof="sioc:UserAccount" property="foaf:name" datatype="">sridhar</span> on Tue, 12/10/2013 - 15:41</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Simple, nicely explained</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/498">reply</a></li>
+</ul></div><!-- /.comment -->
+<a id="comment-565"></a>
+<div class="comment comment-by-anonymous even clearfix" about="/comment/565#comment-565" typeof="sioc:Post sioct:Comment">
+  
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/565#comment-565" class="permalink" rel="bookmark">Packet Loss in Windows</a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/565#comment-565" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2014-02-12T17:16:48+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" typeof="sioc:UserAccount" property="foaf:name" datatype="">Romer</span> on Wed, 02/12/2014 - 17:16</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Hi, from my testing on regular windows machines, the UDP performance when using two computers with windows , versus 1 windows &gt; 1 linux and obviously linux-linux varies greatly, not only does windows seem to be much weaker in terms of achieving stable performance and higher speeds, above 100Mbits, also the packet loss phenomena seems to be much higher when a windows machine is involved, and also there is a big difference between using that windows machine as a server (weaker) or as i client.</p>
+<p>When using Linux there is no packet loss. Note that for the specific testing i&#039;m indicating, the setup is just two PCs back to back with a 2-meter ethernet cable.</p>
+<p>Is that consistent with your findings?</p>
+<p>thanks</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/565">reply</a></li>
+</ul></div><!-- /.comment -->
+
+<div class="indented"><a id="comment-566"></a>
+<div class="comment comment-by-node-author odd clearfix" about="/comment/566#comment-566" typeof="sioc:Post sioct:Comment">
+    <div class="user-picture">
+    <img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/thumbnail/public/pictures/picture-181-1382180258.png?itok=jqwX8EBB" alt="Sarath Pillai&#039;s picture" title="Sarath Pillai&#039;s picture" />  </div>
+
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/566#comment-566" class="permalink" rel="bookmark">Hi Romer, </a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/566#comment-566" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2014-02-12T19:34:00+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" about="/users/sarath-pillai" typeof="sioc:UserAccount" property="foaf:name" datatype="">Sarath Pillai</span> on Wed, 02/12/2014 - 19:34</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><span rel="sioc:reply_of" resource="/comment/565#comment-565" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Hi Romer, </p>
+<p>If you are experiencing very high packet loss in windows machine, its probably a NIC driver issue (provided you have recently upgraded your windows or applied some hotfix..try installing the original vendor driver.). Any ways upgrade the NIC driver to the latest stable version from the official nic vendor site. </p>
+<p>Secondly for achieving higher speeds, try tweaking some tcp settings on your windows machine.Like flow control, RDC, LSO etc. </p>
+<p>Regards<br />
+Sarath</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/566">reply</a></li>
+</ul></div><!-- /.comment -->
+</div><a id="comment-744"></a>
+<div class="comment comment-by-anonymous even clearfix" about="/comment/744#comment-744" typeof="sioc:Post sioct:Comment">
+  
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/744#comment-744" class="permalink" rel="bookmark">How to test tcp communication with some preddefined payload </a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/744#comment-744" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2014-06-17T15:15:16+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" typeof="sioc:UserAccount" property="foaf:name" datatype="">Prakash </span> on Tue, 06/17/2014 - 15:15</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Hi , </p>
+<p>Here is my case </p>
+<p>Virtualization host :- Xenserver ,<br />
+2 Windows 2008 R2 VM&#039;s<br />
+One is samba client and another is server<br />
+net view command returns after 17seconds delay</p>
+<p>Tcpdump suggests me , there is retransmission happening once payload increases to 1464.<br />
+While re-transmission, it breaks the payload , and this works . </p>
+<p>What i want to know:-<br />
+1) Is there any way , i can test this behaviour with iperf. I mean try to send the packets with more payload<br />
+2) DO anyone know in this situation what all things can be tried to nail down the issue ?</p>
+<p>Thanks for any sane insane advice .</p>
+<p>Prakash</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/744">reply</a></li>
+</ul></div><!-- /.comment -->
+
+<div class="indented"><a id="comment-784"></a>
+<div class="comment comment-by-anonymous odd clearfix" about="/comment/784#comment-784" typeof="sioc:Post sioct:Comment">
+  
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/784#comment-784" class="permalink" rel="bookmark">How to test tcp communication with some preddefined payload </a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/784#comment-784" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2014-07-12T03:35:49+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" typeof="sioc:UserAccount" property="foaf:name" datatype="">DBA</span> on Sat, 07/12/2014 - 03:35</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><span rel="sioc:reply_of" resource="/comment/744#comment-744" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Did you get any answers to your query?<br />
+Please share here.</p>
+<p>Thanks &amp; Regards,<br />
+Teji</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/784">reply</a></li>
+</ul></div><!-- /.comment -->
+</div><a id="comment-924"></a>
+<div class="comment comment-by-anonymous even clearfix" about="/comment/924#comment-924" typeof="sioc:Post sioct:Comment">
+  
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/924#comment-924" class="permalink" rel="bookmark"> UDP test issue</a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/924#comment-924" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2014-10-07T20:55:18+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" typeof="sioc:UserAccount" property="foaf:name" datatype="">Roger</span> on Tue, 10/07/2014 - 20:55</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>hi,<br />
+ when i use this command iperf -c 192.168.0.100 -u -b 100m to test UDP performance, i don&#039;t get the true result. And i have this message all time &quot;WARNING: did not receive ack of last datagram after 10 tries&quot;</p>
+<p>I need you to help me to solve this issue<br />
+ Thanks and best Regards</p>
+<p>Roger</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/924">reply</a></li>
+</ul></div><!-- /.comment -->
+
+<div class="indented"><a id="comment-982"></a>
+<div class="comment comment-by-anonymous odd clearfix" about="/comment/982#comment-982" typeof="sioc:Post sioct:Comment">
+  
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/982#comment-982" class="permalink" rel="bookmark">UDP test issue</a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/982#comment-982" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2014-12-06T02:32:47+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" typeof="sioc:UserAccount" property="foaf:name" datatype="">Steven</span> on Sat, 12/06/2014 - 02:32</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><span rel="sioc:reply_of" resource="/comment/924#comment-924" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>I see that when in the past I left the server in TCP. Make sure the server is setup with iperf -s -u</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/982">reply</a></li>
+</ul></div><!-- /.comment -->
+</div><a id="comment-1245"></a>
+<div class="comment comment-by-anonymous even clearfix" about="/comment/1245#comment-1245" typeof="sioc:Post sioct:Comment">
+  
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/1245#comment-1245" class="permalink" rel="bookmark">Nice explanation</a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/1245#comment-1245" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2015-11-24T08:03:15+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" typeof="sioc:UserAccount" property="foaf:name" datatype="">Moiz J</span> on Tue, 11/24/2015 - 08:03</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Thanks for making this so easier to understand.</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/1245">reply</a></li>
+</ul></div><!-- /.comment -->
+<a id="comment-2327"></a>
+<div class="comment comment-by-anonymous odd clearfix" about="/comment/2327#comment-2327" typeof="sioc:Post sioct:Comment">
+  
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/2327#comment-2327" class="permalink" rel="bookmark">Getting the hostname</a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/2327#comment-2327" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2016-07-26T14:03:43+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" typeof="sioc:UserAccount" property="foaf:name" datatype="">Ranjith Kumar</span> on Tue, 07/26/2016 - 14:03</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>I appreciate the walkthrough. I’am going to implement this iperf tool in ubuntu. I just want to know can we able to get the hostname of the client machine. If that is possible how to achieve that? Is there any way to modify the source code to get the hostname of the client machine?</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/2327">reply</a></li>
+</ul></div><!-- /.comment -->
+
+<div class="indented"><a id="comment-2328"></a>
+<div class="comment comment-by-node-author even clearfix" about="/comment/2328#comment-2328" typeof="sioc:Post sioct:Comment">
+    <div class="user-picture">
+    <img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/thumbnail/public/pictures/picture-181-1382180258.png?itok=jqwX8EBB" alt="Sarath Pillai&#039;s picture" title="Sarath Pillai&#039;s picture" />  </div>
+
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/2328#comment-2328" class="permalink" rel="bookmark">Can you elaborate?</a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/2328#comment-2328" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2016-07-26T17:21:00+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" about="/users/sarath-pillai" typeof="sioc:UserAccount" property="foaf:name" datatype="">Sarath Pillai</span> on Tue, 07/26/2016 - 17:21</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><span rel="sioc:reply_of" resource="/comment/2327#comment-2327" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Hi Ranjith,<br />
+Why do you need the hostname of the client machine?<br />
+This is a test which you can conduct by having ip addresses of the server and the client. Can you elaborate your requirement?</p>
+<p>Thanks<br />
+Sarath</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/2328">reply</a></li>
+</ul></div><!-- /.comment -->
+
+<div class="indented"><a id="comment-2470"></a>
+<div class="comment comment-by-anonymous odd clearfix" about="/comment/2470#comment-2470" typeof="sioc:Post sioct:Comment">
+  
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/2470#comment-2470" class="permalink" rel="bookmark">Hostname instead of IP Address</a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/2470#comment-2470" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2016-12-05T12:02:24+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" typeof="sioc:UserAccount" property="foaf:name" datatype="">Curious</span> on Mon, 12/05/2016 - 12:02</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><span rel="sioc:reply_of" resource="/comment/2328#comment-2328" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Hostname is required when the client or server is in the Microsoft Azure cloud. You do not have a public IP for such a machine...</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/2470">reply</a></li>
+</ul></div><!-- /.comment -->
+</div></div><a id="comment-2409"></a>
+<div class="comment comment-by-anonymous even clearfix" about="/comment/2409#comment-2409" typeof="sioc:Post sioct:Comment">
+  
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/2409#comment-2409" class="permalink" rel="bookmark">test results</a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/2409#comment-2409" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2016-11-01T04:40:45+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" typeof="sioc:UserAccount" property="foaf:name" datatype="">gabe</span> on Tue, 11/01/2016 - 04:40</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Is there any cURL software that is run in to windows?</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/2409">reply</a></li>
+</ul></div><!-- /.comment -->
+<a id="comment-2611"></a>
+<div class="comment comment-by-anonymous odd clearfix" about="/comment/2611#comment-2611" typeof="sioc:Post sioct:Comment">
+  
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/2611#comment-2611" class="permalink" rel="bookmark">iperf testing- </a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/2611#comment-2611" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2017-04-12T11:00:52+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" typeof="sioc:UserAccount" property="foaf:name" datatype="">Anonymous</span> on Wed, 04/12/2017 - 11:00</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>how can i test the payload here in iperf what will be the exact to type</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/2611">reply</a></li>
+</ul></div><!-- /.comment -->
+<a id="comment-2665"></a>
+<div class="comment comment-by-anonymous even clearfix" about="/comment/2665#comment-2665" typeof="sioc:Post sioct:Comment">
+  
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/2665#comment-2665" class="permalink" rel="bookmark">Reverse iperf3</a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/2665#comment-2665" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2017-06-20T12:56:25+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" typeof="sioc:UserAccount" property="foaf:name" datatype="">Olof</span> on Tue, 06/20/2017 - 12:56</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>A good tip is to use   -R, --reverse             run in reverse mode (server sends, client receives).</p>
+<p>It is good to test upload without having to open firewalls the other direction etc.</p>
+<p>It is possible to use in iperf3, not sure about iperf (2)</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/2665">reply</a></li>
+</ul></div><!-- /.comment -->
+<a id="comment-2826"></a>
+<div class="comment comment-by-anonymous odd clearfix" about="/comment/2826#comment-2826" typeof="sioc:Post sioct:Comment">
+  
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/2826#comment-2826" class="permalink" rel="bookmark">Can I test my laptop and ONT(Router)&#039;s link? using Iperf</a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/2826#comment-2826" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2017-12-17T10:26:40+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" typeof="sioc:UserAccount" property="foaf:name" datatype="">Nolra08</span> on Sun, 12/17/2017 - 10:26</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Can I test the link between my laptop and ONT using ethernet cable?  How can I test that? Because as I understand you can test between two computer...</p>
+<p>Computer-----Router----Computer</p>
+<p>What if I only have 1 computer...?</p>
+<p>Computer------Router</p>
+<p>I also want to know how to test its Wi-fi link..</p>
+<p>mobile devices--------Router</p>
+<p>Is it possible to test this?</p>
+<p>By the way my ONT doesnt have a Iperf services as I read on others that some routers have this services</p>
+<p>Thanks hope you reply</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/2826">reply</a></li>
+</ul></div><!-- /.comment -->
+
+<div class="indented"><a id="comment-2827"></a>
+<div class="comment comment-by-node-author even clearfix" about="/comment/2827#comment-2827" typeof="sioc:Post sioct:Comment">
+    <div class="user-picture">
+    <img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/thumbnail/public/pictures/picture-181-1382180258.png?itok=jqwX8EBB" alt="Sarath Pillai&#039;s picture" title="Sarath Pillai&#039;s picture" />  </div>
+
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/2827#comment-2827" class="permalink" rel="bookmark">test my laptop and ONT(Router)&#039;s link? using Iperf</a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/2827#comment-2827" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2017-12-17T12:06:00+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" about="/users/sarath-pillai" typeof="sioc:UserAccount" property="foaf:name" datatype="">Sarath Pillai</span> on Sun, 12/17/2017 - 12:06</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><span rel="sioc:reply_of" resource="/comment/2826#comment-2826" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Hi,<br />
+Yes. I would go with the first solution you mentioned (computer—router—computer), if your router does not have iperf binary(and does not let you install it). </p>
+<p>If not iperf check if you have tools like netcat, scp(this one is very likely to be there),curl etc. With curl you can do some level of tests with http transfer from your computer to the device. Netcat can also help you redirect some junk from your computer to the devices /dev/null. But none of these can give the level of results given by iperf. </p>
+<p>Thanks</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/2827">reply</a></li>
+</ul></div><!-- /.comment -->
+</div><a id="comment-3052"></a>
+<div class="comment comment-by-anonymous odd clearfix" about="/comment/3052#comment-3052" typeof="sioc:Post sioct:Comment">
+  
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/3052#comment-3052" class="permalink" rel="bookmark">UDP speed</a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/3052#comment-3052" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2018-04-18T19:57:24+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" typeof="sioc:UserAccount" property="foaf:name" datatype="">AV</span> on Wed, 04/18/2018 - 19:57</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Hey,</p>
+<p>Glad to see this thread is still going.</p>
+<p>I first ran iperf -c 192.168.1.141 -i 2 -r to get an overall idea of my network speed, on average I get this:</p>
+<p>[ ID] Interval       Transfer     Bandwidth<br />
+[  4]  0.0-10.0 sec  7.49 GBytes  6.43 Gbits/sec</p>
+<p>I then tried to open multiple TCP connection to my server by running iperf -c 192.168.1.141 -P 20 and that all got refused. I&#039;m not too sure why?</p>
+<p>Also, if I try running iperf -c 192.168.1.141 -u -b 100m, this is my results:<br />
+Client connecting to 192.168.1.141, UDP port 5001<br />
+Sending 1470 byte datagrams<br />
+UDP buffer size:  160 KByte (default)<br />
+------------------------------------------------------------<br />
+[  3] local 192.168.1.141 port 52137 connected with 192.168.1.141 port 5001<br />
+read failed: Connection refused<br />
+[  3] WARNING: did not receive ack of last datagram after 1 tries.<br />
+[ ID] Interval       Transfer     Bandwidth<br />
+[  3]  0.0-10.0 sec  0.00 (null)s  146807685833932 Bytes/sec<br />
+[  3] Sent 85454 datagrams</p>
+<p>Any idea as to why my this could be happening?</p>
+<p>Thanks</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/3052">reply</a></li>
+</ul></div><!-- /.comment -->
+<a id="comment-3206"></a>
+<div class="comment comment-by-anonymous even clearfix" about="/comment/3206#comment-3206" typeof="sioc:Post sioct:Comment">
+  
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/3206#comment-3206" class="permalink" rel="bookmark">Client and Server difference</a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/3206#comment-3206" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2018-05-15T16:02:16+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" typeof="sioc:UserAccount" property="foaf:name" datatype="">Mikael Espersen</span> on Tue, 05/15/2018 - 16:02</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Hi, I have made some test using Iperf between two linux machines and notice a large difference in performance between client and server. Between the two machines there is a 4G link. The server is on a 4G machine, in order to measure downlink rate.<br />
+As seen below the client appears to buffer up a lot of date and gives a much better throughput than the server. I find this a bit strange as I would expect TCP to ack when the data has been received at the final desination. Any good explanation? Does the window size has any impact? The example is easy to repeat.</p>
+<p>Client:<br />
+<a href="mailto:root@localhost">root@localhost</a>:~# iperf -c localhost -p 5001 -i 2<br />
+------------------------------------------------------------<br />
+Client connecting to localhost, TCP port 5001<br />
+TCP window size: 2.50 MByte (default)<br />
+------------------------------------------------------------<br />
+[  3] local 127.0.0.1 port 37198 connected with 127.0.0.1 port 5001<br />
+[ ID] Interval       Transfer     Bandwidth<br />
+[  3]  0.0- 2.0 sec  14.6 MBytes  61.3 Mbits/sec<br />
+[  3]  2.0- 4.0 sec  4.38 MBytes  18.4 Mbits/sec<br />
+[  3]  4.0- 6.0 sec  2.55 MBytes  10.7 Mbits/sec<br />
+[  3]  6.0- 8.0 sec  4.62 MBytes  19.4 Mbits/sec<br />
+[  3]  8.0-10.0 sec  4.38 MBytes  18.4 Mbits/sec<br />
+[  3]  0.0-10.4 sec  30.6 MBytes  24.7 Mbits/sec</p>
+<p>Server:<br />
+<a href="mailto:root@MiWire">root@MiWire</a>:~# iperf -s -p 5001 -i 2<br />
+------------------------------------------------------------<br />
+Server listening on TCP port 5001<br />
+TCP window size: 85.3 KByte (default)<br />
+------------------------------------------------------------<br />
+[  4] local 127.0.0.1 port 5001 connected with 127.0.0.1 port 35759<br />
+[  4]  0.0- 2.0 sec  4.11 MBytes  17.2 Mbits/sec<br />
+[  4]  2.0- 4.0 sec  4.25 MBytes  17.8 Mbits/sec<br />
+[  4]  4.0- 6.0 sec  3.16 MBytes  13.2 Mbits/sec<br />
+[  4]  6.0- 8.0 sec  4.28 MBytes  18.0 Mbits/sec<br />
+[  4]  8.0-10.0 sec  4.19 MBytes  17.6 Mbits/sec<br />
+[  4] 10.0-12.0 sec  4.44 MBytes  18.6 Mbits/sec<br />
+[  4] 12.0-14.0 sec  3.34 MBytes  14.0 Mbits/sec<br />
+[  4]  0.0-15.3 sec  30.6 MBytes  16.8 Mbits/sec</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/3206">reply</a></li>
+</ul></div><!-- /.comment -->
+<a id="comment-3274"></a>
+<div class="comment comment-by-anonymous last odd clearfix" about="/comment/3274#comment-3274" typeof="sioc:Post sioct:Comment">
+  
+        <h3 property="dc:title" datatype="" class="comment-title">
+      <a href="/comment/3274#comment-3274" class="permalink" rel="bookmark">iperf result is different for every run, do you know why?</a>          </h3>
+    
+  
+  <div class="submitted">
+    <a href="/comment/3274#comment-3274" class="permalink" rel="bookmark">Permalink</a>    <span property="dc:date dc:created" content="2018-05-25T04:22:30+05:30" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" typeof="sioc:UserAccount" property="foaf:name" datatype="">Joyce</span> on Fri, 05/25/2018 - 04:22</span>  </div>
+
+  <div class="content">
+    <span rel="sioc:reply_of" resource="/iperf-how-test-network-speedperformancebandwidth" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Hi </p>
+<p>I am using iperf test my ipoib performance, but seems I got different result in every iteration, is there any idea why? how could I get fix result?</p>
+<p>thanks a lot!</p>
+<p>Regards,<br />
+Joyce</p>
+</div></div></div>      </div>
+
+  <ul class="links inline"><li class="comment-reply first last"><a href="/comment/reply/41/3274">reply</a></li>
+</ul></div><!-- /.comment -->
+
+      <h2 class="title comment-form">Add new comment</h2>
+    <form class="comment-form" action="/comment/reply/41" method="post" id="comment-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Your name </label>
+ <input type="text" id="edit-name" name="name" value="" size="30" maxlength="60" class="form-text" />
+</div>
+<div class="form-item form-type-textfield form-item-subject">
+  <label for="edit-subject">Subject </label>
+ <input type="text" id="edit-subject" name="subject" value="" size="60" maxlength="64" class="form-text" />
+</div>
+<div class="field-type-text-long field-name-comment-body field-widget-text-textarea form-wrapper" id="edit-comment-body"><div id="comment-body-add-more-wrapper"><div class="text-format-wrapper"><div class="form-item form-type-textarea form-item-comment-body-und-0-value">
+  <label for="edit-comment-body-und-0-value">Comment <span class="form-required" title="This field is required.">*</span></label>
+ <div class="form-textarea-wrapper resizable"><textarea class="text-full form-textarea required" id="edit-comment-body-und-0-value" name="comment_body[und][0][value]" cols="60" rows="5"></textarea></div>
+</div>
+<fieldset class="filter-wrapper form-wrapper" id="edit-comment-body-und-0-format"><div class="fieldset-wrapper"><input id="edit-comment-body-und-0-format--2" class="wysiwyg" type="hidden" name="comment_body[und][0][format]" value="plain_text" />
+<div class="filter-help form-wrapper" id="edit-comment-body-und-0-format-help"><p><a href="/filter/tips" target="_blank">More information about text formats</a></p></div><div class="filter-guidelines form-wrapper" id="edit-comment-body-und-0-format-guidelines"><div class="filter-guidelines-item filter-guidelines-plain_text"><h3>Plain text</h3><ul class="tips"><li>No HTML tags allowed.</li><li>Web page addresses and e-mail addresses turn into links automatically.</li><li>Lines and paragraphs break automatically.</li></ul></div></div></div></fieldset>
+</div>
+</div></div><input type="hidden" name="form_build_id" value="form-Arp_h92tPjjcvF_3g4cm5uAFRrzKRzA4fQVc2zqTKkk" />
+<input type="hidden" name="form_id" value="comment_node_article_form" />
+<fieldset class="captcha form-wrapper"><legend><span class="fieldset-legend">CAPTCHA</span></legend><div class="fieldset-wrapper"><div class="fieldset-description">This question is for testing whether or not you are a human visitor and to prevent automated spam submissions.</div><input type="hidden" name="captcha_sid" value="5679344" />
+<input type="hidden" name="captcha_token" value="d07c6ebf9e04fe137e5f368359d1e485" />
+<input type="hidden" name="captcha_response" value="Google no captcha" />
+<div class="g-recaptcha" data-sitekey="6LcL8FIUAAAAAP6Vrl-JlCv-6WlqFRFSOSj5x0KJ" data-theme="light" data-type="image"></div></div></fieldset>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Save" class="form-submit" /><input type="submit" id="edit-preview" name="op" value="Preview" class="form-submit" /></div></div></form>  </div>
+  
+    
+ 
+  
+  
+</div><!-- /.node -->
+  </div>
+
+</div><!-- /.block -->
+  </div><!-- /.region -->
+          </div></div><!-- /.section, /#content -->   
+
+    
+      <div class="region region-sidebar-second column sidebar"><div class="section">
+    <div id="block-search-form" class="block block-search first odd">
+
+      
+  <div class="content">
+    <form action="/iperf-how-test-network-speedperformancebandwidth" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-YYR2tt_gK6MGVKRxkRLbCYBzYRr6rUrOf4ibLzcLleY" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>  </div>
+
+</div><!-- /.block -->
+<div id="block-views-most-popular-today-block" class="block block-views even">
+
+        <h2 class="block-title">Today's Most Popular</h2>
+    
+  <div class="content">
+    <div class="view view-most-popular-today view-id-most_popular_today view-display-id-block view-dom-id-d1605cd8d78824781c57c1e0146af43e">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/how-configure-router-work-dhcp-server"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/dhcp%20in%20router.png?itok=AlHaCyTd" width="36" height="36" alt="DHCP server configuration in router" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/how-configure-router-work-dhcp-server">How to configure a Router to work as a DHCP Server.</a></h4>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><a href="/networking" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Networking</a> - <a href="https://www.slashroot.in/how-configure-router-work-dhcp-server#comments#comments">4 comment(s)</a></div>  </div>  </div>
+  <div class="views-row views-row-2 views-row-even">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/how-are-passwords-stored-linux-understanding-hashing-shadow-utils"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/how%20are%20passwords%20stored%20in%20linux.jpg?itok=TapcFXAB" width="36" height="36" alt="Passwords in Linux" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/how-are-passwords-stored-linux-understanding-hashing-shadow-utils">How are passwords stored in Linux (Understanding hashing with shadow utils)</a></h4>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><a href="/security-notes" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Security Notes</a> - <a href="https://www.slashroot.in/how-are-passwords-stored-linux-understanding-hashing-shadow-utils#comments#comments">28 comment(s)</a></div>  </div>  </div>
+  <div class="views-row views-row-3 views-row-odd">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/how-does-traceroute-work-and-examples-using-traceroute-command"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/traceroute%20working.png?itok=SbEom6wW" width="36" height="36" alt="How does traceroute work" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/how-does-traceroute-work-and-examples-using-traceroute-command">How Does Traceroute Work and Example&#039;s of using traceroute command</a></h4>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><a href="/networking" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Networking</a> - <a href="https://www.slashroot.in/how-does-traceroute-work-and-examples-using-traceroute-command#comments#comments">75 comment(s)</a></div>  </div>  </div>
+  <div class="views-row views-row-4 views-row-even views-row-last">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/iperf-how-test-network-speedperformancebandwidth" class="active"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/speed%20test.jpg?itok=IeBuDSvj" width="36" height="36" alt="Internet Speed Test in Linux" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/iperf-how-test-network-speedperformancebandwidth" class="active">IPERF: How to test network Speed,Performance,Bandwidth</a></h4>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><a href="/taxonomy/term/2" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Archives</a> - <a href="https://www.slashroot.in/iperf-how-test-network-speedperformancebandwidth#comments#comments">21 comment(s)</a></div>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+
+</div><!-- /.block -->
+<div id="block-views-most-commented-block" class="block block-views odd">
+
+        <h2 class="block-title">Most Commented </h2>
+    
+  <div class="content">
+    <div class="view view-most-commented view-id-most_commented view-display-id-block view-dom-id-d250e0b238de8612bf800de9f9fe5742">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/how-does-traceroute-work-and-examples-using-traceroute-command"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/traceroute%20working.png?itok=SbEom6wW" width="36" height="36" alt="How does traceroute work" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/how-does-traceroute-work-and-examples-using-traceroute-command">How Does Traceroute Work and Example&#039;s of using traceroute command</a></h4>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><a href="/networking" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Networking</a> - <a href="https://www.slashroot.in/how-does-traceroute-work-and-examples-using-traceroute-command#comments#comments">75 comment(s)</a></div>  </div>  </div>
+  <div class="views-row views-row-2 views-row-even">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/san-vs-nas-difference-between-storage-area-network-and-network-attached-storage"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/SAN%20vs%20NAS.png?itok=1PXAlQiI" width="36" height="36" alt="SAN vs NAS" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/san-vs-nas-difference-between-storage-area-network-and-network-attached-storage">SAN vs NAS - Difference between a Storage Area Network and Network Attached Storage</a></h4>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><a href="/taxonomy/term/2" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Archives</a> - <a href="https://www.slashroot.in/san-vs-nas-difference-between-storage-area-network-and-network-attached-storage#comments#comments">57 comment(s)</a></div>  </div>  </div>
+  <div class="views-row views-row-3 views-row-odd">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/difference-between-iterative-and-recursive-dns-query"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/iterative%20vs%20recursive%20dns.png?itok=yI-mK_O1" width="36" height="36" alt="iterative vs recursive dns" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/difference-between-iterative-and-recursive-dns-query">difference between iterative and recursive dns query</a></h4>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><a href="/taxonomy/term/2" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Archives</a> - <a href="https://www.slashroot.in/difference-between-iterative-and-recursive-dns-query#comments#comments">44 comment(s)</a></div>  </div>  </div>
+  <div class="views-row views-row-4 views-row-even views-row-last">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/linux-booting-process-step-step-tutorial-understanding-linux-boot-sequence"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/booting%20process.jpg?itok=BJvQl6kD" width="36" height="36" alt="System Booting Process" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/linux-booting-process-step-step-tutorial-understanding-linux-boot-sequence">Linux Booting Process:  A step by step tutorial for understanding Linux boot sequence</a></h4>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><a href="/taxonomy/term/2" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Archives</a> - <a href="https://www.slashroot.in/linux-booting-process-step-step-tutorial-understanding-linux-boot-sequence#comments#comments">41 comment(s)</a></div>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+
+</div><!-- /.block -->
+<div id="block-views-top-rated-articles-block" class="block block-views even">
+
+        <h2 class="block-title">Top Rated Articles </h2>
+    
+  <div class="content">
+    <div class="view view-top-rated-articles view-id-top_rated_articles view-display-id-block view-dom-id-e7117911aa05b41155d0df6b442cd394">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/modify-your-swap-space-configuring-your-linux-machine-use-lvm-swap-space-0"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/swap%20over%20lvm.png?itok=q6k5y2h7" width="36" height="36" alt="" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/modify-your-swap-space-configuring-your-linux-machine-use-lvm-swap-space-0">Modify your swap space by configuring your Linux machine to use LVM as Swap Space.</a></h4>  </div>  
+  <div class="views-field views-field-field-rate">        <div class="field-content"><div class="clearfix fivestar-average-stars fivestar-average-text"><div class="fivestar-static-form-item"><div class="form-item form-type-item">
+ <div class="fivestar-outline"><div class="fivestar-widget-static fivestar-widget-static-vote fivestar-widget-static-5 clearfix"><div class="star star-1 star-odd star-first"><span class="on">4.88889</span></div><div class="star star-2 star-even"><span class="on"></span></div><div class="star star-3 star-odd"><span class="on"></span></div><div class="star star-4 star-even"><span class="on"></span></div><div class="star star-5 star-odd star-last"><span class="on" style="width: 88.889%"></span></div></div></div>
+<div class="description"><div class="fivestar-summary fivestar-summary-average-count"><span class="average-rating">Average: <span>4.9</span></span> <span class="total-votes">(<span>9</span> votes)</span></div></div>
+</div>
+</div></div></div>  </div>  </div>
+  <div class="views-row views-row-2 views-row-even">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/lsof-command-usage-and-examples"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/lsof%20command.png?itok=iTkMnXr9" width="36" height="36" alt="list open files in linux" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/lsof-command-usage-and-examples">lsof Command Usage and Examples</a></h4>  </div>  
+  <div class="views-field views-field-field-rate">        <div class="field-content"><div class="clearfix fivestar-average-stars fivestar-average-text"><div class="fivestar-static-form-item"><div class="form-item form-type-item">
+ <div class="fivestar-outline"><div class="fivestar-widget-static fivestar-widget-static-vote fivestar-widget-static-5 clearfix"><div class="star star-1 star-odd star-first"><span class="on">4.88889</span></div><div class="star star-2 star-even"><span class="on"></span></div><div class="star star-3 star-odd"><span class="on"></span></div><div class="star star-4 star-even"><span class="on"></span></div><div class="star star-5 star-odd star-last"><span class="on" style="width: 88.889%"></span></div></div></div>
+<div class="description"><div class="fivestar-summary fivestar-summary-average-count"><span class="average-rating">Average: <span>4.9</span></span> <span class="total-votes">(<span>252</span> votes)</span></div></div>
+</div>
+</div></div></div>  </div>  </div>
+  <div class="views-row views-row-3 views-row-odd">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/what-uuid-used-fstab"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/UUID%20in%20fastab_0.jpg?itok=ugOov5ia" width="36" height="36" alt="UUID for a device in linux" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/what-uuid-used-fstab">What is UUID used in fstab</a></h4>  </div>  
+  <div class="views-field views-field-field-rate">        <div class="field-content"><div class="clearfix fivestar-average-stars fivestar-average-text"><div class="fivestar-static-form-item"><div class="form-item form-type-item">
+ <div class="fivestar-outline"><div class="fivestar-widget-static fivestar-widget-static-vote fivestar-widget-static-5 clearfix"><div class="star star-1 star-odd star-first"><span class="on">4.886075</span></div><div class="star star-2 star-even"><span class="on"></span></div><div class="star star-3 star-odd"><span class="on"></span></div><div class="star star-4 star-even"><span class="on"></span></div><div class="star star-5 star-odd star-last"><span class="on" style="width: 88.6075%"></span></div></div></div>
+<div class="description"><div class="fivestar-summary fivestar-summary-average-count"><span class="average-rating">Average: <span>4.9</span></span> <span class="total-votes">(<span>79</span> votes)</span></div></div>
+</div>
+</div></div></div>  </div>  </div>
+  <div class="views-row views-row-4 views-row-even">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/how-dns-works"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/dns%20working.png?itok=zA5oCIkc" width="36" height="36" alt="dns working explained" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/how-dns-works">how does DNS server work</a></h4>  </div>  
+  <div class="views-field views-field-field-rate">        <div class="field-content"><div class="clearfix fivestar-average-stars fivestar-average-text"><div class="fivestar-static-form-item"><div class="form-item form-type-item">
+ <div class="fivestar-outline"><div class="fivestar-widget-static fivestar-widget-static-vote fivestar-widget-static-5 clearfix"><div class="star star-1 star-odd star-first"><span class="on">4.86931</span></div><div class="star star-2 star-even"><span class="on"></span></div><div class="star star-3 star-odd"><span class="on"></span></div><div class="star star-4 star-even"><span class="on"></span></div><div class="star star-5 star-odd star-last"><span class="on" style="width: 86.931%"></span></div></div></div>
+<div class="description"><div class="fivestar-summary fivestar-summary-average-count"><span class="average-rating">Average: <span>4.9</span></span> <span class="total-votes">(<span>857</span> votes)</span></div></div>
+</div>
+</div></div></div>  </div>  </div>
+  <div class="views-row views-row-5 views-row-odd">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/nice-and-renice-command-usage-examples-process-priority-linux"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/nice%20and%20renice%20command%20in%20linux.png?itok=v3KwxKDO" width="36" height="36" alt="nice and renice command" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/nice-and-renice-command-usage-examples-process-priority-linux">nice and renice command usage examples for process priority in linux</a></h4>  </div>  
+  <div class="views-field views-field-field-rate">        <div class="field-content"><div class="clearfix fivestar-average-stars fivestar-average-text"><div class="fivestar-static-form-item"><div class="form-item form-type-item">
+ <div class="fivestar-outline"><div class="fivestar-widget-static fivestar-widget-static-vote fivestar-widget-static-5 clearfix"><div class="star star-1 star-odd star-first"><span class="on">4.8616</span></div><div class="star star-2 star-even"><span class="on"></span></div><div class="star star-3 star-odd"><span class="on"></span></div><div class="star star-4 star-even"><span class="on"></span></div><div class="star star-5 star-odd star-last"><span class="on" style="width: 86.16%"></span></div></div></div>
+<div class="description"><div class="fivestar-summary fivestar-summary-average-count"><span class="average-rating">Average: <span>4.9</span></span> <span class="total-votes">(<span>1250</span> votes)</span></div></div>
+</div>
+</div></div></div>  </div>  </div>
+  <div class="views-row views-row-6 views-row-even">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/openstack-tutorial-getting-started-basics-building-your-own-cloud"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/openstack-cloud-tutorial.png?itok=nx2aNbhQ" width="36" height="36" alt="Openstack Cloud tutorial" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/openstack-tutorial-getting-started-basics-building-your-own-cloud">OpenStack Tutorial: Getting started with basics of building your own cloud</a></h4>  </div>  
+  <div class="views-field views-field-field-rate">        <div class="field-content"><div class="clearfix fivestar-average-stars fivestar-average-text"><div class="fivestar-static-form-item"><div class="form-item form-type-item">
+ <div class="fivestar-outline"><div class="fivestar-widget-static fivestar-widget-static-vote fivestar-widget-static-5 clearfix"><div class="star star-1 star-odd star-first"><span class="on">4.83784</span></div><div class="star star-2 star-even"><span class="on"></span></div><div class="star star-3 star-odd"><span class="on"></span></div><div class="star star-4 star-even"><span class="on"></span></div><div class="star star-5 star-odd star-last"><span class="on" style="width: 83.784%"></span></div></div></div>
+<div class="description"><div class="fivestar-summary fivestar-summary-average-count"><span class="average-rating">Average: <span>4.8</span></span> <span class="total-votes">(<span>111</span> votes)</span></div></div>
+</div>
+</div></div></div>  </div>  </div>
+  <div class="views-row views-row-7 views-row-odd">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/understanding-object-oriented-programming-in-python"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/python%20classes%20and%20objects.png?itok=ps_LFL6U" width="36" height="36" alt="OOP &amp; Python" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/understanding-object-oriented-programming-in-python">Understanding Object Oriented Programming in Python</a></h4>  </div>  
+  <div class="views-field views-field-field-rate">        <div class="field-content"><div class="clearfix fivestar-average-stars fivestar-average-text"><div class="fivestar-static-form-item"><div class="form-item form-type-item">
+ <div class="fivestar-outline"><div class="fivestar-widget-static fivestar-widget-static-vote fivestar-widget-static-5 clearfix"><div class="star star-1 star-odd star-first"><span class="on">4.830985</span></div><div class="star star-2 star-even"><span class="on"></span></div><div class="star star-3 star-odd"><span class="on"></span></div><div class="star star-4 star-even"><span class="on"></span></div><div class="star star-5 star-odd star-last"><span class="on" style="width: 83.0985%"></span></div></div></div>
+<div class="description"><div class="fivestar-summary fivestar-summary-average-count"><span class="average-rating">Average: <span>4.8</span></span> <span class="total-votes">(<span>71</span> votes)</span></div></div>
+</div>
+</div></div></div>  </div>  </div>
+  <div class="views-row views-row-8 views-row-even views-row-last">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/how-does-ssltls-chain-certificates-and-its-validation-work"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/Certificate%20Chain%20Validation.png?itok=r6tG7ErM" width="36" height="36" alt="Certificate Chain Validation Process" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/how-does-ssltls-chain-certificates-and-its-validation-work">How Does SSL/TLS Chain Certificates and Its Validation work?</a></h4>  </div>  
+  <div class="views-field views-field-field-rate">        <div class="field-content"><div class="clearfix fivestar-average-stars fivestar-average-text"><div class="fivestar-static-form-item"><div class="form-item form-type-item">
+ <div class="fivestar-outline"><div class="fivestar-widget-static fivestar-widget-static-vote fivestar-widget-static-5 clearfix"><div class="star star-1 star-odd star-first"><span class="on">4.81264</span></div><div class="star star-2 star-even"><span class="on"></span></div><div class="star star-3 star-odd"><span class="on"></span></div><div class="star star-4 star-even"><span class="on"></span></div><div class="star star-5 star-odd star-last"><span class="on" style="width: 81.264%"></span></div></div></div>
+<div class="description"><div class="fivestar-summary fivestar-summary-average-count"><span class="average-rating">Average: <span>4.8</span></span> <span class="total-votes">(<span>1788</span> votes)</span></div></div>
+</div>
+</div></div></div>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+
+</div><!-- /.block -->
+<div id="block-block-4" class="block block-block last odd">
+
+      
+  <div class="content">
+    <a href="#page" class="back-to-top">Jump back to navigation</a>  </div>
+
+</div><!-- /.block -->
+  </div></div><!-- /.section, /.region -->
+
+  </div></div><!-- /#main, /#main-wrapper -->
+  
+  <div id="footer">
+  
+      <div class="region region-footer">
+    <div id="block-block-12" class="block block-block first last odd">
+
+      
+  <div class="content">
+    <script src="//my.hellobar.com/92f1c1faeb6861c8503ee9229411fd5e243861b5.js" type="text/javascript" charset="utf-8" async="async"></script>  </div>
+
+</div><!-- /.block -->
+  </div><!-- /.region -->
+  
+      <div class="region region-footer-first-column">
+    <div id="block-block-27" class="block block-block first last odd">
+
+        <h2 class="block-title">Get in touch with The Authors</h2>
+    
+  <div class="content">
+    <p><img alt="Sarath Pillai" longdesc="" src="http://www.slashroot.in/images/sarath.png" style="float: left; width: 106px; height: 110px;" title="Sarath Pillai"><strong>Sarath Pillai</strong></p><p>Ph: +917303074400</p><p>Email: <a href="mailto:sarath@slashroot.in">sarath@slashroot.in</a></p><p>&nbsp;</p><p>&nbsp;</p><p><strong><img alt="" src="/images/satish.png" style="width: 100px; height: 104px; float: left;">Satish Tiwary</strong></p><p>Ph: +919509452488</p><p>Email: <a href="mailto:satish@slashroot.in">satish@slashroot.in</a></p>  </div>
+
+</div><!-- /.block -->
+  </div><!-- /.region -->
+	
+	  <div class="region region-footer-second-column">
+    <div id="block-block-2" class="block block-block first last odd">
+
+        <h2 class="block-title">Follow Us</h2>
+    
+  <div class="content">
+    <div class="rss"><a href="rss.xml">Subscribe to our RSS Feed</a></div><div class="twitter"><a href="https://twitter.com/slashrootin">Follow us on Twitter</a></div><div class="fb"><a href="http://www.facebook.com/pages/Slashrootin-A-technical-Blog/101642306662299">Be a fan on Facebook</a></div>  </div>
+
+</div><!-- /.block -->
+  </div><!-- /.region -->
+	
+	  <div class="region region-footer-third-column">
+    <div id="block-views-recent-posts-block" class="block block-views first last odd">
+
+        <h2 class="block-title">Recent Posts</h2>
+    
+  <div class="content">
+    <div class="view view-recent-posts view-id-recent_posts view-display-id-block view-dom-id-1a2edc57489f358bc7017b33d7c8f4b9">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/how-delete-git-branch-locally-and-remotely"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/Delete%20a%20Git%20Branch%20from%20Remote%20as%20well%20as%20local.png?itok=gzTWAlmG" width="36" height="36" alt="Deleting a git branch from local as well as remote" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/how-delete-git-branch-locally-and-remotely">How To Delete A Git Branch Locally And Remotely</a></h4>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><a href="/taxonomy/term/2" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Archives</a> - <em class="placeholder">1 year 11 months</em> ago</div>  </div>  </div>
+  <div class="views-row views-row-2 views-row-even">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/difference-between-bashrc-and-bashprofile"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/bashrc%20vs%20bash_profile.png?itok=xz9tdTc6" width="36" height="36" alt="Difference between .bashrc and .bash_profile" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/difference-between-bashrc-and-bashprofile">Difference Between .bashrc and .bash_profile</a></h4>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><a href="/taxonomy/term/2" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Archives</a> - <em class="placeholder">1 year 11 months</em> ago</div>  </div>  </div>
+  <div class="views-row views-row-3 views-row-odd">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/difference-between-process-and-thread-linux"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/Processes%20Vs%20Threads.png?itok=xWTAk_9u" width="36" height="36" alt="Processes Versus Threads" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/difference-between-process-and-thread-linux">Difference Between Process And Thread in Linux</a></h4>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><a href="/taxonomy/term/2" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Archives</a> - <em class="placeholder">1 year 12 months</em> ago</div>  </div>  </div>
+  <div class="views-row views-row-4 views-row-even views-row-last">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/how-does-ssltls-chain-certificates-and-its-validation-work"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/Certificate%20Chain%20Validation.png?itok=r6tG7ErM" width="36" height="36" alt="Certificate Chain Validation Process" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/how-does-ssltls-chain-certificates-and-its-validation-work">How Does SSL/TLS Chain Certificates and Its Validation work?</a></h4>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><a href="/security-notes" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Security Notes</a> - <em class="placeholder">2 years 1 week</em> ago</div>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+
+</div><!-- /.block -->
+  </div><!-- /.region -->
+	
+	  <div class="region region-footer-fourth-column">
+    <div id="block-views-last-viewed-block" class="block block-views first last odd">
+
+        <h2 class="block-title">Last Viewed</h2>
+    
+  <div class="content">
+    <div class="view view-last-viewed view-id-last_viewed view-display-id-block view-dom-id-2f883356fe1c2062b2dbec81e5bc6cb9">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/backup-and-restore-router-configuration-file-using-tftp-server-packet-tracer-cisco-ccna"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/router%20config%20backup.jpg?itok=dVEzzr6R" width="36" height="36" alt="" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/backup-and-restore-router-configuration-file-using-tftp-server-packet-tracer-cisco-ccna">Backup and Restore router configuration file using TFTP server with Packet Tracer -Cisco CCNA</a></h4>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><a href="/networking" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Networking</a> - last view <em class="placeholder">2 sec</em> ago</div>  </div>  </div>
+  <div class="views-row views-row-2 views-row-even">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/iperf-how-test-network-speedperformancebandwidth" class="active"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/speed%20test.jpg?itok=IeBuDSvj" width="36" height="36" alt="Internet Speed Test in Linux" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/iperf-how-test-network-speedperformancebandwidth" class="active">IPERF: How to test network Speed,Performance,Bandwidth</a></h4>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><a href="/taxonomy/term/2" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Archives</a> - last view <em class="placeholder">4 sec</em> ago</div>  </div>  </div>
+  <div class="views-row views-row-3 views-row-odd">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/nic-bonding-configuration-rhel5"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/nic%20bonding%20linux.jpg?itok=zCj74JLQ" width="36" height="36" alt="" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/nic-bonding-configuration-rhel5">NIC Bonding Configuration on RHEL5</a></h4>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><a href="/taxonomy/term/2" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Archives</a> - last view <em class="placeholder">10 sec</em> ago</div>  </div>  </div>
+  <div class="views-row views-row-4 views-row-even views-row-last">
+      
+  <div class="views-field views-field-edit-node">        <span class="field-content"></span>  </div>  
+  <div class="views-field views-field-field-image">        <div class="field-content"><a href="/how-do-linux-nfs-performance-tuning-and-optimization"><img typeof="foaf:Image" src="https://www.slashroot.in/sites/default/files/styles/articles_categories_home_block_minis_sidebar/public/field/image/nfs%20performance%20tuning.png?itok=QGtJJOK6" width="36" height="36" alt="nfs performance tuning in linux" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <h4 class="field-content"><a href="/how-do-linux-nfs-performance-tuning-and-optimization">How to do Linux NFS Performance Tuning and Optimization</a></h4>  </div>  
+  <div class="views-field views-field-body">        <div class="field-content"><a href="/taxonomy/term/2" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="">Archives</a> - last view <em class="placeholder">10 sec</em> ago</div>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+
+</div><!-- /.block -->
+  </div><!-- /.region -->
+	
+	<div class="clear"></div>
+	
+	  <div class="region region-footer-closure">
+    <div id="block-block-1" class="block block-block first last odd">
+
+      
+  <div class="content">
+    <p><strong>Copyright © Slashroot.in.All rights reserved.<a href="/privacy-policy">Privacy Policy</a>|<a href="/toc">Terms Of Service</a>|<a href="/sitemap.xml">Sitemap</a></strong></p>  </div>
+
+</div><!-- /.block -->
+  </div><!-- /.region -->
+	
+  </div>
+
+</div></div><!-- /#page, /#page-wrapper -->
+
+    <div class="region region-page-bottom">
+    <div id="fb-root"></div><script type="text/javascript">
+     window.fbAsyncInit = function() {
+       FB.init({
+         appId: "",
+         status: true,
+         cookie: true,
+         xfbml: true,
+         oauth : true,
+         channelUrl: "https:\/\/www.slashroot.in\/fb_social\/channel"
+         });
+
+         FB.Event.subscribe("edge.create", function(href, widget) {
+_gaq.push(["_trackEvent", "Facebook like", "Drupal", href]);
+});
+     };
+     (function() {
+       var e = document.createElement('script');
+       e.async = true;
+       e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+       document.getElementById('fb-root').appendChild(e);
+     }());
+  </script>  </div><!-- /.region -->
+<script type="text/javascript" src="https://www.slashroot.in/sites/default/files/js/js_Rk5YIkK6m2gKTGH-GrMu0pM_PlMKXnI0ktQUgXw1XgA.js"></script>
+</body>
+</html>

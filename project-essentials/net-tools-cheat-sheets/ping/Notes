@@ -1,0 +1,17 @@
+Frequently used ping flags/options
+==================================
+
+>>	ping -I <interface-name> <dst>:- Specify interface name to send/receive ICMP
+
+>>	ping -i <interval> <dst>:- Set gap between two ICMP. It can be more/less than 1
+
+>>	ping -f <interface-name> <dst?>:- Flood network
+
+>>	ping -s <size> <interface-name> <dst>:- Change Ping packet size. 
+						If size = 100, Ping Bytes Sent = 128 Bytes 
+						coz Ping Byte Sent is equal to Ping Packet Size(100 Bytes) 
+						+ Ping Header Packet Size (28 Bytes)
+
+>>	ping <hop1> <hop2> .. <hopN> <dst> :- Specify path of ping
+	
+>>	ping -R <dst> :- Record and print route of how ECHO_REQUEST sent and ECHO_REPLY received

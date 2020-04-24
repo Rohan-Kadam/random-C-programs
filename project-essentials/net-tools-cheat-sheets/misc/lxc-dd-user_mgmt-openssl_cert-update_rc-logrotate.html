@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+    <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+    <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en-GB" prefix="og: https://ogp.me/ns#"><!--<![endif]-->
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<title>Cheat Sheets &#8211; JamesCoyle.net Limited</title>
+<style type="text/css">			.heateorSssInstagramBackground{background:radial-gradient(circle at 30% 107%,#fdf497 0,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%)}
+											.heateor_sss_horizontal_sharing .heateorSssSharing,.heateor_sss_standard_follow_icons_container .heateorSssSharing{
+							color: #fff;
+						border-width: 10pxpx;
+			border-style: solid;
+			border-color: #FFFFFF;
+		}
+				.heateor_sss_horizontal_sharing .heateorSssTCBackground{
+			color:#666;
+		}
+				.heateor_sss_horizontal_sharing .heateorSssSharing:hover,.heateor_sss_standard_follow_icons_container .heateorSssSharing:hover{
+						border-color: transparent;
+		}
+		.heateor_sss_vertical_sharing .heateorSssSharing,.heateor_sss_floating_follow_icons_container .heateorSssSharing{
+							color: #fff;
+						border-width: 0px;
+			border-style: solid;
+			border-color: transparent;
+		}
+				.heateor_sss_vertical_sharing .heateorSssTCBackground{
+			color:#666;
+		}
+				.heateor_sss_vertical_sharing .heateorSssSharing:hover,.heateor_sss_floating_follow_icons_container .heateorSssSharing:hover{
+						border-color: transparent;
+		}
+		
+		@media screen and (max-width:783px) {.heateor_sss_vertical_sharing{display:none!important}}@media screen and (max-width:783px) {.heateor_sss_floating_follow_icons_container{display:none!important}}.heateor_sss_sharing_container { margin-bottom: 20px;}</style>
+
+<meta name="description" content="Cheat sheets are quick and easy descriptions of commands and their function." />
+<meta name="keywords" content="lxc,lxd,cheat sheets,backup,cheat-sheet,dd,i/o,linux,restore,passwd,useradd,usermod,openssl,ssl,debian,service,ubuntu,update-rc.d,upstart,logrotate" />
+<link rel="next" href="https://www.jamescoyle.net/category/cheat-sheets/page/2" />
+<script type="application/ld+json" class="aioseop-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.jamescoyle.net/#organization","url":"https://www.jamescoyle.net/","name":"JamesCoyle.net Limited","sameAs":[]},{"@type":"WebSite","@id":"https://www.jamescoyle.net/#website","url":"https://www.jamescoyle.net/","name":"JamesCoyle.net Limited","publisher":{"@id":"https://www.jamescoyle.net/#organization"}},{"@type":"CollectionPage","@id":"https://www.jamescoyle.net/category/cheat-sheets#collectionpage","url":"https://www.jamescoyle.net/category/cheat-sheets","inLanguage":"en-GB","name":"Cheat Sheets","isPartOf":{"@id":"https://www.jamescoyle.net/#website"},"breadcrumb":{"@id":"https://www.jamescoyle.net/category/cheat-sheets#breadcrumblist"},"description":"Cheat sheets are quick and easy descriptions of commands and their function. "},{"@type":"BreadcrumbList","@id":"https://www.jamescoyle.net/category/cheat-sheets#breadcrumblist","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://www.jamescoyle.net/","url":"https://www.jamescoyle.net/","name":"JamesCoyle.net"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"https://www.jamescoyle.net/category/cheat-sheets","url":"https://www.jamescoyle.net/category/cheat-sheets","name":"Cheat Sheets"}}]}]}</script>
+<link rel="canonical" href="https://www.jamescoyle.net/category/cheat-sheets" />
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript">
+				window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+				ga('create', 'UA-43281656-1', { 'cookieDomain': 'www.jamescoyle.net' } );
+				// Plugins
+				ga('require', 'displayfeatures');ga('require', 'linkid', 'linkid.js');ga('require', 'outboundLinkTracker');
+				ga('send', 'pageview');
+			</script>
+<script async src="https://www.google-analytics.com/analytics.js" type="9b54ac32034d90b2d08e3e6f-text/javascript"></script>
+<script async src="https://www.jamescoyle.net/wp-content/plugins/all-in-one-seo-pack/public/js/vendor/autotrack.js" type="9b54ac32034d90b2d08e3e6f-text/javascript"></script>
+
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="JamesCoyle.net Limited &raquo; Feed" href="https://www.jamescoyle.net/feed" />
+<link rel="alternate" type="application/rss+xml" title="JamesCoyle.net Limited &raquo; Comments Feed" href="https://www.jamescoyle.net/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="JamesCoyle.net Limited &raquo; Cheat Sheets Category Feed" href="https://www.jamescoyle.net/category/cheat-sheets/feed" />
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.jamescoyle.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='yarppWidgetCss-css' href='https://www.jamescoyle.net/wp-content/plugins/yet-another-related-posts-plugin/style/widget.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css' href='https://www.jamescoyle.net/wp-includes/css/dist/block-library/style.min.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='cookie-consent-style-css' href='https://www.jamescoyle.net/wp-content/plugins/uk-cookie-consent/assets/css/style.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='scfp-form-repeater-css-css' href='https://www.jamescoyle.net/wp-content/plugins/wcp-contact-form/agp-core/assets/repeater/css/style.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='scfp-css-css' href='https://www.jamescoyle.net/wp-content/plugins/wcp-contact-form/assets/css/style.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='aioseop-toolbar-menu-css' href='https://www.jamescoyle.net/wp-content/plugins/all-in-one-seo-pack/css/admin-toolbar-menu.css?ver=3.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='parent-style-css' href='https://www.jamescoyle.net/wp-content/themes/enigma/style.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='enigma-style-sheet-css' href='https://www.jamescoyle.net/wp-content/themes/enigma-child/style.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css' href='https://www.jamescoyle.net/wp-content/themes/enigma/css/bootstrap.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='default-css' href='https://www.jamescoyle.net/wp-content/themes/enigma/css/default.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='enigma-theme-css' href='https://www.jamescoyle.net/wp-content/themes/enigma/css/enigma-theme.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='media-responsive-css' href='https://www.jamescoyle.net/wp-content/themes/enigma/css/media-responsive.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='animations-css' href='https://www.jamescoyle.net/wp-content/themes/enigma/css/animations.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-animtae-css' href='https://www.jamescoyle.net/wp-content/themes/enigma/css/theme-animtae.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='fontawesome-all-css' href='https://www.jamescoyle.net/wp-content/themes/enigma/css/font-awesome-5.11.2/css/all.min.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='fontawesome-min-css' href='https://www.jamescoyle.net/wp-content/themes/enigma/css/font-awesome-5.11.2/css/fontawesome.min.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='fontawesome-470-css' href='https://www.jamescoyle.net/wp-content/themes/enigma/css/font-awesome-4.7.0/css/font-awesome.min.css?ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='OpenSansRegular-css' href='//fonts.googleapis.com/css?family=Open+Sans&#038;ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='OpenSansBold-css' href='//fonts.googleapis.com/css?family=Open+Sans%3A700&#038;ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='OpenSansSemiBold-css' href='//fonts.googleapis.com/css?family=Open+Sans%3A600&#038;ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='RobotoRegular-css' href='//fonts.googleapis.com/css?family=Roboto&#038;ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='RobotoBold-css' href='//fonts.googleapis.com/css?family=Roboto%3A700&#038;ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='RalewaySemiBold-css' href='//fonts.googleapis.com/css?family=Raleway%3A600&#038;ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='Courgette-css' href='//fonts.googleapis.com/css?family=Courgette&#038;ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='googleFonts-css' href='https://fonts.googleapis.com/css?family=Open+Sans%3A300%2C400%2C600%2C700%2C900%2C300italic%2C400italic%2C600italic%2C700italic%2C900italic&#038;ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='menu_font-css' href='https://fonts.googleapis.com/css?family=Open+Sans%3A300%2C400%2C600%2C700%2C900%2C300italic%2C400italic%2C600italic%2C700italic%2C900italic&#038;ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='theme_title-css' href='https://fonts.googleapis.com/css?family=Open+Sans%3A300%2C400%2C600%2C700%2C900%2C300italic%2C400italic%2C600italic%2C700italic%2C900italic&#038;ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='desc_font_all-css' href='https://fonts.googleapis.com/css?family=Open+Sans%3A300%2C400%2C600%2C700%2C900%2C300italic%2C400italic%2C600italic%2C700italic%2C900italic&#038;ver=5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='heateor_sss_frontend_css-css' href='https://www.jamescoyle.net/wp-content/plugins/sassy-social-share/public/css/sassy-social-share-public.css?ver=3.3.8' type='text/css' media='all' />
+<link rel='stylesheet' id='heateor_sss_sharing_default_svg-css' href='https://www.jamescoyle.net/wp-content/plugins/sassy-social-share/admin/css/sassy-social-share-svg.css?ver=3.3.8' type='text/css' media='all' />
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript" src='https://www.jamescoyle.net/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript" src='https://www.jamescoyle.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript" src='https://www.jamescoyle.net/wp-content/plugins/wcp-contact-form/agp-core/assets/repeater/js/main.js?ver=5.4'></script>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript" src='https://www.jamescoyle.net/wp-content/themes/enigma/js/popper.js?ver=5.4'></script>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript" src='https://www.jamescoyle.net/wp-content/themes/enigma/js/bootstrap.js?ver=5.4'></script>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript" src='https://www.jamescoyle.net/wp-content/themes/enigma/js/menu.js?ver=5.4'></script>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript" src='https://www.jamescoyle.net/wp-content/themes/enigma/js/enigma_theme_script.js?ver=5.4'></script>
+<link rel='https://api.w.org/' href='https://www.jamescoyle.net/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.jamescoyle.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.jamescoyle.net/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 5.4" />
+
+
+<style type="text/css" media="screen">
+	.g { margin:0px; padding:0px; overflow:hidden; line-height:1; zoom:1; }
+	.g img { height:auto; }
+	.g-col { position:relative; float:left; }
+	.g-col:first-child { margin-left: 0; }
+	.g-col:last-child { margin-right: 0; }
+	.g-1 { margin:0px 0px 0px 0px;width:auto; height:auto; }
+	@media only screen and (max-width: 480px) {
+		.g-col, .g-dyn, .g-single { width:100%; margin-left:0; margin-right:0; }
+	}
+</style>
+
+<style id="ctcc-css" type="text/css" media="screen">
+				#catapult-cookie-bar {
+					box-sizing: border-box;
+					max-height: 0;
+					opacity: 0;
+					z-index: 99999;
+					overflow: hidden;
+					color: #dddddd;
+					position: fixed;
+					left: 0;
+					bottom: 0;
+					width: 100%;
+					background-color: #000000;
+				}
+				#catapult-cookie-bar a {
+					color: #ffffff;
+				}
+				#catapult-cookie-bar .x_close span {
+					background-color: ;
+				}
+				button#catapultCookie {
+					background:#31a3dd;
+					color: ;
+					border: 0; padding: 6px 9px; border-radius: 3px;
+				}
+				#catapult-cookie-bar h3 {
+					color: #dddddd;
+				}
+				.has-cookie-bar #catapult-cookie-bar {
+					opacity: 1;
+					max-height: 999px;
+					min-height: 30px;
+				}</style><script src="//www.anrdoezrs.net/am/8354631/include/allCj/sid/01/impressions/page/am.js" type="9b54ac32034d90b2d08e3e6f-text/javascript"></script><link rel="icon" href="https://www.jamescoyle.net/wp-content/uploads/2018/10/favicon.png" sizes="32x32" />
+<link rel="icon" href="https://www.jamescoyle.net/wp-content/uploads/2018/10/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.jamescoyle.net/wp-content/uploads/2018/10/favicon.png" />
+<meta name="msapplication-TileImage" content="https://www.jamescoyle.net/wp-content/uploads/2018/10/favicon.png" />
+</head>
+<body class="archive category category-cheat-sheets category-74">
+<div>
+
+<div class="header_section hd_cover">
+<div class="container">
+
+<div class="row ">
+<div class="col-md-6 col-sm-12 wl_rtl">
+<div claSS="logo">
+<a href="https://www.jamescoyle.net/" title="JamesCoyle.net Limited" rel="home">
+<h1>JamesCoyle.net Limited</h1>
+</a>
+<p>Data Integration and Virtualisation</p>
+</div>
+</div>
+<div class="col-md-6 col-sm-12">
+<ul class="head-contact-info">
+<li><i class="fa fa-envelope"></i><a href="/cdn-cgi/l/email-protection#4028252c2c2f002a212d2533232f392c256e2e2534"><span class="__cf_email__" data-cfemail="2b434e4747446b414a464e58484452474e05454e5f">[email&#160;protected]</span></a></li> </ul>
+<ul class="social">
+<li class="twitter" data-toggle="tooltip" data-placement="bottom" title="Twitter"><a href="https://twitter.com/Jamescoyle_uk"><i class="fab fa-twitter"></i></a></li>
+<li class="linkedin" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><a href="https://uk.linkedin.com/in/jamesacoyle"><i class="fab fa-linkedin-in"></i></a></li>
+<li class="twitter" data-toggle="tooltip" data-placement="bottom" title="gplus"><a href="https://plus.google.com/u/0/+JamesCoyleUK"><i class="fab fa-google-plus-g"></i></a></li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="navigation_menu" data-spy="affix" data-offset-top="95" id="enigma_nav_top">
+<span id="header_shadow"></span>
+<div class="container navbar-container">
+<nav class="navbar navbar-default " role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menu" aria-controls="#menu" aria-expanded="false" aria-label="Toggle navigation">
+<span class="sr-only">Toggle navigation</span>
+<span class="fas fa-bars"></span>
+</button>
+</div>
+<div id="menu" class="collapse navbar-collapse ">
+<div class="menu-mainmenu-container"><ul id="menu-mainmenu" class="nav navbar-nav"><li id="menu-item-2017" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2017 "><a class="" href="/">Home</a></li>
+<li id="menu-item-790" class="menu-item menu-item-type-taxonomy menu-item-object-category current-menu-item menu-item-790 active "><a class="" href="https://www.jamescoyle.net/category/cheat-sheets">Cheat Sheets</a></li>
+<li id="menu-item-14" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-14 "><a class="" href="https://www.jamescoyle.net/category/how-to">How-to</a></li>
+<li id="menu-item-684" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-684 "><a class="" href="https://www.jamescoyle.net/category/knowledge">Knowledge</a></li>
+<li id="menu-item-16" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-16 "><a class="" href="https://www.jamescoyle.net/category/tech-news">News</a></li>
+<li id="menu-item-2205" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2205 "><a class="" href="https://www.jamescoyle.net/consultancy">Consultancy</a></li>
+<li id="menu-item-2840" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2840 "><a class="" href="https://www.jamescoyle.net/offers">Offers</a></li>
+</ul></div>
+</div>
+</nav>
+</div>
+</div> <div class="enigma_header_breadcrum_title">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<h1>Category Archives: <span>Cheat Sheets</span> </h1>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row enigma_blog_wrapper">
+<div class="col-md-8">
+<div id="post-2540" class="enigma_blog_full post-2540 post type-post status-publish format-standard hentry category-cheat-sheets tag-lxc tag-lxd">
+<ul class="blog-date-left">
+<li class="enigma_post_date">
+<span class="date">24-Nov-2016</span>
+</li>
+<li class="enigma_post_author enigma_blog_thumb_wrapper_showcase"><img alt='' src='https://secure.gravatar.com/avatar/2bc74ec870ee3a89efbe18f2871a4cbc?s=96&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/2bc74ec870ee3a89efbe18f2871a4cbc?s=192&#038;d=mm&#038;r=g 2x' class='author_detail_img avatar-96 photo' height='96' width='96' /> <div class="enigma_blog_thumb_wrapper_showcase_overlays">
+<div class="enigma_blog_thumb_wrapper_showcase_overlay_inner ">
+<div class="enigma_blog_thumb_wrapper_showcase_icons1">
+<a title="LXC 2.x/ LXD Cheat Sheet" href="https://www.jamescoyle.net/author/james-coyle">James Coyle</a>
+</div>
+</div>
+</div>
+</li>
+<li class="enigma_blog_comment"><i class="fa fa-comments-o"></i><h6><a href="https://www.jamescoyle.net/cheat-sheets/2540-lxc-2-x-lxd-cheat-sheet#respond">0</a></h6></li>
+</ul>
+<div class="post-content-wrap">
+<div class="enigma_fuul_blog_detail_padding">
+<h2><a href="https://www.jamescoyle.net/cheat-sheets/2540-lxc-2-x-lxd-cheat-sheet">LXC 2.x/ LXD Cheat Sheet</a></h2>
+<div class="row">
+<div class="col-md-6 col-sm-3">
+<p class="enigma_tags">Tags : <a href="https://www.jamescoyle.net/tag/lxc" rel="tag">LXC</a><a href="https://www.jamescoyle.net/tag/lxd" rel="tag">LXD</a><br /></p>
+</div>
+<div class="col-md-6 col-sm-3">
+<p class="enigma_cats">Category : <a href="https://www.jamescoyle.net/category/cheat-sheets" rel="category tag">Cheat Sheets</a></p>
+</div>
+</div>
+<div class='heateorSssClear'></div><div class='heateor_sss_sharing_container heateor_sss_horizontal_sharing' heateor-sss-data-href='https://www.jamescoyle.net/cheat-sheets/2540-lxc-2-x-lxd-cheat-sheet'><div class='heateor_sss_sharing_title' style="font-weight:bold">Get Social!</div><ul class="heateor_sss_sharing_ul"><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Twitter" Title="Twitter" class="heateorSssSharing heateorSssTwitterBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;http://twitter.com/intent/tweet?via=jamescoyle_uk&text=LXC%202.x%2F%20LXD%20Cheat%20Sheet&url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F2540-lxc-2-x-lxd-cheat-sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssTwitterSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Linkedin" Title="Linkedin" class="heateorSssSharing heateorSssLinkedinBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F2540-lxc-2-x-lxd-cheat-sheet&title=LXC%202.x%2F%20LXD%20Cheat%20Sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssLinkedinSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Facebook" Title="Facebook" class="heateorSssSharing heateorSssFacebookBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F2540-lxc-2-x-lxd-cheat-sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssFacebookSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Reddit" Title="Reddit" class="heateorSssSharing heateorSssRedditBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;http://reddit.com/submit?url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F2540-lxc-2-x-lxd-cheat-sheet&title=LXC%202.x%2F%20LXD%20Cheat%20Sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssRedditSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Mix" Title="Mix" class="heateorSssSharing heateorSssMixBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;https://mix.com/mixit?url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F2540-lxc-2-x-lxd-cheat-sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssMixSvg"></ss></i></li></ul><div class="heateorSssClear"></div></div><div class='heateorSssClear'></div><p><img class="alignright size-full wp-image-2533" src="https://www.jamescoyle.net/wp-content/uploads/2016/11/Linux_Containers_logo.png" alt="linux_containers_logo" width="220" height="233" />Here are some of the most used commands for creating and managing an LXC/ LXD host and containers. It&#8217;s assumed that you have a working environment and a privileged SSH connection to the LXC server for issuing the commands.</p>
+<h2>Basics</h2>
+<h5>Start and Stop a LXC Container</h5>
+<p>Starting out with the basics here &#8211; starting and stopping an LXC container.</p>
+<pre class="lang:sh decode:true">lxc start [CONTAINER]
+lxc stop [CONTAINER]</pre>
+<h5>List Containers</h5>
+<p>Display a list of container details for started and stopped containers. The <strong>name</strong> field is what&#8217;s usually used in other commands to reference the specific container.</p>
+<pre class="lang:sh decode:true">lxc list</pre>
+<h5>Create Container from Image</h5>
+<p>There are further details below on managing images and remote image repository, which you&#8217;ll need when creating a new container.</p>
+<p>This example will create a new container and start it using the Ubuntu 1604 template. Change <strong>[CONTAINER]</strong> to be the name of the new container.</p>
+<pre class="lang:sh decode:true">lxc launch ubuntu:16.04 [CONTAINER]</pre>
+<h5>Delete Container</h5>
+<p>Removing a container cannot be undone &#8211; beware!</p>
+<pre class="lang:sh decode:true">lxc delete [CONTAINER]</pre>
+<h2>Images</h2>
+<p>Linux Containers are created from templates or images that are stored locally or downloaded from remote servers.</p>
+<h5>List Image Repositories</h5>
+<p>Local and Remote LXC servers and remote image servers can be added to your LXC installation and can be used to download images from when required. Run the below command to see what sources you have.</p>
+<pre class="lang:sh decode:true">lxc remote list</pre>
+<h5>List available images</h5>
+<p>Images that have been downloaded, imported or cached are stored locally in the image repository. The output will list the image name, size and various other details.</p>
+<pre class="lang:sh decode:true">lxc image list</pre>
+<p>Remote images that reside on an image repository or remote LXC server can also be listed. This is great for seeing what images are available when creating new containers. Change <strong>[REMOTE_NAME]</strong> to be the name of the image repository from the <strong>image list</strong> command. <em>Note: you&#8217;ll need to keep the </em><em><strong>:</strong></em><em> symbol at the end.</em></p>
+<pre class="lang:sh decode:true">lxc image list [REMOTE_NAME]:</pre>
+<h5>Get image details</h5>
+<p>Further details can be obtained from an image file than what&#8217;s displayed with <strong>image list</strong>. The below command will detail all information known about the image. Replace <strong>[IMAGE_NAME]</strong> with a valid image name displayed in the <strong>image list</strong> command, such as <strong>ubuntu-xenial</strong>.</p>
+<pre class="lang:sh decode:true">lxc image info [IMAGE_NAME]</pre>
+<h5>Add a new Image Repository</h5>
+<p>There are various public image repositories that can be added to your LXC installation. <a href="http://lxc remote add lxc-org images.linuxcontainers.org" target="_blank">LinuxContainers.org</a> is a common one and hosts several distribution types. Replace <strong>[NAME]</strong> with the text name you&#8217;d like to give to the repository (it&#8217;s just an alias) and <strong>[HOST]</strong> with the address of the repository.</p>
+<pre class="lang:sh decode:true">lxc remote add [NAME] [HOST]</pre>
+<p>For example</p>
+<pre class="lang:sh decode:true">lxc remote add lxc-org images.linuxcontainers.org</pre>
+<h5>Delete a local image</h5>
+<p>Replace <strong>[IMAGE_NAME] </strong>with the the alias or fingerprint of the image.</p>
+<pre class="lang:sh decode:true">lxc image delete [IMAGE_NAME]</pre>
+<h5>Create new Image from Running Container</h5>
+<p>You can create a new image from an existing container with a simple command however it&#8217;s important to ensure that the created template will contain everything that the running container contained &#8211; such as SSH keys, data, etc. It&#8217;s therefore important to ensure you clean up anything which may be sensitve before running this command.</p>
+<pre class="lang:default decode:true ">lxc publish [CONTAINER] --alias [ALIAS]</pre>
+<p>You&#8217;ll need to change <strong>[CONTAINER]</strong> to your Linux container name and <strong>[ALIAS]</strong> to the name you&#8217;d like to use for your new image.</p>
+<h2>Configuration</h2>
+<p>All the below instructions will assume you&#8217;re referring to a container alias called <strong>[CONTAINER]</strong>. You&#8217;ll need to replace this, wherever it&#8217;s seen, with the name of the Linux Container you&#8217;re acting on.</p>
+<p>And <strong>config</strong> command using <strong>set</strong> can be altered to use <strong>get</strong> to retrieve what the current setting is. If the <strong>get</strong> returns nothing then it means it has not been manually set and the default value will be used.</p>
+<h5>Auto Start Container</h5>
+<p>Set the container to start automatically when the LXC service starts &#8211; usually at host boot time. Use <strong>1 </strong>to enable and <strong>0</strong> to disable.</p>
+<pre class="lang:sh decode:true">lxc config set [CONTAINER] boot.autostart 1</pre>
+<p>You can also use <strong>boot.autostart.delay</strong> to set a delay in seconds after starting this container, before starting the next.</p>
+<pre class="lang:sh decode:true">lxc config set [CONTAINER] boot.autostart.delay 30</pre>
+<p>Start up can be ordered using <strong>lxc.autostart.order</strong> to prioritise which containers are started first. Higher numbers are started first.</p>
+<pre class="lang:sh decode:true">lxc config set [CONTAINER1] boot.autostart.order 10
+lxc config set [CONTAINER2] boot.autostart.order 8</pre>
+<h5>CPU Limits</h5>
+<p>See <a href="https://www.jamescoyle.net/how-to/2532-setting-cpu-resource-limits-with-lxc">CPU Resource Limits</a> for more information on constraining CPU resources.</p>
+</div>
+</div>
+</div>
+<div class="push-right">
+<hr class="blog-sep header-sep">
+</div>
+<div id="post-1012" class="enigma_blog_full post-1012 post type-post status-publish format-standard hentry category-cheat-sheets tag-backup tag-cheat-sheet tag-dd tag-io tag-linux tag-restore">
+<ul class="blog-date-left">
+<li class="enigma_post_date">
+<span class="date">22-Jul-2015</span>
+</li>
+<li class="enigma_post_author enigma_blog_thumb_wrapper_showcase"><img alt='' src='https://secure.gravatar.com/avatar/2bc74ec870ee3a89efbe18f2871a4cbc?s=96&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/2bc74ec870ee3a89efbe18f2871a4cbc?s=192&#038;d=mm&#038;r=g 2x' class='author_detail_img avatar-96 photo' height='96' width='96' /> <div class="enigma_blog_thumb_wrapper_showcase_overlays">
+<div class="enigma_blog_thumb_wrapper_showcase_overlay_inner ">
+<div class="enigma_blog_thumb_wrapper_showcase_icons1">
+<a title="dd Cheat Sheet" href="https://www.jamescoyle.net/author/james-coyle">James Coyle</a>
+</div>
+</div>
+</div>
+</li>
+<li class="enigma_blog_comment"><i class="fa fa-comments-o"></i><h6><a href="https://www.jamescoyle.net/cheat-sheets/1012-dd-cheat-sheet#comments">2</a></h6></li>
+</ul>
+<div class="post-content-wrap">
+<div class="enigma_fuul_blog_detail_padding">
+<h2><a href="https://www.jamescoyle.net/cheat-sheets/1012-dd-cheat-sheet">dd Cheat Sheet</a></h2>
+<div class="row">
+<div class="col-md-6 col-sm-3">
+<p class="enigma_tags">Tags : <a href="https://www.jamescoyle.net/tag/backup" rel="tag">Backup</a><a href="https://www.jamescoyle.net/tag/cheat-sheet" rel="tag">cheat-sheet</a><a href="https://www.jamescoyle.net/tag/dd" rel="tag">dd</a><a href="https://www.jamescoyle.net/tag/io" rel="tag">I/O</a><a href="https://www.jamescoyle.net/tag/linux" rel="tag">Linux</a><a href="https://www.jamescoyle.net/tag/restore" rel="tag">restore</a><br /></p>
+</div>
+<div class="col-md-6 col-sm-3">
+<p class="enigma_cats">Category : <a href="https://www.jamescoyle.net/category/cheat-sheets" rel="category tag">Cheat Sheets</a></p>
+</div>
+</div>
+<div class='heateorSssClear'></div><div class='heateor_sss_sharing_container heateor_sss_horizontal_sharing' heateor-sss-data-href='https://www.jamescoyle.net/cheat-sheets/1012-dd-cheat-sheet'><div class='heateor_sss_sharing_title' style="font-weight:bold">Get Social!</div><ul class="heateor_sss_sharing_ul"><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Twitter" Title="Twitter" class="heateorSssSharing heateorSssTwitterBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;http://twitter.com/intent/tweet?via=jamescoyle_uk&text=dd%20Cheat%20Sheet&url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F1012-dd-cheat-sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssTwitterSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Linkedin" Title="Linkedin" class="heateorSssSharing heateorSssLinkedinBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F1012-dd-cheat-sheet&title=dd%20Cheat%20Sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssLinkedinSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Facebook" Title="Facebook" class="heateorSssSharing heateorSssFacebookBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F1012-dd-cheat-sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssFacebookSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Reddit" Title="Reddit" class="heateorSssSharing heateorSssRedditBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;http://reddit.com/submit?url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F1012-dd-cheat-sheet&title=dd%20Cheat%20Sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssRedditSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Mix" Title="Mix" class="heateorSssSharing heateorSssMixBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;https://mix.com/mixit?url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F1012-dd-cheat-sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssMixSvg"></ss></i></li></ul><div class="heateorSssClear"></div></div><div class='heateorSssClear'></div><p><strong>dd</strong> is one of the most versatile IO tools available for Linux. It&#8217;s used in a variety of ways ranging from <a href="https://www.jamescoyle.net/how-to/599-benchmark-disk-io-with-dd-and-bonnie">Disk Benchmarking</a> through to <a href="https://www.jamescoyle.net/how-to/622-proxmox-openvz-swap-and-performance">creating SWAP files </a>and copying downloaded disk images to physical disks.</p>
+<p><strong>dd</strong> takes the following common switches:</p>
+<ul>
+<li><strong>if</strong> is the input file name and location.</li>
+<li><strong>of</strong> is the name and location of the output file.</li>
+<li><strong>bs</strong> is the block size that will be used to read and/ or write the file. Increasing this can help with performance  or dictate how much data will be read or written.</li>
+<li><strong>count</strong> is the number of blocks that will be used.</li>
+<li><strong>seek </strong>is the number of blocks on the output file that will be skipped before writing any data.</li>
+<li><strong>skip</strong> is the number of blocks that will be skipped on the input file before starting to read data.</li>
+<li><strong>conv</strong> is a comma separated list of additional parameters that can be used. See the <strong>man dd</strong> for more information.</li>
+</ul>
+<p>The below headings will list a few example uses of <strong>dd</strong> in a typical Linux environment.</p>
+<h3>Backup disk partition with dd</h3>
+<p>You can use dd to copy an entire disk partition to a virtual disk file. This can be useful for creating a backup or to clone the disk to another machine.</p>
+<pre class="lang:sh decode:true">dd if=/dev/sda1 of=~/localdisk_sda1.img</pre>
+<p>You can use this method to read a CD-ROM, USB drive or Flash disk to a file in the same way &#8211; just make sure the device is inserted and point the <strong>if=</strong> part of the <strong>dd</strong> command to the relevant <strong>/dev/</strong> device.</p>
+<p>You could also compress the image as part of the process with <strong>gzip</strong>.</p>
+<pre class="lang:sh decode:true">dd if=/dev/sda1 | gzip -c &gt; ~/localdisk_sda1.img.gz</pre>
+<h3>Restore disk partition with dd</h3>
+<p>Similar to the above command, you can use <strong>dd</strong> to replace a disk&#8217;s partition with a virtual disk file.</p>
+<pre class="lang:sh decode:true">dd if=~/localdisk_sda1.img of=/dev/sda1</pre>
+<p>If you compressed the image then you can decompress it first all in one go:</p>
+<pre class="lang:sh decode:true">gunzip -c ~/localdisk_sda1.img.gz | dd of=/dev/sda1</pre>
+<h3>Create a fixed size file with dd</h3>
+<p>You can create a fixed size file with DD that will be created in the location you specify.</p>
+<pre class="lang:sh decode:true ">dd if=/dev/zero of=/root/test bs=1024 count=1</pre>
+<p>This will create a file in <strong>/root/test</strong> of 1024 bytes in size. Increase either <strong>bs </strong>or <strong>count</strong> to change the size of the file. The resulting size will be <strong>bs </strong>* <strong>count</strong>. You can also use shorhand sizes such as <strong>K, M </strong>and <strong>G</strong> with <strong>bs</strong>, for example <strong>bs=1G</strong><strong>,</strong></p>
+<pre><code>dd if=/dev/zero of=upload_test bs=file_size count=1</code></pre>
+<h3>Create a SWAP file with dd</h3>
+<p><strong>dd </strong>can be used to create a SWAP file that can be used as a SWAP device by your computer. This is often needed with smaller instances on Cloud providers such as AWS.</p>
+<p>The starting point is the same as the above command to create a file with the size that you&#8217;d like to use for swap. See my <a href="https://www.jamescoyle.net/how-to/622-proxmox-openvz-swap-and-performance">other blog</a> post for more info.</p>
+<h3>Split a file with dd</h3>
+<p><strong>dd</strong> can be used to read just part of a file, given offset and length coordinates. The below example will <strong>skip</strong> the first 100 bytes of the file and output the proceeding 10 bytes (byte 101 &#8211; 111).</p>
+<pre class="lang:sh decode:true">dd if=filetosplit of=partfile bs=1 count=10 skip=100</pre>
+<p>You could repeat this process to split a large file into multiple smaller files, to be able to email it for example.</p>
+<pre class="lang:default decode:true">dd if=filetosplit of=partfile1 bs=1 count=100
+dd if=filetosplit of=partfile2 bs=1 count=100 skip=100
+dd if=filetosplit of=partfile3 bs=1 count=100 skip=200</pre>
+<h3>Merge multiple files with dd</h3>
+<p>You can merge multiple files into a single file with <strong>dd</strong>. Following on from the above split example, the below will rejoin the 3 file parts into a single file.</p>
+<pre class="lang:sh decode:true">dd if=partfile1 of=joinedfile bs=1 count=100
+dd if=partfile2 of=joinedfile bs=1 count=100 seek=100
+dd if=partfile3 of=joinedfile bs=1 count=100 seek=200</pre>
+<h3>Convert text to lower case with dd</h3>
+<p>You can use the <strong>conv</strong> switch with <strong>dd</strong> to transform ascii text from upper case to lower case and visa-versa. Using <strong>lcase</strong> and <strong>ucase</strong> in the <strong>conv</strong> switch will instruct <strong>dd</strong> to convert the text as it&#8217;s written.</p>
+<p>The below example will convert all characters in the <strong>filetoconvert.txt.</strong> file to lower case.</p>
+<pre class="lang:default decode:true">dd if=filetoconvert.txt of=convertedfile.txt conv=lcase</pre>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+<div class="push-right">
+<hr class="blog-sep header-sep">
+</div>
+<div id="post-1170" class="enigma_blog_full post-1170 post type-post status-publish format-standard hentry category-cheat-sheets tag-cheat-sheet tag-linux tag-passwd tag-useradd tag-usermod">
+<ul class="blog-date-left">
+<li class="enigma_post_date">
+<span class="date">10-Mar-2014</span>
+</li>
+<li class="enigma_post_author enigma_blog_thumb_wrapper_showcase"><img alt='' src='https://secure.gravatar.com/avatar/2bc74ec870ee3a89efbe18f2871a4cbc?s=96&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/2bc74ec870ee3a89efbe18f2871a4cbc?s=192&#038;d=mm&#038;r=g 2x' class='author_detail_img avatar-96 photo' height='96' width='96' /> <div class="enigma_blog_thumb_wrapper_showcase_overlays">
+<div class="enigma_blog_thumb_wrapper_showcase_overlay_inner ">
+<div class="enigma_blog_thumb_wrapper_showcase_icons1">
+<a title="Linux User Management Cheat Sheet" href="https://www.jamescoyle.net/author/james-coyle">James Coyle</a>
+</div>
+</div>
+</div>
+</li>
+<li class="enigma_blog_comment"><i class="fa fa-comments-o"></i><h6><a href="https://www.jamescoyle.net/cheat-sheets/1170-linux-user-management-cheat-sheet#respond">0</a></h6></li>
+</ul>
+<div class="post-content-wrap">
+<div class="enigma_fuul_blog_detail_padding">
+<h2><a href="https://www.jamescoyle.net/cheat-sheets/1170-linux-user-management-cheat-sheet">Linux User Management Cheat Sheet</a></h2>
+<div class="row">
+<div class="col-md-6 col-sm-3">
+<p class="enigma_tags">Tags : <a href="https://www.jamescoyle.net/tag/cheat-sheet" rel="tag">cheat-sheet</a><a href="https://www.jamescoyle.net/tag/linux" rel="tag">Linux</a><a href="https://www.jamescoyle.net/tag/passwd" rel="tag">passwd</a><a href="https://www.jamescoyle.net/tag/useradd" rel="tag">useradd</a><a href="https://www.jamescoyle.net/tag/usermod" rel="tag">usermod</a><br /></p>
+</div>
+<div class="col-md-6 col-sm-3">
+<p class="enigma_cats">Category : <a href="https://www.jamescoyle.net/category/cheat-sheets" rel="category tag">Cheat Sheets</a></p>
+</div>
+</div>
+<div class='heateorSssClear'></div><div class='heateor_sss_sharing_container heateor_sss_horizontal_sharing' heateor-sss-data-href='https://www.jamescoyle.net/cheat-sheets/1170-linux-user-management-cheat-sheet'><div class='heateor_sss_sharing_title' style="font-weight:bold">Get Social!</div><ul class="heateor_sss_sharing_ul"><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Twitter" Title="Twitter" class="heateorSssSharing heateorSssTwitterBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;http://twitter.com/intent/tweet?via=jamescoyle_uk&text=Linux%20User%20Management%20Cheat%20Sheet&url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F1170-linux-user-management-cheat-sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssTwitterSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Linkedin" Title="Linkedin" class="heateorSssSharing heateorSssLinkedinBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F1170-linux-user-management-cheat-sheet&title=Linux%20User%20Management%20Cheat%20Sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssLinkedinSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Facebook" Title="Facebook" class="heateorSssSharing heateorSssFacebookBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F1170-linux-user-management-cheat-sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssFacebookSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Reddit" Title="Reddit" class="heateorSssSharing heateorSssRedditBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;http://reddit.com/submit?url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F1170-linux-user-management-cheat-sheet&title=Linux%20User%20Management%20Cheat%20Sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssRedditSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Mix" Title="Mix" class="heateorSssSharing heateorSssMixBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;https://mix.com/mixit?url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F1170-linux-user-management-cheat-sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssMixSvg"></ss></i></li></ul><div class="heateorSssClear"></div></div><div class='heateorSssClear'></div><p>This is my cheat sheet on Linux user administration covering functions such as adding, and removing users and assigning them to groups.</p>
+<h4>Add a new Linux user</h4>
+<p>Use the <strong>useradd</strong> command to add a new user.</p>
+<pre class="lang:default decode:true">useradd [USERNAME]</pre>
+<h4>Change a users password</h4>
+<p>The user account is locked until you set a password with the <strong>passwd</strong> command.</p>
+<pre class="lang:sh decode:true">passwd [USERNAME]</pre>
+<h4>Add user to group &#8211; new user</h4>
+<p>If you are adding a new user, you can add it to a group in the same command. This command will create a user of <strong>[USERNAME]</strong> in group <strong>[GROUPNAME]</strong>.</p>
+<pre class="lang:default decode:true">useradd -G [GROUPNAME] [USERNAME]</pre>
+<h4>Add user to group &#8211; existing user</h4>
+<p>If the user already exists, you can add it to an existing group with the <strong>usermod</strong> command.</p>
+<pre class="lang:sh decode:true">usermod -a -G [GROUPNAME] [USERNAME]</pre>
+<h4>Delete a user</h4>
+<p>Run the <strong>userdel</strong> command to remove an existing Linux user.</p>
+<pre class="lang:sh decode:true">userdel [USERNAME]</pre>
+<h4>View existing users and groups</h4>
+<p>Run the below <strong>cat</strong> command to view existing Linux users. You sill see the user names and user IDs of all users on your server.</p>
+<pre class="lang:sh decode:true">cat /etc/passwd | sort</pre>
+<p>Use this <strong>cat</strong> command to view the existing Linux groups.</p>
+<pre class="lang:sh decode:true">cat /etc/group | sort</pre>
+<h3>Change a users home directory location</h3>
+<p>You can change the users home directory with the <strong>usermod </strong>command.</p>
+<pre class="lang:sh decode:true">usermod -d -m [NEW_DIRECTORY] [USERNAME]</pre>
+<h3>Change a users UID</h3>
+<p>Use the <strong>usermod -u</strong> command to change the user ID of a user.</p>
+<pre class="lang:sh decode:true">usermod -u [UID] [USER_NAME]</pre>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+<div class="push-right">
+<hr class="blog-sep header-sep">
+</div>
+<div id="post-1078" class="enigma_blog_full post-1078 post type-post status-publish format-standard hentry category-cheat-sheets tag-cheat-sheet tag-openssl tag-ssl">
+<ul class="blog-date-left">
+<li class="enigma_post_date">
+<span class="date">17-Jan-2014</span>
+</li>
+<li class="enigma_post_author enigma_blog_thumb_wrapper_showcase"><img alt='' src='https://secure.gravatar.com/avatar/2bc74ec870ee3a89efbe18f2871a4cbc?s=96&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/2bc74ec870ee3a89efbe18f2871a4cbc?s=192&#038;d=mm&#038;r=g 2x' class='author_detail_img avatar-96 photo' height='96' width='96' /> <div class="enigma_blog_thumb_wrapper_showcase_overlays">
+<div class="enigma_blog_thumb_wrapper_showcase_overlay_inner ">
+<div class="enigma_blog_thumb_wrapper_showcase_icons1">
+<a title="OpenSSL Certificate Cheat Sheet" href="https://www.jamescoyle.net/author/james-coyle">James Coyle</a>
+</div>
+</div>
+</div>
+</li>
+<li class="enigma_blog_comment"><i class="fa fa-comments-o"></i><h6><a href="https://www.jamescoyle.net/cheat-sheets/1078-openssl-certificate-cheat-sheet#respond">0</a></h6></li>
+</ul>
+<div class="post-content-wrap">
+<div class="enigma_fuul_blog_detail_padding">
+<h2><a href="https://www.jamescoyle.net/cheat-sheets/1078-openssl-certificate-cheat-sheet">OpenSSL Certificate Cheat Sheet</a></h2>
+<div class="row">
+<div class="col-md-6 col-sm-3">
+<p class="enigma_tags">Tags : <a href="https://www.jamescoyle.net/tag/cheat-sheet" rel="tag">cheat-sheet</a><a href="https://www.jamescoyle.net/tag/openssl" rel="tag">OpenSSL</a><a href="https://www.jamescoyle.net/tag/ssl" rel="tag">SSL</a><br /></p>
+</div>
+<div class="col-md-6 col-sm-3">
+<p class="enigma_cats">Category : <a href="https://www.jamescoyle.net/category/cheat-sheets" rel="category tag">Cheat Sheets</a></p>
+</div>
+</div>
+<div class='heateorSssClear'></div><div class='heateor_sss_sharing_container heateor_sss_horizontal_sharing' heateor-sss-data-href='https://www.jamescoyle.net/cheat-sheets/1078-openssl-certificate-cheat-sheet'><div class='heateor_sss_sharing_title' style="font-weight:bold">Get Social!</div><ul class="heateor_sss_sharing_ul"><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Twitter" Title="Twitter" class="heateorSssSharing heateorSssTwitterBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;http://twitter.com/intent/tweet?via=jamescoyle_uk&text=OpenSSL%20Certificate%20Cheat%20Sheet&url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F1078-openssl-certificate-cheat-sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssTwitterSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Linkedin" Title="Linkedin" class="heateorSssSharing heateorSssLinkedinBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F1078-openssl-certificate-cheat-sheet&title=OpenSSL%20Certificate%20Cheat%20Sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssLinkedinSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Facebook" Title="Facebook" class="heateorSssSharing heateorSssFacebookBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F1078-openssl-certificate-cheat-sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssFacebookSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Reddit" Title="Reddit" class="heateorSssSharing heateorSssRedditBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;http://reddit.com/submit?url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F1078-openssl-certificate-cheat-sheet&title=OpenSSL%20Certificate%20Cheat%20Sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssRedditSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Mix" Title="Mix" class="heateorSssSharing heateorSssMixBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;https://mix.com/mixit?url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F1078-openssl-certificate-cheat-sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssMixSvg"></ss></i></li></ul><div class="heateorSssClear"></div></div><div class='heateorSssClear'></div><p><img class="alignright size-medium wp-image-1082" alt="openssl-logo" src="https://www.jamescoyle.net/wp-content/uploads/2014/01/openssl-logo-300x111.png" width="300" height="111" />These commands cover the basics of OpenSSL and are valid for either Windows or Linux with the exception that paths may need to be corrected for the respective platform.</p>
+<h3>Install OpenSSL</h3>
+<div>
+<p>For windows <a title="http://www.openssl.org/related/binaries.html" href="https://www.openssl.org/related/binaries.html" target="_blank" rel="nofollow">http://www.openssl.org/related/binaries.html</a></p>
+<p>For Ubuntu</p>
+<pre class="lang:sh decode:true">sudo apt-get install openssl</pre>
+</div>
+<h3 id="create_certificate_key">Create Private Key</h3>
+<p>The last argument in the below line is the key length. This can be changed to 2048 or 4096 if required for better encryption.</p>
+<pre>openssl genrsa -des3 -out server.key 1024</pre>
+<h3>Generate a CSR (Certificate Signing Request)</h3>
+<p>You will be asked for the details of the certificate such as domain name and address when running this command.</p>
+<pre class="lang:sh decode:true">openssl req -new -key server.key -out server.csr</pre>
+<h3>Remove Passphrase from Key</h3>
+<p>Some applications do not allow for the private key to have a passphrase. The below commands will remove the passphrase &#8211; be careful as it will mean the key is no longer protected and can be viewed by anyone with read access to the file.</p>
+<pre class="lang:sh decode:true">openssl rsa -in server-with-passphrase.key -out server.key</pre>
+<h3>Generating a Self-Signed Certificate</h3>
+<p>Once you have generated a key and CSR you will need to sign the request and generate the public certificate. If you do not have a certificate authority you can sign the certificate yourself. The below will generate a certificate which is valid for one year.</p>
+<pre class="lang:sh decode:true">openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt</pre>
+<h3>Convert x509 to pem</h3>
+<pre class="lang:sh decode:true">openssl x509 -inform der -in server.crt -out server.pem</pre>
+<h3>pkcs12 to pem &#8211; key only</h3>
+<p>Use the below command to extract only the key from a pkcs12 certificate.</p>
+<pre class="lang:sh decode:true">openssl pkcs12 -nocerts -in c:\server.pfx -out c:\server-key.key</pre>
+<h3>pkcs12 to pem &#8211; certificate only</h3>
+<p>Use the below command to extract only the public certificate from a pkcs12 certificate.</p>
+<pre class="lang:sh decode:true">openssl pkcs12 -nokeys -in server.pfx -out server-cert.cer</pre>
+<h3>Check a private key</h3>
+<p>You can check a private key with the below command.</p>
+<pre class="lang:sh decode:true ">openssl rsa -in privateKey.key -check</pre>
+<h4>Check a certificate</h4>
+<p>Use the below command to check a certificate.</p>
+<pre class="lang:sh decode:true ">openssl x509 -in certificate.crt -text -noout</pre>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+<div class="push-right">
+<hr class="blog-sep header-sep">
+</div>
+<div id="post-791" class="enigma_blog_full post-791 post type-post status-publish format-standard hentry category-cheat-sheets tag-cheat-sheet tag-debian tag-linux tag-service tag-ubuntu tag-update-rc-d tag-upstart">
+<ul class="blog-date-left">
+<li class="enigma_post_date">
+<span class="date">9-Nov-2013</span>
+</li>
+<li class="enigma_post_author enigma_blog_thumb_wrapper_showcase"><img alt='' src='https://secure.gravatar.com/avatar/2bc74ec870ee3a89efbe18f2871a4cbc?s=96&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/2bc74ec870ee3a89efbe18f2871a4cbc?s=192&#038;d=mm&#038;r=g 2x' class='author_detail_img avatar-96 photo' height='96' width='96' /> <div class="enigma_blog_thumb_wrapper_showcase_overlays">
+<div class="enigma_blog_thumb_wrapper_showcase_overlay_inner ">
+<div class="enigma_blog_thumb_wrapper_showcase_icons1">
+<a title="update-rc.d Cheat Sheet" href="https://www.jamescoyle.net/author/james-coyle">James Coyle</a>
+</div>
+</div>
+</div>
+</li>
+<li class="enigma_blog_comment"><i class="fa fa-comments-o"></i><h6><a href="https://www.jamescoyle.net/cheat-sheets/791-update-rc-d-cheat-sheet#comments">15</a></h6></li>
+</ul>
+<div class="post-content-wrap">
+<div class="enigma_fuul_blog_detail_padding">
+<h2><a href="https://www.jamescoyle.net/cheat-sheets/791-update-rc-d-cheat-sheet">update-rc.d Cheat Sheet</a></h2>
+<div class="row">
+<div class="col-md-6 col-sm-3">
+<p class="enigma_tags">Tags : <a href="https://www.jamescoyle.net/tag/cheat-sheet" rel="tag">cheat-sheet</a><a href="https://www.jamescoyle.net/tag/debian" rel="tag">Debian</a><a href="https://www.jamescoyle.net/tag/linux" rel="tag">Linux</a><a href="https://www.jamescoyle.net/tag/service" rel="tag">Service</a><a href="https://www.jamescoyle.net/tag/ubuntu" rel="tag">ubuntu</a><a href="https://www.jamescoyle.net/tag/update-rc-d" rel="tag">update-rc.d</a><a href="https://www.jamescoyle.net/tag/upstart" rel="tag">upstart</a><br /></p>
+</div>
+<div class="col-md-6 col-sm-3">
+<p class="enigma_cats">Category : <a href="https://www.jamescoyle.net/category/cheat-sheets" rel="category tag">Cheat Sheets</a></p>
+</div>
+</div>
+<div class='heateorSssClear'></div><div class='heateor_sss_sharing_container heateor_sss_horizontal_sharing' heateor-sss-data-href='https://www.jamescoyle.net/cheat-sheets/791-update-rc-d-cheat-sheet'><div class='heateor_sss_sharing_title' style="font-weight:bold">Get Social!</div><ul class="heateor_sss_sharing_ul"><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Twitter" Title="Twitter" class="heateorSssSharing heateorSssTwitterBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;http://twitter.com/intent/tweet?via=jamescoyle_uk&text=update-rc.d%20Cheat%20Sheet&url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F791-update-rc-d-cheat-sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssTwitterSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Linkedin" Title="Linkedin" class="heateorSssSharing heateorSssLinkedinBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F791-update-rc-d-cheat-sheet&title=update-rc.d%20Cheat%20Sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssLinkedinSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Facebook" Title="Facebook" class="heateorSssSharing heateorSssFacebookBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F791-update-rc-d-cheat-sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssFacebookSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Reddit" Title="Reddit" class="heateorSssSharing heateorSssRedditBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;http://reddit.com/submit?url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F791-update-rc-d-cheat-sheet&title=update-rc.d%20Cheat%20Sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssRedditSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Mix" Title="Mix" class="heateorSssSharing heateorSssMixBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;https://mix.com/mixit?url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F791-update-rc-d-cheat-sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssMixSvg"></ss></i></li></ul><div class="heateorSssClear"></div></div><div class='heateorSssClear'></div><p><img class="alignright size-full wp-image-753" src="https://www.jamescoyle.net/wp-content/uploads/2013/10/Linux-penguin.png" alt="Linux penguin" width="172" height="230" />Debian and Ubuntu use the <strong>service</strong> command to control services and <strong>update-rc.d</strong> for adding and removing services from start up. Using the <strong>service</strong> command we can start, stop, restart and display all available services. With <strong>update-rc.d</strong> we can add and remove services and add them to the Ubuntu/ Debian start up scripts. As Linux operating systems have multiple states, or runlevels, you need to make sure you add any new services to the correct runlevels. For example, you would not want to start a web service application before starting networking.</p>
+<p>See my <a href="https://www.jamescoyle.net/how-to/769-linux-runlevels-explained">post on runlevels</a> for more information about runlevels in Linux..</p>
+<h3>What services are available for startup?</h3>
+<p>Use the <strong>status-all</strong> switch to list all services which are registered with the OS and issues them a <strong>status</strong> command. You will then get one of the following displayed next to each service:</p>
+<ul>
+<li><strong>[ + ]</strong> &#8211; Services with this sign are currently running.</li>
+<li><strong>[ &#8211; ]</strong> &#8211; Services with this sign are not currently running..</li>
+<li><strong>[ ? ]</strong> &#8211; Services that do not have a <strong>status</strong> switch.</li>
+</ul>
+<pre>service --status-all</pre>
+<p>Sample output:</p>
+<pre>service --status-all
+ [ ? ] acpid
+ [ - ] apparmor
+ [ ? ] apport
+ [ ? ] atd
+ [ - ] bootlogd
+ [ ? ] console-setup
+ [ ? ] cron
+ [ ? ] dbus
+ [ ? ] dmesg
+ [ ? ] dns-clean
+ [ ? ] friendly-recovery
+ [ ? ] glusterfs-server
+ [ - ] grub-common
+ [ ? ] gssd
+ [ ? ] hostname
+ [ ? ] hwclock
+ [ ? ] hwclock-save
+ [ ? ] idmapd
+ [ ? ] irqbalance
+ [ ? ] killprocs
+ [ ? ] module-init-tools
+ [ ? ] network-interface
+ [ ? ] network-interface-container
+ [ ? ] network-interface-security
+ [ ? ] networking
+ [ ? ] ondemand
+ [ ? ] passwd
+ [ ? ] plymouth
+ [ ? ] plymouth-log
+ [ ? ] plymouth-ready
+ [ ? ] plymouth-splash
+ [ ? ] plymouth-stop
+ [ ? ] plymouth-upstart-bridge
+ [ ? ] portmap
+ [ ? ] portmap-wait
+ [ ? ] pppd-dns
+ [ ? ] procps
+ [ ? ] rc.local
+ [ ? ] resolvconf
+ [ ? ] rpcbind-boot
+ [ - ] rsync
+ [ ? ] rsyslog
+ [ ? ] screen-cleanup
+ [ ? ] sendsigs
+ [ ? ] setvtrgb
+ [ + ] ssh
+ [ ? ] statd
+ [ ? ] statd-mounting
+ [ - ] stop-bootlogd
+ [ - ] stop-bootlogd-single
+ [ ? ] sudo
+ [ ? ] udev
+ [ ? ] udev-fallback-graphics
+ [ ? ] udev-finish
+ [ ? ] udevmonitor
+ [ ? ] udevtrigger
+ [ ? ] ufw
+ [ ? ] umountfs
+ [ ? ] umountnfs.sh
+ [ ? ] umountroot
+ [ - ] unattended-upgrades
+ [ - ] urandom
+ [ ? ] whoopsie</pre>
+<h3>Start a service</h3>
+<p>Starting a service is done using the command <strong>service</strong> followed by the service name and the command to start the service.</p>
+<pre>service apache2 start</pre>
+<h3>Stop a service</h3>
+<p>Use the <strong>stop</strong> keyword with <strong>service</strong> to stop a service.</p>
+<pre>service apache2 stop</pre>
+<h3>Check the status of a service</h3>
+<p>Each service has a status, usually running or not running. Some services, such as <strong>network</strong>, may have a different output and output more information on the service.</p>
+<pre>service apache2 status</pre>
+<h3>Remove a service</h3>
+<p>Use the <strong>remove</strong> keyword with <strong>update-rc.d</strong> to remove the service start up command for an application. You will need to use the <strong>-f</strong> switch if the applications <strong>/etc/init.d</strong> start up file exists.</p>
+<pre class="">update-rc.d -f apache2 remove</pre>
+<h3> Add a service</h3>
+<p>Adding a service to Ubuntu or Debian is done with the <strong>update-rc.d</strong> command. You can specify which runlevels to start and stop the new service or accept the defaults. The <strong>init.d</strong> file will be added to the relevent <strong>rc.d</strong> startup folders.</p>
+<pre class=""> update-rc.d apache2 defaults</pre>
+<h3>Setting Start and Kill priority</h3>
+<p>If you need more control over when your service is asked to start and stop, you may need to set the <strong>start</strong> and <strong>kill</strong> (S and K) values.</p>
+<p>For a given <a href="https://www.jamescoyle.net/knowledge/769-linux-runlevels-explained">runlevel</a>, you may have several services starting. For example, you may have apache2 and mysql both starting on runlevel 3. Ideally, you&#8217;d want mysql to start before apache2 and shutdown after apache2. In this case we need to give mysql the priority in startup, but apache2 the priority in shutdown.</p>
+<p>When starting, the lower the number, the earlier it will start. A start priority of 10 will start before a priority of 20. When killing, it&#8217;s the opposite. A higher number will be killed before a lower number.</p>
+<p>To set the start and kill priority we simply add them to the above <strong>update-rc.d</strong> command with the start priority first, followed by the kill priority.</p>
+<pre class="lang:default decode:true">update-rc.d apache2 defaults [START] [KILL]</pre>
+<p>The below command will start <strong>mysql</strong> first, then <strong>apache2</strong>. On shutdown, the kill will be the reverse of the start with <strong>apache2 </strong>being killed first and <strong>mysql </strong>second.</p>
+<pre class="lang:sh decode:true">update-rc.d apache2 defaults 90 90
+update-rc.d mysql defaults 10 10</pre>
+<p>Because, in our example, both start and kill priorities are the same we can shorted the command to just</p>
+<pre class="lang:sh decode:true ">update-rc.d apache2 defaults 90
+update-rc.d mysql defaults 10</pre>
+<h3>Manually set the RunLevel to Start and Kill a service</h3>
+<p>You can manually specify the Linux RunLevel that the system must be in to Start and Kill your service. See my other blog post for more information on <a href="https://www.jamescoyle.net/knowledge/769-linux-runlevels-explained">RunLevels</a>.</p>
+<p>To extend the above example, we can specify exactly which RunLevel <strong>apache2</strong> will be started and stopped.</p>
+<pre class="lang:sh decode:true">update-rc.d apache2 start 10 2 3 4 5 . stop 90 0 1 6 .</pre>
+<p><strong>apache2</strong> will be started (as long as it isn&#8217;t already) when the system enters RunLevel <strong>2</strong>, <strong>3</strong>, <strong>4</strong> or <strong>5</strong> with a priority of <strong>10</strong>. It will then be asked to stop when the system enters RunLevel <strong>0</strong>, <strong>1</strong> or <strong>6</strong> with a priority of <strong>90</strong>.</p>
+<p><em>Let me know in the comments if you think anything is missing.</em></p>
+</div>
+</div>
+</div>
+<div class="push-right">
+<hr class="blog-sep header-sep">
+</div>
+<div id="post-676" class="enigma_blog_full post-676 post type-post status-publish format-standard hentry category-cheat-sheets tag-cheat-sheet tag-linux tag-logrotate">
+<ul class="blog-date-left">
+<li class="enigma_post_date">
+<span class="date">3-Nov-2013</span>
+</li>
+<li class="enigma_post_author enigma_blog_thumb_wrapper_showcase"><img alt='' src='https://secure.gravatar.com/avatar/2bc74ec870ee3a89efbe18f2871a4cbc?s=96&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/2bc74ec870ee3a89efbe18f2871a4cbc?s=192&#038;d=mm&#038;r=g 2x' class='author_detail_img avatar-96 photo' height='96' width='96' /> <div class="enigma_blog_thumb_wrapper_showcase_overlays">
+<div class="enigma_blog_thumb_wrapper_showcase_overlay_inner ">
+<div class="enigma_blog_thumb_wrapper_showcase_icons1">
+<a title="logrotate Cheat Sheet" href="https://www.jamescoyle.net/author/james-coyle">James Coyle</a>
+</div>
+</div>
+</div>
+</li>
+<li class="enigma_blog_comment"><i class="fa fa-comments-o"></i><h6><a href="https://www.jamescoyle.net/cheat-sheets/676-logrotate-cheat-sheet#comments">17</a></h6></li>
+</ul>
+<div class="post-content-wrap">
+<div class="enigma_fuul_blog_detail_padding">
+<h2><a href="https://www.jamescoyle.net/cheat-sheets/676-logrotate-cheat-sheet">logrotate Cheat Sheet</a></h2>
+<div class="row">
+<div class="col-md-6 col-sm-3">
+<p class="enigma_tags">Tags : <a href="https://www.jamescoyle.net/tag/cheat-sheet" rel="tag">cheat-sheet</a><a href="https://www.jamescoyle.net/tag/linux" rel="tag">Linux</a><a href="https://www.jamescoyle.net/tag/logrotate" rel="tag">logrotate</a><br /></p>
+</div>
+<div class="col-md-6 col-sm-3">
+<p class="enigma_cats">Category : <a href="https://www.jamescoyle.net/category/cheat-sheets" rel="category tag">Cheat Sheets</a></p>
+</div>
+</div>
+<div class='heateorSssClear'></div><div class='heateor_sss_sharing_container heateor_sss_horizontal_sharing' heateor-sss-data-href='https://www.jamescoyle.net/cheat-sheets/676-logrotate-cheat-sheet'><div class='heateor_sss_sharing_title' style="font-weight:bold">Get Social!</div><ul class="heateor_sss_sharing_ul"><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Twitter" Title="Twitter" class="heateorSssSharing heateorSssTwitterBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;http://twitter.com/intent/tweet?via=jamescoyle_uk&text=logrotate%20Cheat%20Sheet&url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F676-logrotate-cheat-sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssTwitterSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Linkedin" Title="Linkedin" class="heateorSssSharing heateorSssLinkedinBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F676-logrotate-cheat-sheet&title=logrotate%20Cheat%20Sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssLinkedinSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Facebook" Title="Facebook" class="heateorSssSharing heateorSssFacebookBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F676-logrotate-cheat-sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssFacebookSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Reddit" Title="Reddit" class="heateorSssSharing heateorSssRedditBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;http://reddit.com/submit?url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F676-logrotate-cheat-sheet&title=logrotate%20Cheat%20Sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssRedditSvg"></ss></i></li><li class="heateorSssSharingRound"><i style="width:60px;height:30px;" alt="Mix" Title="Mix" class="heateorSssSharing heateorSssMixBackground" onclick="if (!window.__cfRLUnblockHandlers) return false; heateorSssPopup(&quot;https://mix.com/mixit?url=https%3A%2F%2Fwww.jamescoyle.net%2Fcheat-sheets%2F676-logrotate-cheat-sheet&quot;)" data-cf-modified-9b54ac32034d90b2d08e3e6f-=""><ss style="display:block;" class="heateorSssSharingSvg heateorSssMixSvg"></ss></i></li></ul><div class="heateorSssClear"></div></div><div class='heateorSssClear'></div><p><img class="alignright size-full wp-image-811" alt="logrotate" src="https://www.jamescoyle.net/wp-content/uploads/2013/11/logrotate.png" width="216" height="131" /> Most Linux applications create log files that need to be managed by either archiving or deleting old log files. This process is called log file rotation. The most common log rotation utility for Linux is conveniently called <strong>logrotate</strong>. <strong>logrotate</strong> is configured using the main configuration file, or the <strong>logrotate</strong> configuration folder. The configuration file usually holds the global configuration and the pointer to the configuration folder. In common Linux distributions such as Ubuntu and Debian, the <strong>logrotate</strong> configuration file can be found:</p>
+<pre>/etc/logrotate.conf</pre>
+<p>And the configuration folder can be found:</p>
+<pre>/etc/logrotate.d/</pre>
+<p>The configuration folder is usually where you would add new log file configurations which are unique for a particular log file, or set of log files. For example, if you were to add a new log rotation action for the Ubuntu package manager <strong>apt</strong>, you may use something like below:</p>
+<pre>vi /etc/logrotate.d/apt</pre>
+<pre>/var/log/apt/term.log {
+  rotate 12
+  monthly
+  compress
+  missingok
+  notifempty
+}
+/var/log/apt/history.log {
+  rotate 12
+  monthly
+  compress
+  missingok
+  notifempty
+}</pre>
+<p><strong>logrotate</strong> runs each day by default, and is invoked using the daily cron job. The below subject detail the common components of creating a <strong></strong><b>logrotate</b> configuration file.</p>
+<h3>Create a new empty template</h3>
+<p>To create a new <strong>logrotate</strong> configuration file, you need to create a new file in <strong>/etc/logrotate.d/</strong>. You will then need to add a reference to the log files you wish to rotate. This can be directly to a single file or use pattern matching to match a group of log files. The below example matches all log files in <strong>/var/log/myapp/</strong> which have a <strong>.log</strong> extension.</p>
+<pre>/var/log/myapp/*.log {
+
+}</pre>
+<p>You will need to add further commands to this template before it becomes useful. Further commands will be added inside the <strong>{ </strong>and <strong>}</strong> tags.</p>
+<h3>Rotate based on log file size</h3>
+<p>Use the <strong>size</strong> keyword to rotate the log file when it exceeded a given file size. The below example rotates a file when it reaches 10 KB.<strong> </strong></p>
+<pre>/var/log/myapp/*.log {
+  size 10k
+}</pre>
+<h3>Rotate based on time (Month, Week or Day)</h3>
+<p>You can rotate logs using the <strong>monthly</strong>, <strong>weekly</strong> or <strong>daily</strong> keyword to create a new log based on duration. The keywords explain them selves, and they can be used in conjunction with the <strong>size</strong> keyword to rotate on which ever criteria is met first.</p>
+<pre>/var/log/myapp/*.log {
+  size 10k
+  weekly
+}</pre>
+<h3>Limit how many log files are kept after rotation by number</h3>
+<p>The <strong>rotate</strong> keyword allows you to specify how many old, rotated, log files are kept before logrotate deletes them. The <strong>rotate</strong> keyword requires an integer to specify how many old log files are kept.</p>
+<pre>/var/log/myapp/*.log {
+  size 10k
+  weekly
+  rotate 8
+}</pre>
+<p>The above example will keep <strong>8</strong> old log files.</p>
+<h3>Limit how many files are kept after rotation by date</h3>
+<p>You can specify how long to keep rotated files using the <strong>maxage</strong> keyword. Any rotated log files which are older than <strong>maxage</strong> will be deleted. The below example will keep rotated log files for 56 days.</p>
+<pre>/var/log/myapp/*.log {
+  size 10k
+  weekly
+  maxage 56
+}</pre>
+<h3>Compress rotated log files</h3>
+<p>Log files which have been rotated can be compressed to save disk space. Gzip is used by default.</p>
+<pre>/var/log/myapp/*.log {
+  size 10k
+  weekly
+  rotate 8
+  compress
+}</pre>
+<p>You can change the default gzip compression to another format by specifying the <strong>compresscmd</strong> command and a different executable to use. The below example changes the compression format to bzip2 for better file compression.</p>
+<pre>/var/log/myapp/*.log {
+  size 10k
+  weekly
+  rotate 8
+  compress
+  compresscmd /bin/bzip2
+}</pre>
+<h3>Ignore missing log files</h3>
+<p>If a log file does not exist when <strong>logrotate</strong> is running then an error will be thrown. You can use the keyword <strong>missingok</strong> to avoid this scenario and instruct logrotate to ignore the log file if it does not exist.</p>
+<pre>/var/log/myapp/*.log {
+  size 10k
+  weekly
+  rotate 8
+  missingok
+}</pre>
+<h3>Continue writing to the same log file after rotation</h3>
+<p>Usually when a log file is rotated the log file is moved to a new location. Some applications may throw an error, and others may continue to write to the relocated file. The <strong>copytruncate</strong> keyword copies all the log in the file to a new file and then truncates the original file. This keeps the original log file in place and also allows rotation to continue.</p>
+<pre>/var/log/myapp/*.log {
+  size 10k
+  weekly
+  rotate 8
+  copytruncate
+}</pre>
+<p>&nbsp;</p>
+<p><em>Let me know in the comments if you think anything is missing.</em></p>
+</div>
+</div>
+</div>
+<div class="push-right">
+<hr class="blog-sep header-sep">
+</div>
+<div class="enigma_blog_pagination">
+<div class="enigma_blog_pagi">
+<a href="https://www.jamescoyle.net/category/cheat-sheets/page/2">Next Page &raquo;</a> </div>
+</div>
+</div>
+<div class="col-md-4 enigma-sidebar">
+<div class="enigma_sidebar_widget ajdg_grpwidgets"><div class="enigma_sidebar_widget_title"><h2>Visit our advertisers</h2></div><div class="g g-1"><div class="g-dyn a-5 c-1"><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" type="9b54ac32034d90b2d08e3e6f-text/javascript"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9047448639120817" data-ad-slot="9432662084" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript">
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></div></div><div class="enigma_sidebar_widget widget_search"><div class="enigma_sidebar_widget_title"><h2>Search</h2></div><div class="input-group">
+<form method="get" id="searchform" action="https://www.jamescoyle.net/">
+<input type="text" class="form-control" name="s" id="s" placeholder="What do you want to find?" />
+<span class="input-group-btn">
+<button class="btn btn-search" type="submit"><i class="fa fa-search"></i></button>
+</span>
+</form>
+</div></div><div class="enigma_sidebar_widget widget_democracy"><div class="enigma_sidebar_widget_title"><h2>Quick Poll</h2></div>
+
+<style type="text/css">.democracy:after{content:'';display:table;clear:both}.democracy ul li,.democracy ul{background:none;padding:0;margin:0}.democracy ul li:before{display:none}.democracy input[type='radio'],.democracy input[type='checkbox']{margin:0;vertical-align:middle}.democracy input[type='radio']:focus,.democracy input[type='checkbox']:focus{outline:0}.democracy ul{list-style:none !important;border:0 !important}.democracy ul li{list-style:none !important}input[type="submit"].dem-button,a.dem-button,.dem-button{position:relative;display:inline-block;text-decoration:none;line-height:1;border:0;margin:0;padding:0;cursor:pointer;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}input[type="submit"].dem-button:focus,a.dem-button:focus,.dem-button:focus{outline:0}input[type="submit"].dem-button:disabled,a.dem-button:disabled,.dem-button:disabled{opacity:.6;cursor:not-allowed}a.dem-button:hover{text-decoration:none !important}.democracy{position:relative;margin:0 auto}.democracy input[type='radio'],.democracy input[type='checkbox']{margin-right:.2em}.dem-screen{position:relative;line-height:1.3}.democracy ul.dem-vote{margin-bottom:1em}.democracy ul.dem-vote li{padding-bottom:0;margin-bottom:0}.democracy ul.dem-vote li>*{margin-bottom:.6em}.democracy ul.dem-answers li{padding-bottom:1em}.dem-answers .dem-label{margin-bottom:.2em;line-height:1.2}.dem-graph{position:relative;color:#555;color:rgba(0,0,0,.6);box-sizing:content-box;width:100%;display:table;height:1.2em;line-height:1.2em}.dem-fill{position:absolute;top:0;left:0;height:100%;background-color:#7cb4dd}.dem-voted-this .dem-fill{background-color:#ffc45a}.dem-votes-txt,.dem-percent-txt{position:relative;display:table-cell;padding-left:.3em;vertical-align:middle;font-size:90%}.dem-poll-info{padding-bottom:1em}.dem-poll-info:after{content:'';display:table;clear:both}.dem-poll-info>*{font-size:85%;display:block;float:right;clear:both;text-align:right;opacity:.7;line-height:1.3}.dem-vote label{float:none;display:block}.dem-results-link{display:inline-block;line-height:1;margin:.8em 1em}.dem-vote .dem-disabled{opacity:.5}.democracy .dem-bottom{padding-bottom:1em}.dem-bottom{text-align:center}.dem-bottom:after{content:'';display:table;clear:both}.dem-poll-title{display:block;margin-bottom:1.5em;margin-top:1.2em;font-size:120%}.dem-notice{z-index:10;position:absolute;top:0;border-radius:2px;width:100%;padding:1.5em 2em;text-align:center;background:rgba(247,241,212,.8);color:#6d6214}.dem-notice-close{position:absolute;top:0;right:0;padding:5px;cursor:pointer;line-height:.6;font-size:150%}.dem-notice-close:hover{color:#d26616}.dem-star{font-size:90%;vertical-align:baseline;padding-left:.3em;color:#ff4e00}.dem-poll-note{font-size:90%;padding:.5em;opacity:.8;line-height:1.3}.democracy .dem-copyright{position:absolute;bottom:-1em;right:0;text-decoration:none;border-bottom:0;color:#b2b2b2;opacity:.5;line-height:1}.democracy .dem-copyright:hover{opacity:1}.dem-add-answer{position:relative}.dem-add-answer>*{display:block}.dem-add-answer a{display:inline-block}input.dem-add-answer-txt{width:100%;box-sizing:border-box}.dem-add-answer-close{position:absolute;right:0;padding:0 .7em;cursor:pointer;color:#333}.dem-add-answer-close:hover{color:#ff2700}.dem-edit-link{display:block;position:absolute;top:0;right:0;line-height:1;text-decoration:none !important;border:0 !important}.dem-edit-link svg{width:1.2em !important;fill:#5a5a5a;fill:rgba(0,0,0,.6)}.dem-edit-link:hover svg{fill:#35a91d}.dem-loader{display:none;position:absolute;top:0;left:0;width:100%;height:100%}.dem-loader>*{display:table-cell;vertical-align:middle;text-align:center}.dem-loader svg{width:20%;max-width:100px;min-width:80px;margin-bottom:15%}.dem-loader [class^="dem-"]{margin-bottom:15% !important}.dem__collapser{display:block;cursor:pointer;text-align:center;font-size:150%;line-height:1}.dem__collapser:hover{color:#f31;background:rgba(255,255,255,.3)}.dem__collapser.expanded{position:relative;height:1em}.dem__collapser.collapsed{position:absolute;top:0;bottom:0;right:0;left:0}.dem__collapser .arr{display:block;position:absolute;bottom:0;width:100%}.dem__collapser.collapsed .arr:before{content:"▾"}.dem__collapser.expanded .arr:before{content:"▴"}.dem-poll-shortcode{margin-bottom:1.5em}.dem-archives .dem-elem-wrap{margin-bottom:2em;padding-bottom:20px;border-bottom:1px dashed #ccc}.dem-archives .dem-archive-link{display:none}.dem-paging{text-align:center;margin:1.5em auto}.dem-paging>*{display:inline-block;padding:.3em .8em;border-radius:.2em;background:#e2e2e2;color:#333;text-decoration:none;text-transform:lowercase;user-select:none}.dem-paging>a{color:#333}.dem-paging>a:hover{background:#ccc;color:#333;text-decoration:none}.dem-paging .current{background:#656565;color:#fff}.dem-paging .dots{background:none}.democracy{border-color:#ccc;border:1px solid rgba(0,0,0,.1);background-color:#eee;background-color:rgba(0,0,0,.1);background-image:-webkit-linear-gradient(bottom,rgba(0,0,0,.05),transparent);background-image:linear-gradient(to top,rgba(0,0,0,.05),transparent);padding:1em;padding-bottom:.5em;margin-bottom:1em}.dem-poll-title{margin:0;font-size:115%;margin:-.9em;margin-bottom:1em;text-align:center;padding:1em;border-bottom:1px solid rgba(0,0,0,.1)}.dem-percent-txt,.dem-label-percent-txt{display:none}.dem-votes-txt-percent:before{content:'- ';display:inline}.dem-revote-button:before{content:'◂ '}.dem-graph{background-color:rgba(255,255,255,.8)}.dem-results-link{margin-bottom:0}input[type="submit"].dem-button,a.dem-button,.dem-button{font-size:90%;font-family:tahoma,arial,sans-serif;padding:.8em 1.6em !important;color:#fff;background:#61a9de;text-transform:uppercase}input[type="submit"].dem-button:hover,a.dem-button:hover,.dem-button:hover{color:#fff;background:#3b8bc6}a.dem-button:visited{color:#fff}</style>
+<div id="democracy-7" class="democracy" data-opts='{"ajax_url":"https:\/\/www.jamescoyle.net\/wp-admin\/admin-ajax.php","pid":7,"max_answs":0,"answs_max_height":"500","anim_speed":"400","line_anim_speed":1500}'><strong class="dem-poll-title">Are you using Docker.io?</strong><div class="dem-screen vote"><form method="POST" action="#democracy-7"><ul class="dem-vote">
+<li data-aid="33">
+<label class="dem__radio_label">
+<input class="dem__radio" type="radio" value="33" name="answer_ids[]"><span class="dem__spot"></span> Yes
+</label>
+</li>
+<li data-aid="35">
+<label class="dem__radio_label">
+<input class="dem__radio" type="radio" value="35" name="answer_ids[]"><span class="dem__spot"></span> I plan to soon
+</label>
+</li>
+<li data-aid="34">
+<label class="dem__radio_label">
+<input class="dem__radio" type="radio" value="34" name="answer_ids[]"><span class="dem__spot"></span> No
+</label>
+</li>
+<li data-aid="36">
+<label class="dem__radio_label">
+<input class="dem__radio" type="radio" value="36" name="answer_ids[]"><span class="dem__spot"></span> What's Docker?
+</label>
+</li></ul><div class="dem-bottom"><input type="hidden" name="dem_act" value="vote"><input type="hidden" name="dem_pid" value="7"><div class="dem-vote-button"><input class="dem-button " type="submit" value="Vote" data-dem-act="vote"></div><a href="javascript:void(0);" class="dem-link dem-results-link" data-dem-act="view" rel="nofollow">Results</a></div></form></div><noscript>Poll Options are limited because JavaScript is disabled in your browser.</noscript><div class="dem-loader"><div><style type="text/css">
+.dem-circle {
+  width:100%;
+  height:100%;
+  min-width:40px;
+  min-height:40px;
+  max-width:70px;
+  max-height:70px;
+
+  position: relative;
+  margin: 0 auto;
+}
+
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #226ec6;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  -webkit-animation: bounce 2.0s infinite ease-in-out;
+  animation: bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bounce {
+  0%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}</style>
+<div class="dem-circle">
+<div class="double-bounce1 css-fill"></div>
+<div class="double-bounce2 css-fill"></div>
+</div></div></div></div></div> <div class="enigma_sidebar_widget widget_recent_entries"> <div class="enigma_sidebar_widget_title"><h2>Recent Posts</h2></div> <ul>
+<li>
+<a href="https://www.jamescoyle.net/how-to/3230-install-aws-codedeploy-agent-on-linux">Install AWS CodeDeploy Agent on Linux</a>
+</li>
+<li>
+<a href="https://www.jamescoyle.net/how-to/supporting-scripts/3236-script-to-install-aws-codedeploy-agent-on-linux">Script To Install AWS CodeDeploy Agent on Linux</a>
+</li>
+<li>
+<a href="https://www.jamescoyle.net/how-to/docker-compose-files/3219-storj-storage-node-docker-compose-file">Storj Storage Node Docker-Compose file</a>
+</li>
+<li>
+<a href="https://www.jamescoyle.net/how-to/3192-apache-traffic-server-ats-returning-403-for-delete-http-requests">Apache Traffic Server (ATS) Returning 403 For DELETE HTTP Requests</a>
+</li>
+<li>
+<a href="https://www.jamescoyle.net/how-to/3184-mysql-data-types-and-sizes-for-string-text">Mysql Data Types and Sizes for String/ Text</a>
+</li>
+</ul>
+</div><div class="enigma_sidebar_widget ajdg_grpwidgets"><div class="enigma_sidebar_widget_title"><h2>Visit our advertisers</h2></div><div class="g g-1"><div class="g-dyn a-5 c-1"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" type="9b54ac32034d90b2d08e3e6f-text/javascript"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9047448639120817" data-ad-slot="9432662084" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript">
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></div></div></div> </div>
+</div>
+
+
+<div class="enigma_footer_widget_area">
+<div class="container">
+<div class="row">
+<div class="col-md-3 col-sm-6 enigma_footer_widget_column widget_nav_menu"><div class="enigma_footer_widget_title">Site Links<div class="enigma-footer-separator"></div></div><div class="menu-site-links-container"><ul id="menu-site-links" class="menu"><li id="menu-item-2574" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2574"><a href="https://www.jamescoyle.net/consultancy">Consultancy</a></li>
+<li id="menu-item-2575" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2575"><a href="https://www.jamescoyle.net/cookie-policy">Cookie Policy</a></li>
+<li id="menu-item-2841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2841"><a href="https://www.jamescoyle.net/offers">Offers</a></li>
+<li id="menu-item-2937" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2937"><a href="https://www.jamescoyle.net/link-out">Give Back</a></li>
+</ul></div></div><div class="col-md-3 col-sm-6 enigma_footer_widget_column widget_nav_menu"><div class="enigma_footer_widget_title">Blog<div class="enigma-footer-separator"></div></div><div class="menu-blog-container"><ul id="menu-blog" class="menu"><li id="menu-item-1025" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1025"><a href="https://www.jamescoyle.net/polls-archive">Polls Archive</a></li>
+<li id="menu-item-1024" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1024"><a href="https://www.jamescoyle.net/polls-archive/random-poll">Random Poll</a></li>
+<li id="menu-item-977" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-977"><a href="/feed">Blog Posts RSS</a></li>
+<li id="menu-item-976" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-976"><a href="/comments/feed">Comments RSS</a></li>
+<li id="menu-item-1847" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1847"><a href="/wp-admin/">Admin</a></li>
+</ul></div></div><div class="col-md-3 col-sm-6 enigma_footer_widget_column widget_nav_menu"><div class="enigma_footer_widget_title">Other Sites<div class="enigma-footer-separator"></div></div><div class="menu-other-sites-container"><ul id="menu-other-sites" class="menu"><li id="menu-item-1347" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1347"><a href="https://wwwgit.jamescoyle.net/public">Public Git</a></li>
+<li id="menu-item-1952" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1952"><a href="https://www.storjstatus.com/">Storj Share Farming</a></li>
+<li id="menu-item-2729" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2729"><a href="http://www.jdoqocy.com/ea111ox52x4KTOQPQUQKMMRSTOPN">Web Hosting</a></li>
+<li id="menu-item-2730" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2730"><a href="http://www.kqzyfj.com/tj82cy63y5LUPRQRVRLNNNQSNOU">VPS Hosting</a></li>
+</ul></div></div><div class="col-md-3 col-sm-6 enigma_footer_widget_column widget_nav_menu"><div class="enigma_footer_widget_title">Rated Sites<div class="enigma-footer-separator"></div></div><div class="menu-rated-sites-container"><ul id="menu-rated-sites" class="menu"><li id="menu-item-2413" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2413"><a href="http://oramoss.com/">Oramoss Blog</a></li>
+<li id="menu-item-2414" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2414"><a href="https://jackohug.com/">Jackohug Blog</a></li>
+<li id="menu-item-3257" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3257"><a href="https://www.rapiroo.com">Rapiroo.com</a></li>
+</ul></div></div> </div>
+</div>
+</div>
+<div class="enigma_footer_area">
+<div class="container">
+<div class="col-md-12">
+<p class="enigma_footer_copyright_info wl_rtl">
+JamesCoyle.net Limited <a target="_blank" rel="nofollow" href="https://www.jamescoyle.net/"></a>
+</p>
+<div class="enigma_footer_social_div">
+<ul class="social">
+<li class="twitter" data-toggle="tooltip" data-placement="bottom" title="Twitter"><a href="https://twitter.com/Jamescoyle_uk"><i class="fab fa-twitter"></i></a></li>
+<li class="linkedin" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><a href="https://uk.linkedin.com/in/jamesacoyle"><i class="fab fa-linkedin-in"></i></a></li>
+<li class="twitter" data-toggle="tooltip" data-placement="bottom" title="gplus"><a href="https://plus.google.com/u/0/+JamesCoyleUK"><i class="fab fa-google-plus-g"></i></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+ <a id="btn-to-top"></a>
+</div>
+<style type="text/css">
+.democracy:after{content:&#039;&#039;;display:table;clear:both}.democracy ul li,.democracy ul{background:none;padding:0;margin:0}.democracy ul li:before{display:none}.democracy input[type=&#039;radio&#039;],.democracy input[type=&#039;checkbox&#039;]{margin:0;vertical-align:middle}.democracy input[type=&#039;radio&#039;]:focus,.democracy input[type=&#039;checkbox&#039;]:focus{outline:0}.democracy ul{list-style:none !important;border:0 !important}.democracy ul li{list-style:none !important}input[type=&quot;submit&quot;].dem-button,a.dem-button,.dem-button{position:relative;display:inline-block;text-decoration:none;line-height:1;border:0;margin:0;padding:0;cursor:pointer;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}input[type=&quot;submit&quot;].dem-button:focus,a.dem-button:focus,.dem-button:focus{outline:0}input[type=&quot;submit&quot;].dem-button:disabled,a.dem-button:disabled,.dem-button:disabled{opacity:.6;cursor:not-allowed}a.dem-button:hover{text-decoration:none !important}.democracy{position:relative;margin:0 auto}.democracy input[type=&#039;radio&#039;],.democracy input[type=&#039;checkbox&#039;]{margin-right:.2em}.dem-screen{position:relative;line-height:1.3}.democracy ul.dem-vote{margin-bottom:1em}.democracy ul.dem-vote li{padding-bottom:0;margin-bottom:0}.democracy ul.dem-vote li&gt;*{margin-bottom:.6em}.democracy ul.dem-answers li{padding-bottom:1em}.dem-answers .dem-label{margin-bottom:.2em;line-height:1.2}.dem-graph{position:relative;color:#555;color:rgba(0,0,0,.6);box-sizing:content-box;width:100%;display:table;height:1.2em;line-height:1.2em}.dem-fill{position:absolute;top:0;left:0;height:100%;background-color:#7cb4dd}.dem-voted-this .dem-fill{background-color:#ffc45a}.dem-votes-txt,.dem-percent-txt{position:relative;display:table-cell;padding-left:.3em;vertical-align:middle;font-size:90%}.dem-poll-info{padding-bottom:1em}.dem-poll-info:after{content:&#039;&#039;;display:table;clear:both}.dem-poll-info&gt;*{font-size:85%;display:block;float:right;clear:both;text-align:right;opacity:.7;line-height:1.3}.dem-vote label{float:none;display:block}.dem-results-link{display:inline-block;line-height:1;margin:.8em 1em}.dem-vote .dem-disabled{opacity:.5}.democracy .dem-bottom{padding-bottom:1em}.dem-bottom{text-align:center}.dem-bottom:after{content:&#039;&#039;;display:table;clear:both}.dem-poll-title{display:block;margin-bottom:1.5em;margin-top:1.2em;font-size:120%}.dem-notice{z-index:10;position:absolute;top:0;border-radius:2px;width:100%;padding:1.5em 2em;text-align:center;background:rgba(247,241,212,.8);color:#6d6214}.dem-notice-close{position:absolute;top:0;right:0;padding:5px;cursor:pointer;line-height:.6;font-size:150%}.dem-notice-close:hover{color:#d26616}.dem-star{font-size:90%;vertical-align:baseline;padding-left:.3em;color:#ff4e00}.dem-poll-note{font-size:90%;padding:.5em;opacity:.8;line-height:1.3}.democracy .dem-copyright{position:absolute;bottom:-1em;right:0;text-decoration:none;border-bottom:0;color:#b2b2b2;opacity:.5;line-height:1}.democracy .dem-copyright:hover{opacity:1}.dem-add-answer{position:relative}.dem-add-answer&gt;*{display:block}.dem-add-answer a{display:inline-block}input.dem-add-answer-txt{width:100%;box-sizing:border-box}.dem-add-answer-close{position:absolute;right:0;padding:0 .7em;cursor:pointer;color:#333}.dem-add-answer-close:hover{color:#ff2700}.dem-edit-link{display:block;position:absolute;top:0;right:0;line-height:1;text-decoration:none !important;border:0 !important}.dem-edit-link svg{width:1.2em !important;fill:#5a5a5a;fill:rgba(0,0,0,.6)}.dem-edit-link:hover svg{fill:#35a91d}.dem-loader{display:none;position:absolute;top:0;left:0;width:100%;height:100%}.dem-loader&gt;*{display:table-cell;vertical-align:middle;text-align:center}.dem-loader svg{width:20%;max-width:100px;min-width:80px;margin-bottom:15%}.dem-loader [class^=&quot;dem-&quot;]{margin-bottom:15% !important}.dem__collapser{display:block;cursor:pointer;text-align:center;font-size:150%;line-height:1}.dem__collapser:hover{color:#f31;background:rgba(255,255,255,.3)}.dem__collapser.expanded{position:relative;height:1em}.dem__collapser.collapsed{position:absolute;top:0;bottom:0;right:0;left:0}.dem__collapser .arr{display:block;position:absolute;bottom:0;width:100%}.dem__collapser.collapsed .arr:before{content:&quot;▾&quot;}.dem__collapser.expanded .arr:before{content:&quot;▴&quot;}.dem-poll-shortcode{margin-bottom:1.5em}.dem-archives .dem-elem-wrap{margin-bottom:2em;padding-bottom:20px;border-bottom:1px dashed #ccc}.dem-archives .dem-archive-link{display:none}.dem-paging{text-align:center;margin:1.5em auto}.dem-paging&gt;*{display:inline-block;padding:.2em .7em;border-radius:.2em;background:#e2e2e2;color:#333;text-decoration:none;text-transform:lowercase}.dem-paging&gt;a{color:#333}.dem-paging&gt;a:hover{background:#ccc;color:#333}.dem-paging .current{background:#656565;color:#fff}.dem-paging .dots{background:none}.democracy{border-color:#ccc;border:1px solid rgba(0,0,0,.1);background-color:#eee;background-color:rgba(0,0,0,.1);background-image:-webkit-linear-gradient(bottom,rgba(0,0,0,.05),transparent);background-image:linear-gradient(to top,rgba(0,0,0,.05),transparent);padding:1em;padding-bottom:.5em;margin-bottom:1em}.dem-poll-title{margin:0;font-size:115%;margin:-.9em;margin-bottom:1em;text-align:center;padding:1em;border-bottom:1px solid rgba(0,0,0,.1)}.dem-percent-txt,.dem-label-percent-txt{display:none}.dem-votes-txt-percent:before{content:&#039;- &#039;;display:inline}.dem-revote-button:before{content:&#039;◂ &#039;}.dem-graph{background-color:rgba(255,255,255,.8)}.dem-results-link{margin-bottom:0}input[type=&quot;submit&quot;].dem-button,a.dem-button,.dem-button{font-size:90%;font-family:tahoma,arial,sans-serif;padding:.8em 1.6em !important;color:#fff;background:#61a9de;text-transform:uppercase}input[type=&quot;submit&quot;].dem-button:hover,a.dem-button:hover,.dem-button:hover{color:#fff;background:#3b8bc6}a.dem-button:visited{color:#fff}</style>
+<style>
+.logo a h1, .logo p{
+	font-family : Open Sans ;
+}
+
+.navbar-default .navbar-nav li a{
+	font-family : Open Sans !important;
+}
+
+.carousel-text h1, .enigma_heading_title h3, .enigma_service_detail h3,
+.enigma_home_portfolio_caption h3 a, .enigma_blog_thumb_wrapper h2 a,
+.enigma_footer_widget_title, .enigma_header_breadcrum_title h1,
+.enigma_fuul_blog_detail_padding h2 a, .enigma_fuul_blog_detail_padding h2,
+.enigma_sidebar_widget_title h2{
+	font-family : Open Sans;
+}
+
+.head-contact-info li a, .carousel-list li, .enigma_blog_read_btn,
+.enigma_service_detail p, .enigma_blog_thumb_wrapper p, .enigma_blog_thumb_date li, .breadcrumb,
+.breadcrumb li, .enigma_post_date span.date, .enigma_blog_comment a,
+.enigma_fuul_blog_detail_padding p, #wblizar_nav, .enigma_comment_title h3,
+.enigma_comment_detail_title, .enigma_comment_date, .enigma_comment_detail p, .reply,
+.enigma_comment_form_section h2, .logged-in-as, .enigma_comment_form_section label, #enigma_send_button,
+.enigma_blog_full p, .enigma_sidebar_link p a, .enigma_sidebar_widget ul li a, .enigma_footer_widget_column ul li a,
+.enigma_footer_area p, .comment-author-link, .enigma_sidebar_widget ul li, .enigma_footer_widget_column .textwidget, .textwidget,
+.enigma_callout_area p, .enigma_callout_area a, #searchform .form-control, .tagcloud a, #wp-calendar, 
+.enigma_footer_widget_column .tagcloud a, .enigma_footer_widget_column ul#recentcomments li a, .enigma_footer_widget_column ul#recentcomments li{
+	font-family : Open Sans ;
+}
+</style>
+
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript">function dem_ready(e){"use strict";var t,n=e(".democracy"),i=".dem-screen",o=".dem-add-answer-txt",a=e(".dem-loader:first"),s={};n.length&&(s.opts=n.first().data("opts"),s.ajaxurl=s.opts.ajax_url,s.answMaxHeight=s.opts.answs_max_height,s.speed=parseInt(s.opts.anim_speed),s.lineAnimSpeed=parseInt(s.opts.line_anim_speed),setTimeout(function(){var t=n.find(i).filter(":visible"),o=function(){t.each(function(){s.setHeight(e(this),1)})};t.demInitActions(1),e(window).on("resize.demsetheight",o),e(window).load(o),s.maxAnswLimitInit();var a=e(".dem-cache-screens");a.length>0&&a.demCacheInit()},10),e.fn.demInitActions=function(t){return this.each(function(){var n=e(this);n.find("[data-dem-act]").each(function(){var t=e(this);t.attr("href",""),t.click(function(e){e.preventDefault(),t.blur().demDoAction(t.attr("data-dem-act"))})});!!n.find("input[type=radio][data-dem-act=vote]").first().length&&n.find(".dem-vote-button").hide(),s.setAnswsMaxHeight(n),s.lineAnimSpeed&&n.find(".dem-fill").each(function(){var t=e(this);setTimeout(function(){t.animate({width:t.data("width")},s.lineAnimSpeed)},s.speed,"linear")}),s.setHeight(n,t),n.find("form").submit(function(t){t.preventDefault();e(this).find('input[name="dem_act"]').val()&&e(this).demDoAction(e(this).find('input[name="dem_act"]').val())})})},e.fn.demSetLoader=function(){var e=this;return a.length?e.closest(i).append(a.clone().css("display","table")):t=setTimeout(function(){s.demLoadingDots(e)},50),this},e.fn.demUnsetLoader=function(){return a.length?this.closest(i).find(".dem-loader").remove():clearTimeout(t),this},e.fn.demAddAnswer=function(){var t=this.first(),n=t.closest(i),a=n.find("[type=checkbox]").length>0,s=e('<input type="text" class="'+o.replace(/\./,"")+'" value="">');if(n.find(".dem-vote-button").show(),n.find("[type=radio]").each(function(){e(this).on("click",function(){t.fadeIn(300),e(o).remove()}),"radio"===e(this)[0].type&&(this.checked=!1)}),t.hide().parent("li").append(s),s.hide().fadeIn(300).focus(),a){var d=n.find(o);e('<span class="dem-add-answer-close">×</span>').insertBefore(d).css("line-height",d.outerHeight()+"px").click(function(){var t=e(this).parent("li");t.find("input").remove(),t.find("a").fadeIn(300),e(this).remove()})}return!1},e.fn.demCollectAnsw=function(){var t=this.closest("form"),n=t.find("[type=checkbox],[type=radio],[type=text]"),i=t.find(o).val(),a=[],s=n.filter("[type=checkbox]:checked");if(s.length>0)s.each(function(){a.push(e(this).val())});else{var d=n.filter("[type=radio]:checked");d.length&&a.push(d.val())}return i&&a.push(i),(a=a.join("~"))||""},e.fn.demDoAction=function(t){var n=this.first(),o=n.closest(".democracy"),a={dem_pid:o.data("opts").pid,dem_act:t,action:"dem_ajax"};return void 0===a.dem_pid?(console.log("Poll id is not defined!"),!1):"vote"!==t||(a.answer_ids=n.demCollectAnsw(),a.answer_ids)?!("delVoted"===t&&!confirm(n.data("confirm-text")))&&("newAnswer"===t?(n.demAddAnswer(),!1):(n.demSetLoader(),e.post(s.ajaxurl,a,function(t){n.demUnsetLoader(),n.closest(i).html(t).demInitActions(),setTimeout(function(){e("html:first,body:first").animate({scrollTop:o.offset().top-70},500)},200)}),!1)):(s.demShake(n),!1)},e.fn.demCacheShowNotice=function(e){var t=this.first(),n=t.find(".dem-youarevote").first();return"blockForVisitor"===e&&(t.find(".dem-revote-button").remove(),n=t.find(".dem-only-users").first()),t.prepend(n.show()),setTimeout(function(){n.slideUp("slow")},1e4),this},s.cacheSetAnswrs=function(t,n){var i=n.split(/,/);if(t.hasClass("voted")){var o=t.find(".dem-answers"),a=o.data("voted-class"),s=o.data("voted-txt");e.each(i,function(n,i){t.find('[data-aid="'+i+'"]').addClass(a).attr("title",function(){return s+e(this).attr("title")})}),t.find(".dem-vote-link").remove()}else{var d=t.find("[data-aid]"),r=t.find(".dem-voted-button");e.each(i,function(e,t){d.filter('[data-aid="'+t+'"]').find("input").prop("checked","checked")}),d.find("input").prop("disabled","disabled"),t.find(".dem-vote-button").remove(),r.length?r.show():(t.find('input[value="vote"]').remove(),t.find(".dem-revote-button-wrap").show())}},e.fn.demCacheInit=function(){return this.each(function(){var t=e(this),n=t.prevAll(".democracy:first");if(n.length||(n=t.closest(".democracy")),n.length){var o=n.find(i).first(),a=n.data("opts").pid,d=Cookies.get("demPoll_"+a),r="notVote"===d,c=!(void 0===d||r),f=t.find(i+"-cache.vote").html(),l=t.find(i+"-cache.voted").html();if(f){var h=c&&l;if(o.html((h?l:f)+"\x3c!--cache--\x3e").removeClass("vote voted").addClass(h?"voted":"vote"),c&&s.cacheSetAnswrs(o,d),o.demInitActions(1),!r&&!c&&1==t.data("opt_logs")){var u,m=function(){clearTimeout(u)},p=function(){u=setTimeout(function(){if(!n.hasClass("checkAnswDone")){n.addClass("checkAnswDone");var t=n.find(".dem-link").first();t.demSetLoader(),e.post(s.ajaxurl,{dem_pid:n.data("opts").pid,dem_act:"getVotedIds",action:"dem_ajax"},function(e){t.demUnsetLoader(),e&&(o.html(l),s.cacheSetAnswrs(o,e),o.demInitActions(),o.demCacheShowNotice(e))})}},700)};n.hover(p,m),n.click(p)}}}else console.warn("Democracy: Main dem div not found")})},s.detectRealHeight=function(e){var t=e.clone().css({height:"auto"}).insertBefore(e),n="border-box"===t.css("box-sizing")?parseInt(t.css("height")):t.height();return t.remove(),n},s.setHeight=function(t,n){var i=s.detectRealHeight(t);n?t.css({height:i}):t.css({opacity:0}).animate({height:i},s.speed,function(){e(this).animate({opacity:1},1.5*s.speed)})},s.setAnswsMaxHeight=function(t){if("-1"!==s.answMaxHeight&&"0"!==s.answMaxHeight&&s.answMaxHeight){var n=t.find(".dem-vote, .dem-answers").first(),i=parseInt(s.answMaxHeight);n.css({"max-height":"none","overflow-y":"visible"});if(("border-box"===n.css("box-sizing")?parseInt(n.css("height")):n.height())-i>100){n.css("position","relative");var o,a=e('<span class="dem__collapser"><span class="arr"></span></span>').appendTo(n),d=function(){a.addClass("expanded").removeClass("collapsed")},r=function(){a.addClass("collapsed").removeClass("expanded")};t.data("expanded")?d():(r(),n.height(i).css("overflow-y","hidden")),a.hover(function(){t.data("expanded")||(o=setTimeout(function(){a.trigger("click")},1e3))},function(){clearTimeout(o)}),a.click(function(){if(clearTimeout(o),t.data("expanded"))r(),t.data("expanded",!1),t.height("auto"),n.stop().css("overflow-y","hidden").animate({height:i},s.speed,function(){s.setHeight(t,!0)});else{d();var e=s.detectRealHeight(n);e+=7,t.data("expanded",!0),t.height("auto"),n.stop().animate({height:e},s.speed,function(){s.setHeight(t,!0),n.css("overflow-y","visible")})}})}}},s.maxAnswLimitInit=function(){n.on("change",'input[type="checkbox"]',function(){var t=e(this).closest(".democracy").data("opts").max_answs,n=e(this).closest(i).find('input[type="checkbox"]');n.filter(":checked").length>=t?n.filter(":not(:checked)").each(function(){e(this).prop("disabled",!0).closest("li").addClass("dem-disabled")}):n.each(function(){e(this).prop("disabled",!1).closest("li").removeClass("dem-disabled")})})},s.demShake=function(e){var t=e.css("position");for(t&&"static"!==t||e.css("position","relative"),t=1;2>=t;t++)e.animate({left:-10},50).animate({left:10},100).animate({left:0},50)},s.demLoadingDots=function(e){var n=e,i=n.is("input"),o=i?n.val():n.html();"..."===o.substring(o.length-3)?i?n[0].value=o.substring(0,o.length-3):n[0].innerHTML=o.substring(0,o.length-3):i?n[0].value+=".":n[0].innerHTML+=".",t=setTimeout(function(){s.demLoadingDots(n)},200)})}!function(e){var t;if("function"==typeof define&&define.amd&&(define(e),t=!0),"object"==typeof exports&&(module.exports=e(),t=!0),!t){var n=window.Cookies,i=window.Cookies=e();i.noConflict=function(){return window.Cookies=n,i}}}(function(){function e(){for(var e=0,t={};e<arguments.length;e++){var n=arguments[e];for(var i in n)t[i]=n[i]}return t}function t(e){return e.replace(/(%[0-9A-Z]{2})+/g,decodeURIComponent)}function n(i){function o(){}function a(t,n,a){if("undefined"!=typeof document){"number"==typeof(a=e({path:"/"},o.defaults,a)).expires&&(a.expires=new Date(1*new Date+864e5*a.expires)),a.expires=a.expires?a.expires.toUTCString():"";try{var s=JSON.stringify(n);/^[\{\[]/.test(s)&&(n=s)}catch(e){}n=i.write?i.write(n,t):encodeURIComponent(String(n)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g,decodeURIComponent),t=encodeURIComponent(String(t)).replace(/%(23|24|26|2B|5E|60|7C)/g,decodeURIComponent).replace(/[\(\)]/g,escape);var d="";for(var r in a)a[r]&&(d+="; "+r,!0!==a[r]&&(d+="="+a[r].split(";")[0]));return document.cookie=t+"="+n+d}}function s(e,n){if("undefined"!=typeof document){for(var o={},a=document.cookie?document.cookie.split("; "):[],s=0;s<a.length;s++){var d=a[s].split("="),r=d.slice(1).join("=");n||'"'!==r.charAt(0)||(r=r.slice(1,-1));try{var c=t(d[0]);if(r=(i.read||i)(r,c)||t(r),n)try{r=JSON.parse(r)}catch(e){}if(o[c]=r,e===c)break}catch(e){}}return e?o[e]:o}}return o.set=a,o.get=function(e){return s(e,!1)},o.getJSON=function(e){return s(e,!0)},o.remove=function(t,n){a(t,"",e(n,{expires:-1}))},o.defaults={},o.withConverter=n,o}return n(function(){})});var demjquerywait=setInterval(function(){"undefined"!=typeof jQuery&&(clearInterval(demjquerywait),jQuery(document).ready(dem_ready))},50);</script>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript">
+/* <![CDATA[ */
+var impression_object = {"ajax_url":"https:\/\/www.jamescoyle.net\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript" src='https://www.jamescoyle.net/wp-content/plugins/adrotate-pro/library/jquery.adrotate.dyngroup.js'></script>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript">
+/* <![CDATA[ */
+var click_object = {"ajax_url":"https:\/\/www.jamescoyle.net\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript" src='https://www.jamescoyle.net/wp-content/plugins/adrotate-pro/library/jquery.adrotate.clicktracker.js'></script>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript">
+/* <![CDATA[ */
+var ctcc_vars = {"expiry":"120","method":"1","version":"2"};
+/* ]]> */
+</script>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript" src='https://www.jamescoyle.net/wp-content/plugins/uk-cookie-consent/assets/js/uk-cookie-consent-js.js?ver=2.3.0'></script>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript" src='https://www.jamescoyle.net/wp-content/themes/enigma/js/waypoints.js?ver=5.4'></script>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript" src='https://www.jamescoyle.net/wp-content/themes/enigma/js/scroll.js?ver=5.4'></script>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript">
+function heateorSssLoadEvent(e) {var t=window.onload;if (typeof window.onload!="function") {window.onload=e}else{window.onload=function() {t();e()}}};	var heateorSssSharingAjaxUrl = 'https://www.jamescoyle.net/wp-admin/admin-ajax.php', heateorSssCloseIconPath = 'https://www.jamescoyle.net/wp-content/plugins/sassy-social-share/public/../images/close.png', heateorSssPluginIconPath = 'https://www.jamescoyle.net/wp-content/plugins/sassy-social-share/public/../images/logo.png', heateorSssHorizontalSharingCountEnable = 0, heateorSssVerticalSharingCountEnable = 0, heateorSssSharingOffset = -10; var heateorSssMobileStickySharingEnabled = 0;var heateorSssCopyLinkMessage = "Link copied.";var heateorSssUrlCountFetched = [], heateorSssSharesText = 'Shares', heateorSssShareText = 'Share';function heateorSssPopup(e) {window.open(e,"popUpWindow","height=400,width=600,left=400,top=100,resizable,scrollbars,toolbar=0,personalbar=0,menubar=no,location=no,directories=no,status")};var heateorSssWhatsappShareAPI = "web";
+</script>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript" src='https://www.jamescoyle.net/wp-content/plugins/sassy-social-share/public/js/sassy-social-share-public.js?ver=3.3.8'></script>
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript" src='https://www.jamescoyle.net/wp-includes/js/wp-embed.min.js?ver=5.4'></script>
+
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript">
+jQuery(document).ready(function(){if(jQuery.fn.gslider) {
+	jQuery('.g-1').gslider({groupid:1,speed:45000,repeat_impressions:'Y'});
+}});
+</script>
+
+<script type="9b54ac32034d90b2d08e3e6f-text/javascript">
+					jQuery(document).ready(function($){
+												if(!catapultReadCookie("catAccCookies")){ // If the cookie has not been set then show the bar
+							$("html").addClass("has-cookie-bar");
+							$("html").addClass("cookie-bar-bottom-bar");
+							$("html").addClass("cookie-bar-bar");
+													}
+																			ctccFirstPage();
+											});
+				</script>
+<div id="catapult-cookie-bar" class=" use_x_close"><div class="ctcc-inner "><span class="ctcc-left-side">Sorry to bother you, it's the law: This site uses cookies <a class="ctcc-more-info-link" tabindex=0 target="_blank" href="https://www.jamescoyle.net/cookie-policy">More info</a></span><span class="ctcc-right-side"></span><div class="x_close"><span></span><span></span></div></div></div><script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="9b54ac32034d90b2d08e3e6f-|49" defer=""></script></body>
+</html>

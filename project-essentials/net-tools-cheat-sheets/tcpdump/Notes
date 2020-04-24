@@ -1,0 +1,10 @@
+Frequently used tcpdump commands
+================================
+
+>>	tcpdump -i <interface-name> :- Sniff on particular interface
+
+>>	tcpdump -w <filename.pcap> :- Stored sniffed packet info in file
+
+>>	tcpdump -tttt :- Proper readable timestamp
+
+>>	tcpdump -i <interface-name> dst/src <ip> and port <num> :- Commonly used display filter
