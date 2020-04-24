@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/ToDo.cc" "/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/build/CMakeFiles/toDo.dir/ToDo.cc.o"
-  "/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/main.cc" "/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/build/CMakeFiles/toDo.dir/main.cc.o"
+  "/home/rohan/CODING/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/ToDo.cc" "/home/rohan/CODING/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/build/CMakeFiles/toDo.dir/ToDo.cc.o"
+  "/home/rohan/CODING/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/main.cc" "/home/rohan/CODING/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/build/CMakeFiles/toDo.dir/main.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,19 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/ToDo.cc
+/home/rohan/CODING/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/ToDo.cc
 ToDo.h
-/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/ToDo.h
+/home/rohan/CODING/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/ToDo.h
 
-/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/ToDo.h
+/home/rohan/CODING/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/ToDo.h
 string
 -
 vector
 -
 
-/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/main.cc
+/home/rohan/CODING/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/main.cc
 iostream
 -
 ToDo.h
-/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/ToDo.h
+/home/rohan/CODING/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/ToDo.h
 

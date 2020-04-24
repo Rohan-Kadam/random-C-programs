@@ -1,4 +1,4 @@
-/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/build/CMakeFiles/test.dir
-/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/build/CMakeFiles/edit_cache.dir
-/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/build/CMakeFiles/rebuild_cache.dir
-/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/build/CMakeFiles/toDo.dir
+/home/rohan/CODING/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/build/CMakeFiles/rebuild_cache.dir
+/home/rohan/CODING/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/build/CMakeFiles/edit_cache.dir
+/home/rohan/CODING/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/build/CMakeFiles/toDo.dir
+/home/rohan/CODING/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/build/CMakeFiles/test.dir

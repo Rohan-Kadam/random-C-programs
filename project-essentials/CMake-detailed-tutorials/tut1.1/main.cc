@@ -32,7 +32,7 @@ int main(
 
     ToDo list;
 
-    list.addTask("write code");
+    list.addTask("write codes");
     list.addTask("compile");
     list.addTask("test");
 
@@ -61,6 +61,7 @@ int equalityTest(
     const int   lineNumber
 )
 {
+	cout << "Rohan" << endl;	
     if (testValue != expectedValue)
     {
         cerr << fileName << ":" << lineNumber << ": "

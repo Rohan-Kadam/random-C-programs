@@ -1,19 +1,23 @@
-Start testing: Jun 02 15:03 IST
+Start testing: Apr 19 18:36 IST
 ----------------------------------------------------------
 1/1 Testing: toDoTest
 1/1 Test: toDoTest
-Command: "/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/build/toDo"
-Directory: /home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/build
-"toDoTest" start time: Jun 02 15:03 IST
+Command: "/home/rohan/CODING/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/build/toDo"
+Directory: /home/rohan/CODING/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/build
+"toDoTest" start time: Apr 19 18:36 IST
 Output:
 ----------------------------------------------------------
-/home/rohan/Desktop/Work/repo_learn/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/main.cc:35: Expected list.getTask(0) to equal "writeicode" (writeicode) but it was (write code)
+Rohan
+Rohan
+/home/rohan/CODING/random-stuff/project-essentials/CMake-detailed-tutorials/tut1.1/main.cc:40: Expected list.getTask(0) to equal "write code" (write code) but it was (write codes)
+Rohan
+Rohan
 <end of output>
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Failed.
-"toDoTest" end time: Jun 02 15:03 IST
+"toDoTest" end time: Apr 19 18:36 IST
 "toDoTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jun 02 15:03 IST
+End testing: Apr 19 18:36 IST
