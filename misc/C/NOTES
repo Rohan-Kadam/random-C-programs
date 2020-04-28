@@ -89,3 +89,6 @@ Netlink socket to monitor the status of the NIC (up or down) in the real time.
 
 timer.cpp, timer.h, chrono-timer.cpp
 Timer implementation from CSE utils, uses boost chrono
+
+bit_manipulation.c
+Set,Clear,Toggle nth bit. This code also has a func that prints integer in binary format
