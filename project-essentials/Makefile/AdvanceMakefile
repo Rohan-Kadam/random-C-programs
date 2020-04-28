@@ -1,0 +1,18 @@
+CC = gcc # Compiler to use
+INCLUDES = -I ./ # Directory for header file
+OBJS = main.o function.o # List of objects to be build
+
+all: ${OBJS}
+	@echo "Building..."             # To print "Building.." message
+	${CC} ${OPTIONS} ${INCLUDES} ${OBJS} -o Binary
+
+%.o: %.c                             	# % pattern wildcard matching
+	${CC} ${OPTIONS} -c $*.c ${INCLUDES}
+
+list:
+	@echo $(shell ls)               # To print output of command 'ls'
+
+clean:
+	@echo "Cleaning..."
+	rm -rf *.o
+	rm Binary

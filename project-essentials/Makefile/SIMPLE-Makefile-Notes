@@ -1,0 +1,28 @@
+General Syntax:
+======================================================
+target: dependency1 dependency2 ...
+ 
+[TAB] command1
+ 
+[TAB] command2
+
+
+Calling make
+=====================================================
+make -f MyMakefile
+make 
+make all
+make clean
+make VERBOSE=1
+make -j4
+make CC=gcc
+make -f AdvanceMakefile list
+
+About SimpleMakefile
+=====================================================
+Here our first and default target is “all” which looks for main.o and function.o file dependencies. Second and third target is main.o and function.o respectively which have dependencies of main.c and function.c respectively.
+
+In our case, when first target “all” start executing it looks for main.o file dependency, if its not met. Then it goes to second target main.o which check for its dependency main.c and compare time-stamp with it. If target found main.c dependency is updated, then target execute else not. Same process is follow for next target function.o.
+
+In our Makefile, special targets are “all” and “clean”. As we discussed target “all” earlier, but we not discuss target clean. Target clean removes the all object files created during compilation and binary executable files according to command.
+

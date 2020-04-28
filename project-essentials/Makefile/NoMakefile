@@ -1,0 +1,8 @@
+#Run this script twice using "source NoMakefile"
+#Clean using "rm -rf Binary *.o"
+
+gcc -c -I ./ main.c 		\
+	& 			\
+gcc -c -I ./ function.c		\
+	& 			\
+gcc -o Binary main.o function.o 

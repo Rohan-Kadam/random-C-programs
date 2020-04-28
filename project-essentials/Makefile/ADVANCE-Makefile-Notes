@@ -1,0 +1,54 @@
+Makefile Macros/Variables
+=====================================================
+CC = gcc
+CFLAGS = -O -Wall
+LDFLAGS =
+LIBS = -lmcpp -lm -lopenssl
+OBJECTS = main.c function.c
+
+Check for more Macros using "make -p"
+
+
+Assignment
+=====================================================
+ =  Simple assign
+ += Append
+ := Expand macros and assign (Eg: CC := ${GCC} ${CFLAGS})
+
+
+Patterns/Directives
+=====================================================
+
+
+
+>> $@ represent full target name of the current target. 
+For example:
+Binary: main.o function.o
+        gcc -o $@ main.o function.o       //$@ will replace with target name Binary
+
+>> @ print output of command to standard-output
+For example:
+@echo "Building.."
+
+>> % character can be used for wildcard pattern-matching?????? 
+[Comment after seeing advance Makefile, we have replaced main.o : main.c and funciton.o : function.c with %.o : %.c one liner]
+For example:
+%.o: %.c    //When % appears in the dependency list, it is replaced with the same string that was used to perform substitution in the target.
+[TAB] command
+
+>> $* represent the text that corresponds to % in the target???????
+[Comment after seeing advance Makefile, all % targets will be replacing in $* in there respective commands]
+For example:
+%.o: %.c
+      gcc -c $*.c -I ./           //$* will replaced with target name
+
+More Patterns: $?,$<,$^...
+
+
+Execute Command
+=====================================================
+For example:
+@echo $(shell ls) # To print output of command 'ls'
+ 
+//Note: We can also store output of this command in variable like this LIST=$(shell ls)
+
