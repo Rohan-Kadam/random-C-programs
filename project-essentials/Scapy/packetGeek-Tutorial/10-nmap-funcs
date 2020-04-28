@@ -1,0 +1,26 @@
+>> TCP Port Range Scanner
+==============================
+>> This is a fairly basic tool to test whether a host has specific TCP ports open and listening. 
+
+>> We start out by defining our host and ports to scan and then move on to the fun stuff. Using a random TCP source port to help obfuscate the attack (although most firewalls are smarter than this nowadays), we send a TCP SYN packet to each destination TCP port specified. 
+
+1>> If we get no response or a TCP RST in return, we know that the host is filtering or not listening on that port. 
+2>> If we get an ICMP unreachable or error response, we also know the host is not willing to take requests on that port. 
+3>> But, if we get an expected TCP SYN/ACK response, we will send a RST so the host doesn’t keep listening for our ACK since we already know the host is listening on that port.
+
+
+
+>> ICMP Ping Sweep
+==============================
+>> This script is an extension of our ICMP ping utility from the Sending and Receiving example. Remember to provide correct CIDR
+
+1>> If the response times out or returns an ICMP error (such as unreachable or admin deny), we know that the host is not up or is blocking ICMP
+2>> But, if we receive a response we know that host is online
+
+>> NOTE: This could certainly be made much faster with threading since this is mostly IO bound (waiting for network responses)
+
+
+
+>> Combining the Two
+==============================
+>> NOTE: This could certainly be made much faster with threading since this is mostly IO bound (waiting for network responses)

@@ -1,0 +1,95 @@
+
+>> Sniff has an argument prn that allows you to pass a function that executes with each packet sniffed. The intended purpose of this function is to control how the packet prints out in the console allowing you to replace the default packet printing display with a format of your choice.
+
+>> This gives us the option to do some fun stuff (not just formatting) with each packet sniffed 🙂
+
+>> If you used sniff(prn=custom_action()) instead, you would be passing the function’s returned value to the sniff function. This will generate the returned text before the function has a packet to parse and will not give you the results you want.
+
+
+
+
+INFO ABOUT PYTHON USED IN CODE
+==============================
+>> In example code we perform packet counting using prn. Other than prn, we have used Counter from collections and standard tuple
+
+1. Collections => Library that provides High-performance container datatypes. Alternative to python's in-built containers like dict, list, set and tuple.
+
+2. Counter => Counter is one of containers in collections (Others: namedtuple, deque, orderedDict, defaultdict). It is dict subclass for counting hashable objects. It is an unordered collection where elements are stored as dictionary keys and their counts are stored as dictionary values
+
+>>> # Tally occurrences of words in a list
+>>> cnt = Counter()
+>>> for word in ['red', 'blue', 'red', 'green', 'blue', 'blue']:
+...     cnt[word] += 1
+>>> cnt
+Counter({'blue': 3, 'red': 2, 'green': 1})
+
+3. Tuple => A tuple is an immutable sequence of Python objects. Tuples are sequences, just like lists. The differences between tuples and lists are, the tuples cannot be changed unlike lists and tuples use parentheses, whereas lists use square brackets.
+
+4. Join => The join() method is a string method and returns a string in which the elements of sequence have been joined by str separator.
+Syntax is string_name.join(iterable) 
+Example:-
+# Python program to demonstrate the 
+# use of join function to join list 
+# elements with a character. 
+  
+list1 = ['1','2','3','4']  
+  
+s = "-"
+  
+# joins elements of list1 by '-' 
+# and stores in sting s 
+s = s.join(list1) 
+  
+# join use to join a list of 
+# strings to a separator s 
+print(s) 
+
+OUTPUT:-
+1-2-3-4
+
+Here we had tuple passed, but for some reason we need to iterate it manually inside join using for-loop. Doing this we are able to provide printing format for tuple content.
+
+5. f-Strings => As of Python 3.6, f-strings are a great new way to format strings. Not only are they more readable, more concise, and less prone to error than other ways of formatting, but they are also faster!
+
+Old way:- TOO VERBOSE and SLOW
+Option #1: %-formatting
+>>> name = "Eric"
+>>> "Hello, %s." % name
+'Hello, Eric.'
+
+Option #2: str.format()
+>>> "Hello, {}. You are {}.".format(name, age)
+'Hello, Eric. You are 74.'
+
+New way:-
+f-Strings
+>>> name = "Eric"
+>>> age = 74
+>>> f"Hello, {name}. You are {age}."
+'Hello, Eric. You are 74.'
+
+We can perform operation inside {} and print output. Eg: {2*3}
+We can call string methods and print output. Eg: {name.lower}
+We can override _STR_ Eg: SEE BELOW
+class Comedian:
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} is {self.age}."
+	
+	# str() is used for creating output for end user while repr() is mainly used for debugging and development. 
+	# repr’s goal is to be unambiguous and str’s is to be readable.	
+    def __repr__(self):
+        return f"{self.first_name} {self.last_name} is {self.age}. Surprise!"
+
+>>> f"{new_comedian}"
+'Eric Idle is 74.'
+>>> f"{new_comedian!r}"
+'Eric Idle is 74. Surprise!'
+
+
+
+

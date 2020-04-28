@@ -1,0 +1,7 @@
+>> Importing packets
+1. Import using rdpcap
+2. Import using Sniff's offline argument 
+3. Manipulating packet during import
+
+>> Write packets to trace files
+1. Write using wrpcap

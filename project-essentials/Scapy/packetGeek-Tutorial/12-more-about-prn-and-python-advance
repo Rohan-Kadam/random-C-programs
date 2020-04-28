@@ -1,0 +1,101 @@
+>> Passing arguments to prn function
+
+>> Problem: when we assign prn=func(with args), the func is already called with args and then the return value is stored in prn. So when sniff receives one packet, prn is called, i.e. the return value is printed. How do we pass args when prn is called (i.e when a packet is sniffed)
+
+>> Use Closure (similar to decorator)
+========================================
+Closure stores the args called in func call. And when we do prn call(i.e when a packet is sniffed), it uses those args
+
+Example:
+-------------------------------------------------
+def print_msg(msg):
+# This is the outer enclosing function
+
+    def printer():
+# This is the nested function
+        print(msg)
+
+    return printer  # this got changed
+
+# Now let's try calling this function.
+# Output: Hello
+another = print_msg("Hello")
+another()
+-------------------------------------------------
+
+Here output is hello instead of another not passing any arg, this is because of print_msg being a closure func. By this technique some data gets attached to your function. Even after del print_msg and calling another() we get Hello as output. 
+
+3 pts for closue func
+    - We must have a nested function (function inside a function).
+    - The nested function must refer to a value defined in the enclosing function.
+    - The enclosing function must return the nested function.
+
+When to use it: Closures can avoid the use of global values and provides some form of data hiding. It can also provide an object oriented solution to the problem.
+
+>> Decorator
+=======================================
+Its basicaly a gift WRAPPER to existing funcs.
+
+Example:
+------------------------------------------------
+def make_pretty(func):
+    def inner():
+        print("I got decorated")
+        func()
+    return inner
+
+def ordinary():
+    print("I am ordinary")
+------------------------------------------------
+>>> ordinary()
+I am ordinary
+
+>>> # let's decorate this ordinary function
+>>> pretty = make_pretty(ordinary)
+>>> pretty()
+I got decorated
+I am ordinary
+
+>> So decorator is basically "pretty = make_pretty(ordinary)". But normally we do "ordinary = make_pretty(ordinary)". Python has a syntax to simplify this, @
+
+Example
+-------------------------------------------------
+def make_pretty(func):
+    def inner():
+        print("I got decorated")
+        func()
+    return inner
+
+@make_pretty
+def ordinary():
+    print("I am ordinary")
+-------------------------------------------------
+>> ordinary()
+I got decorated
+I am ordinary
+
+>> Directly decorated ordinary func
+
+
+
+>> Use partial from functools 
+========================================
+Partial will call the func with some args. The func body won't be executed unless it gets rest of the args, which it gets on prn call (i.e when a packet is sniffer).
+
+Example
+-------------------------------------------------
+from functools import partial 
+  
+# A normal function 
+def f(a, b, c, x): 
+    return 1000*a + 100*b + 10*c + x 
+  
+# A partial function that calls f with 
+# a as 3, b as 1 and c as 4. 
+g = partial(f, 3, 1, 4) 	# f func's body not called till we pass x
+  
+# Calling g() 
+print(g(5)) 			# x passed to partial func g, thus f func's body is executed
+
+-------------------------------------------------
+

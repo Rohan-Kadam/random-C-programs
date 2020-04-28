@@ -1,0 +1,58 @@
+>> DNS Request and Response
+Just think about what this means; we could read in a list of hostnames to resolve and send the IP addresses off to some function to do some more tests such as ping or TCP scans or DDoS.
+
+>> DNS Forwarding and Spoofing
+This code isn't working properly, something is protecting forwarding and spoofing actions..maybe..??
+
+Expected results as per blog
+
+FORWARDING
+===============================
+localhost:~ packetgeek$ dig @172.16.20.40 www.thepacketgeek.com
+
+; <<>> DiG 9.8.5-P1 <<>> @172.16.20.40 www.thepacketgeek.com
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 29980
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;www.thepacketgeek.com.   IN  A
+
+;; ANSWER SECTION:
+www.thepacketgeek.com.  20411 IN  A 198.71.55.197
+
+;; Query time: 90 msec
+;; SERVER: 172.16.20.40#53(172.16.20.40)
+;; WHEN: Thu Oct 10 19:39:38 PDT 2013
+;; MSG SIZE  rcvd: 76
+
+
+SPOOFING
+=================================
+localhost:~ packetgeek$ dig @172.16.20.40 trailers.apple.com
+
+; <<>> DiG 9.8.5-P1 <<>> @172.16.20.40 trailers.apple.com
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 12688
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+;; WARNING: Messages has 34 extra bytes at end
+
+;; QUESTION SECTION:
+;trailers.apple.com.    IN  A
+
+;; ANSWER SECTION:
+trailers.apple.com. 20  IN  A 172.16.20.40
+
+;; Query time: 561 msec
+;; SERVER: 172.16.20.40#53(172.16.20.40)
+;; WHEN: Thu Oct 10 19:39:45 PDT 2013
+;; MSG SIZE  rcvd: 104<
+
+
+
+I'm using "dig @192.168.1.133 www.google.com" and "dig @192.168.1.133 www.google123.com" for testing fowarding and spoofing respectively.
+Remember to add correct DNS servers IP in Fowarding functions sr1 call (in my case its 192.168.1.1).
