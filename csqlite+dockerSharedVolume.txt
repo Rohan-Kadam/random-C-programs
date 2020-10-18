@@ -1,0 +1,35 @@
+>> Docker Shared Volume
+
+		
+echo "This file is shared between containers" > /ipregistry/test.txt
+exit
+sudo docker run -ti --name=AccessPoint --volumes-from Controller ubuntu
+cat /ipregistry/test.txt
+echo "Both containers can write to IpRegistry" >> /ipregistry/test.txt
+exit
+sudo docker start -ai Controller
+cat /ipregistry/test.txt
+exit
+
+# List all volumes
+docker volume ls
+# Storage path of volume on host machine
+sudo docker volume inspect IpRegistry
+# Remove volume (can be used to know whose using it)
+sudo docker volume rm IpRegistry
+
+#Flags
+--rm flag to automatically delete it when we exit
+-v to mount the new volume
+-t will give us a terminal
+-i will allow us to interact
+--name to identify the container
+-a ?
+
+
+>> SQLite
+
+apt install python2 curl vim net-tools sqlite3 libsqlite3-dev
+curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
+python2 get-pip.py
+pip2 --version

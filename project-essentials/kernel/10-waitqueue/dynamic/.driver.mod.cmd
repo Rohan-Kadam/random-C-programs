@@ -1,0 +1,1 @@
+cmd_/home/rohan/CODING/random-stuff/project-essentials/kernel/10-waitqueue/dynamic/driver.mod := { echo  /home/rohan/CODING/random-stuff/project-essentials/kernel/10-waitqueue/dynamic/driver.o; echo; } > /home/rohan/CODING/random-stuff/project-essentials/kernel/10-waitqueue/dynamic/driver.mod

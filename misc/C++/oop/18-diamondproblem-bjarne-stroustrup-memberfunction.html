@@ -1,0 +1,463 @@
+<html>
+<head>
+<link rel="alternate" type="application/rss+xml" title="RSS" href="https://feeds2.feedburner.com/Cprogrammingcom/">
+<link rel="stylesheet" href="https://mainsite-static-cprogrammingcom.netdna-ssl.com/main_images/style_responsive.css" type="text/css">
+<link rel="canonical" href="https://www.cprogramming.com/tutorial/virtual_inheritance.html"/>
+
+<link href="https://mainsite-static-cprogrammingcom.netdna-ssl.com/syntax-highlight/styles/shCore.css" rel="stylesheet" type="text/css" />
+<link href="https://mainsite-static-cprogrammingcom.netdna-ssl.com/syntax-highlight/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+
+<META NAME="Description" CONTENT="Learn about virtual inheritance in C++ including pitfalls such as the diamond problem">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Virtual Inheritance in C++, and solving the diamond problem - Cprogramming.com</title>
+
+
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-7820175-1']);
+  _gaq.push(['_setVisitorCookieTimeout', 2592000]);
+  _gaq.push(['_setDomainName', '.cprogramming.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push (['_gat._anonymizeIp']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script> 
+function toggleclassforclass(targetclass, toggleclass) {
+    cx = document.getElementsByClassName(targetclass)[0].className;
+    if (cx.includes(toggleclass)) {
+        cx = cx.replace(toggleclass, "");
+    } else {
+        cx += " "+toggleclass;
+    }
+    document.getElementsByClassName(targetclass)[0].className = cx;
+}
+
+function togglemenu() {
+    toggleclassforclass('maincontent', 'mobile-menu-shown');
+    toggleclassforclass('leftcolumn', 'mobile-menu');
+}
+</script>
+
+<!-- ADDED BSA -->
+<script type="text/javascript">
+        (function(){
+                var bsa_optimize=document.createElement('script');
+                bsa_optimize.type='text/javascript';
+                bsa_optimize.async=true;
+                bsa_optimize.src='https://cdn4.buysellads.net/pub/cprogramming.js?'+(new Date()-new Date()%600000);
+                (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa_optimize);
+        })();
+</script>
+<!-- END ADDED BSA -->
+</head>
+
+<body>
+<div class="header">
+<button class="hamburger" onClick="togglemenu(); return false;"><img src="https://www.cprogramming.com/images/hamburger.svg" class="responsive-nav" ></img></button>
+<a class="logo" href="//www.cprogramming.com/"><img class="noprint logoimg" src="https://mainsite-static-cprogrammingcom.netdna-ssl.com/main_images/cprog.png" width="324" height="83" border="0"></a> 
+
+    	<div class="leaderboard">
+
+<!-- ADDED BSA -->
+<!-- Cprogramming_S2S_Leaderboard_ROS_ATF -->
+<div id="bsa-zone_1596557361448-5_123456"></div>
+<!-- END ADDED BSA -->
+
+
+</div>
+        
+</div>
+  <table class="main">
+
+  <tr>
+
+     <td class="noprint leftcolumn" width="130" valign="top"> 
+     <div class="menu" valign="top">
+     <p class="navcategory" align="left">
+              Starting out
+     </p>
+
+     <p class="navlist" align="left">
+             <a href="//www.cprogramming.com/begin.html?inl=nv">How to begin</a><br>
+             <a href="//www.cprogramming.com/c++book/?inl=nv">Get the book</a><br>
+     </p>
+
+     <p class="navcategory" align="left">
+          <br>
+           Tutorials
+     </p>
+
+     <p class="navlist" align="left">
+            <a href=//www.cprogramming.com/tutorial/c-tutorial.html?inl=nv>C tutorial</a><br>
+            <a href=//www.cprogramming.com/tutorial/c++-tutorial.html?inl=nv>C++ tutorial</a><br>
+            <a href=//www.cprogramming.com/game-programming.html?inl=nv>Game programming</a><br>
+            <a href=//www.cprogramming.com/graphics-programming.html?inl=nv>Graphics programming</a><br>
+            <a href=//www.cprogramming.com/algorithms-and-data-structures.html?inl=nv>Algorithms</a><br>
+            <a href="//www.cprogramming.com/tutorial.html?inl=nv">More tutorials</a><br>
+     </p>
+
+     <p class="navcategory" align="left">
+          <br>
+           Practice
+     </p>
+
+     <p class="navlist" align="left">
+            <a href="//www.cprogramming.com/challenge.html?inl=nv">Practice problems</a><br>
+            <a href="//www.cprogramming.com/quiz/?inl=nv">Quizzes</a><br>
+     </p>
+     <p class="navcategory" align="left">
+          <br>
+           Resources
+     </p>
+
+     <p class="navlist" align="left">
+            <a href=//www.cprogramming.com/snippets/?inl=nv>Source code</a><br>
+            <a href="//www.cprogramming.com/tips/?inl=nv">C and C++ tips</a><br>
+            <a href="//www.cprogramming.com/compilers.html?inl=nv">Getting a compiler</a><br>
+            <a href="//www.cprogramming.com/books.html?inl=nv">Book recommendations</a><br>
+            <a href="//cboard.cprogramming.com/?inl=nv">Forum</a><br>
+     </p>
+
+     <p class="navcategory" align="left">
+          <br>
+           References
+     </p>
+
+     <p class="navlist" align="left">
+            <a href="//www.cprogramming.com/function.html?inl=nv">Function reference</a><br>
+            <a href="//www.cprogramming.com/reference/?inl=nv">Syntax reference</a><br>
+            <a href="//faq.cprogramming.com/cgi-bin/smartfaq.cgi?inl=nv">Programming FAQ</a><br>
+     </p>
+
+             
+     </div>
+
+<center>
+      <br><br>
+
+<!-- ADDED BSA -->
+<!-- Cprogramming_S2S_Sidebar_Left_Pos1 -->
+<div id="bsa-zone_1596557550017-7_123456"></div>
+<!-- END ADDED BSA -->
+
+
+</center>
+
+
+
+    </td>
+	<td class="content" valign="top">
+
+    			<div class="content2 maincontent">
+
+<h1>Solving the Diamond Problem with Virtual Inheritance</h1>
+
+
+
+By Andrei Milea<br><br>
+Multiple inheritance in C++ is a powerful, but tricky tool, that often leads
+to problems if not used carefully.  This article will teach you how to use
+virtual inheritance to solve some of these common problems programmers run
+into.  If you're not familiar with multiple inheritance, <a href="//www.cprogramming.com/tutorial/multiple_inheritance.html">check out
+this article on multiple inheritance</a>.
+
+<br><br><center>
+<div class='noprint'>
+
+<!-- Cprogramming_S2S_InContent_ROS_Pos1 -->
+<div id="bsa-zone_1596557484538-7_123456"></div>
+</div>
+
+
+
+</center>
+  <br><br><h2>The diamond problem</h2>
+One of the problems that arises due to multiple inheritance is the <b>diamond problem</b>. A classical illustration of this is given by Bjarne Stroustrup (the creator of C++) in the following example:
+<pre class="brush: cpp; toolbar: false">
+class storable //this is the our base class inherited by transmitter and receiver classes
+{
+        public:
+        storable(const char*);
+        virtual void read();
+        virtual void write(); 
+        virtual ~storable();
+        private:
+        ....
+}
+
+class transmitter: public storable 
+{
+        public:
+        void write();
+        ...
+} 
+
+class receiver: public storable
+{
+        public:
+        void read();
+        ...
+}
+
+class radio: public transmitter, public receiver
+{
+        public:
+        void read();
+        ....
+}
+</pre>
+Since both <b>transmitter</b> and <b>receiver</b> classes are using the method
+<b>write()</b> from the base class, when calling the method <b>write()</b> from
+a <b>radio</b> object the call is ambiguous; the compiler can't know which
+implementation of <b>write()</b> to use, the one from
+the <b>transmitter</b> class or the one from the <b>receiver</b> class.<br><br>
+ 
+To understand how this is works, let's take a look at how the objects are
+represented in memory. Inheritance simply puts the implementation of two
+objects one after another, but in this case <b>radio</b> is both a
+<b>transmitter</b> and a <b>receiver</b>, so the <b>storable</b> class gets
+duplicated inside the radio object. The g++ compiler will complain when
+compiling the code: error: 'request for member "write" is ambiguous', because
+it can't figure out whether to call the method write() from
+<b>storable::receiver::radio</b> or from
+<b>storable::transmitter::radio</b>.<br><br> Fortunately, C++
+allows us to solve this problem by using virtual inheritance. In order to
+prevent the compiler from giving an error we use the keyword <b>virtual</b>
+when we inherit from the
+base class storable in both derived classes:
+
+<pre class="brush: cpp; toolbar: false">
+class transmitter: public virtual storable 
+{
+        public:
+        void read();
+        ...
+} 
+
+class receiver: public virtual storable
+{
+        public:
+        void read();
+        ...
+} 
+</pre>
+When we use virtual inheritance, we are guaranteed to get only a single
+instance of the common base class. In other words, the <b>radio</b> class will have
+only a single instance of the <b>storable</b> class, shared by both the
+<b>transmitter</b> and <b>receiver</b> classes. By having a single instance of <b>storable</b>, we've resolved the compiler's immediate issue, the ambiguity, and the code will compile fine.
+
+<h3>Memory Layout in Virtual Inheritance</h3>
+In order to keep track of the single instance of the <b>storable</b> object,
+the compiler will provide a <b>virtual function table</b> (<b>vtable</b>) for
+classes <b>transmitter</b> and <b>receiver</b>. When a <b>radio</b> object is
+constructed, it creates one <b>storable</b> instance, a <b>transmitter</b>
+instance and a <b>receiver</b> instance. The <b>transmitter</b> and
+<b>receiver</b> classes have a <b>virtual pointer</b> in their vtables that
+stores the offset to the <b>storable</b> class.  When the <b>transmitter</b>
+class or the <b>receiver</b> class goes to access any fields of the
+<b>storable</b>, it uses the virtual pointer in its vtable to find the
+<b>storable</b> object and find the field in it. This <a href="http://www.phpcompiler.org/articles/virtualinheritance.html">tutorial</a>
+offers a comprehensive explanation of the memory layout of virtual inheritance in <a href="//www.cprogramming.com/g++.html">GCC</a>.
+
+
+<h2>Constructors and Virtual Inheritance</h2>
+
+Because there is only a single instance of a virtual base class that is shared
+by multiple classes that inherit from it, the constructor for a virtual base
+class is not called by the class that inherits from it (which is how
+constructors are called, when each class has its own copy of its parent class)
+since that would mean the constructor would run multiple times.
+Instead, the constructor is called by the constructor of the concrete class.
+In the example above, the class <b>radio</b> directly calls the constructor for
+<b>storable</b>. If you need to pass any arguments to the <b>storable</b>
+constructor, you would do so using <a href="//www.cprogramming.com/tutorial/initialization-lists-c++.html">an
+initialization list</a>, as usual:
+
+<pre class="brush: cpp; toolbar: false">
+radio::radio ()
+    : storable( 10 ) // some value that storable needs 
+    , transmitter()
+    , receiver()
+{}
+</pre>
+One thing to be aware of is that if either <b>transmitter</b> or <b>receiver</b> attempted to invoke the <b>storable</b> constructor in their initialization lists, that call will be completely skipped when constructing a <b>radio</b> object! Be careful, as this could cause a subtle bug!
+<br><br>
+
+By the way, the constructors for virtual base classes are always called before
+the constructors for non-virtual base classes. This ensures that a class
+inheriting from a virtual base class can be sure the virtual base class is safe to use inside the inheriting class's constructor.
+
+<br><br>
+The destructor order in a class hierarchy with a virtual base class follows the same rules as the rest of C++: the destructors run in the opposite order of the constructors. In other words, the virtual base class will be the last object destroyed, because it is the first object that is fully constructed.
+
+<h2>Delegating to a sister class</h2>
+
+A powerful technique that arises from using virtual inheritance is to delegate
+a method from a class in another class by using a common abstract base class.
+This is also called cross delegation. Let's assume we have a similar scenario
+like in the diamond example, with small changes. Suppose the <b>write()</b>
+method in <b>transmitter</b> class needs to access the <b>read()</b> method
+from <b>receiver</b> for the radio to work (this is kind of a weird behavior,
+but let's take it for the sake of illustration) : 
+<pre class="brush: cpp; toolbar: false">
+class storable 
+{
+        public:
+        storable(const char*);
+        virtual void read()=0; //this becomes pure virtual making storable an abstract
+        virtual void write(); //class
+        virtual ~storable();
+        private:
+        ....
+}
+
+class transmitter: public virtual storable 
+{
+        public:
+        void write()
+        {
+                read();
+                ....
+        }
+} 
+
+class receiver: public virtual storable
+{
+        public:
+        void read();
+}
+
+class radio: public transmitter, public receiver
+{
+        public:
+        ...
+}
+
+int main()
+{
+        radio *rad = new radio();
+        receiver *r1 = rad;
+        transmitter *r2 =rad;
+
+        rad-&gt;write();
+        r1-&gt;write();
+        r2-&gt;write();
+        return 1;
+}
+</pre>
+Because of virtual inheritance, when the <b>write()</b> function from the <b>transmitter</b> class is called, the method <b>read()</b> from the <b>receiver</b> class gets called (as you may have noticed, the <b>transmitter</b> class doesn't have a <b>read()</b> function). In the above hierarchy we can instantiate only the radio class because <b>transmitter</b> and receiver are abstract due to virtual inheritance.
+
+<h2>Other considerations when using multiple inheritance in C++</h2>
+
+When you use a class that is based on virtual inheritance like radio, you
+should avoid using C style casts and use the C++ specific dynamic_cast instead
+(<a href="//www.cprogramming.com/tutorial/lesson11.html">more information
+ on casting</a>). It will perform a runtime check for validity before casting, so you can be sure that the type of the object you want to cast is related (by inheritance) with the object type you want to cast into. If they are not related, the result will be a NULL pointer or a bad_cast exception in case of references.
+
+<div id="footer" class="noprint">
+
+
+
+<div style="clear: both; margin-top: 10px;"></div>
+
+
+<script>
+function abTest(element_name_sets) {
+    var element_to_show;
+    var element_count = element_name_sets.length;
+    var i;
+    for ( i = 0; i < element_count; i++ )
+    {
+        if ( Math.random() <= 1 / ( element_count - i ) ) {
+                break;
+        }
+    }
+    var element_name_set = element_name_sets[ i ];
+    for ( i = 0; i < element_name_set.length; i++ )
+    {
+        element_to_show = document.getElementById( element_name_set[ i ] );
+        element_to_show.style.display = "block";
+    }
+}
+//abTest( [["old-ad", "new-ad"]] );
+</script>
+
+
+<div class="popularpages">
+<b>Popular pages</b>
+<ul>
+<li><a href=//www.cprogramming.com/c++book/?inl=pf>Jumping into C++, the Cprogramming.com ebook</a> 
+ <li><a href=//www.cprogramming.com/begin.html?inl=pf>How to learn C++ or C</a> 
+<li><a href=//www.cprogramming.com/tutorial/c-tutorial.html?inl=pf>C Tutorial</a>
+<li><a href=//www.cprogramming.com/tutorial/c++-tutorial.html?inl=pf>C++ Tutorial</a>
+<li><a href=//www.cprogramming.com/how_to_learn_to_program.html?inl=pf>5 ways you can learn to program faster</a> 
+<li><a href=//www.cprogramming.com/beginner_programming_mistakes.html?inl=pf>The 5 most common problems new programmers face</a>
+<li><a href=//www.cprogramming.com/code_blocks/?inl=pf>How to set up a compiler</a>
+<li><a href=//www.cprogramming.com/tutorial/game_programming/same_game_part1.html?inl=pf>How to make a game in 48 hours</a>
+</ul>
+</div>
+
+
+</div>
+
+<center>
+ 
+
+
+<div class="footer-links" style="padding:10px">
+<a href="//www.cprogramming.com/advertising.html">Advertising</a> | <a href="//www.cprogramming.com/privacy.html">Privacy policy</a> |
+<a href="//www.cprogramming.com/use.html">Copyright &copy; 2019 Cprogramming.com</a> | <a href=mailto:webmaster@cprogramming.com>Contact</a> | <a href="//www.cprogramming.com/about.html">About</a>
+</div>
+</div>
+</div>
+</td>
+    	
+
+
+<td class="content noprint rightcolumn" valign="top" rowspan="1">
+<div class="content2"><br><div class="verticalad">
+
+
+
+
+
+<!-- Cprogramming_S2S_Sidebar_Right_Pos1 -->
+<div id="bsa-zone_1596557574324-1_123456"></div>
+</div><br>
+
+</div>
+</td>  	
+
+</tr>
+</table>
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript" src="https://mainsite-static-cprogrammingcom.netdna-ssl.com/syntax-highlight/scripts/shCore.js"></script>
+<script type="text/javascript" src="https://mainsite-static-cprogrammingcom.netdna-ssl.com/syntax-highlight/scripts/shBrushCpp.js"></script>
+
+<script type="text/javascript">
+         SyntaxHighlighter.all();
+</script>
+
+
+

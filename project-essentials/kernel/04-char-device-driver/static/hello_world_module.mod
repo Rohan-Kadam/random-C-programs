@@ -1,0 +1,2 @@
+/home/rohan/CODING/random-stuff/project-essentials/kernel/04-char-device-driver/static/hello_world_module.o
+

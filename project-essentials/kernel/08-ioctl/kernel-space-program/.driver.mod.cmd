@@ -1,0 +1,1 @@
+cmd_/home/rohan/CODING/random-stuff/project-essentials/kernel/08-ioctl/kernel-space-program/driver.mod := { echo  /home/rohan/CODING/random-stuff/project-essentials/kernel/08-ioctl/kernel-space-program/driver.o; echo; } > /home/rohan/CODING/random-stuff/project-essentials/kernel/08-ioctl/kernel-space-program/driver.mod

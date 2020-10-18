@@ -1,0 +1,13 @@
+Difference between function overloading and function overriding
+
+1) Function Overloading happens in the same class when we declare same functions with different arguments in the same class. 
+Function Overriding is happens in the child class when child class overrides parent class function.
+
+2) In function overloading function signature should be different for all the overloaded functions. In function overriding the
+ signature of both the functions (overriding function and overridden function) should be same.
+
+3) Overloading happens at the compile time thats why it is also known as compile time polymorphism while overriding happens at
+ run time which is why it is known as run time polymorphism.
+
+4) In function overloading we can have any number of overloaded functions. In function overriding we can have only one overriding
+ function in the child class.

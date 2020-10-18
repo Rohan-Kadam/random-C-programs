@@ -1,0 +1,465 @@
+
+*************************TCP Packet******************************
+Ethernet Header
+	|-Source Address	: C0-A0-BB-CA-29-E8
+	|-Destination Address	: 9C-AD-97-CD-0D-73
+	|-Protocol		: 8
+
+IP Header
+	|-Version              : 4
+	|-Internet Header Length  : 5 DWORDS or 20 Bytes
+	|-Type Of Service   : 52
+	|-Total Length      : 76  Bytes
+	|-Identification    : 10499
+	|-Time To Live	    : 50
+	|-Protocol 	    : 6
+	|-Header Checksum   : 41172
+	|-Source IP         : 192.30.253.112
+	|-Destination IP    : 192.168.0.105
+
+TCP Header
+	|-Source Port          : 443
+	|-Destination Port     : 54266
+	|-Sequence Number      : 2841361672
+	|-Acknowledge Number   : 3144704792
+	|-Header Length        : 8 DWORDS or 32 BYTES
+	|----------Flags-----------
+		|-Urgent Flag          : 0
+		|-Acknowledgement Flag : 1
+		|-Push Flag            : 1
+		|-Reset Flag           : 0
+		|-Synchronise Flag     : 0
+		|-Finish Flag          : 0
+	|-Window size          : 36
+	|-Checksum             : 29578
+	|-Urgent Pointer       : 0
+
+Data
+ BB  70  63  18  80  18  00  24  73  8A  00  00  01  01  08  0A 
+ 1D  CD  04  B0  D7  7F  03  17  17  03  03  00  13  29  16  62 
+ F7  ED  A0  D8  DC  30  93  8D  3D  9A  AA  A3  59  19  9F  2C 
+*****************************************************************
+
+
+
+*************************TCP Packet******************************
+Ethernet Header
+	|-Source Address	: 9C-AD-97-CD-0D-73
+	|-Destination Address	: C0-A0-BB-CA-29-E8
+	|-Protocol		: 8
+
+IP Header
+	|-Version              : 4
+	|-Internet Header Length  : 5 DWORDS or 20 Bytes
+	|-Type Of Service   : 0
+	|-Total Length      : 52  Bytes
+	|-Identification    : 1849
+	|-Time To Live	    : 64
+	|-Protocol 	    : 6
+	|-Header Checksum   : 46314
+	|-Source IP         : 192.168.0.105
+	|-Destination IP    : 192.30.253.112
+
+TCP Header
+	|-Source Port          : 54266
+	|-Destination Port     : 443
+	|-Sequence Number      : 3144704792
+	|-Acknowledge Number   : 2841361696
+	|-Header Length        : 8 DWORDS or 32 BYTES
+	|----------Flags-----------
+		|-Urgent Flag          : 0
+		|-Acknowledgement Flag : 1
+		|-Push Flag            : 0
+		|-Reset Flag           : 0
+		|-Synchronise Flag     : 0
+		|-Finish Flag          : 0
+	|-Window size          : 541
+	|-Checksum             : 45131
+	|-Urgent Pointer       : 0
+
+Data
+ A9  5B  BD  20  80  10  02  1D  B0  4B  00  00  01  01  08  0A 
+ D7  7F  F0  FB  1D  CD  04  B0 
+*****************************************************************
+
+
+
+*************************TCP Packet******************************
+Ethernet Header
+	|-Source Address	: C0-A0-BB-CA-29-E8
+	|-Destination Address	: 9C-AD-97-CD-0D-73
+	|-Protocol		: 8
+
+IP Header
+	|-Version              : 4
+	|-Internet Header Length  : 5 DWORDS or 20 Bytes
+	|-Type Of Service   : 52
+	|-Total Length      : 52  Bytes
+	|-Identification    : 10500
+	|-Time To Live	    : 50
+	|-Protocol 	    : 6
+	|-Header Checksum   : 41195
+	|-Source IP         : 192.30.253.112
+	|-Destination IP    : 192.168.0.105
+
+TCP Header
+	|-Source Port          : 443
+	|-Destination Port     : 54266
+	|-Sequence Number      : 2841361696
+	|-Acknowledge Number   : 3144704792
+	|-Header Length        : 8 DWORDS or 32 BYTES
+	|----------Flags-----------
+		|-Urgent Flag          : 0
+		|-Acknowledgement Flag : 1
+		|-Push Flag            : 0
+		|-Reset Flag           : 0
+		|-Synchronise Flag     : 0
+		|-Finish Flag          : 1
+	|-Window size          : 36
+	|-Checksum             : 41000
+	|-Urgent Pointer       : 0
+
+Data
+ BB  70  63  18  80  11  00  24  A0  28  00  00  01  01  08  0A 
+ 1D  CD  04  B0  D7  7F  03  17 
+*****************************************************************
+
+
+
+*************************TCP Packet******************************
+Ethernet Header
+	|-Source Address	: C0-A0-BB-CA-29-E8
+	|-Destination Address	: 9C-AD-97-CD-0D-73
+	|-Protocol		: 8
+
+IP Header
+	|-Version              : 4
+	|-Internet Header Length  : 5 DWORDS or 20 Bytes
+	|-Type Of Service   : 52
+	|-Total Length      : 52  Bytes
+	|-Identification    : 10501
+	|-Time To Live	    : 50
+	|-Protocol 	    : 6
+	|-Header Checksum   : 41194
+	|-Source IP         : 192.30.253.112
+	|-Destination IP    : 192.168.0.105
+
+TCP Header
+	|-Source Port          : 443
+	|-Destination Port     : 54266
+	|-Sequence Number      : 2841361696
+	|-Acknowledge Number   : 3144704792
+	|-Header Length        : 8 DWORDS or 32 BYTES
+	|----------Flags-----------
+		|-Urgent Flag          : 0
+		|-Acknowledgement Flag : 1
+		|-Push Flag            : 0
+		|-Reset Flag           : 0
+		|-Synchronise Flag     : 0
+		|-Finish Flag          : 1
+	|-Window size          : 36
+	|-Checksum             : 40895
+	|-Urgent Pointer       : 0
+
+Data
+ BB  70  63  18  80  11  00  24  9F  BF  00  00  01  01  08  0A 
+ 1D  CD  05  19  D7  7F  03  17 
+*****************************************************************
+
+
+
+*************************TCP Packet******************************
+Ethernet Header
+	|-Source Address	: 9C-AD-97-CD-0D-73
+	|-Destination Address	: C0-A0-BB-CA-29-E8
+	|-Protocol		: 8
+
+IP Header
+	|-Version              : 4
+	|-Internet Header Length  : 5 DWORDS or 20 Bytes
+	|-Type Of Service   : 0
+	|-Total Length      : 64  Bytes
+	|-Identification    : 1850
+	|-Time To Live	    : 64
+	|-Protocol 	    : 6
+	|-Header Checksum   : 46301
+	|-Source IP         : 192.168.0.105
+	|-Destination IP    : 192.30.253.112
+
+TCP Header
+	|-Source Port          : 54266
+	|-Destination Port     : 443
+	|-Sequence Number      : 3144704792
+	|-Acknowledge Number   : 2841361697
+	|-Header Length        : 11 DWORDS or 44 BYTES
+	|----------Flags-----------
+		|-Urgent Flag          : 0
+		|-Acknowledgement Flag : 1
+		|-Push Flag            : 0
+		|-Reset Flag           : 0
+		|-Synchronise Flag     : 0
+		|-Finish Flag          : 0
+	|-Window size          : 541
+	|-Checksum             : 44240
+	|-Urgent Pointer       : 0
+
+Data
+ A9  5B  BD  21  B0  10  02  1D  AC  D0  00  00  01  01  08  0A 
+ D7  7F  F0  FB  1D  CD  05  19  01  01  05  0A  A9  5B  BD  20 
+ A9  5B  BD  21 
+*****************************************************************
+
+
+
+*************************TCP Packet******************************
+Ethernet Header
+	|-Source Address	: 9C-AD-97-CD-0D-73
+	|-Destination Address	: C0-A0-BB-CA-29-E8
+	|-Protocol		: 8
+
+IP Header
+	|-Version              : 4
+	|-Internet Header Length  : 5 DWORDS or 20 Bytes
+	|-Type Of Service   : 0
+	|-Total Length      : 76  Bytes
+	|-Identification    : 1851
+	|-Time To Live	    : 64
+	|-Protocol 	    : 6
+	|-Header Checksum   : 46288
+	|-Source IP         : 192.168.0.105
+	|-Destination IP    : 192.30.253.112
+
+TCP Header
+	|-Source Port          : 54266
+	|-Destination Port     : 443
+	|-Sequence Number      : 3144704792
+	|-Acknowledge Number   : 2841361697
+	|-Header Length        : 8 DWORDS or 32 BYTES
+	|----------Flags-----------
+		|-Urgent Flag          : 0
+		|-Acknowledgement Flag : 1
+		|-Push Flag            : 1
+		|-Reset Flag           : 0
+		|-Synchronise Flag     : 0
+		|-Finish Flag          : 0
+	|-Window size          : 541
+	|-Checksum             : 44112
+	|-Urgent Pointer       : 0
+
+Data
+ A9  5B  BD  21  80  18  02  1D  AC  50  00  00  01  01  08  0A 
+ D7  7F  F0  FB  1D  CD  05  19  17  03  03  00  13  07  A2  81 
+ 25  28  82  7F  54  99  8D  07  7D  45  2C  B0  0B  C4  F4  E2 
+*****************************************************************
+
+
+
+*************************TCP Packet******************************
+Ethernet Header
+	|-Source Address	: 9C-AD-97-CD-0D-73
+	|-Destination Address	: C0-A0-BB-CA-29-E8
+	|-Protocol		: 8
+
+IP Header
+	|-Version              : 4
+	|-Internet Header Length  : 5 DWORDS or 20 Bytes
+	|-Type Of Service   : 0
+	|-Total Length      : 52  Bytes
+	|-Identification    : 1852
+	|-Time To Live	    : 64
+	|-Protocol 	    : 6
+	|-Header Checksum   : 46311
+	|-Source IP         : 192.168.0.105
+	|-Destination IP    : 192.30.253.112
+
+TCP Header
+	|-Source Port          : 54266
+	|-Destination Port     : 443
+	|-Sequence Number      : 3144704816
+	|-Acknowledge Number   : 2841361697
+	|-Header Length        : 8 DWORDS or 32 BYTES
+	|----------Flags-----------
+		|-Urgent Flag          : 0
+		|-Acknowledgement Flag : 1
+		|-Push Flag            : 0
+		|-Reset Flag           : 0
+		|-Synchronise Flag     : 0
+		|-Finish Flag          : 1
+	|-Window size          : 541
+	|-Checksum             : 45000
+	|-Urgent Pointer       : 0
+
+Data
+ A9  5B  BD  21  80  11  02  1D  AF  C8  00  00  01  01  08  0A 
+ D7  7F  F0  FB  1D  CD  05  19 
+*****************************************************************
+
+
+
+*************************TCP Packet******************************
+Ethernet Header
+	|-Source Address	: C0-A0-BB-CA-29-E8
+	|-Destination Address	: 9C-AD-97-CD-0D-73
+	|-Protocol		: 8
+
+IP Header
+	|-Version              : 4
+	|-Internet Header Length  : 5 DWORDS or 20 Bytes
+	|-Type Of Service   : 52
+	|-Total Length      : 76  Bytes
+	|-Identification    : 10502
+	|-Time To Live	    : 50
+	|-Protocol 	    : 6
+	|-Header Checksum   : 41169
+	|-Source IP         : 192.30.253.112
+	|-Destination IP    : 192.168.0.105
+
+TCP Header
+	|-Source Port          : 443
+	|-Destination Port     : 54266
+	|-Sequence Number      : 2841361672
+	|-Acknowledge Number   : 3144704792
+	|-Header Length        : 8 DWORDS or 32 BYTES
+	|----------Flags-----------
+		|-Urgent Flag          : 0
+		|-Acknowledgement Flag : 1
+		|-Push Flag            : 1
+		|-Reset Flag           : 0
+		|-Synchronise Flag     : 0
+		|-Finish Flag          : 1
+	|-Window size          : 36
+	|-Checksum             : 29344
+	|-Urgent Pointer       : 0
+
+Data
+ BB  70  63  18  80  19  00  24  72  A0  00  00  01  01  08  0A 
+ 1D  CD  05  99  D7  7F  03  17  17  03  03  00  13  29  16  62 
+ F7  ED  A0  D8  DC  30  93  8D  3D  9A  AA  A3  59  19  9F  2C 
+*****************************************************************
+
+
+
+*************************TCP Packet******************************
+Ethernet Header
+	|-Source Address	: 9C-AD-97-CD-0D-73
+	|-Destination Address	: C0-A0-BB-CA-29-E8
+	|-Protocol		: 8
+
+IP Header
+	|-Version              : 4
+	|-Internet Header Length  : 5 DWORDS or 20 Bytes
+	|-Type Of Service   : 0
+	|-Total Length      : 64  Bytes
+	|-Identification    : 1853
+	|-Time To Live	    : 64
+	|-Protocol 	    : 6
+	|-Header Checksum   : 46298
+	|-Source IP         : 192.168.0.105
+	|-Destination IP    : 192.30.253.112
+
+TCP Header
+	|-Source Port          : 54266
+	|-Destination Port     : 443
+	|-Sequence Number      : 3144704817
+	|-Acknowledge Number   : 2841361697
+	|-Header Length        : 11 DWORDS or 44 BYTES
+	|----------Flags-----------
+		|-Urgent Flag          : 0
+		|-Acknowledgement Flag : 1
+		|-Push Flag            : 0
+		|-Reset Flag           : 0
+		|-Synchronise Flag     : 0
+		|-Finish Flag          : 0
+	|-Window size          : 541
+	|-Checksum             : 44084
+	|-Urgent Pointer       : 0
+
+Data
+ A9  5B  BD  21  B0  10  02  1D  AC  34  00  00  01  01  08  0A 
+ D7  7F  F1  16  1D  CD  05  99  01  01  05  0A  A9  5B  BD  08 
+ A9  5B  BD  21 
+*****************************************************************
+
+
+
+*************************TCP Packet******************************
+Ethernet Header
+	|-Source Address	: C0-A0-BB-CA-29-E8
+	|-Destination Address	: 9C-AD-97-CD-0D-73
+	|-Protocol		: 8
+
+IP Header
+	|-Version              : 4
+	|-Internet Header Length  : 5 DWORDS or 20 Bytes
+	|-Type Of Service   : 52
+	|-Total Length      : 40  Bytes
+	|-Identification    : 32161
+	|-Time To Live	    : 50
+	|-Protocol 	    : 6
+	|-Header Checksum   : 19546
+	|-Source IP         : 192.30.253.112
+	|-Destination IP    : 192.168.0.105
+
+TCP Header
+	|-Source Port          : 443
+	|-Destination Port     : 54266
+	|-Sequence Number      : 2841361697
+	|-Acknowledge Number   : 0
+	|-Header Length        : 5 DWORDS or 20 BYTES
+	|----------Flags-----------
+		|-Urgent Flag          : 0
+		|-Acknowledgement Flag : 0
+		|-Push Flag            : 0
+		|-Reset Flag           : 1
+		|-Synchronise Flag     : 0
+		|-Finish Flag          : 0
+	|-Window size          : 0
+	|-Checksum             : 62732
+	|-Urgent Pointer       : 0
+
+Data
+ 00  00  00  00  50  04  00  00  F5  0C  00  00 
+*****************************************************************
+
+
+
+*************************TCP Packet******************************
+Ethernet Header
+	|-Source Address	: C0-A0-BB-CA-29-E8
+	|-Destination Address	: 9C-AD-97-CD-0D-73
+	|-Protocol		: 8
+
+IP Header
+	|-Version              : 4
+	|-Internet Header Length  : 5 DWORDS or 20 Bytes
+	|-Type Of Service   : 52
+	|-Total Length      : 40  Bytes
+	|-Identification    : 32162
+	|-Time To Live	    : 50
+	|-Protocol 	    : 6
+	|-Header Checksum   : 19545
+	|-Source IP         : 192.30.253.112
+	|-Destination IP    : 192.168.0.105
+
+TCP Header
+	|-Source Port          : 443
+	|-Destination Port     : 54266
+	|-Sequence Number      : 2841361697
+	|-Acknowledge Number   : 0
+	|-Header Length        : 5 DWORDS or 20 BYTES
+	|----------Flags-----------
+		|-Urgent Flag          : 0
+		|-Acknowledgement Flag : 0
+		|-Push Flag            : 0
+		|-Reset Flag           : 1
+		|-Synchronise Flag     : 0
+		|-Finish Flag          : 0
+	|-Window size          : 0
+	|-Checksum             : 62732
+	|-Urgent Pointer       : 0
+
+Data
+ 00  00  00  00  50  04  00  00  F5  0C  00  00 
+*****************************************************************
+
+

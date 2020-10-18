@@ -1,0 +1,1 @@
+cmd_/home/rohan/CODING/random-stuff/project-essentials/kernel/04-char-device-driver/static/hello_world_module.mod := { echo  /home/rohan/CODING/random-stuff/project-essentials/kernel/04-char-device-driver/static/hello_world_module.o; echo; } > /home/rohan/CODING/random-stuff/project-essentials/kernel/04-char-device-driver/static/hello_world_module.mod

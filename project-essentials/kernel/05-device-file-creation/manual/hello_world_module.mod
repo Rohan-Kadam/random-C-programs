@@ -1,0 +1,2 @@
+/home/rohan/CODING/random-stuff/project-essentials/kernel/05-device-file-creation/manual/hello_world_module.o
+

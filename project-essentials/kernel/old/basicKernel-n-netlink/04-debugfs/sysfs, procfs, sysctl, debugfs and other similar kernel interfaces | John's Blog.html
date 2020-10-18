@@ -1,0 +1,1343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head profile="http://gmpg.org/xfn/11"><iframe sandbox="allow-scripts allow-same-origin" id="14d91710ff1174a8" allowtransparency="true" marginheight="0" marginwidth="0" hspace="0" vspace="0" style="height:0px;width:0px;display:none;" scrolling="no" src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/usermatch.html" width="0" height="0" frameborder="0">
+    </iframe>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>sysfs, procfs, sysctl, debugfs and other similar kernel interfaces | John's Blog</title>
+	<link rel="pingback" href="https://johnsofteng.wordpress.com/xmlrpc.php">
+	<link rel="dns-prefetch" href="https://s2.wp.com/">
+<link rel="dns-prefetch" href="https://s1.wp.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://s.pubmine.com/">
+<link rel="dns-prefetch" href="https://x.bidswitch.net/">
+<link rel="dns-prefetch" href="https://static.criteo.net/">
+<link rel="dns-prefetch" href="https://ib.adnxs.com/">
+<link rel="dns-prefetch" href="https://aax.amazon-adsystem.com/">
+<link rel="dns-prefetch" href="https://bidder.criteo.com/">
+<link rel="dns-prefetch" href="https://cas.criteo.com/">
+<link rel="dns-prefetch" href="https://gum.criteo.com/">
+<link rel="dns-prefetch" href="https://ads.pubmatic.com/">
+<link rel="dns-prefetch" href="https://gads.pubmatic.com/">
+<link rel="dns-prefetch" href="https://tpc.googlesyndication.com/">
+<link rel="dns-prefetch" href="https://ad.doubleclick.net/">
+<link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/">
+<link rel="dns-prefetch" href="https://www.googletagservices.com/">
+<link rel="dns-prefetch" href="https://cdn.switchadhub.com/">
+<link rel="dns-prefetch" href="https://delivery.g.switchadhub.com/">
+<link rel="dns-prefetch" href="https://delivery.swid.switchadhub.com/">
+<link rel="alternate" type="application/rss+xml" title="John's Blog » Feed" href="https://johnsofteng.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="John's Blog » Comments Feed" href="https://johnsofteng.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="John's Blog » sysfs, procfs, sysctl, debugfs and other similar kernel&nbsp;interfaces Comments Feed" href="https://johnsofteng.wordpress.com/2013/11/20/sysfs-procfs-sysctl-debugfs-and-other-similar-kernel-interfaces/feed/">
+	<script src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/client.js" async="" type="text/javascript"></script><script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s1.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1532082729h&ver=4.9.8"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="all-css-0-1" href="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/a.css" type="text/css" media="all">
+<link rel="stylesheet" id="print-css-1-1" href="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/fadtasticdev_print.css" type="text/css" media="print">
+<link rel="stylesheet" id="all-css-2-1" href="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/a_002.css" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/a_002"></script>
+<link rel="stylesheet" id="all-css-0-2" href="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/style.css" type="text/css" media="all">
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563h&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://johnsofteng.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Useful kernel and driver performance tweaks for your Linux&nbsp;server" href="https://johnsofteng.wordpress.com/2013/11/20/useful-kernel-and-driver-performance-tweaks-for-your-linux-server/">
+<link rel="next" title="What every programmer should know about&nbsp;memory" href="https://johnsofteng.wordpress.com/2014/01/03/what-every-programmer-should-know-about-memory/">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/a.html">
+<link rel="shortlink" href="https://wp.me/pyFFo-6i">
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/?format=json&amp;url=https%3A%2F%2Fjohnsofteng.wordpress.com%2F2013%2F11%2F20%2Fsysfs-procfs-sysctl-debugfs-and-other-similar-kernel-interfaces%2F&amp;for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/?format=xml&amp;url=https%3A%2F%2Fjohnsofteng.wordpress.com%2F2013%2F11%2F20%2Fsysfs-procfs-sysctl-debugfs-and-other-similar-kernel-interfaces%2F&amp;for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="sysfs, procfs, sysctl, debugfs and other similar kernel interfaces">
+<meta property="og:url" content="https://johnsofteng.wordpress.com/2013/11/20/sysfs-procfs-sysctl-debugfs-and-other-similar-kernel-interfaces/">
+<meta property="og:description" content="2.&nbsp;Procfs, Sysfs, and Similar Kernel Interfaces 2.1&nbsp;Introduction These file systems are optional to the Linux kernel, and may not be enabled on your system. The file “/lib/modules/`uname -r`/…">
+<meta property="article:published_time" content="2013-11-20T09:20:06+00:00">
+<meta property="article:modified_time" content="2013-11-20T09:20:06+00:00">
+<meta property="og:site_name" content="John's Blog">
+<meta property="og:image" content="https://s0.wp.com/i/blank.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:site" content="@wordpressdotcom">
+<meta name="twitter:text:title" content="sysfs, procfs, sysctl, debugfs and other similar kernel&nbsp;interfaces">
+<meta name="twitter:card" content="summary">
+<meta property="fb:app_id" content="249643311490">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="shortcut icon" type="image/x-icon" href="https://s1.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="https://s1.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon-precomposed" href="https://s2.wp.com/i/webclip.png">
+<link rel="openid.server" href="https://johnsofteng.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="https://johnsofteng.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="https://johnsofteng.wordpress.com/osd.xml" title="John's Blog">
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com">
+		<style id="wpcom-hotfix-masterbar-style">
+			@media screen and (min-width: 783px) {
+				#wpadminbar .quicklinks li#wp-admin-bar-my-account.with-avatar > a img {
+					margin-top: 5px;
+				}
+			}
+		</style>
+		<meta name="application-name" content="John's Blog"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="http://bit.ly/e1pU0"><meta name="msapplication-task" content="name=Subscribe;action-uri=https://johnsofteng.wordpress.com/feed/;icon-uri=https://s1.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s1.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico"><meta name="description" content="2.&nbsp;Procfs, Sysfs, and Similar Kernel Interfaces 2.1&nbsp;Introduction These file systems are optional to the Linux kernel, and may not be enabled on your system. The file &quot;/lib/modules/`uname -r`/build/.config&quot; will tell you how your kernel is configured. In order to exchange data between user space and kernel space the Linux kernel provides a couple of RAM…">
+		<script type="text/javascript">
+		function __ATA_CC() {var v = document.cookie.match('(^|;) ?personalized-ads-consent=([^;]*)(;|$)');return v ? 1 : 0;}
+		var __ATA_PP = { pt: 1, ht: 0, tn: 'fadtastic', amp: false, siteid: 8982, consent: __ATA_CC() };
+		var __ATA = __ATA || {};
+		__ATA.cmd = __ATA.cmd || [];
+		__ATA.criteo = __ATA.criteo || {};
+		__ATA.criteo.cmd = __ATA.criteo.cmd || [];
+		</script>
+		<script type="text/javascript" src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/head.js" async=""></script><link rel="amphtml" href="https://johnsofteng.wordpress.com/2013/11/20/sysfs-procfs-sysctl-debugfs-and-other-similar-kernel-interfaces/amp/"><style type="text/css" id="syntaxhighlighteranchor"></style>
+<script type="text/javascript">
+	window.google_analytics_uacct = "UA-52447-2";
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script type="text/javascript" async="" src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/ga.js"></script>
+<script src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/a_002.js" type="text/javascript" async=""></script><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/services.css"><script src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/a.js" type="text/javascript" async=""></script><style type="text/css">.adtags-stiky-ad {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: #8a8a8f;
+    z-index: 16777271;
+    box-shadow: 0 1px 4px 0 rgba(51, 51, 51, 0.25), 0 0 1px 0 rgba(200, 199, 204, 0.5);
+}
+
+.adtags-stiky-ad__slot {
+    margin: 0 auto;
+}
+
+.adtags-sticky-ad__swipe-area {
+    width: 76px;
+    height: 36px;
+    position: absolute;
+    left: 50%;
+    bottom: -28px;
+    margin-left: -36px;
+}
+
+.adtags-stiky-ad__control {
+    width: 56px;
+    height: 16px;
+    top: 8px;
+    background-color: #8a8a8f;
+    position: absolute;
+    left: 50%;
+    margin-left: -28px;
+    border-bottom-right-radius: 24px;
+    border-bottom-left-radius: 24px;
+    box-shadow: 0 1px 1px 0 rgba(51, 51, 51, 0.25);
+}
+
+.adtags-stiky-ad_hidden {
+    display: none;
+}
+
+.adtags-stiky-ad__control {
+    cursor: pointer;
+}
+
+.adtags-stiky-ad__arrow {
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    width: 13px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 1px;
+    animation: 1s
+}
+
+.adtags-stiky-ad__arrow_left {
+    margin-left: -12px;
+}
+
+.adtags-stiky-ad__arrow_right {
+    margin-left: -1px;
+}
+
+@keyframes adtags-move-left-arrow-down {
+    from {transform: rotate(0deg)}
+    to {transform: rotate(-25deg);}
+}
+
+@keyframes adtags-move-right-arrow-down {
+    from {transform: rotate(0deg)}
+    to {transform: rotate(25deg);}
+}
+
+@keyframes adtags-move-left-arrow-up {
+    from {transform: rotate(0deg)}
+    to {transform: rotate(25deg);}
+}
+
+@keyframes adtags-move-right-arrow-up {
+    from {transform: rotate(0deg)}
+    to {transform: rotate(-25deg);}
+}
+
+@media (min-width: 960px) {
+    .adtags-stiky-ad_opened .adtags-stiky-ad__control:hover .adtags-stiky-ad__arrow_left {
+        animation: adtags-move-left-arrow-down .5s;
+        transform: rotate(-25deg);
+    }
+    
+    .adtags-stiky-ad_opened .adtags-stiky-ad__control:hover .adtags-stiky-ad__arrow_right {
+        animation: adtags-move-right-arrow-down .5s;
+        transform: rotate(25deg);
+    }
+    
+    .adtags-stiky-ad_closed .adtags-stiky-ad__control:hover .adtags-stiky-ad__arrow_left {
+        animation: adtags-move-left-arrow-up .5s;
+        transform: rotate(25deg);
+    }
+    
+    .adtags-stiky-ad_closed .adtags-stiky-ad__control:hover .adtags-stiky-ad__arrow_right {
+        animation: adtags-move-right-arrow-up .5s;
+        transform: rotate(-25deg);
+    }
+}
+</style><style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }
+[touch-action="auto"]{ -ms-touch-action: auto; touch-action: auto; }
+[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }
+[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }
+[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }
+</style><style>
+    .ata-controls {
+        text-align: right;
+        line-height: 10px;
+        height: 10px;
+    }
+
+    .ata-controls__complain-btn {
+        font-size: 6px;
+        vertical-align: middle;
+        font-family: Verdana, sans-serif;
+        color: #c8c7cc;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        cursor: pointer;
+    }
+
+    .ata-controls__complain-btn:hover {
+        color: #666666;
+    }
+    .ata-controls__complain-btn:active {
+        color: #5ac8fa;
+    }
+
+    .ata-controls__complain-btn_clicked,
+    .ata-controls__complain-btn_clicked:hover,
+    .ata-controls__complain-btn_clicked:active {
+        color: #000;
+        cursor: default;
+    }
+</style><script src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/outstream.js" async=""></script><style type="text/css">
+.iowo-adv {
+   overflow: hidden;
+}
+.iowo-adv__header {
+   font-family: "Helvetica", Arial, sans-serif !important;
+   font-size: 11.5px !important;
+   text-align: center;
+   position: relative;
+   padding: 5px 0px;
+   letter-spacing: 0.3px !important;
+   font-weight: 300 !important;
+   text-transform: uppercase;
+   color: #aaa;
+}
+.iowo-adv__close-icon {
+   width: 24px;
+   height: 24px;
+   position: absolute;
+   right: 10px;
+   top: 34px;
+   z-index:10;
+   cursor: pointer;
+   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJTUUH4gMQDS4lyDpzXgAAAKlJREFUWMPVV1sOgCAMo9yZU3Bo/THGRKaylTXuF9YW9mCgtbaVw3rvKAl25azWQgb5TcBqESNsWAvscFgceNuwkvy8gZUi3jAx68AkHwpgifiKgShA1BcsIK8PmKfxCKZdqTdkYCRVJF/CmT2ymYoBo7Yj5UprMN6GVYvY/hUCaRJKy1DaiKStWPoYSZ9j6UAiHcmkQ6l0LJd+TDLIn0TULHILu2aRWxw7NqDQ4pqt7KcAAAAASUVORK5CYII=");
+   background-size: contain;
+}
+.iowo-adv__close-icon_touch {
+   left: 10px;
+}
+.iowo-adv__sound-icon {
+   width: 32px;
+   cursor: pointer;
+   height: 32px;
+   position: absolute;
+   bottom:12px;
+   right:5px;
+   z-index:10;
+}
+.iowo-adv__sound-icon_on {
+   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QYcDigM2jawiwAAAbhJREFUWMPtl7FLHFEQxr+ZtwTytLDwmjSnhf+AYrpUBwGvS7F2YqFNQNjieCnsTlPscdxdZ2MVCORIEewMwf/AlEkRCRaSKqQMCrnbGZtVLPRye2/dJcSpdos33292vjfvLfAQ/3tQHkkajcYqM68YY3bjOD7NsjbwFXfOhSLyDgAPBgMBsJFlPXuK10TkLTNf5ZnKmoM9PvuSqh4w8yOfInjCyhcAHBLRtG8LeQLxJyLyiZkreRg4E0AURTOq+pGZ5/LahsEodwN4A+Dxfc6BUdsw9BF3zkWqOq2q+51O5+ckLWDP4p4R0Wtm/uqcW7wvkXFiVkT6YRiaQgGGw+Gaqn4AAGZeqFarTwsF6PV6F0R0eH3oEFUKBXDO1QBsX70bY74U7YGXAObT5/5dp2QRJuyLyGbmOaCq50Re14XYGPPqb/eDOwGCINhJkkRvHrGqOkNEtXHU2+32Z69JGMfxdwDrt5hrL+1vLpHZA9baLQDvSwNoNptirV0DcFQKQArxx1r7AsBxKQApxO8kSeoi8q0UAADodru/giB4LiI/0pl/UigAALRarTMiWhaRurV25+FX65+LSxNniSadskJNAAAAAElFTkSuQmCC");
+}
+.iowo-adv__sound-icon_off {
+   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAdBJREFUWIXt1b9r1GAcx/HP840u94jo6mD/Aae24I9NHZSCi5NDO5TO7fLkCTgdt15y4C6IdHFwEpxscRHc1dHB0UFBOvToks/Xxch53j3JExNB6XcMz+X1Ti5PApzO/zLD4fBMm99JF7hzbm86nZ6kafp02Rrv/apz7mrnAd77LRF5BCBR1fvLcJKHIvIqy7JrnQV47zdIPgFgAEBEfjvfDH4RwHmSW50EZFl2g+RzEfn535P8FsABYN9au/vHAc65K2VZvhSRwQz+JUmSjRA+GAy2R6MRZ89lWuArAN6KyKU5/PZ4PP4QgwNAcOs4524ZYy7/UmzMQwBLcefcGsmDJjgQuAPe+5sAXocCF+EAGuNA4BlQ1ZW+8WDA38BbBXSJRwfU4SSnMThQswvqcBE5BHChWiMiGoMDDe9AE7zt1Ab0idcG9I0HA0i+6xsHGn4LvPfrAA4a4Md5np+LCah9BuZxVX1G8mMM0jpgwZXvW2s3AdwB8LnXgEV49ZKZTCafVPUuyaNeAkJ4taYoivcico/kSacBTfBq8jx/Y4x5AKD8caicXxMdoKpnSSZ1eDVFUbwwxuwA+Kqqj2MDFm7DNE2vA9i01u7GvttP55+b71U6NuXe6u9vAAAAAElFTkSuQmCC");
+}
+.iowo-adv__timer {
+   position: absolute;
+   bottom:5px;
+   left:5px;
+   min-width: 60px;
+   padding: 3px;
+   color: #aaaaaa;
+   border-radius: 5px;
+   font-family: sans-serif;
+   text-align: center;
+   background-color:black;
+   z-index:10;
+}
+.iowo-timeline {
+   position: absolute;
+   bottom:0;
+   left:0;
+   width: 100%;
+   height: 5px;
+   background-color: rgba(0, 0, 0, 0.2);
+   z-index:10;
+}
+.iowo-timeline__runner {
+   position: relative;
+   height: 5px;
+   background-color: red;
+   -moz-transition: .5s;
+   -ms-transition: .5s;
+   -o-transition: .5s;
+   -webkit-transition: .5s;
+   transition: .5s;
+   transition-property: max-width;
+}</style><script src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/ima3.js"></script><link rel="preload" href="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/integrator.js" as="script"><script type="text/javascript" src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/integrator.js"></script></head>
+
+<body class="post-template-default single single-post postid-390 single-format-standard mp6 customizer-styles-applied highlander-enabled highlander-light">
+
+<div id="wrapper">
+	<div class="content_padding">
+
+		<div id="top_menu">
+
+			<form method="get" id="searchform" action="https://johnsofteng.wordpress.com/" class="float_right">
+<label for="s">Search: </label><input name="s" id="s" type="text">
+<input id="searchsubmit" value="Search" class="button" type="submit">
+<div class="clear"></div>
+</form>
+			<div class="clear"></div>
+
+		</div>
+
+		<div id="header_effect">
+			<div id="header">
+					<p><a href="https://johnsofteng.wordpress.com/">John's Blog</a></p>
+			</div>
+		</div>
+
+		<div id="navcontainer">
+				<ul id="navlist" class="menu">
+		<li class="page_item page-item-75"><a href="https://johnsofteng.wordpress.com/about-2/">About</a></li>
+	</ul>
+		</div>
+
+
+		<div id="content_wrapper">
+			<div id="content">
+
+			
+				<h1 id="post-390">sysfs, procfs, sysctl, debugfs and other similar kernel&nbsp;interfaces</h1>
+				<p class="author">Posted on <em>November 20, 2013</em>. Filed under: <a href="https://johnsofteng.wordpress.com/category/linux/kernel/" rel="category tag">Kernel</a> | Tags: <a href="https://johnsofteng.wordpress.com/tag/linux-kernel/" rel="tag">Linux kernel</a> |  </p>
+
+				<h2><a name="s2"></a>2.&nbsp;<a href="http://people.ee.ethz.ch/~arkeller/linux/multi/kernel_user_space_howto.html#toc2">Procfs, Sysfs, and Similar Kernel Interfaces</a></h2>
+<h2><a name="ss2.1"></a>2.1&nbsp;<a href="http://people.ee.ethz.ch/~arkeller/linux/multi/kernel_user_space_howto.html#toc2.1">Introduction</a></h2>
+<p><em>These file systems are optional to the Linux kernel, and may not 
+be enabled on your system. The file “/lib/modules/`uname 
+-r`/build/.config” will tell you how your kernel is configured.</em></p>
+<p>In order to exchange data between user space and kernel space the 
+Linux kernel provides a couple of RAM based file systems. These 
+interfaces are, themselves, based on files. Usually a file represents a 
+single value, but it may also represent a set of values. The user space 
+can access these values by means of the standard&nbsp;<code>read(2)</code>&nbsp;and&nbsp;<code>write(2)</code>&nbsp;functions.
+ For most file systems the read and write function results in a callback
+ function in the Linux kernel which has access to the corresponding 
+value.</p>
+<p>Despite offering similar functionality, the different RAM based file 
+systems are all designed for separate purposes. However it is easy to 
+use these file systems for other purposes as well. Questions such 
+as&nbsp;<i>“Which file system should be used?”</i>&nbsp;or&nbsp;<i>“Why is there a need for the different file systems?”</i>&nbsp;often
+ arise on the Linux kernel mailing list. The arguments are controversial
+ and each developer seems to have a unique view.</p>
+<p>The benefit of using the read and write function in comparison to, 
+for example, socket based approaches, is that the user space has a lot 
+of tools available to send data to the kernel space (e.g.&nbsp;<i>cat(1), echo (1)</i>). These programs are well known to users and they can be used in scripts.</p>
+<h2><a name="s_procfs"></a><a name="ss2.2"></a>2.2&nbsp;<a href="http://people.ee.ethz.ch/~arkeller/linux/multi/kernel_user_space_howto.html#toc2.2">Procfs</a></h2>
+<h3><a name="procfs_description"></a>Description</h3>
+<p>The procfs, located in&nbsp;<code>/proc</code>, is the best known 
+interface of this class. It was originally designed to export all kind 
+of process information such as the current status of the process, or all
+ open file descriptors to the user space. Despite its initial purposes, 
+the procfs has been used for a lot of other purposes:</p>
+<ul>
+<li>provide information about the running system such as cpu 
+information, information about interrupts, about the available memory or
+ the version of the kernel.</li>
+<li>information about “ide devices”, “scsi devices” and “tty’s”.</li>
+<li>networking information such as the arp table, network statistics or lists of used sockets</li>
+</ul>
+<p>There is a special subdirectory:&nbsp;<b><code>/proc/sys.</code></b><br>
+It allows to configure a lot of parameters of the running system. 
+Usually each file consists of a single value. This value may correspond 
+to:</p>
+<ul>
+<li>a limit (e.g. maximum buffer size)</li>
+<li>turn on or off a given functionality (for example routing)</li>
+<li>or represent some other kernel variable</li>
+</ul>
+<p>All directories and files below&nbsp;<code>/proc/sys/</code>&nbsp;are not implemented with the procfs interface. Instead they use a mechanism called sysctl. See&nbsp;<a href="http://people.ee.ethz.ch/~arkeller/linux/multi/kernel_user_space_howto-2.html#sysctl">section sysctl</a>&nbsp;for further details about sysctl.</p>
+<p>Note, despite the wide use of the procfs, it is deprecated and should
+ only be used to export information related to a process itself.</p>
+<h3><a name="procfs_implementaiton"></a>Implementation</h3>
+<p>In order to use the procfs it needs to be compiled with the Linux 
+kernel source code. This is done by setting the parameter 
+CONFIG_PROC_FS=y. In most standard configurations this is enabled by 
+default</p>
+<p>Procfs supports two different APIs for kernel modules:<br>
+<b>The legacy procfs API:&nbsp;</b>It is easy to use as long as the 
+amount of data to be handled is small. In this context small means 
+smaller than one page size&nbsp;<code>(PAGE_SIZE)</code>, which is in i386 systems 4096 bytes.<br>
+<b>The seq_file API:&nbsp;</b>Seq_file was designed to facilitate the handling of read requests. It supports read requests for more than&nbsp;<code>PAGE_SIZE</code>&nbsp;bytes and it provides mechanism to traverse a list, collect the elements of the list, and send all elements to user space.</p>
+<h3>1. Legacy procfs API</h3>
+<table border="">
+<tbody>
+<tr>
+<td><a href="http://people.ee.ethz.ch/~arkeller/linux/code/procfs.c">procfs.c</a></td>
+<td>legacy procfs API</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The legacy procfs API allows for the creation of files and 
+directories. For each file you have to specify two callback functions: 
+One which is executed when a user reads the file and the other when a 
+user writes to the file. The use of this API is well described in the 
+“Linux Kernel Procfs Guide” distributed with the Linux kernel source 
+code. Therefore we give here only a very basic example: A module which 
+creates a directory as well as a file. If your file provides more 
+than&nbsp;<code>PAGE_SIZE</code>&nbsp;bytes of data it is easy to get things wrong. This is due to the API of the read function:<br>
+<code>read(char *page, char **start, off_t off, int count, int *eof, void *data)</code><br>
+The first parameter of this function is a buffer with the size 
+corresponding to one page. Hence, if there is more data, the read has to
+ be split in multiple pieces.</p>
+<h3>2. Seq_file API</h3>
+<p>The seq_file API is concerned with read requests solely – no writes. It hides the&nbsp;<code>PAGE_SIZE</code>&nbsp;boundary
+ from the developer and it provides an API to step through a series of 
+objects, collect the data from each of them and put all those data in 
+the file. An example module can be found at&nbsp;<a href="http://lwn.net/Articles/22359/">http://lwn.net/Articles/22359/</a>.</p>
+<h3><a name="procfs_resources"></a>Further Reading and Resources</h3>
+<ul>
+<li><a href="http://lwn.net/Articles/22355/">http://lwn.net/Articles/22355/</a>&nbsp;lwn article&nbsp;<i>“Driver porting: The seq_file interface”</i>.</li>
+<li><a href="http://lwn.net/Articles/22359/">http://lwn.net/Articles/22359/</a>&nbsp;Example module that uses seq_file in relation with the lwn article.</li>
+<li><a href="http://www.linux-mag.com/id/2739?r=s">http://www.linux-mag.com/id/2739?r=s</a>&nbsp;Linux magazine article&nbsp;<i>“Manipulating “Seq” Files”</i>&nbsp;covers legacy API as well as seq_file.</li>
+<li><a href="http://kernelnewbies.org/Documents/SeqFileHowTo">http://kernelnewbies.org/Documents/SeqFileHowTo</a>&nbsp;<i>Documents/SeqFileHowTo</i>&nbsp;seqfile how-to on kernelnewbies</li>
+<li><i>Linux Kernel Procfs Guide</i>&nbsp;available in the Linux kernel source code&nbsp;<code>Documentation/DocBook/procfs-guide.tmpl</code>. Description of the legacy procfs API</li>
+<li><i>T H E /proc F I L E S Y S T E M</i>&nbsp;Description of entries in /proc, available in the Linux kernel source code&nbsp;<code>Documentation/filesystems/proc.txt</code></li>
+</ul>
+<h2><a name="sysfs"></a><a name="ss2.3"></a>2.3&nbsp;<a href="http://people.ee.ethz.ch/~arkeller/linux/multi/kernel_user_space_howto.html#toc2.3">Sysfs</a></h2>
+<h3><a name="sysfs_description"></a>Description</h3>
+<p>Sysfs was designed to represent the whole device model as seen from 
+the Linux kernel. It contains information about devices, drivers and 
+buses and their interconnections. In order to represent the hierarchy 
+and the interconnections sysfs is heavily structured and contains a lot 
+of links between the individual directories. As for kernel 2.6.23 it 
+contains the following 9 top-level directories:</p>
+<ul>
+<li><code>sys/block/</code>&nbsp;all known block devices such as&nbsp;<code>hda/</code>&nbsp;<code>ram/</code>&nbsp;<code>sda/</code></li>
+<li><code>sys/bus/</code>&nbsp;all registered buses. Each directory below&nbsp;<code>bus/</code>&nbsp;holds by default two subdirectories:
+<ul>
+<li><code>device/</code>&nbsp;for all devices attached to that bus</li>
+<li><code>driver/</code>&nbsp;for all drivers assigned with that bus.</li>
+</ul>
+</li>
+<li><code>sys/class/</code>&nbsp;for each device type there is a subdirectory: for example&nbsp;<code>/printer</code>&nbsp;or&nbsp;<code>/sound</code></li>
+<li><code>sys/device/</code>&nbsp;all devices known by the kernel, organised by the bus they are connected to</li>
+<li><code>sys/firmware/</code>&nbsp;files in this directory handle the firmware of some hardware devices</li>
+<li><code>sys/fs/</code>&nbsp;files to control a file system, currently used by FUSE, a user space file system implementation</li>
+<li><code>sys/kernel/</code>&nbsp;holds directories (mount points) for other filesystems such as debugfs, securityfs.</li>
+<li><code>sys/module/</code>&nbsp;each kernel module loaded is represented with a directory.</li>
+<li><code>sys/power/</code>&nbsp;files to handle the power state of some hardware</li>
+</ul>
+<h3><a name="sysfs_implementation"></a>Implementation</h3>
+<p>In order to use sysfs it needs to be compiled with the Linux kernel source code. This is done by setting the parameter&nbsp;<code>CONFIG_SYSFS=y</code>.</p>
+<p>The philosophy behind sysfs is to represent each value with a dedicated file. In addition each file has a maximum size of&nbsp;<code>PAGE_SIZE</code>&nbsp;bytes.</p>
+<p>For a kernel module there are three possibilities to use a file below&nbsp;<code>/sys</code>:</p>
+<ol>
+<li>module parameter</li>
+<li>register new subsystem</li>
+<li>debugfs:&nbsp;<a href="http://people.ee.ethz.ch/~arkeller/linux/multi/kernel_user_space_howto-2.html#debugfs">debugfs</a>, mounted in&nbsp;<code>/sys/kernel/debug</code>. More information about&nbsp;<a href="http://people.ee.ethz.ch/~arkeller/linux/multi/kernel_user_space_howto-2.html#debugfs">debugfs</a>.</li>
+</ol>
+<h3>Module Parameter API</h3>
+<p>Similar to command line arguments for applications, Linux kernel 
+modules may allow a set of parameters. These parameters can not only be 
+specified upon module insertion but also during module run time. A 
+module parameter can be defined with the following macro:<br>
+<code>module_param_named(name, value, type, perm)</code><br>
+This macro creates a parameter called&nbsp;<code>"name"</code>&nbsp;which corresponds to the variable with name&nbsp;<code>"value"</code>&nbsp;of type&nbsp;<code>"type"</code>. There are many predefined types such as&nbsp;<code>byte</code>&nbsp;(for a single character),&nbsp;<code>int</code>&nbsp;(for an integer) or&nbsp;<code>charp</code>&nbsp;(for a string). It is also possible to add new types. The file&nbsp;<code>include/linux/stat.h</code>&nbsp;provides all predefined types as well as an introduction how to define new types.</p>
+<p>The&nbsp;<code>module_param</code>&nbsp;macro creates a file called&nbsp;<code>/sys/modules/module_name/name</code>&nbsp;with the access rights specified by&nbsp;<code>perm</code>. Depending on the specified access rights, the file – and thereby the parameter value – can be read or written. If&nbsp;<code>perm</code>&nbsp;is set to 0 the file is not created, and therefore the parameter cannot be accessed during run time.</p>
+<p>The module does not receive a notification when a user reads or 
+writes a given parameter, but the value is silently changed. Therefore 
+it is not possible to do some additional stuff when a parameter changes 
+its value. This may be acceptable in some circumstances as for changing a
+ debug level, but in most circumstances the module wants to do some 
+additional stuff such as sanity checks or manipulating a data structure.</p>
+<h3>Standard Sysfs API</h3>
+<p>The standard sysfs API uses a dedicated terminology: A file is called an&nbsp;<code>attribute</code>, the function executed upon reading an attribute is called&nbsp;<code>show</code>&nbsp;and the one for writing an attribute&nbsp;<code>store</code>.</p>
+<p>Before starting with the implementation of a module which uses sysfs 
+you have to figure out which subdirectory it belongs to. If you deal 
+with a bus, it belongs to&nbsp;<code>bus/</code>, with a file system it belongs to&nbsp;<code>fs/</code>&nbsp;or with a block device it belongs to&nbsp;<code>block/</code>.
+ The API to use depends on the given subdirectory. We first show an 
+example which uses the low level sysfs functions to add a new directory 
+to&nbsp;<code>fs/</code>, and in a second example we show how to add a new entry to the&nbsp;<code>bus/</code>&nbsp;directory.</p>
+<p><b>1. new fs/ entry</b></p>
+<table border="">
+<tbody>
+<tr>
+<td><a href="http://people.ee.ethz.ch/~arkeller/linux/code/sysfs_ex.c">sysfs_ex.c</a></td>
+<td>creates the directory&nbsp;<code>/sys/fs/myfs/</code>&nbsp;along with two files&nbsp;<code>first</code>&nbsp;and&nbsp;<code>second</code>. Both containing one single integer value.</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The first step is to declare our subsystem. This can be done with the use of the&nbsp;<code>decl_subsys</code>&nbsp;macro (on top of the file). This macro creates a&nbsp;<code>struct kset</code>&nbsp;with the name&nbsp;<code>myfs_subsys</code>.</p>
+<p>The&nbsp;<code>module_init()</code>&nbsp;function performs the proper registration of our subsystem: The macro&nbsp;<code>kobj_set_kset_s</code>&nbsp;initializes&nbsp;<code>myfs_subsys</code>&nbsp;so that it will be part of the&nbsp;<code>fs_subsys</code>. The field&nbsp;<code>myfs_subsys.kobj.ktype</code>&nbsp;points
+ to a structure which holds all the attributes as well as the functions 
+to read and write the attributes. And finally a call to&nbsp;<code>register_subsystem()</code>&nbsp;registers our subsystem.</p>
+<p>Files are generally represented by a&nbsp;<code>struct attribute</code>.
+ This struct holds the name as well as the access permission for the 
+corresponding file, but no data. Therefore you have to create your own 
+attribute type which consists of at least the&nbsp;<code>struct attribute</code>&nbsp;and the value corresponding to that file.</p>
+<p>By design all attributes share the same show and store functions. 
+Each time one of these two functions is invoked it gets the 
+corresponding&nbsp;<code>struct attribute</code>&nbsp;as an argument. 
+Therefore in the show and store functions you can obtain the value 
+corresponding to the file being read/written and you can manipulate it 
+accordingly. For this purpose you need the macro&nbsp;<code>container_of(ptr, type, member)</code>.&nbsp;<code>ptr</code>&nbsp;is a pointer to the member of the struct.<code>type</code>&nbsp;is the type of the struct this member is emeded in and&nbsp;<code>member</code>&nbsp;is the name of the member within the struct.</p>
+<p><b>2. new bus/ entry</b></p>
+<table border="">
+<tbody>
+<tr>
+<td><a href="http://people.ee.ethz.ch/~arkeller/linux/code/sysfs_ex2.c">sysfs_ex2.c</a></td>
+<td>use of sysfs in combination with a bus. It provides the possibility 
+to read and write one value with the help of “my_pseude_bus”.</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>First of all we define our bus&nbsp;<code>my_pseudo_bus</code>. Then we create our attribute with the help of the&nbsp;<code>BUS_ATTR</code>&nbsp;macro.
+ In the init function we register our pseudo bus and we create a file 
+(attribute). If we would like more than one attribute we would have to 
+use&nbsp;<code>BUS_ATTR</code>&nbsp;several times and provide for each 
+attribute its own store and show function. This example is similar to 
+the debugging facility of the scsi bus, which is implemented in<code>drivers/scsi/scsi_debug.c</code></p>
+<h3><a name="sysfs_resources"></a>Resources and Further Reading</h3>
+<ul>
+<li><a href="http://people.ee.ethz.ch/~arkeller/linux/multi/kernel_user_space_howto-1.html#ULK">Understanding the Linux Kernel</a>&nbsp;p. 527</li>
+<li><a href="http://people.ee.ethz.ch/~arkeller/linux/multi/kernel_user_space_howto-1.html#LDD">Linux Device Driver</a>&nbsp;p. 362, 377 for the bus directory</li>
+<li>Linux kernel source code: drivers/scsi/scsi_debug.c</li>
+</ul>
+<h2><a name="configfs"></a><a name="ss2.4"></a>2.4&nbsp;<a href="http://people.ee.ethz.ch/~arkeller/linux/multi/kernel_user_space_howto.html#toc2.4">Configfs</a></h2>
+<h3><a name="configfs_description"></a>Description</h3>
+<p>The configfs is somewhat the counterpart of the sysfs. It can be seen
+ as a filesystem based manager of kernel objects. An important 
+difference between configfs and sysfs is that in configfs all objects 
+are created from user space with a call to&nbsp;<code>mkdir(2)</code>. 
+The kernel responds with creating the attributes (files) and then they 
+can be read and written by the user. If the user no longer needs the 
+files, he calls&nbsp;<code>rmdir(2)</code>&nbsp;and everything gets deleted. Therefore the life cycle of a configfs object is fully controlled by user space.</p>
+<p>Each time&nbsp;<code>mkdir</code>&nbsp;is invoked a new “config_item”
+ is created by the kernel implementation. This config_item represents 
+the files (attributes), the show and store callback functions as well as
+ the associated value. Therefore each mkdir creates a new directory 
+along with new files which represent new values.</p>
+<p>Configfs has the same limitations than sysfs: each file should represent only one value and it should be smaller than&nbsp;<code>PAGE_SIZE</code>&nbsp;bytes.</p>
+<h3><a name="configfs_implementation"></a>Implementation</h3>
+<p>In order to use configfs it needs to be compiled with the Linux kernel source code. This is done by setting the parameter&nbsp;<code>CONFIG_CONFIGFS_FS=y</code>.</p>
+<p>In order to access configfs it has to be mounted with the following command:<br>
+<code>mount -t configfs none /config</code></p>
+<p>The Linux kernel documentation provides a good manual for configfs 
+along with an example module. Therefore we do not describe the configfs 
+implementation aspects.</p>
+<h3><a name="configfs_resources"></a>Resources and Further Reading</h3>
+<ul>
+<li>Linux kernel source code: Documentation/filesystems/configfs</li>
+</ul>
+<h2><a name="debugfs"></a><a name="ss2.5"></a>2.5&nbsp;<a href="http://people.ee.ethz.ch/~arkeller/linux/multi/kernel_user_space_howto.html#toc2.5">Debugfs</a></h2>
+<h3><a name="debugfs_description"></a>Description</h3>
+<p>Debugfs is a simple to use RAM based file system especially designed 
+for debugging purposes. Developers are encouraged to use debugfs instead
+ of procfs in order to obtain some debugging information from their 
+kernel code. Debugfs is quite flexible: it provides the possibility to 
+set or get a single value with the help of just one line of code but the
+ developer is also allowed to write its own read/write functions, and he
+ can use the seq_file interface described in the procfs section.</p>
+<h3><a name="debugfs_implementation"></a>Implementation</h3>
+<p>In order to use debugfs it needs to be compiled with the Linux kernel source code. This is done by setting the parameter&nbsp;<code>CONFIG_DEBUG_FS=y</code>.</p>
+<p>Before having access to the debugfs it has to be mounted with the following command.<br>
+<code>mount -t debugfs none /sys/kernel/debug</code></p>
+<table border="">
+<tbody>
+<tr>
+<td><a href="http://people.ee.ethz.ch/~arkeller/linux/code/debugfs.c">debugfs.c</a></td>
+<td>kernel module that implements the “one line” API for a variable of type&nbsp;<code>u8</code>&nbsp;as well as the API with which you can specify your own read and write functions.</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>All the “one line” APIs start with&nbsp;<code>debugfs_create_</code>&nbsp;and are listed in&nbsp;<code>include/linux/debugfs.h</code></p>
+<p>The API with which you can provide your own read and write functions 
+is similar to the one of procfs. In contrast to sysfs, you may create 
+directories and files without having to care about a given hierarchy.</p>
+<h3><a name="debugfs_resources"></a>Resources and Further Reading</h3>
+<ul>
+<li>Kernel source code:&nbsp;<code>include/linux/debugfs.h</code>&nbsp;List of all&nbsp;<i>one line</i>&nbsp;APIs.</li>
+<li><a href="http://kerneltrap.org/node/4394">http://kerneltrap.org/node/4394</a>&nbsp;announcement of the debugfs by Greg KH.</li>
+<li><a href="http://lwn.net/Articles/115405/">http://lwn.net/Articles/115405/</a>&nbsp;article on lwn about debugfs</li>
+</ul>
+<h2><a name="sysctl"></a><a name="ss2.6"></a>2.6&nbsp;<a href="http://people.ee.ethz.ch/~arkeller/linux/multi/kernel_user_space_howto.html#toc2.6">Sysctl</a></h2>
+<h3><a name="sysctl_description"></a>Description</h3>
+<p>The sysctl infrastructure is designed to configure kernel parameters 
+at run time. The sysctl interface is heavily used by the Linux 
+networking subsystem. It can be used to configure some core kernel 
+parameters; represented as files in&nbsp;<code>/proc/sys/*</code>. The values can be accessed by using&nbsp;<code>cat(1)</code>,&nbsp;<code>echo(1)</code>&nbsp;or the&nbsp;<code>sysctl(8)</code>&nbsp;commands. If a value is set by the&nbsp;<code>echo</code>&nbsp;command
+ it only persists as long as the kernel is running, but gets lost as 
+soon as the machine is rebooted. In order to change the values 
+permanently they have to be written to the file&nbsp;<code>/etc/sysctl.conf</code>. Upon restarting the machine all values specified in this file are written to the corresponding files in<code>/proc/sys/</code>.</p>
+<h3><a name="sysctl_implementation"></a>Implementation</h3>
+<table border="">
+<tbody>
+<tr>
+<td><a href="http://people.ee.ethz.ch/~arkeller/linux/code/sysctl.c">sysctl.c</a></td>
+<td>sysctl example module: write an integer to /proc/sys/net/test/value1 and value2 respectively</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Each entry in the&nbsp;<code>/proc/sys</code>&nbsp;directory is 
+represented by an entry in a table maintained by the Linux kernel, 
+arranged in a hierarchy. A directory is represented by an entry pointing
+ to a subtable. A file is represented by an entry of type&nbsp;<code>struct ctl_table</code>. This entry consists of the data represented by this file along with some access rules.</p>
+<p>New files and directories can be added by expanding one of the subtables. In this example we add a new directory called&nbsp;<code>test</code>&nbsp;below the&nbsp;<code>/proc/sys/net/</code>&nbsp;directory. Our directory has got two files:&nbsp;<code>value1</code>&nbsp;and&nbsp;<code>value2</code>.
+ Each of these files hold an integer variable which can have a value 
+between 10 and 20. The user root is allowed to change the entries 
+whereas normal user are allowed to read the entries.</p>
+<p>Each file is represented with an entry in the&nbsp;<code>test_table[]</code>&nbsp;array:</p>
+<blockquote>
+<pre>static ctl_table test_table[] = {
+        {
+        .ctl_name       = CTL_UNNUMBERED,
+        .procname       = "value1",
+        .data           = &amp;value1,
+        .maxlen         = sizeof(int),
+        .mode           = 0644,
+        .proc_handler   = &amp;proc_dointvec_minmax,
+        .strategy       = &amp;sysctl_intvec,
+        .extra1         = &amp;min,
+        .extra2         = &amp;max
+        },
+        ...
+}</pre>
+</blockquote>
+<p>The struct&nbsp;<code>ctl_table</code>&nbsp;entries are:</p>
+<ul>
+<li><code>.ctl_name:&nbsp;</code>For new entries this has to be CTL_UNNUMBERED (according to&nbsp;<code>Documentation/sysctl/ctl_unnumbered.txt</code>).</li>
+<li><code>.procname:&nbsp;</code>The name of the file.</li>
+<li><code>.data:&nbsp;</code>A reference to the data we want to be shown in the file.</li>
+<li><code>maxlen:&nbsp;</code>The size of the data.</li>
+<li><code>mode:&nbsp;</code>Access permissions (read, write, execute for user, group, others)</li>
+<li><code>proc_handler:&nbsp;</code>The routine which handles read and write requests. There is a set of default routines declared near the end of&nbsp;<code>include/linux/sysctl.h</code></li>
+<li><code>strategy:&nbsp;</code>Some routine that enforces additional 
+access control. In this example it checks that the value to be written 
+is between min and max.</li>
+</ul>
+<blockquote>
+<pre>static ctl_table test_net_table[] = {
+        {
+                .ctl_name       = CTL_UNNUMBERED,
+                .procname       = "test",
+                .mode           = 0555,
+                .child          = test_table
+        },
+        { .ctl_name = 0 }
+};</pre>
+</blockquote>
+<p>This table represents our&nbsp;<code>test</code>&nbsp;directory. The entry&nbsp;<code>.child</code>&nbsp;says that the elements below this directory are represented by the table test_table, discussed above.</p>
+<blockquote>
+<pre>static ctl_table test_root_table[] = {
+        {
+                .ctl_name       = CTL_UNNUMBERED,
+                .procname       = "net",
+                .mode           = 0555,
+                .child          = test_net_table
+        },
+        { .ctl_name = 0 }
+};</pre>
+</blockquote>
+<p>This table represents the directory to which we want to attach our new directory. In this example, this is the&nbsp;<code>net</code>&nbsp;directory. In the module_init() function we have to register this root table with a call to<br>
+<code>register_sysctl_table(test_root_table);</code></p>
+<h3><a name="sysctl_resources"></a>Resources and Further Reading</h3>
+<ul>
+<li>Linux kernel source code:&nbsp;<code>net/core/sysctl_net_core.c</code></li>
+<li>Linux kernel Documentation:&nbsp;<code>Documentation/sysctl/ctl_unnumbered.txt</code></li>
+</ul>
+<h2><a name="chardev"></a><a name="ss2.7"></a>2.7&nbsp;<a href="http://people.ee.ethz.ch/~arkeller/linux/multi/kernel_user_space_howto.html#toc2.7">Character Devices</a></h2>
+<h3><a name="chardev_description"></a>Description</h3>
+<p>As the name suggests, this interface was designed for character 
+device drivers, and is commonly used for communication between uer and 
+kernel space. (For example, users with sufficient privileges my write 
+directly to the virtual terminal 1 with&nbsp;<code>echo "hi there" &gt; /dev/tty1</code>).</p>
+<p>Each module can register itself as a character device and provide 
+some read and write functions which handle the data. Files representing 
+character devices are located within the&nbsp;<code>/dev</code>&nbsp;directory
+ (where you will also find block devices, but we will not be describing 
+them further). Usually these files correspond to a hardware device.</p>
+<h3><a name="chardev_implementation"></a>Implementation</h3>
+<table border="">
+<tbody>
+<tr>
+<td><a href="http://people.ee.ethz.ch/~arkeller/linux/code/cdev.c">cdev.c</a></td>
+<td>kernel module that prints its majorNumber to the system log. The minorNumber can be chosen to be 0.</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>As with all file system based approaches the module has to specify a 
+read and a write callback function. Therefore, we have to register 
+ourself with the function&nbsp;<code>register_chrdev(unsigned int major, const char *name, struct file_operations *ops);</code>.&nbsp;<code>major</code>&nbsp;is the major number of this device. We can set it to 0 to let the kernel choose an appropriate number.&nbsp;<code>name</code>&nbsp;is the name of this character device, as it will be shown below the<code>/dev</code>&nbsp;directory.&nbsp;<code>ops</code>&nbsp;is a pointer to the read and write functions.</p>
+<p>In contrast to most file system based approaches seen so far, the user has to create the device file explicitly with a call to:<br>
+<code>mknod /dev/arbitrary_name c majorNumber minorNumber</code></p>
+<h3><a name="chardev_resources"></a>Resources and Further Reading</h3>
+<ul>
+<li>man mknod(1)</li>
+<li><a href="http://people.ee.ethz.ch/~arkeller/linux/multi/kernel_user_space_howto-1.html#LDD">Linux Device Driver</a>&nbsp;chapter 3.</li>
+</ul>
+<p>Links:</p>
+<ul>
+<li><a title="http://people.ee.ethz.ch/~arkeller/linux/multi/kernel_user_space_howto-2.html" href="http://people.ee.ethz.ch/~arkeller/linux/multi/kernel_user_space_howto-2.html" target="_blank">http://people.ee.ethz.ch/~arkeller/linux/multi/kernel_user_space_howto-2.html</a></li>
+<li><a title="http://en.wikipedia.org/wiki/Sysfs" href="http://en.wikipedia.org/wiki/Sysfs" target="_blank">http://en.wikipedia.org/wiki/Sysfs</a></li>
+<li><a title="http://en.wikipedia.org/wiki/Sysctl" href="http://en.wikipedia.org/wiki/Sysctl" target="_blank">http://en.wikipedia.org/wiki/Sysctl</a></li>
+<li><a title="http://en.wikipedia.org/wiki/Procfs" href="http://en.wikipedia.org/wiki/Procfs" target="_blank">http://en.wikipedia.org/wiki/Procfs</a></li>
+<li><a title="http://en.wikipedia.org/wiki/Tmpfs" href="http://en.wikipedia.org/wiki/Tmpfs" target="_blank">http://en.wikipedia.org/wiki/Tmpfs</a></li>
+<li><a title="http://en.wikipedia.org/wiki/Debugfs" href="http://en.wikipedia.org/wiki/Debugfs" target="_blank">http://en.wikipedia.org/wiki/Debugfs</a></li>
+<li><a title="http://en.wikipedia.org/wiki/HAL_(software)" href="http://en.wikipedia.org/wiki/HAL_(software)" target="_blank">http://en.wikipedia.org/wiki/HAL_(software)</a></li>
+<li><a title="http://en.wikipedia.org/wiki/Udev" href="http://en.wikipedia.org/wiki/Udev" target="_blank">http://en.wikipedia.org/wiki/Udev</a></li>
+</ul>
+<p>&nbsp;</p>
+<div id="atatags-370373-5bed7bd97ca51">
+        <script type="text/javascript">
+            __ATA.cmd.push(function() {
+                __ATA.initVideoSlot('atatags-370373-5bed7bd97ca51', {
+                    sectionId: '370373',
+                    format: 'inread'
+                });
+            });
+        </script>
+    </div>		<div class="wpcnt">
+			<div class="wpa wpmrec">
+				<span class="wpa-about">Advertisements</span>
+				<div class="u">		<div style="padding-bottom:15px;width:300px;height:250px;float:left;margin-right:5px;margin-top:0px">
+		<div id="atatags-26942-5bed7bd97ca81" style="width: auto; height: auto;"><div style="width: 300px; height: 250px;"><iframe scrolling="no" style="margin:0;border:none;overflow:hidden;width:300px;height:250px;" width="300" height="250" frameborder="0"></iframe><iframe scrolling="no" style="width:0px;height:0px;border:none;" tabindex="-1" width="300" height="250" frameborder="0"></iframe><iframe scrolling="no" style="width:0px;height:0px;border:none;" tabindex="-1" width="300" height="250" frameborder="0"></iframe><iframe scrolling="no" style="width:0px;height:0px;border:none;" tabindex="-1" width="300" height="250" frameborder="0"></iframe><iframe scrolling="no" style="width:0px;height:0px;border:none;" tabindex="-1" width="300" height="250" frameborder="0"></iframe></div><div id="atatags-26942-5bed7bd97ca81__controls" class="ata-controls" style="width:300px;height:10px;"><span id="atatags-26942-5bed7bd97ca81__complain-btn" class="ata-controls__complain-btn" style="display: inline;">Report this ad</span></div></div></div>		<div style="padding-bottom:15px;width:300px;height:250px;float:left;margin-top:0px">
+		<div id="atatags-114160-5bed7bd97ca83" style="width: auto; height: auto;"><div style="width: 300px; height: 250px;"><iframe scrolling="no" style="margin:0;border:none;overflow:hidden;width:300px;height:250px;" width="300" height="250" frameborder="0"></iframe><iframe scrolling="no" style="width:0px;height:0px;border:none;" tabindex="-1" width="300" height="250" frameborder="0"></iframe><iframe scrolling="no" style="width:0px;height:0px;border:none;" tabindex="-1" width="300" height="250" frameborder="0"></iframe><iframe scrolling="no" style="width:0px;height:0px;border:none;" tabindex="-1" width="300" height="250" frameborder="0"></iframe><iframe scrolling="no" style="width:0px;height:0px;border:none;" tabindex="-1" width="300" height="250" frameborder="0"></iframe><iframe scrolling="no" style="width:0px;height:0px;border:none;" tabindex="-1" width="300" height="250" frameborder="0"></iframe></div><div id="atatags-114160-5bed7bd97ca83__controls" class="ata-controls" style="width:300px;height:10px;"><span id="atatags-114160-5bed7bd97ca83__complain-btn" class="ata-controls__complain-btn" style="display: inline;">Report this ad</span></div></div></div></div>
+				
+			</div>
+		</div><div id="jp-post-flair" class="sharedaddy sd-like-enabled"><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-loaded" id="like-post-wrapper-8263322-390-5bed7bd9801a1" data-src="//widgets.wp.com/likes/index.html?ver=20180319#blog_id=8263322&amp;post_id=390&amp;origin=johnsofteng.wordpress.com&amp;obj_id=8263322-390-5bed7bd9801a1" data-name="like-post-frame-8263322-390-5bed7bd9801a1"><h3 class="sd-title">Like this:</h3><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px; display: none;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><iframe class="post-likes-widget jetpack-likes-widget" name="like-post-frame-8263322-390-5bed7bd9801a1" src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/index.html" width="100%" height="55px" frameborder="0"></iframe><span class="sd-text-color"></span><a class="sd-link-color"></a></div>
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-minimal"><p class="jp-relatedposts-post jp-relatedposts-post0" data-post-id="284" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://johnsofteng.wordpress.com/2010/01/08/xenintro/" title="XenIntro
+
+Xen Intro- version 1.0: Contents Introduction Xen and IA32 Protection Modes The Xend daemon: The Xen Store: VT-x (virtual technology) processors - support in Xen Vmxloader VT-i (virtual technology) processors - support in Xen AMD SVM Xen On Solaris Step by step example of creating guest OS with Virtual Machine…" rel="nofollow" data-origin="390" data-position="0">XenIntro</a></span><span class="jp-relatedposts-post-context">In "C/C++"</span></p><p class="jp-relatedposts-post jp-relatedposts-post1" data-post-id="280" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://johnsofteng.wordpress.com/2010/01/18/major-and-minor-numbers/" title="Major and Minor Numbers
+
+One of the basic features of the Linux kernel is that it abstracts the handling of devices. All hardware devices look like regular files; they can be opened, closed, read and written using the same, standard, system calls that are used to manipulate files. Every device in the system is…" rel="nofollow" data-origin="390" data-position="1">Major and Minor Numbers</a></span><span class="jp-relatedposts-post-context">In "Linux"</span></p><p class="jp-relatedposts-post jp-relatedposts-post2" data-post-id="386" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://johnsofteng.wordpress.com/2013/11/20/useful-kernel-and-driver-performance-tweaks-for-your-linux-server/" title="Useful kernel and driver performance tweaks for your Linux server
+
+This article is going to address some kernel and driver tweaks that are interesting and useful. We use several of these in production with&nbsp;excellent&nbsp;performance, but you should&nbsp;proceed with caution&nbsp;and do researchprior to trying anything listed below. Tickless System The tickless kernel feature allows for on-demand timer interrupts. This means that…" rel="nofollow" data-origin="390" data-position="2">Useful kernel and driver performance tweaks for your Linux server</a></span><span class="jp-relatedposts-post-context">In "Performance"</span></p></div></div></div>				
+									<p class="clear"><strong><a href="#respond">Make a Comment</a></strong></p>
+				
+				
+
+				
+				<!-- Story ends here -->
+
+				
+	<div id="respond" class="comment-respond js">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://johnsofteng.wordpress.com/2013/11/20/sysfs-procfs-sysctl-debugfs-and-other-similar-kernel-interfaces/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="https://johnsofteng.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<input type="hidden" id="highlander_comment_nonce" name="highlander_comment_nonce" value="b2db61ad13"><input type="hidden" name="_wp_http_referer" value="/2013/11/20/sysfs-procfs-sysctl-debugfs-and-other-similar-kernel-interfaces/">
+<input type="hidden" name="hc_post_as" id="hc_post_as" value="guest">
+
+<div class="comment-form-field comment-textarea">
+	
+	<div id="comment-form-comment"><textarea tabindex="-1" style="position: absolute; top: -999px; left: 0px; right: auto; bottom: auto; border: 0px none; padding: 0px; box-sizing: content-box; overflow-wrap: break-word; height: 0px !important; min-height: 0px !important; overflow: hidden; transition: none 0s ease 0s; font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif; font-size: 14px; font-weight: 400; font-style: normal; letter-spacing: 0px; text-transform: none; text-decoration: none; word-spacing: 0px; text-indent: 0px; line-height: 15px; width: 772.9px;" class="autosizejs ">Enter your comment here...</textarea><textarea id="comment" name="comment" title="Enter your comment here..." placeholder="Enter your comment here..." style="height: 34px; overflow: hidden; overflow-wrap: break-word; resize: none;"></textarea></div>
+</div>
+
+<div id="comment-form-identity" style="display: none;">
+	<div id="comment-form-nascar">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li class="selected" style="display:none;">
+				<a href="#comment-form-guest" id="postas-guest" class="nascar-signin-link" title="Login via Guest">
+									</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:WordPress.com" id="postas-wordpress" class="nascar-signin-link" title="Login via WordPress.com">
+					<svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24"><rect x="0" fill="none" width="24" height="24"></rect><g><path fill="#0087be" d="M12.158 12.786l-2.698 7.84c.806.236 1.657.365 2.54.365 1.047 0 2.05-.18 2.986-.51-.024-.037-.046-.078-.065-.123l-2.762-7.57zM3.008 12c0 3.56 2.07 6.634 5.068 8.092L3.788 8.342c-.5 1.117-.78 2.354-.78 3.658zm15.06-.454c0-1.112-.398-1.88-.74-2.48-.456-.74-.883-1.368-.883-2.11 0-.825.627-1.595 1.51-1.595.04 0 .078.006.116.008-1.598-1.464-3.73-2.36-6.07-2.36-3.14 0-5.904 1.613-7.512 4.053.21.008.41.012.58.012.94 0 2.395-.114 2.395-.114.484-.028.54.684.057.74 0 0-.487.058-1.03.086l3.275 9.74 1.968-5.902-1.4-3.838c-.485-.028-.944-.085-.944-.085-.486-.03-.43-.77.056-.742 0 0 1.484.114 2.368.114.94 0 2.397-.114 2.397-.114.486-.028.543.684.058.74 0 0-.488.058-1.03.086l3.25 9.665.897-2.997c.456-1.17.684-2.137.684-2.907zm1.82-3.86c.04.286.06.593.06.924 0 .912-.17 1.938-.683 3.22l-2.746 7.94c2.672-1.558 4.47-4.454 4.47-7.77 0-1.564-.4-3.033-1.1-4.314zM12 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"></path></g></svg>				</a>
+			</li>
+			<li>
+			<iframe id="googleplus-sign-in" name="googleplus-sign-in" src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/a_012.html" scrolling="no" allowtransparency="true" seamless="seamless" width="24" height="24" frameborder="0"></iframe>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Twitter" id="postas-twitter" class="nascar-signin-link" title="Login via Twitter">
+					<svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24"><rect x="0" fill="none" width="24" height="24"></rect><g><path fill="#1DA1F2" d="M22.23 5.924c-.736.326-1.527.547-2.357.646.847-.508 1.498-1.312 1.804-2.27-.793.47-1.67.812-2.606.996C18.325 4.498 17.258 4 16.078 4c-2.266 0-4.103 1.837-4.103 4.103 0 .322.036.635.106.935-3.41-.17-6.433-1.804-8.457-4.287-.353.607-.556 1.312-.556 2.064 0 1.424.724 2.68 1.825 3.415-.673-.022-1.305-.207-1.86-.514v.052c0 1.988 1.415 3.647 3.293 4.023-.344.095-.707.145-1.08.145-.265 0-.522-.026-.773-.074.522 1.63 2.038 2.817 3.833 2.85-1.404 1.1-3.174 1.757-5.096 1.757-.332 0-.66-.02-.98-.057 1.816 1.164 3.973 1.843 6.29 1.843 7.547 0 11.675-6.252 11.675-11.675 0-.178-.004-.355-.012-.53.802-.578 1.497-1.3 2.047-2.124z"></path></g></svg>				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Facebook" id="postas-facebook" class="nascar-signin-link" title="Login via Facebook">
+					<svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24"><rect x="0" fill="none" width="24" height="24"></rect><g><path fill="#3B5998" d="M20.007 3H3.993C3.445 3 3 3.445 3 3.993v16.013c0 .55.445.994.993.994h8.62v-6.97H10.27V11.31h2.346V9.31c0-2.325 1.42-3.59 3.494-3.59.993 0 1.847.073 2.096.106v2.43h-1.438c-1.128 0-1.346.537-1.346 1.324v1.734h2.69l-.35 2.717h-2.34V21h4.587c.548 0 .993-.445.993-.993V3.993c0-.548-.445-.993-.993-.993z"></path></g></svg>				</a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Gravatar" class="no-grav" width="25">
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email"></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text"></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"><input id="url" name="url" type="url"></div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/ad516503a11cd5ca435acc9bb6523536.png" alt="WordPress.com Logo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="">
+						<p class="comment-form-posting-as pa-wordpress">
+			<strong></strong>
+			You are commenting using your <span class="skimlinks-unlinked">WordPress.com</span> account.			<span class="comment-form-log-out">
+				(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'wordpress' );">Log&nbsp;Out</a>&nbsp;/&nbsp;
+				<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)
+			</span>
+			<span class="pa-icon"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24"><rect x="0" fill="none" width="24" height="24"></rect><g><path fill="#0087be" d="M12.158 12.786l-2.698 7.84c.806.236 1.657.365 2.54.365 1.047 0 2.05-.18 2.986-.51-.024-.037-.046-.078-.065-.123l-2.762-7.57zM3.008 12c0 3.56 2.07 6.634 5.068 8.092L3.788 8.342c-.5 1.117-.78 2.354-.78 3.658zm15.06-.454c0-1.112-.398-1.88-.74-2.48-.456-.74-.883-1.368-.883-2.11 0-.825.627-1.595 1.51-1.595.04 0 .078.006.116.008-1.598-1.464-3.73-2.36-6.07-2.36-3.14 0-5.904 1.613-7.512 4.053.21.008.41.012.58.012.94 0 2.395-.114 2.395-.114.484-.028.54.684.057.74 0 0-.487.058-1.03.086l3.275 9.74 1.968-5.902-1.4-3.838c-.485-.028-.944-.085-.944-.085-.486-.03-.43-.77.056-.742 0 0 1.484.114 2.368.114.94 0 2.397-.114 2.397-.114.486-.028.543.684.058.74 0 0-.488.058-1.03.086l3.25 9.665.897-2.997c.456-1.17.684-2.137.684-2.907zm1.82-3.86c.04.286.06.593.06.924 0 .912-.17 1.938-.683 3.22l-2.746 7.94c2.672-1.558 4.47-4.454 4.47-7.77 0-1.564-.4-3.033-1.1-4.314zM12 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"></path></g></svg></span>
+		</p>
+					</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-googleplus" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Google+ photo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="googleplus_avatar" id="googleplus-avatar" class="comment-meta-googleplus" value="">
+				<input type="hidden" name="googleplus_user_id" id="googleplus-user_id" class="comment-meta-googleplus" value="">
+				<input type="hidden" name="googleplus_access_token" id="googleplus-access_token" class="comment-meta-googleplus" value="">
+						<p class="comment-form-posting-as pa-googleplus">
+			<strong></strong>
+			You are commenting using your Google+ account.			<span class="comment-form-log-out">
+				(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'googleplus' );">Log&nbsp;Out</a>&nbsp;/&nbsp;
+				<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)
+			</span>
+			<span class="pa-icon"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" x="0px" y="0px" viewBox="0 0 60 60"><path fill="#519bf7" d="M56.3,30c0,-1.6 -0.2,-3.4 -0.6,-5h-3.1H42.2H30v10.6h14.8C44,39.3 42,42 39.1,43.9l8.8,6.8C53,46 56.3,39 56.3,30z"></path><path fill="#3db366" d="M30,57.5c6.7,0 13.1,-2.4 17.9,-6.8l-8.8,-6.8c-2.5,1.6 -5.6,2.4 -9.1,2.4c-7.2,0 -13.3,-4.7 -15.4,-11.2l-9.3,7.1C9.8,51.3 19.1,57.5 30,57.5z"></path><path fill="#fdc600" d="M5.3,42.2l9.3,-7.1c-0.5,-1.6 -0.8,-3.3 -0.8,-5.1s0.3,-3.5 0.8,-5.1l-9.3,-7.1C3.5,21.5 2.5,25.6 2.5,30S3.5,38.5 5.3,42.2z"></path><path fill="#f15b44" d="M40.1,17.4l8,-8C43.3,5.1 37,2.5 30,2.5C19.1,2.5 9.8,8.7 5.3,17.8l9.3,7.1c2.1,-6.5 8.2,-11.1 15.4,-11.1C33.9,13.7 37.4,15.1 40.1,17.4z"></path></svg></span>
+		</p>
+					</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Twitter picture" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="">
+						<p class="comment-form-posting-as pa-twitter">
+			<strong></strong>
+			You are commenting using your Twitter account.			<span class="comment-form-log-out">
+				(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'twitter' );">Log&nbsp;Out</a>&nbsp;/&nbsp;
+				<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)
+			</span>
+			<span class="pa-icon"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24"><rect x="0" fill="none" width="24" height="24"></rect><g><path fill="#1DA1F2" d="M22.23 5.924c-.736.326-1.527.547-2.357.646.847-.508 1.498-1.312 1.804-2.27-.793.47-1.67.812-2.606.996C18.325 4.498 17.258 4 16.078 4c-2.266 0-4.103 1.837-4.103 4.103 0 .322.036.635.106.935-3.41-.17-6.433-1.804-8.457-4.287-.353.607-.556 1.312-.556 2.064 0 1.424.724 2.68 1.825 3.415-.673-.022-1.305-.207-1.86-.514v.052c0 1.988 1.415 3.647 3.293 4.023-.344.095-.707.145-1.08.145-.265 0-.522-.026-.773-.074.522 1.63 2.038 2.817 3.833 2.85-1.404 1.1-3.174 1.757-5.096 1.757-.332 0-.66-.02-.98-.057 1.816 1.164 3.973 1.843 6.29 1.843 7.547 0 11.675-6.252 11.675-11.675 0-.178-.004-.355-.012-.53.802-.578 1.497-1.3 2.047-2.124z"></path></g></svg></span>
+		</p>
+					</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Facebook photo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="">
+						<p class="comment-form-posting-as pa-facebook">
+			<strong></strong>
+			You are commenting using your Facebook account.			<span class="comment-form-log-out">
+				(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'facebook' );">Log&nbsp;Out</a>&nbsp;/&nbsp;
+				<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)
+			</span>
+			<span class="pa-icon"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24"><rect x="0" fill="none" width="24" height="24"></rect><g><path fill="#3B5998" d="M20.007 3H3.993C3.445 3 3 3.445 3 3.993v16.013c0 .55.445.994.993.994h8.62v-6.97H10.27V11.31h2.346V9.31c0-2.325 1.42-3.59 3.494-3.59.993 0 1.847.073 2.096.106v2.43h-1.438c-1.128 0-1.346.537-1.346 1.324v1.734h2.69l-.35 2.717h-2.34V21h4.587c.548 0 .993-.445.993-.993V3.993c0-.548-.445-.993-.993-.993z"></path></g></svg></span>
+		</p>
+					</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+var highlander_expando_javascript = function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+}
+jQuery(document).ready( highlander_expando_javascript );
+</script>
+
+<div id="comment-form-subscribe" style="display: none;">
+	<p class="comment-subscription-form"><input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;"> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Notify me of new comments via email.</label></p></div>
+
+
+
+
+<p class="form-submit" style="display: none;"><input name="submit" type="submit" id="comment-submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="390" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="3d591875cf"></p>
+<input type="hidden" name="genseq" value="1542290393">
+<p style="display: none;"></p>			<input type="hidden" id="ak_js" name="ak_js" value="1542290507362"></form>
+			</div><!-- #respond -->
+	<div style="clear: both"></div>
+	<h2 id="comments" class="top_border">One Response to “sysfs, procfs, sysctl, debugfs and other similar kernel&nbsp;interfaces”</h2>
+	<p class="author"><img src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/icon_rss.gif" alt="RSS Feed for John's Blog" class="vertical_align" border="0"> <strong><a href="https://johnsofteng.wordpress.com/2013/11/20/sysfs-procfs-sysctl-debugfs-and-other-similar-kernel-interfaces/feed/">Comments RSS Feed</a></strong></p>
+
+	<div class="commentlist">
+	<div class="comment even thread-even depth-1 highlander-comment" id="div-comment-1847">
+	<div class="comment_wrapper" id="comment-1847">
+		<div class="comment_content">
+						<p>Thank you John, very useful.</p>
+					</div>
+	</div>
+	<div class="comment_details comment-author vcard">
+		<p class="comment-meta commentmetadata comment_meta"><strong class="fn"><a href="https://plus.google.com/116683831206726865081" rel="external nofollow" class="url">Yam Marcovic</a></strong><br><a href="#comment-1847" title="">March 20, 2016</a><br></p>
+		<img alt="" src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/photo.jpg" class="avatar avatar-32" width="32" height="32">	</div>
+	<div class="clear"></div>
+	<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="https://johnsofteng.wordpress.com/2013/11/20/sysfs-procfs-sysctl-debugfs-and-other-similar-kernel-interfaces/?replytocom=1847#respond" onclick='return addComment.moveForm( "div-comment-1847", "1847", "respond", "390" )' aria-label="Reply to Yam Marcovic">Reply</a>	</div>
+	<div class="clear comment_bottom"></div>
+</div><!-- #comment-## -->
+	</div>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+
+	<br>
+
+			<p><a href="#respond">Where's The Comment Form?</a></p>
+	
+			</div>
+		</div>
+
+			<div id="side_one" class="side">
+			<ul>
+						<h3>About</h3>
+			<p><span class="skimlinks-unlinked">http://bit.ly/e1pU0</span></p>
+
+			<h3>RSS</h3>
+			<ul>
+				<li><img src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/icon_rss.gif" alt="RSS Feed for John's Blog" class="vertical_align" border="0"> <a href="https://johnsofteng.wordpress.com/?feed=rss2">Complete Feed</a></li>
+				<li><img src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/icon_rss.gif" alt="RSS Feed for John's Blog comments" class="vertical_align" border="0"> <a href="https://johnsofteng.wordpress.com/?feed=comments-rss2">Comments</a></li>
+			</ul>
+
+			<h3>Subscribe Via RSS</h3>
+			<ul>
+				<li><a href="http://www.bloglines.com/sub/https://johnsofteng.wordpress.com/feed/" target="subscriptions"><img src="http://www.bloglines.com/images/sub_modern1.gif" alt="Subscribe with Bloglines" width="94" height="20"></a></li>
+				<li><a href="http://www.newsburst.com/Source/?add=https://johnsofteng.wordpress.com/feed/" target="subscriptions"><img src="http://i.i.com.com/cnwk.1d/i/newsbursts/btn/newsburst3.gif" alt="Add your feed to Newsburst from CNET News.com" width="96" height="20"></a></li>
+				<li><a href="http://www.google.com/reader/preview/*/feed/https://johnsofteng.wordpress.com/feed/" title="Subscribe in Google Reader"><img src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/googleread2.jpg" alt="Subscribe in Google Reader" width="91" height="17"></a></li>
+				<li><a href="http://add.my.yahoo.com/rss?url=https://johnsofteng.wordpress.com/feed/" title="Add to My Yahoo!" target="subscriptions"><img src="http://us.i1.yimg.com/us.yimg.com/i/us/my/addtomyyahoo4.gif" alt="Add to My Yahoo!"></a></li>
+				<li><a href="http://www.newsgator.com/ngs/subscriber/subext.aspx?url=https://johnsofteng.wordpress.com/feed/" title="Subscribe in NewsGator Online" target="subscriptions"><img src="http://www.newsgator.com/images/ngsub1.gif" alt="Subscribe in NewsGator Online" width="91"></a></li>
+				<li><a href="http://feeds.my.aol.com/add.jsp?url=https://johnsofteng.wordpress.com/feed/" title="Subscribe in your AOL" target="subscriptions"><img src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/addtomyaol.gif" alt="The latest comments to all posts in RSS"></a></li>
+			</ul>
+
+			<h3>Meta</h3>
+				<ul>
+					<li><a href="https://wordpress.com/start?ref=wplogin">Register</a></li>									</ul>
+					</ul>
+		</div>
+
+		<div id="side_two" class="side">
+			<ul>
+					<h3>Topics</h3>
+			<ul>
+					<li class="cat-item cat-item-5043"><a href="https://johnsofteng.wordpress.com/category/computer-science/">Computer Science</a>
+</li>
+	<li class="cat-item cat-item-106595"><a href="https://johnsofteng.wordpress.com/category/iphone/">iPhone</a>
+</li>
+	<li class="cat-item cat-item-610"><a href="https://johnsofteng.wordpress.com/category/linux/" title="Linux related">Linux</a>
+<ul class="children">
+	<li class="cat-item cat-item-2428"><a href="https://johnsofteng.wordpress.com/category/linux/kernel/">Kernel</a>
+</li>
+	<li class="cat-item cat-item-100706912"><a href="https://johnsofteng.wordpress.com/category/linux/performance-linux/" title="Linux Performance Tuning">Performance</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-808"><a href="https://johnsofteng.wordpress.com/category/mac/">Mac</a>
+</li>
+	<li class="cat-item cat-item-196"><a href="https://johnsofteng.wordpress.com/category/programming/">Programming</a>
+<ul class="children">
+	<li class="cat-item cat-item-3207"><a href="https://johnsofteng.wordpress.com/category/programming/cc/">C/C++</a>
+</li>
+	<li class="cat-item cat-item-1017"><a href="https://johnsofteng.wordpress.com/category/programming/java/">Java</a>
+</li>
+	<li class="cat-item cat-item-457"><a href="https://johnsofteng.wordpress.com/category/programming/javascript/">Javascript</a>
+</li>
+	<li class="cat-item cat-item-4419"><a href="https://johnsofteng.wordpress.com/category/programming/mysql/">MySQL</a>
+</li>
+	<li class="cat-item cat-item-5226"><a href="https://johnsofteng.wordpress.com/category/programming/perl/">Perl</a>
+</li>
+	<li class="cat-item cat-item-458"><a href="https://johnsofteng.wordpress.com/category/programming/php/">PHP</a>
+</li>
+	<li class="cat-item cat-item-832"><a href="https://johnsofteng.wordpress.com/category/programming/python/">Python</a>
+</li>
+	<li class="cat-item cat-item-43912"><a href="https://johnsofteng.wordpress.com/category/programming/shell/">Shell</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-1736"><a href="https://johnsofteng.wordpress.com/category/services/">Services</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://johnsofteng.wordpress.com/category/uncategorized/">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-800"><a href="https://johnsofteng.wordpress.com/category/windows/">Windows</a>
+</li>
+			</ul>
+
+			<h3>Archives</h3>
+			<ul>
+					<li><a href="https://johnsofteng.wordpress.com/2014/01/">January 2014</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2013/11/">November 2013</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2013/09/">September 2013</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2013/08/">August 2013</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2012/06/">June 2012</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2011/01/">January 2011</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2010/04/">April 2010</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2010/03/">March 2010</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2010/02/">February 2010</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2010/01/">January 2010</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2009/12/">December 2009</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2009/11/">November 2009</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2009/10/">October 2009</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2009/09/">September 2009</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2009/08/">August 2009</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2009/07/">July 2009</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2009/06/">June 2009</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2009/05/">May 2009</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2009/04/">April 2009</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2009/03/">March 2009</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2009/02/">February 2009</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2009/01/">January 2009</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2008/12/">December 2008</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2008/10/">October 2008</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2008/09/">September 2008</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2008/08/">August 2008</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2008/07/">July 2008</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2008/06/">June 2008</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2008/04/">April 2008</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2008/01/">January 2008</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2007/11/">November 2007</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2007/09/">September 2007</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2007/06/">June 2007</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2006/11/">November 2006</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2006/10/">October 2006</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2006/09/">September 2006</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2005/08/">August 2005</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2005/05/">May 2005</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2005/02/">February 2005</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2005/01/">January 2005</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2004/12/">December 2004</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2004/11/">November 2004</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2004/03/">March 2004</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2003/04/">April 2003</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2003/03/">March 2003</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2003/02/">February 2003</a></li>
+	<li><a href="https://johnsofteng.wordpress.com/2003/01/">January 2003</a></li>
+			</ul>
+					</ul>
+		</div>
+
+		<div class="clear"></div>
+
+</div>
+</div>
+
+<div id="feed_bar">
+ 	<p>Liked it here?<br>
+	<span class="small">Why not try sites on the blogroll...</span></p>
+</div>
+
+<div id="footer">
+	<div id="footer_wrapper">
+		<div class="content_padding">
+			 <div class="footer_links">
+				   <ul class="blogroll_list">
+						<li id="linkcat-1356" class="linkcat"><h4>Blogroll</h4>
+	<ul class="xoxo blogroll">
+<li><a href="http://code.google.com/p/skypeautoanswer" rel="me" title="Auto Answer preset Skype friends incoming calls" target="_blank">My SkypeAutoAnswer</a></li>
+<li><a href="http://wordpress.com/">WordPress.com</a></li>
+<li><a href="http://wordpress.org/">WordPress.org</a></li>
+
+	</ul>
+</li>
+				   </ul>
+			</div>
+			<div class="footer_meta">
+				<p><a href="https://wordpress.com/?ref=footer_blog">Blog at WordPress.com.</a> </p>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!--  -->
+<script type="text/javascript" src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/wpgroho.js"></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	<div class="grofile-hash-map-563a59370317d8db87b2aa436e461670">
+	</div>
+	</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"https:\/\/johnsofteng.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/johnsofteng.wordpress.com\/wp-login.php?action=logout&_wpnonce=1a111b437b","homeURL":"https:\/\/johnsofteng.wordpress.com\/","postID":"390","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"0","userIsLoggedIn":"","isJetpack":"","text_direction":"ltr"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/a"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var actionbardata = {"siteID":"8263322","siteName":"John's Blog","siteURL":"http:\/\/johnsofteng.wordpress.com","icon":"<img alt='' src='https:\/\/s2.wp.com\/i\/logo\/wpcom-gray-white.png' class='avatar avatar-50' height='50' width='50' \/>","canManageOptions":"","canCustomizeSite":"","isFollowing":"","themeSlug":"pub\/fadtastic","signupURL":"https:\/\/wordpress.com\/start\/","loginURL":"https:\/\/johnsofteng.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fjohnsofteng.wordpress.com%2F2013%2F11%2F20%2Fsysfs-procfs-sysctl-debugfs-and-other-similar-kernel-interfaces%2F","themeURL":"","xhrURL":"https:\/\/johnsofteng.wordpress.com\/wp-admin\/admin-ajax.php","nonce":"ad769dd1eb","isSingular":"1","isFolded":"","isLoggedIn":"","isMobile":"","subscribeNonce":"<input type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"8f9df1f973\" \/>","referer":"https:\/\/johnsofteng.wordpress.com\/2013\/11\/20\/sysfs-procfs-sysctl-debugfs-and-other-similar-kernel-interfaces\/","canFollow":"1","feedID":"2596735","statusMessage":"","customizeLink":"https:\/\/johnsofteng.wordpress.com\/wp-admin\/customize.php?url=https%3A%2F%2Fjohnsofteng.wordpress.com%2F2013%2F11%2F20%2Fsysfs-procfs-sysctl-debugfs-and-other-similar-kernel-interfaces%2F","postID":"390","shortlink":"https:\/\/wp.me\/pyFFo-6i","canEditPost":"","editLink":"https:\/\/wordpress.com\/post\/johnsofteng.wordpress.com\/390","statsLink":"https:\/\/wordpress.com\/stats\/post\/390\/johnsofteng.wordpress.com","i18n":{"view":"View site","follow":"Follow","following":"Following","edit":"Edit","login":"Log in","signup":"Sign up","customize":"Customize","report":"Report this content","themeInfo":"Get theme: Fadtastic","shortlink":"Copy shortlink","copied":"Copied","followedText":"New posts from this site will now appear in your <a href=\"https:\/\/wordpress.com\/\">Reader<\/a>","foldBar":"Collapse this bar","unfoldBar":"Expand this bar","editSubs":"Manage subscriptions","viewReader":"View site in Reader","viewReadPost":"View post in Reader","subscribe":"Sign me up","enterEmail":"Enter your email address","followers":"","alreadyUser":"Already have a WordPress.com account? <a href=\"https:\/\/johnsofteng.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fjohnsofteng.wordpress.com%2F2013%2F11%2F20%2Fsysfs-procfs-sysctl-debugfs-and-other-similar-kernel-interfaces%2F\">Log in now.<\/a>","stats":"Stats"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/a_003"></script><div class="widget widget_eu_cookie_law_widget" style="display: block;"><div class="hide-on-button ads-active" data-hide-timeout="30" data-consent-expiration="180" id="eu-cookie-law">
+	<form method="post">
+		<input type="submit" value="Close and accept" class="accept">
+
+		Privacy &amp; Cookies: This site uses cookies. By continuing to use this website, you agree to their use. <br>
+To find out more, including how to control cookies, see here:
+		<a href="https://automattic.com/cookies">
+			Cookie Policy		</a>
+ </form>
+</div>
+</div><div id="actionbar" class="actnbr-pub-fadtastic actnbr-has-follow"><ul><li class="actnbr-btn actnbr-hidden"> 			    	<a class="actnbr-action actnbr-actn-follow" href=""><svg class="gridicon gridicon__follow" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 16v2h-3v3h-2v-3h-3v-2h3v-3h2v3h3zM20 2v9h-4v3h-3v4H4c-1.1 0-2-.9-2-2V2h18zM8 13v-1H4v1h4zm3-3H4v1h7v-1zm0-2H4v1h7V8zm7-4H4v2h14V4z"></path></g></svg><span>Follow</span></a> 			    	<div class="actnbr-popover tip tip-top-left actnbr-notice"> 			    		<div class="tip-arrow"></div> 			    		<div class="tip-inner actnbr-follow-bubble"></div> 			    	</div> 			    </li><li class="actnbr-ellipsis actnbr-hidden"> 			  <svg class="gridicon gridicon__ellipsis" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><circle cx="5" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle></g></svg> 			  <div class="actnbr-popover tip tip-top-left actnbr-more"> 			  	<div class="tip-arrow"></div> 			  	<div class="tip-inner"> 				  <ul> 				    <li class="actnbr-sitename"><a href="http://johnsofteng.wordpress.com/"><img alt="" src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/wpcom-gray-white.png" class="avatar avatar-50" width="50" height="50"> John's Blog</a></li> 				   	<li class="actnbr-folded-customize"><a href="https://johnsofteng.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Fjohnsofteng.wordpress.com%2F2013%2F11%2F20%2Fsysfs-procfs-sysctl-debugfs-and-other-similar-kernel-interfaces%2F"><svg class="gridicon gridicon__customize" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M2 6c0-1.505.78-3.08 2-4 0 .845.69 2 2 2 1.657 0 3 1.343 3 3 0 .386-.08.752-.212 1.09.74.594 1.476 1.19 2.19 1.81L8.9 11.98c-.62-.716-1.214-1.454-1.807-2.192C6.753 9.92 6.387 10 6 10c-2.21 0-4-1.79-4-4zm12.152 6.848l1.34-1.34c.607.304 1.283.492 2.008.492 2.485 0 4.5-2.015 4.5-4.5 0-.725-.188-1.4-.493-2.007L18 9l-2-2 3.507-3.507C18.9 3.188 18.225 3 17.5 3 15.015 3 13 5.015 13 7.5c0 .725.188 1.4.493 2.007L3 20l2 2 6.848-6.848c1.885 1.928 3.874 3.753 5.977 5.45l1.425 1.148 1.5-1.5-1.15-1.425c-1.695-2.103-3.52-4.092-5.448-5.977z" data-reactid=".2.1.1:0.1b.0"></path></g></svg><span>Customize<span></span></span></a></li> 				    <li class="actnbr-folded-follow"><a class="actnbr-action actnbr-actn-follow" href=""><svg class="gridicon gridicon__follow" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 16v2h-3v3h-2v-3h-3v-2h3v-3h2v3h3zM20 2v9h-4v3h-3v4H4c-1.1 0-2-.9-2-2V2h18zM8 13v-1H4v1h4zm3-3H4v1h7v-1zm0-2H4v1h7V8zm7-4H4v2h14V4z"></path></g></svg><span>Follow</span></a></li> 					<li class="actnbr-signup"><a href="https://wordpress.com/start/">Sign up</a></li> 				    <li class="actnbr-login"><a href="https://johnsofteng.wordpress.com/wp-login.php?redirect_to=https%3A%2F%2Fjohnsofteng.wordpress.com%2F2013%2F11%2F20%2Fsysfs-procfs-sysctl-debugfs-and-other-similar-kernel-interfaces%2F">Log in</a></li> 				     				    <li class="actnbr-shortlink"><a href="https://wp.me/pyFFo-6i">Copy shortlink</a></li> 				    <li class="flb-report"><a href="http://en.wordpress.com/abuse/">Report this content</a></li> 				     				     				    <li class="actnbr-subs"><a href="https://subscribe.wordpress.com/">Manage subscriptions</a></li> 				    <li class="actnbr-fold"><a href="">Collapse this bar</a></li> 			      </ul> 			    </div> 		      </div> 		    </li> 	      </ul></div>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>	<script type="text/javascript">
+	var skimlinks_pub_id = "725X584219"
+	var skimlinks_sitename = "johnsofteng.wordpress.com";
+	</script>
+	<script type="text/javascript" defer="defer" src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/725X1342.js"></script>		<iframe src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/master.html" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+		<div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+<script src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/w.js" type="text/javascript" async="" defer="defer"></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'8263322','blog_tz':'-8','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'8263322','v':'wpcom','tz':'-8','user_id':'0','post':'390','subd':'johnsofteng'}]);
+_stq.push(['extra', {'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWFnNncxc1tjZG9XVXhRU1I2fH5qamxuMVpbVWFLdXV8YVZnTmxWPUEsal1xNUJGa3BRVU5PTTl5MEVNQlVKZD80WW85TH5vWE9rYnFQdGt3MGlLeWR6TXBFdTlnWHI9bVAsej9LaTNpaTdxaHNrbjRILVAzK3RHLjQ5diwxN1ZsdTZDQldMWjR8NTRBamxJPXJjMndIfmtWc3owX35aTnBfclBsSy9GP1JOaVUzUGJqM0RvQ3omW3UzRktHJlVSZ2kybmYrJXNbMHhyYXk3Zz9YZV1xc0pNQm13elsvSWc1UFRsYkR+MUM3ZDd6Qnli'}]);
+_stq.push([ 'clickTrackerInit', '8263322', '390' ]);
+	</script>
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+
+<img src="sysfs,%20procfs,%20sysctl,%20debugfs%20and%20other%20similar%20kernel%20interfaces%20|%20John's%20Blog_files/g.gif" alt=":)" id="wpstats"><style>
+        @keyframes adtags-move-in {
+            from { top: -100px; }
+            to { top: 0px; }
+        }
+
+        @keyframes adtags-move-out {
+            from { top: 0px; }
+            to { top: -100px; }
+        }
+    </style><div class="adtags-stiky-ad adtags-stiky-ad_hidden" touch-action="none" style="height:100px;top:-100px;animation:adtags-move-in .5s ease forwards;">
+        <div id="adtags-1" class="adtags-stiky-ad__slot" style="height:100px;width:728px;"><div style="width: 728px; height: 90px;"><iframe scrolling="no" style="margin:0;border:none;overflow:hidden;width:728px;height:90px;" width="728" height="90" frameborder="0"></iframe></div><div id="adtags-1__controls" class="ata-controls" style="width:728px;height:10px;"><span id="adtags-1__complain-btn" class="ata-controls__complain-btn" style="display: inline;">Report this ad</span></div></div>
+        <div class="adtags-sticky-ad__swipe-area">
+            <div class="adtags-stiky-ad__control">
+                <div class="adtags-stiky-ad__arrow adtags-stiky-ad__arrow_left"></div>
+                <div class="adtags-stiky-ad__arrow adtags-stiky-ad__arrow_right"></div>
+            </div>
+        </div>
+    </div></body></html>

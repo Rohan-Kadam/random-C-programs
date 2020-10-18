@@ -1,0 +1,1 @@
+cmd_/home/rohan/CODING/random-stuff/project-essentials/kernel/11-sysfs/driver.mod := { echo  /home/rohan/CODING/random-stuff/project-essentials/kernel/11-sysfs/driver.o; echo; } > /home/rohan/CODING/random-stuff/project-essentials/kernel/11-sysfs/driver.mod

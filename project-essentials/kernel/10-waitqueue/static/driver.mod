@@ -1,0 +1,2 @@
+/home/rohan/CODING/random-stuff/project-essentials/kernel/10-waitqueue/static/driver.o
+

@@ -1,0 +1,419 @@
+How many times Computer is printed in the below program
+
+<1> 
+
+#include <stdio.h>
+#define PRINT(i, limit) do \
+                        { \
+                            if (i++ < limit) \
+                            { \
+                                printf("GeeksQuiz\n"); \
+                                continue; \
+                            } \
+                        }while(1)
+ 
+int main()
+{
+    PRINT(0, 3);
+    return 0;
+}
+
+ 
+
+(a). 1            (b). 3        (c). 4        (d) compile-time error
+
+
+Answer:-
+d 
+--> 
+we can't perform arthimetic operations on constant
+declare a var and pass it to multiline macro func << this will work
+
+error: lvalue required as increment operand
+                             if (i++ < limit) \
+                                  ^
+
+this is macro multiline, not inline. check misc/C/jio in random-stuff
+use static for inline in C
+https://www.cprogramming.com/tutorial/lesson13.html
+
+
+
+
+<2>
+
+
+int* ptr1=new int[10];
+int* ptr2=ptr1+1;
+delete[] ptr2;
+
+(a) 9*sizeof(int) bytes deleted
+(b) compile time error
+(c) runtime error
+(d) none of the above
+
+c
+http://www.cplusplus.com/reference/new/operator%20new/
+
+
+
+
+
+
+
+
+
+<3>
+
+
+void fun(int *p)
+{
+    int q = 10;
+    p = &q;
+}    
+   
+int main()
+{
+    int r = 20;
+    int *p = &r;
+    fun(p);
+    printf("%d", *p);
+    return 0;
+}
+
+
+it works. coz pointer assignment in fun is to a different pointer
+so main pointer intact and gives 20
+
+p value => r addr
+p addr
+
+p addr passed
+
+z ptr is a ptr to p ptr
+
+z value = p addr = p value
+z addr = q addr
+
+
+
+
+
+
+<4>
+
+
+  int arr[] = {10, 20, 30, 40, 50, 60};
+    int *ptr1 = arr; //&arr[0]
+    int *ptr2 = arr + 5;
+    printf ("ptr2 - ptr1 = %d\n", ptr2 - ptr1);
+    printf ("(char*)ptr2 - (char*) ptr1 = %d", (char*)ptr2 - (char*)ptr1);
+
+
+type of pointer decide type of arthimetic operation on it
+eg: int ptr, jumps/adds/shifts 4 bytes in one go
+    char ptr, jumps/adds/shifts 1 byte in one go
+
+
+
+
+
+
+
+<5>
+
+ char *str="Hello";
+    str++;
+    *str = 'x';
+    printf("%s\n",str);
+(a). Hxllo
+(b). xllo   
+(c). compilation error
+(d). none of the above
+
+
+d
+seg fault at run-time
+char *str is string literal stored in data seg (init static global/local var) which is read only
+
+char str[] = {sadfda}
+this string is stored on stack, therefore can be modified
+
+
+
+
+
+
+<6>
+
+class Base 
+{ 
+public: 
+    int fun() 
+    { 
+        cout<<"Base::fun() called"; 
+    } 
+    int fun(int i) 
+    { 
+        cout<<"Base::fun(int i) called"; 
+    } 
+}; 
+class Derived: public Base 
+{ 
+public: 
+    int fun() 
+    { 
+        cout<<"Derived::fun() called"; 
+    } 
+}; 
+
+ 
+
+int main() 
+{ 
+    Derived d; 
+    d.fun(5); 
+    return 0; 
+}
+
+
+>> no matching function for call to ‘Derived::fun(int)’
+
+signature should be same in inherited classes (parent & child)
+since fun cannot be called
+inheritance by default has no function overload
+
+to call fun:
+1> scope resolve fun call to Base
+
+    Derived d; 
+    d.Base::fun(5);
+
+2> point Base to derived obj and call func using base pointer
+
+    Derived d; 
+    Base *b;
+	b=&d;
+	b->fun(5);
+
+
+
+
+<7>
+
+int main()
+{
+    static int i=5;
+    if(--i){
+        main();
+        printf("%d ",i);
+    }
+}
+
+ 
+
+(a). 4 3 2 1                    (b). 1 2 3 4            
+(c). 0 0 0 0                    (d). compile-time error
+
+
+(c)
+If control reaches the end of main without encountering a return statement, the effect is that of executing return 0;
+
+print comes only after loops are over and i value is zero
+
+
+
+<8>
+
+Assume that an integer and a pointer each takes 4 bytes. Also, assume that there is no alignment in objects. Predict the output following program
+class Test
+{
+    static int x;	//4 		
+    int *ptr;		//4
+    int y;			//4
+};
+
+int main()
+{
+    Test t;
+    cout << sizeof(t) << " ";
+    cout << sizeof(Test *);
+}
+
+as per question
+12
+4 (size of ptr is always = arch bits)
+
+on 64 bit machine
+16
+8
+//why 4int>> 32bit :1char 2int 4float 8double
+//why 4int in 64 bit? for backward compatibility with 32 bit machine
+
+
+__attribute__((packed))
+// sizeof(x) == 8
+struct x
+{
+    char x;
+    int a;
+};
+
+// sizeof(y) == 5
+struct y
+{
+    char x;
+    int a;
+} __attribute__((packed));
+
+
+
+
+
+
+
+
+
+
+
+<9>
+
+
+
+Consider the following C program segment:
+char p[20];
+char *s = "string";
+int length = strlen(s);
+int i;
+for (i = 0; i < length; i++)
+    p[i] = s[length - i];
+printf("%s", p);
+
+The output of the program is?
+(a). gnirts                    (b). string           
+(c). gnirt                    (d) no output is printed
+
+
+d
+reason???
+
+
+
+
+
+
+
+<10>
+
+int main()
+{
+    try
+    {
+       throw 10;
+    }
+    catch (...)
+    {
+        cout << "default exception\n";
+    }
+    catch (int param)
+    {
+        cout << "int exception\n";
+    }
+
+    return 0;
+}
+   
+(a). default exception
+(b). int exception
+(c). Compiler Error.
+(d). None of these.
+
+c
+catch(...) is default exception and so it should be last one
+otherwise should be int exception since 10 is int
+
+
+
+<11>
+
+Class A
+{
+}a;
+
+ 
+
+Class B
+{
+    virtual int x();
+}b;
+
+
+    i)    sizeof(a) and sizeof(b) should be same and as virtual function required no memory
+    ii)    sizeof(a) and sizeof(b) should be same and equal to 0
+    iii)sizeof operator can't calculate class B as it contains virtual function
+    iv)    All statements are incorrect
+
+
+
+
+<12>
+
+How many times Computer is printed in the below program
+
+
+#include <stdio.h>
+#define PRINT(i, limit) do \
+                        { \
+                            if (i++ < limit) \
+                            { \
+                                printf("GeeksQuiz\n"); \
+                                continue; \
+                            } \
+                        }while(1)
+ 
+int main()
+{
+    PRINT(0, 3);
+    return 0;
+}
+
+ 
+
+(a). 1            (b). 3        (c). 4        (d) compile-time error
+
+
+
+<13>
+
+   int *x,y;
+    x=NULL;
+    y=4;
+    *x=y;
+    What will be the value of x?
+        i)    4
+        ii)    NULL
+        iii) 0
+        iv)  None of above
+
+Cannot store anything on null
+
+
+
+
+
+<14>
+
+int* ptr=(int*) malloc(10*sizeof(int));
+ptr=NULL;
+free(ptr);
+
+ 
+
+(a). Compiler Error: free can’t be applied on NULL pointer
+(b). Memory Leak
+(c). Dangling Pointer
+(d). The program may crash as free() is called for NULL pointer.
+
+
+b
+malloced mem is left unfreed

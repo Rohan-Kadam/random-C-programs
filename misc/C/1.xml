@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE root SYSTEM "tree2.dtd">
+<root>
+  <c1>c1content</c1>
+  <c2 c2attr="c2attrvalue">c2content<c3>c3content</c3></c2>
+</root>
